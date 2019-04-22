@@ -1,5 +1,4 @@
 package information.system.Server.Model;
-
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,7 +6,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,9 +15,8 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
-import static java.lang.System.exit;
 
 public class InformSystXML {
     private static final String NAME = "name";
@@ -27,6 +24,7 @@ public class InformSystXML {
     private static final String PRICE = "price";
     private static final String DISH = "dish";
     private static final String DESCRIPTION = "description";
+    private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
 
     static public void writeXML(List<Dish> menu, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -37,12 +35,10 @@ public class InformSystXML {
             Document document = documentBuilder.newDocument();
             Element rootElement = document.createElement("restaurant");
             document.appendChild(rootElement);
-
             for (Dish dish : menu) {
-                //создали элемент студент
                 Element dishEL = document.createElement(DISH);
                 rootElement.appendChild(dishEL);
-                //добавили атрибут
+
                 Attr attr1 = document.createAttribute(NAME);
                 attr1.setValue(String.valueOf(dish.getName()));
                 dishEL.setAttributeNode(attr1);
@@ -58,29 +54,23 @@ public class InformSystXML {
                 Element description = document.createElement(DESCRIPTION);
                 description.appendChild(document.createTextNode(dish.getDescription()));
                 dishEL.appendChild(description);
-
             }
-            //Теперь запишем контент в XML файл
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-
-            ///////////////////////////////////////////////
             transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules.dtd");
-            ///////////////////////////////////////////////
-
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(fileName));
             transformer.transform(domSource, streamResult);
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         } catch (TransformerException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 
-    static public  List<Dish> readXML(String fileName){
+    static public  List<Dish> readXML(String fileName) throws InformSystException {
         List<Dish> menu = new LinkedList<>();
         try {
             File inputFile = new File(fileName);
@@ -91,19 +81,19 @@ public class InformSystXML {
             dBuilder.setErrorHandler(new ErrorHandler() {
                 @Override
                 public void error(SAXParseException exception) throws SAXException {
-                    System.out.println( exception);
-                    exit(1);
+                    LOGGER.error(exception);
+                    return;
                 }
                 @Override
                 public void fatalError(SAXParseException exception) throws SAXException {
-                    System.out.println(exception);
-                    exit(1);
+                    LOGGER.error(exception);
+                    return;
                 }
 
                 @Override
                 public void warning(SAXParseException exception) throws SAXException {
-                    System.out.println(exception);
-                    exit(1);
+                    LOGGER.error(exception);
+                    return;
                 }
             });
             Document doc = dBuilder.parse(inputFile);
@@ -111,11 +101,9 @@ public class InformSystXML {
             NodeList nList = doc.getElementsByTagName(DISH);
             Dish[] dishes = new Dish[nList.getLength()];
             NodeList dishesFromXML = doc.getDocumentElement().getChildNodes();
-            //iterate students
             for (int i = 0; i < dishesFromXML.getLength(); i++){
                 if (dishesFromXML.item(i).getNodeName().equals(DISH)){
                     Dish newDish = new Dish();
-                    //adding attributes
                     for (int j = 0; j <dishesFromXML.item(i).getAttributes().getLength() ; j++) {
                         switch(dishesFromXML.item(i).getAttributes().item(j).getNodeName())
                         {
@@ -123,18 +111,16 @@ public class InformSystXML {
                                 newDish.setName( dishesFromXML.item(i).getAttributes().item(j).getNodeValue());
                                 break;
                             case DISH_CATEGORY:
-                                //поиск есть ли уже такая диш категори
                                 newDish.setDishСategory(new DishСategory(dishesFromXML.item(i).getAttributes().item(j).getNodeValue()));
                                 break;
                             case PRICE:
                                 newDish.setPrice(Double.parseDouble(dishesFromXML.item(i).getAttributes().item(j).getNodeValue()));
                                 break;
                             default:
-                                //throws exception
-                                System.out.println("no match");
+                                LOGGER.error("Unknown attribute was detected during parsing XML");
+                                throw new InformSystException("Unknown attribute was detected during parsing XML");
                         }
                     }
-                    //adding subjects
                     NodeList childrenOfStudent = dishesFromXML.item(i).getChildNodes();
                     List<String> subjects = new LinkedList<>();
                     for (int j = 0; j < childrenOfStudent.getLength(); j++) {
@@ -149,9 +135,9 @@ public class InformSystXML {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Unknown attribute was detected during parsing XML");
+            throw new InformSystException(e.toString(), "Unknown attribute was detected during parsing XML");
         }
         return menu;
     }
-
 }

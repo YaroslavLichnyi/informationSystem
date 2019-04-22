@@ -10,20 +10,44 @@ public interface ClientController {
     /**
      * Creates JFrame with information about all dishes.
      */
-    public void showMenuFrame();
+    void showMenuFrame();
 
     /**
      * Creates JFrame with information about all dish categories.
      */
-    public void showDishCategoriesFrame();
+    void showDishCategoriesFrame();
 
     /**
      * Updates content, getting actual information from server.
      */
-    public void updateInformation();
+    void updateInformation();
 
     /**
      * Checks server connection.
      */
-    public void checkConnection();
+    void checkConnection();
+
+    /**
+     * Adds new object in the table.
+     * @return true if the addition was successful, else return false.
+     */
+    boolean add();
+
+    /**
+     * Edits existing data in the table.
+     * @return true if the edition was successful, else return false.
+     */
+    boolean edit();
+
+    /**
+     * Edits existing objects in the table.
+     * @return true if the deleting was successful, else return false.
+     */
+    boolean delete();
+
+    /**
+     * Updates content, getting actual information.
+     * @return true if the update was successful, else return false.
+     */
+    boolean updateContent();
 }
