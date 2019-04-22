@@ -1,38 +1,41 @@
 package information.system.Server.Controller;
 
+import information.system.Server.Model.InformSystException;
+
+import java.util.Observable;
 import java.util.Observer;
 
 /**
  * Determines which methods are needed to work with the server.
  * @author Yaroslav Lichnyi
  */
-public interface ServerControllerInterface extends Observer {
+public interface ServerControllerInterface {
     /**
      * Starts server.
      */
-    public void startServer();
+    void startServer() throws InformSystException;
 
     /**
      * Restarts server.
      */
-    public void restartServer();
+    void restartServer() throws InformSystException;
 
     /**
      * Created new thread, which represents new client.
      */
-    public void startNewClient();
+    void startNewClient();
 
     /**
      * Stops server.
      */
-    public void stopServer();
+    void stopServer();
 
     /**
      * Changes server's configurations
      * @param port is a number of new port, which is set
      * @return true if the changing was successful, else return false.
      */
-    public boolean changeConfiguration(int port);
+    boolean changeConfiguration(int port);
 
     /**TODO
      * public void createAccount();
