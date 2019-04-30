@@ -1,9 +1,6 @@
 package information.system.Server.Model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Restaurant implements RestaurantInterface{
 
@@ -101,8 +98,13 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public List<Dish> sortDishesByDishCategory() {
-        //Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
-        return null;
+        ArrayList<Dish> result = new ArrayList<>();
+        for (DishСategory dishCategory: dishCategories) {
+            for (Dish dish: getDishesWithDishCategory(dishCategory)) {
+                result.add(dish);
+            }
+        }
+        return result;
     }
 
     /**
@@ -133,12 +135,11 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public List<Dish> getDishesWithDishCategory(DishСategory dishCategory) {
-        List<Dish> result = new LinkedList<>();
-        for (Dish dish : menu) {
-            if (dish.getDishСategory().equals(dishCategory)){
-                result.add(dish);
+        for (DishСategory dishСat : dishCategories) {
+            if (dishCategory.equals(dishСat)){
+                return dishСat.getDishes();
             }
         }
-        return result;
+        return null;
     }
 }

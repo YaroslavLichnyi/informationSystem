@@ -1,5 +1,8 @@
 package information.system.Client.Controller;
 
+import information.system.Server.Model.Dish;
+import information.system.Server.Model.DishСategory;
+
 import java.util.Observer;
 
 /**
@@ -31,7 +34,14 @@ public interface ClientController {
      * Adds new object in the table.
      * @return true if the addition was successful, else return false.
      */
-    boolean add();
+    boolean add(Dish dish);
+
+    /**
+     * Adds new object in the table.
+     * @return true if the addition was successful, else return false.
+     */
+    boolean add(DishСategory dishСategory );
+
 
     /**
      * Edits existing data in the table.
@@ -50,4 +60,10 @@ public interface ClientController {
      * @return true if the update was successful, else return false.
      */
     boolean updateContent();
+
+    void connectToServer();
+
+    void exit();
+
+    void sendRequest(String message);
 }
