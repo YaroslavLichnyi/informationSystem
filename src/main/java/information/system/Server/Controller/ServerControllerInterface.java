@@ -13,17 +13,12 @@ public interface ServerControllerInterface {
     /**
      * Starts server.
      */
-    void startServer() throws InformSystException;
+  //   void startServer() throws InformSystException;
 
     /**
      * Restarts server.
      */
     void restartServer() throws InformSystException;
-
-    /**
-     * Created new thread, which represents new client.
-     */
-    void startNewClient();
 
     /**
      * Stops server.

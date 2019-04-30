@@ -10,7 +10,7 @@ public class InformSystException extends Exception{
         JFrame frame = new JFrame("Error");
         JOptionPane.showMessageDialog(frame, message);
     }
-    public InformSystException(String exception, String message) {
+    public InformSystException(String message, String exception) {
         super(message);
         JFrame frame = new JFrame("Error");
         JOptionPane.showMessageDialog(frame, message);

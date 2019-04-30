@@ -1,6 +1,6 @@
 package information.system.Client.View;
 
-import javax.swing.*;
+        import javax.swing.*;
 
 /**
  * Determines which methods are needed to work with the client GUI.
