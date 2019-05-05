@@ -1,6 +1,4 @@
 package information.system.Client.Controller;
-
-import information.system.Client.View.menuGUI;
 import information.system.Server.Controller.Server;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
@@ -9,7 +7,6 @@ import information.system.Server.Model.InformSystException;
 import org.apache.log4j.Logger;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -177,5 +174,17 @@ public class Client implements ClientController {
 
     public InputStream getInputStream() throws IOException{
         return clientSocket.getInputStream();
+    }
+
+    public Socket getClientSocket() {
+        return clientSocket;
+    }
+
+    public void setClientSocket(Socket clientSocket) {
+        Client.clientSocket = clientSocket;
+    }
+
+    public Socket getServerSocket() {
+        return serverSocket;
     }
 }

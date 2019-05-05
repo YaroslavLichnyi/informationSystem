@@ -99,4 +99,8 @@ public class Server extends Observable implements ServerControllerInterface {
     public Restaurant getRestaurant() {
         return restaurant;
     }
+
+    public ServerSocket getServerSocket() {
+        return serverSocket;
+    }
 }

@@ -24,8 +24,18 @@ public class InformSystXML {
     private static final String PRICE = "price";
     private static final String DISH = "dish";
     private static final String DESCRIPTION = "description";
+    private static final String ADMIN = "admin";
+    private static final String LOGIN = "login";
+    private static final String PASSWORD = "password";
+
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
 
+
+    /**
+     * Writes data to a file considering the variable values of each of the dishes.
+     * @param menu are objects that are written.
+     * @param fileName is a file location.
+     */
     static public void writeXML(List<Dish> menu, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
@@ -42,10 +52,6 @@ public class InformSystXML {
                 Attr attr1 = document.createAttribute(NAME);
                 attr1.setValue(String.valueOf(dish.getName()));
                 dishEL.setAttributeNode(attr1);
-
-                Attr attr2 = document.createAttribute(DISH_CATEGORY);
-                attr2.setValue(String.valueOf(dish.getDishСategory().getName()));
-                dishEL.setAttributeNode(attr2);
 
                 Attr attr3 = document.createAttribute(PRICE);
                 attr3.setValue(String.valueOf(dish.getPrice()));
@@ -70,8 +76,14 @@ public class InformSystXML {
         }
     }
 
-    static public  List<Dish> readXML(String fileName) throws InformSystException {
-        List<Dish> menu = new LinkedList<>();
+    /**
+     * Writes data to a file considering the variable values of each of the dishes.
+     * @param fileName is a file location.
+     * @return List of dishes the were read from file.
+     * @throws InformSystException
+     */
+    static public  LinkedList<Dish> readXML(String fileName)  {
+        LinkedList<Dish> menu = new LinkedList<>();
         try {
             File inputFile = new File(fileName);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -89,7 +101,6 @@ public class InformSystXML {
                     LOGGER.error(exception);
                     return;
                 }
-
                 @Override
                 public void warning(SAXParseException exception) throws SAXException {
                     LOGGER.error(exception);
@@ -98,8 +109,8 @@ public class InformSystXML {
             });
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName(DISH);
-            Dish[] dishes = new Dish[nList.getLength()];
+            //NodeList nList = doc.getElementsByTagName(DISH);
+            //Dish[] dishes = new Dish[nList.getLength()];
             NodeList dishesFromXML = doc.getDocumentElement().getChildNodes();
             for (int i = 0; i < dishesFromXML.getLength(); i++){
                 if (dishesFromXML.item(i).getNodeName().equals(DISH)){
@@ -109,9 +120,6 @@ public class InformSystXML {
                         {
                             case NAME:
                                 newDish.setName( dishesFromXML.item(i).getAttributes().item(j).getNodeValue());
-                                break;
-                            case DISH_CATEGORY:
-                                newDish.setDishСategory(new DishСategory(dishesFromXML.item(i).getAttributes().item(j).getNodeValue()));
                                 break;
                             case PRICE:
                                 newDish.setPrice(Double.parseDouble(dishesFromXML.item(i).getAttributes().item(j).getNodeValue()));
@@ -127,17 +135,118 @@ public class InformSystXML {
                         if (DESCRIPTION.equals(childrenOfStudent.item(j).getNodeName())){
                             newDish.setDescription(childrenOfStudent.item(j).getTextContent());
                         } else {
-                            throw new Exception();
+                            LOGGER.error("Problem with reading XML-file");
+                            throw new InformSystException("Problem with reading XML-file");
                         }
                     }
                     menu.add(newDish);
-                    System.out.println(newDish.toString());
                 }
             }
         } catch (Exception e) {
             LOGGER.error("Unknown attribute was detected during parsing XML");
-            throw new InformSystException(e.toString(), "Unknown attribute was detected during parsing XML");
+            //throw new InformSystException("Unknown attribute was detected during parsing XML", e.toString());
         }
         return menu;
     }
+
+    static public void writeAdmins(List<Admin> admins, String fileName){
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        documentBuilderFactory.setValidating(true);
+        DocumentBuilder documentBuilder = null;
+        try {
+            documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document document = documentBuilder.newDocument();
+            Element rootElement = document.createElement("admins");
+            document.appendChild(rootElement);
+            for (Admin admin : admins) {
+                Element dishEL = document.createElement(ADMIN);
+                rootElement.appendChild(dishEL);
+
+                Attr attr1 = document.createAttribute(NAME);
+                attr1.setValue(String.valueOf(admin.getName()));
+                dishEL.setAttributeNode(attr1);
+
+                Attr attr2 = document.createAttribute(LOGIN);
+                attr2.setValue(String.valueOf(admin.getLogin()));
+                dishEL.setAttributeNode(attr2);
+
+                Attr attr3 = document.createAttribute(PASSWORD);
+                attr3.setValue(String.valueOf(admin.getPassword()));
+                dishEL.setAttributeNode(attr3);
+            }
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules4admins.dtd");
+            DOMSource domSource = new DOMSource(document);
+            StreamResult streamResult = new StreamResult(new File(fileName));
+            transformer.transform(domSource, streamResult);
+        } catch (ParserConfigurationException e) {
+            LOGGER.error(e);
+        } catch (TransformerConfigurationException e) {
+            LOGGER.error(e);
+        } catch (TransformerException e) {
+            LOGGER.error(e);
+        }
+
+    }
+
+    static public  LinkedList<Admin> readAdmins(String fileName){
+        LinkedList<Admin> admins = new LinkedList<>();
+        try {
+            File inputFile = new File(fileName);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            dbFactory.setNamespaceAware(true);
+            dbFactory.setValidating(true);
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            dBuilder.setErrorHandler(new ErrorHandler() {
+                @Override
+                public void error(SAXParseException exception) throws SAXException {
+                    LOGGER.error(exception);
+                    return;
+                }
+                @Override
+                public void fatalError(SAXParseException exception) throws SAXException {
+                    LOGGER.error(exception);
+                    return;
+                }
+                @Override
+                public void warning(SAXParseException exception) throws SAXException {
+                    LOGGER.error(exception);
+                    return;
+                }
+            });
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+            NodeList adminsFromXML = doc.getDocumentElement().getChildNodes();
+            for (int i = 0; i < adminsFromXML.getLength(); i++){
+                if (adminsFromXML.item(i).getNodeName().equals(ADMIN)){
+                    Admin newAdmin = new Admin();
+                    for (int j = 0; j <adminsFromXML.item(i).getAttributes().getLength() ; j++) {
+                        switch(adminsFromXML.item(i).getAttributes().item(j).getNodeName())
+                        {
+                            case NAME:
+                                newAdmin.setName(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                break;
+                            case LOGIN:
+                                newAdmin.setLogin(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                break;
+                            case PASSWORD:
+                                newAdmin.setPassword(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                break;
+                            default:
+                                LOGGER.error("Unknown attribute was detected during parsing XML");
+                                throw new InformSystException("Unknown attribute was detected during parsing XML");
+                        }
+                    }
+                    admins.add(newAdmin);
+                }
+            }
+        } catch (Exception e) {
+            LOGGER.error("Unknown attribute was detected during parsing XML");
+            //throw new InformSystException("Unknown attribute was detected during parsing XML", e.toString());
+        }
+        return admins;
+    }
+
+
 }

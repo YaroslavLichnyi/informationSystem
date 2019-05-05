@@ -2,15 +2,10 @@ package information.system.Server.Controller;
 
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Command;
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.InformSystException;
-import information.system.Server.Model.InformSystXML;
 import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 
 public class ClientListener extends Thread {
@@ -50,6 +45,7 @@ public class ClientListener extends Thread {
         String word;
         //System.out.println("Connection succesful");
         System.out.println("ClientListener works");
+        sendFile();
         try {
             while (true) {
                 System.out.println("waiting for request");
@@ -83,7 +79,6 @@ public class ClientListener extends Thread {
                     default:
                         System.out.println("no match");
                         sendMessage("no match");
-
                 }
             }
         } catch (IOException e) {
@@ -103,20 +98,29 @@ public class ClientListener extends Thread {
             LOGGER.error(ex);
         }
     }
-/*
-    private void sendDishes(LinkedList<Dish> list){
+
+
+    public void sendFile(){
         try {
-            Iterator it = list.iterator();
-            ObjectOutputStream objectWriter = new ObjectOutputStream(socket.getOutputStream());
-            while (it.hasNext()){
-                objectWriter.writeObject(it.next());
-                objectWriter.flush();
+            File file = new File(Command.SERVER_FILE_RESTAURANT);
+            // Get the size of the file
+            long length = file.length();
+            byte[] bytes = new byte[16 * 1024];
+            InputStream in = new FileInputStream(file);
+            OutputStream out = socket.getOutputStream();
+
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
             }
-        } catch (IOException ex) {
-            LOGGER.error(ex);
+            out.close();
+            in.close();
+
+        } catch (IOException e){
+
         }
     }
-*/
+
 
     /**
      * Gets value of {@link ClientListener#socket}.
