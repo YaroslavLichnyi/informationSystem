@@ -26,7 +26,6 @@ public class ServerListener extends Thread {
         start();
     }
 
-
     /**
      * If this thread was constructed using a separate
      * <code>Runnable</code> run object, then that
@@ -53,9 +52,9 @@ public class ServerListener extends Thread {
                         System.out.println("STOP");
                         break;
                     case Command.FILE:
-                        System.out.println("FILE");
+                       // System.out.println("FILE");
                         frame = new JFrame("Error");
-                        JOptionPane.showMessageDialog(frame, getDished().get(0).toString());
+                        JOptionPane.showMessageDialog(frame, getDishes().get(0).toString());
                         break;
                     default:
                         System.out.println("no match");
@@ -65,48 +64,8 @@ public class ServerListener extends Thread {
             }
         }
     }
-    /*
-    public ArrayList<Dish> getDished(){
-        try {
-            int filesize = 1022386;
-            int bytesRead;
-            int currentTot;
 
-            String FILE_NAME = "files/file1.txt";
-
-//        ServerSocket s = new ServerSocket(0);
-//        int port = s.getLocalPort();
-
-            Socket socket = client.getClientSocket();
-            System.out.println("Accepted connection : " + socket);
-
-            byte[] bytearray = new byte[filesize];
-            InputStream is = socket.getInputStream();
-            File copyFileName = new File(FILE_NAME);
-            FileOutputStream fos = new FileOutputStream(copyFileName);
-            BufferedOutputStream bos = new BufferedOutputStream(fos);
-            bytesRead = is.read(bytearray, 0, bytearray.length);
-            currentTot = bytesRead;
-
-            do {
-                bytesRead = is.read(bytearray, currentTot, (bytearray.length - currentTot));
-                if (bytesRead >= 0) {
-                    currentTot += bytesRead;
-                }
-            } while (bytesRead > -1);
-
-            bos.write(bytearray, 0, currentTot);
-
-            bos.flush();
-            bos.close();
-            socket.close();
-        }catch (IOException e){
-
-        }
-        return reader.read();
-    }
-    */
-    public LinkedList<Dish> getDished(){
+    public LinkedList<Dish> getDishes(){
         try {
             Socket socket = client.getClientSocket();
 
@@ -143,5 +102,28 @@ public class ServerListener extends Thread {
         }
         return  null;
     }
+
+    //проверить
+    public void sendDishes(File file){
+        try {
+            // Get the size of the file
+            long length = file.length();
+            byte[] bytes = new byte[16 * 1024];
+            InputStream in = new FileInputStream(file);
+            OutputStream out = client.getServerSocket().getOutputStream();
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+            out.close();
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

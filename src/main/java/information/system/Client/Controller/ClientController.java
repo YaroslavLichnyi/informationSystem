@@ -66,4 +66,6 @@ public interface ClientController {
     void exit();
 
     void sendRequest(String message);
+
+    boolean signIn(String login, String password);
 }

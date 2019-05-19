@@ -9,6 +9,13 @@ public interface Command {
     public static final String ADD  = "add";
     public static final String REMOVE = "remove";
     public static final String EDIT = "edit";
-    public static final String GET_ALL_INFORMATION = "getAllInformation";
+    public static final String GET_ALL_INFORMATION = "get_all_information";
     public static final String STOP = "stop";
+    public static final String SIGN_IN = "sign_in";
+    public static final String CORRECT = "correct";
+    public static final String INCORRECT = "incorrect";
+    public static final String PRICE = "price";
+    public static final String DISH_CAREGORY = "dish category";
+
+
 }
