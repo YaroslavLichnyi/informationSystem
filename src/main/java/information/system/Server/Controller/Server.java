@@ -1,8 +1,5 @@
 package information.system.Server.Controller;
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.InformSystException;
-import information.system.Server.Model.InformSystXML;
-import information.system.Server.Model.Restaurant;
+import information.system.Server.Model.*;
 import information.system.Server.View.ServerView;
 import org.apache.log4j.Logger;
 
@@ -103,4 +100,26 @@ public class Server extends Observable implements ServerControllerInterface {
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
+/*
+    public void sendFile(){
+        try {
+            // Get the size of the file
+            File file = new File(Command.CLIENT_FILE_RESTAURANT);
+            long length = file.length();
+            byte[] bytes = new byte[16 * 1024];
+            InputStream in = new FileInputStream(file);
+            OutputStream out =  clientSocket.getOutputStream();
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+            out.close();
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    */
 }

@@ -27,7 +27,6 @@ public class InformSystXML {
     private static final String ADMIN = "admin";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
-
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
 
 

@@ -1,7 +1,7 @@
 package information.system.Server.Controller;
 
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Command;
+import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -26,6 +26,8 @@ public class ClientListener extends Thread {
         } catch (IOException e) {
             LOGGER.error(e);
         }
+        //recieveFile();
+        //sendFile();
         start();
     }
 
@@ -43,19 +45,39 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         String word;
-        //System.out.println("Connection succesful");
         System.out.println("ClientListener works");
-        sendFile();
+
+        //recieveFile();
         try {
             while (true) {
                 System.out.println("waiting for request");
                 word = reader.readLine();
+                System.out.println("REQUEST: " + word);
                 switch(word)
                 {
+                    case Command.SIGN_IN:
+                        System.out.println("Signin in");
+                        String login = reader.readLine();
+                        String password = reader.readLine();
+                        //до этого на стороне клиента должны были провериться данные при помощи метода Authorization.isInputtedDataCorrect()
+                        Admin responce = Authorization.singIn(login, password);
+                        if (responce != null){
+                            //тправить админа в xml
+                            sendMessage(Command.CORRECT);
+                        } else {
+                            sendMessage(Command.INCORRECT);
+                        }
+                        break;
                     case Command.STOP:
                         System.out.println("STOP");
                         break;
+
+                    case Command.FILE:
+                        //recieveFile();
+                        //System.out.println("File was recieved");
+                        break;
                     case Command.ADD:
+
                         System.out.println("Smth was added");
                         sendMessage("Smth was added");
                         //server.getRestaurant().addDish(null);
@@ -72,6 +94,7 @@ public class ClientListener extends Thread {
                         //server.getRestaurant().removeDish(null);
                         break;
                     case Command.GET_ALL_INFORMATION:
+                        sendFile();
                         System.out.println("Smth was removed");
                         sendMessage("Smth was removed");
                         //server.getRestaurant().removeDish(null);
@@ -122,7 +145,130 @@ public class ClientListener extends Thread {
     }
 
 
-    /**
+
+
+    public void recieveFile() {
+        try {
+            Socket socket = server.getServerSocket().accept();
+
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+
+                in = socket.getInputStream();
+            } catch (IOException ex) {
+                System.out.println("Can't get socket input stream. ");
+            }
+            try {
+                out = new FileOutputStream(Command.CLIENT_FILE_RESTAURANT);
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found. ");
+            }
+            byte[] bytes = new byte[16 * 1024];
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+            out.close();
+            in.close();
+
+
+        } catch (IOException e) {
+
+        }
+    }
+
+
+
+  /*
+    public void recieveFile() {
+        try {
+          /*  ServerSocket serverSocket = null;
+            serverSocket = server.getServerSocket();
+                        //new ServerSocket(4444);
+
+            Socket socket = null;
+
+
+            try {
+                socket = serverSocket.accept();
+            } catch (IOException ex) {
+                System.out.println("Can't accept client connection. ");
+            }*/
+  /*
+            Socket socket = server.getServerSocket().accept();
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+                in = socket.getInputStream();
+            } catch (IOException ex) {
+                System.out.println("Can't get socket input stream. ");
+            }
+
+            try {
+                out = new FileOutputStream("some.xml");
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found. ");
+            }
+
+            byte[] bytes = new byte[16*1024];
+
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+
+            out.close();
+            in.close();
+            socket.close();
+            // serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+*/
+
+ /*   //проверить
+    public void recieveFile() {
+        try {
+            // Socket socket = client.getClientSocket();
+            InputStream in = null;
+            OutputStream out = null;
+
+            try {
+                in = socket.getInputStream();
+            } catch (IOException ex) {
+                System.out.println("Can't get socket input stream. ");
+            }
+
+            try {
+                out = new FileOutputStream("Some.xml");
+                System.out.println("FILE WAS FOUND");
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found. ");
+            }
+
+            byte[] bytes = new byte[16 * 1024];
+
+            int count;
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+
+            out.close();
+            in.close();
+            System.out.println("СРАБОТАЛО");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+
+        /**
      * Gets value of {@link ClientListener#socket}.
      * @return {@link ClientListener#socket} value
      */

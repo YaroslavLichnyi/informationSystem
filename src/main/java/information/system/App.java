@@ -1,11 +1,11 @@
 package information.system;
 
-import information.system.Client.View.menuGUI;
+import information.system.Client.Controller.Client;
+import information.system.Client.View.DishFillingForm;
+import information.system.Client.View.MenuGUI;
+import information.system.Client.View.SignInForm;
 import information.system.Server.Controller.Server;
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishСategory;
-import information.system.Server.Model.InformSystException;
-import information.system.Server.Model.InformSystXML;
+import information.system.Server.Model.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,17 +16,28 @@ import java.util.LinkedList;
  */
 public class App 
 {
-    public static void main( String[] args ) throws InformSystException {
-       // Server server = new Server(8000);
-        menuGUI menu1 = new menuGUI();
-
-        /*
-        Dish dish1 = new Dish("name1", new DishСategory("italian"), 13, "Some descr");
+    public static void main( String[] args ) throws InformSystException{
+       /* Dish dish1 = new Dish("name1", 13, "Some descr");
         ArrayList<Dish> menu = new ArrayList<>();
         menu.add(dish1);
-        InformSystXML.writeXML(menu, "restaurant.xml");
-        LinkedList<Dish> menu1 = (LinkedList<Dish>) InformSystXML.readXML("restaurant.xml");
-        System.out.println(menu1.get(0));
+        InformSystXML.writeXML(menu, "restaurant.xml");*/
+        /*LinkedList<Dish> menu1 =  InformSystXML.readXML(Command.CLIENT_FILE_NAME);
+        System.out.println(menu1.get(0));*/
+
+
+       /* Admin admin1 = new Admin("Yaroslav", "superCooker", "qwerty12345");
+        Admin admin2 = new Admin("Kate", "kate12345", "74edgj63");
+        LinkedList<Admin> list = new LinkedList<>();
+        list.add(admin1);
+        list.add(admin2);
+        InformSystXML.writeAdmins(list, Command.SERVER_FILE_ADMINS);
+        System.out.println(InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS).get(0).toString());
         */
+       //MenuGUI menuGUI = new MenuGUI(new Client());
+       // DishGUI dishGUI = new DishGUI();
+        //DishFillingForm dishFillingForm = new DishFillingForm(null);
+        SignInForm signInForm = new SignInForm(null);
+
+
     }
 }
