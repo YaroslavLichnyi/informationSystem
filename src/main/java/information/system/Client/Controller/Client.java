@@ -1,12 +1,11 @@
 package information.system.Client.Controller;
 import information.system.Server.Controller.Server;
+import information.system.Server.Model.Admin;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishСategory;
-import information.system.Server.Model.InformSystException;
 import org.apache.log4j.Logger;
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
@@ -150,11 +149,8 @@ public class Client implements ClientController {
         try {
             clientSocket = new Socket("127.0.0.1", 8000);
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-
         } catch (IOException e) {
             LOGGER.error("Problems with connection to server", e);
-            new InformSystException("Problems with connection to server", e.toString());
         }
     }
 
@@ -164,7 +160,6 @@ public class Client implements ClientController {
             clientSocket.close();
         } catch (IOException e) {
             LOGGER.error(e);
-
         }
     }
 
@@ -178,9 +173,7 @@ public class Client implements ClientController {
             writer.close();
         } catch (IOException e) {
             LOGGER.error(e);
-
         }
-
     }
 
     @Override
@@ -207,9 +200,9 @@ public class Client implements ClientController {
     public Socket getServerSocket() {
         return serverSocket;
     }
-
+/*
     public void sendFile(File file){
-        try {
+
            // File file = new File(Command.SERVER_FILE_RESTAURANT);
             // Get the size of the file
             long length = file.length();
@@ -221,19 +214,30 @@ public class Client implements ClientController {
             while ((count = in.read(bytes)) > 0) {
                 out.write(bytes, 0, count);
             }
-            out.close();
-            in.close();
 
-        } catch (IOException e){
-
-        }
+            if (out != null){
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    LOGGER.error(e);
+                }
+            }
+            if ( in != null){
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    LOGGER.error(e);
+                }
+            }
     }
-
-        //передаём параметр по которому будем сортировать
-        public List <Dish> getDishesSortedByDishCategory(String sortBy){
+*/
+    //передаём параметр по которому будем сортировать
+    public List <Dish> getDishesSortedByDishCategory(String sortBy){
             return null;
         }
 
-
-
+    @Override
+    public boolean signUp(Admin admin) {
+        return false;
+    }
 }

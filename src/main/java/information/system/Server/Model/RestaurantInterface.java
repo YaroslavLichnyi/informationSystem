@@ -90,6 +90,6 @@ public interface RestaurantInterface {
      */
     List<Dish> getDishesWithDishCategory(DishСategory dishCategory);
 
-
+//    static boolean isLoginFree(String login);
 
 }

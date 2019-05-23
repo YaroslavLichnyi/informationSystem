@@ -59,8 +59,8 @@ public class ClientListener extends Thread {
                         System.out.println("Signin in");
                         String login = reader.readLine();
                         String password = reader.readLine();
-                        //до этого на стороне клиента должны были провериться данные при помощи метода Authorization.isInputtedDataCorrect()
-                        Admin responce = Authorization.singIn(login, password);
+                        //до этого на стороне клиента должны были провериться данные при помощи метода Restaurant.isInputtedDataCorrect()
+                        Admin responce = Restaurant.singIn(login, password);
                         if (responce != null){
                             //тправить админа в xml
                             sendMessage(Command.CORRECT);
@@ -123,6 +123,10 @@ public class ClientListener extends Thread {
     }
 
 
+    /**
+     * Sends a file to client
+     * TODO the ability to transfer a file as a parameter
+     */
     public void sendFile(){
         try {
             File file = new File(Command.SERVER_FILE_RESTAURANT);
@@ -144,9 +148,9 @@ public class ClientListener extends Thread {
         }
     }
 
-
-
-
+    /**
+     * Recieve a file from client
+     */
     public void recieveFile() {
         try {
             Socket socket = server.getServerSocket().accept();
@@ -178,97 +182,7 @@ public class ClientListener extends Thread {
         }
     }
 
-
-
-  /*
-    public void recieveFile() {
-        try {
-          /*  ServerSocket serverSocket = null;
-            serverSocket = server.getServerSocket();
-                        //new ServerSocket(4444);
-
-            Socket socket = null;
-
-
-            try {
-                socket = serverSocket.accept();
-            } catch (IOException ex) {
-                System.out.println("Can't accept client connection. ");
-            }*/
-  /*
-            Socket socket = server.getServerSocket().accept();
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-                in = socket.getInputStream();
-            } catch (IOException ex) {
-                System.out.println("Can't get socket input stream. ");
-            }
-
-            try {
-                out = new FileOutputStream("some.xml");
-            } catch (FileNotFoundException ex) {
-                System.out.println("File not found. ");
-            }
-
-            byte[] bytes = new byte[16*1024];
-
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-
-            out.close();
-            in.close();
-            socket.close();
-            // serverSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-*/
-
- /*   //проверить
-    public void recieveFile() {
-        try {
-            // Socket socket = client.getClientSocket();
-            InputStream in = null;
-            OutputStream out = null;
-
-            try {
-                in = socket.getInputStream();
-            } catch (IOException ex) {
-                System.out.println("Can't get socket input stream. ");
-            }
-
-            try {
-                out = new FileOutputStream("Some.xml");
-                System.out.println("FILE WAS FOUND");
-            } catch (FileNotFoundException ex) {
-                System.out.println("File not found. ");
-            }
-
-            byte[] bytes = new byte[16 * 1024];
-
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-
-            out.close();
-            in.close();
-            System.out.println("СРАБОТАЛО");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-
-        /**
+    /**
      * Gets value of {@link ClientListener#socket}.
      * @return {@link ClientListener#socket} value
      */

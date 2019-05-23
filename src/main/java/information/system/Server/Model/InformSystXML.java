@@ -80,7 +80,6 @@ public class InformSystXML {
      * Writes data to a file considering the variable values of each of the dishes.
      * @param fileName is a file location.
      * @return List of dishes the were read from file.
-     * @throws InformSystException
      */
     static public  LinkedList<Dish> readXML(String fileName)  {
         LinkedList<Dish> menu = new LinkedList<>();
@@ -126,7 +125,6 @@ public class InformSystXML {
                                 break;
                             default:
                                 LOGGER.error("Unknown attribute was detected during parsing XML");
-                                throw new InformSystException("Unknown attribute was detected during parsing XML");
                         }
                     }
                     NodeList childrenOfStudent = dishesFromXML.item(i).getChildNodes();
@@ -136,7 +134,6 @@ public class InformSystXML {
                             newDish.setDescription(childrenOfStudent.item(j).getTextContent());
                         } else {
                             LOGGER.error("Problem with reading XML-file");
-                            throw new InformSystException("Problem with reading XML-file");
                         }
                     }
                     menu.add(newDish);
@@ -144,7 +141,6 @@ public class InformSystXML {
             }
         } catch (Exception e) {
             LOGGER.error("Unknown attribute was detected during parsing XML");
-            //throw new InformSystException("Unknown attribute was detected during parsing XML", e.toString());
         }
         return menu;
     }
@@ -235,7 +231,6 @@ public class InformSystXML {
                                 break;
                             default:
                                 LOGGER.error("Unknown attribute was detected during parsing XML");
-                                throw new InformSystException("Unknown attribute was detected during parsing XML");
                         }
                     }
                     admins.add(newAdmin);
@@ -243,7 +238,6 @@ public class InformSystXML {
             }
         } catch (Exception e) {
             LOGGER.error("Unknown attribute was detected during parsing XML");
-            //throw new InformSystException("Unknown attribute was detected during parsing XML", e.toString());
         }
         return admins;
     }
