@@ -18,11 +18,11 @@ public class Server extends Observable implements ServerControllerInterface {
     static private int port = 8000;
     private Restaurant restaurant;
 
-    public static void main(String[] args) throws InformSystException {
+    public static void main(String[] args){
         new Server(port);
     }
 
-    public Server(int portNumber) throws InformSystException {
+    public Server(int portNumber) {
         this.portNumber = portNumber;
         restaurant = new Restaurant();
         view = new ServerView();
@@ -34,7 +34,7 @@ public class Server extends Observable implements ServerControllerInterface {
      * Starts server.
      */
    // @Override
-      public void startServer() throws InformSystException {
+      public void startServer() {
         try {
             view.display("Server starts to work");
             serverSocket = new ServerSocket(port);
@@ -45,7 +45,6 @@ public class Server extends Observable implements ServerControllerInterface {
             }
         } catch (IOException e) {
             LOGGER.error(e.toString());
-            throw new InformSystException("Problems with server starting. Choose another port.", e.toString());
         }
     }
 
@@ -53,7 +52,7 @@ public class Server extends Observable implements ServerControllerInterface {
      * Restarts server.
      */
     @Override
-    public void restartServer() throws InformSystException {
+    public void restartServer() {
         stopServer();
         startServer();
     }

@@ -1,5 +1,6 @@
 package information.system.Client.Controller;
 
+import information.system.Server.Model.Admin;
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishСategory;
 
@@ -61,11 +62,34 @@ public interface ClientController {
      */
     boolean updateContent();
 
+    /**
+     * Connects to server
+     */
     void connectToServer();
 
+    /**
+     * Disconnects from the server. Finishes the client session.
+     */
     void exit();
 
+    /**
+     * Sends request to the server.
+     * @param message is sent as a request
+     */
     void sendRequest(String message);
 
+    /**
+     * Checks if a user with the same password and login exists.
+     * @param login is the parameter by which the user is checked.
+     * @param password is the parameter by which the user is checked.
+     * @return true, if there is the user exists in user base.
+     */
     boolean signIn(String login, String password);
+
+    /**
+     * Adds a new user to the database of existing ones.
+     * @param admin is added as a new Admin
+     * @return true if an <code>admin</code> was added
+     */
+    boolean signUp(Admin admin);
 }

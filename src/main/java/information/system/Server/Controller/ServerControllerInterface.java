@@ -1,10 +1,5 @@
 package information.system.Server.Controller;
 
-import information.system.Server.Model.InformSystException;
-
-import java.util.Observable;
-import java.util.Observer;
-
 /**
  * Determines which methods are needed to work with the server.
  * @author Yaroslav Lichnyi
@@ -13,12 +8,12 @@ public interface ServerControllerInterface {
     /**
      * Starts server.
      */
-  //   void startServer() throws InformSystException;
+  //   void startServer() ;
 
     /**
      * Restarts server.
      */
-    void restartServer() throws InformSystException;
+    void restartServer();
 
     /**
      * Stops server.
@@ -37,6 +32,4 @@ public interface ServerControllerInterface {
      * public void signIn();
      * public void removeAccount();
      */
-
-
 }

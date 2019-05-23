@@ -116,8 +116,9 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public List<Dish> getDishesWithPricesBetween(double from, double to) throws Exception {
-        if (from > to) throw new InformSystException(
-                "The lowest search boundary cannot be greater than the highest search boundary");
+        if (from > to){
+            return null;
+        }
         List<Dish> result = new LinkedList<>();
         for (Dish dish : menu) {
             if (dish.getPrice() > from && dish.getPrice() < to){
@@ -141,5 +142,41 @@ public class Restaurant implements RestaurantInterface{
             }
         }
         return null;
+    }
+
+    /**
+     * Signin in application.
+     * @param login is admin's {@link Admin#login}.
+     * @param password is admin's {@link Admin#password}.
+     * @return Admin object, if there is the admin with the same name
+     *        or return null, if there is no admin with the same name
+     */
+    public static Admin singIn(String login, String password){
+        for (Admin admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+            if (admin.getLogin().equals(login) && admin.getPassword().equals(password)){
+                return admin;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Check if {@link Admin#login} and {@link Admin#password} were inputted correct.
+     * @param login is admin's {@link Admin#login}.
+     * @param password is admin's {@link Admin#password}.
+     * @return true, if <b>login</b> and <b>password</b> were inputted correct, else return false.
+     */
+    public static boolean isInputtedDataCorrect(String login, String password){
+        if (login != null && password != null && login.length() > 5 && password.length() > 5) return true;
+        return false;
+    }
+
+    /**
+     * Checks if a user with the same login exists.
+     * @param login is a login which is checked.
+     * @return true if there is no user with the same login.
+     */
+    public static boolean isLoginFree(String login) {
+        return false;
     }
 }

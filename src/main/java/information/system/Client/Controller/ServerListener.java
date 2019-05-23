@@ -40,8 +40,6 @@ public class ServerListener extends Thread {
     @Override
     public void run() {
         super.run();
-        JFrame frame = new JFrame("Error");
-        JOptionPane.showMessageDialog(frame, "ClientListener starts work");
         String responce;
         while (true){
             try {
@@ -52,9 +50,7 @@ public class ServerListener extends Thread {
                         System.out.println("STOP");
                         break;
                     case Command.FILE:
-                       // System.out.println("FILE");
-                        frame = new JFrame("Error");
-                        JOptionPane.showMessageDialog(frame, getDishes().get(0).toString());
+                        System.out.println("FILE");
                         break;
                     default:
                         System.out.println("no match");
@@ -92,9 +88,20 @@ public class ServerListener extends Thread {
             while ((count = in.read(bytes)) > 0) {
                 out.write(bytes, 0, count);
             }
-
-            out.close();
-            in.close();
+            if (out != null){
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    LOGGER.error(e);
+                }
+            }
+            if ( in != null){
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    LOGGER.error(e);
+                }
+            }
             return  InformSystXML.readXML(Command.CLIENT_FILE_RESTAURANT);
 
         } catch (IOException e){
@@ -102,7 +109,7 @@ public class ServerListener extends Thread {
         }
         return  null;
     }
-
+/*
     //проверить
     public void sendDishes(File file){
         try {
@@ -115,15 +122,16 @@ public class ServerListener extends Thread {
             while ((count = in.read(bytes)) > 0) {
                 out.write(bytes, 0, count);
             }
-            out.close();
-            in.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+
         }
 
     }
-
+*/
 
 }
