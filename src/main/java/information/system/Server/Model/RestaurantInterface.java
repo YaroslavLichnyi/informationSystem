@@ -14,11 +14,11 @@ public interface RestaurantInterface {
     /**
      * Collection of dishes.
      */
-    ArrayList<Dish> menu = null;
+    ArrayList<Dish> menu = new ArrayList<>();
     /**
      * Collection of dish categories.
      */
-    ArrayList<DishСategory> dishCategories = null;
+    ArrayList<DishСategory> dishCategories = new ArrayList<>();
 
     /**
      * Adds new dish category at {@link RestaurantInterface#dishCategories}.
