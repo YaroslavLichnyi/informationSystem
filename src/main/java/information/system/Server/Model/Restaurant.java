@@ -49,7 +49,7 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean addDish(Dish dish) {
-        for (Dish dishFromMenu: menu) {
+        for (Dish dishFromMenu : menu) {
             if (dishFromMenu.equals(dish)){
                 return false;
             }
@@ -87,8 +87,13 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public ArrayList<Dish> sortDishesByPrice(ArrayList<Dish> menu) {
-        ArrayList<Dish> result = (ArrayList<Dish>) menu.clone();
-        Collections.sort(result, Collections.reverseOrder());
+        ArrayList<Dish> result = (ArrayList<Dish>) menu.clone();;
+        Collections.sort(result, new Comparator<Dish>() {
+            @Override
+            public int compare(Dish o1, Dish o2) {
+                return (int) (o1.getPrice() * 100 - o2.getPrice() * 100);
+            }
+        });
         return result;
     }
 
@@ -119,7 +124,7 @@ public class Restaurant implements RestaurantInterface{
         if (from > to){
             return null;
         }
-        List<Dish> result = new LinkedList<>();
+        List<Dish> result = new ArrayList<>();
         for (Dish dish : menu) {
             if (dish.getPrice() > from && dish.getPrice() < to){
                 result.add(dish);
@@ -178,5 +183,8 @@ public class Restaurant implements RestaurantInterface{
      */
     public static boolean isLoginFree(String login) {
         return false;
+    }
+
+    public Restaurant() {
     }
 }
