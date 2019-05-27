@@ -4,10 +4,12 @@ import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -102,7 +104,7 @@ public class MenuGUI extends InformSystemGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                     setValuesAtTable(
-                            client.getDishesSortedByDishCategory(
+                            client.getDishesSortedBy(
                                     (String) cmbSortBy.getSelectedItem()));
             }
         });
@@ -136,21 +138,22 @@ public class MenuGUI extends InformSystemGUI {
         btFind.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String findByName = tfName.getText();
-                //обратиться к клиенту,чтобы найти совпадения по имени
+                setValuesAtTable(
+                        client.getDishesWhichContains(
+                                tfName.getText()));
             }
         });
 
-
+/*
         Object [][]dataTable1 = new String[][] { new String[] {"11", "21", "SGFHF"},
                 new String[] {"12", "22", "dgs"},
-                new String[] {"13", "23", "fsdg"} };
-        Object []colsTable1 = new String[] { "dfg", "sg" , "sfgdsf"};
-        dishesTable = new JTable( dataTable1, colsTable1 );
+                new String[] {"13", "23", "fsdg"} }; */
+       // Object []colsTable1 = new String[] { "Name", "Price" , "Description"};
+        //dishesTable = new JTable( null, colsTable1 );
 
 
         Object [] headers = {"Name", "Price", "Description"};
-        model = new DefaultTableModel(dataTable1, headers);
+        model = new DefaultTableModel(null, headers);
         model.setColumnIdentifiers(headers);
         dishesTable = new JTable(model){
             @Override
@@ -197,10 +200,25 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btUpdate, gridBag );
         panel.add(btUpdate);
-
+        setValuesAtTable(new ArrayList<Dish>());
     }
 
     private void setValuesAtTable(List<Dish> menu){
+
+        //test//
+        Dish dish1 = new Dish("name1", 3.56, "Some defhdjkdgkdgjkscr");
+        Dish dish3 = new Dish("name3", 34.45, "Some defhkfkhscr");
+        Dish dish2 = new Dish("name2", 3.57, "Some defhkdfhkdgfscr");
+        Dish dish4 = new Dish("name4", 17.56, "Some defhdjkdgkdgjkscr");
+        Dish dish5 = new Dish("name5", 45, "Some defhkfkhscr");
+        Dish dish6= new Dish("name6", 3.57, "Some defhkdfhkdgfscr");
+        menu.add(dish3);
+        menu.add(dish2);
+        menu.add(dish1);
+        menu.add(dish5);
+        menu.add(dish4);
+        menu.add(dish6);
+        ////////
         final int tableRowSize = menu.size();
         model.setRowCount(tableRowSize);
         Iterator<Dish> taskIterator = menu.iterator();
@@ -209,8 +227,8 @@ public class MenuGUI extends InformSystemGUI {
         while (taskIterator.hasNext()){
             dish = taskIterator.next();
             model.setValueAt(dish.getName(), i , 0);
-            model.setValueAt(dish.getDescription(), i , 1);
-            model.setValueAt(dish.getPrice(), i , 2);
+            model.setValueAt(dish.getPrice(), i , 1);
+            model.setValueAt(dish.getDescription(), i , 2);
             i++;
         }
         while(i<tableRowSize){

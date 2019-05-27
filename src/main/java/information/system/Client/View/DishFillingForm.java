@@ -3,6 +3,7 @@ import information.system.Client.Controller.Client;
 import information.system.Server.Model.Dish;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -63,6 +64,8 @@ public class DishFillingForm extends InformSystemGUI {
         gbcPanel0.insets = new Insets(15,15,0,15);
         gbPanel0.setConstraints( tfDishName, gbcPanel0 );
         panel.add( tfDishName );
+        ((AbstractDocument) tfDishName.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
+
 
         lbDishName = new JLabel( "Enter dish name:"  );
         gbcPanel0.gridx = 0;
@@ -179,8 +182,6 @@ public class DishFillingForm extends InformSystemGUI {
                 client.add(newDish);
             }
         });
-
         add(panel);
-
     }
 }
