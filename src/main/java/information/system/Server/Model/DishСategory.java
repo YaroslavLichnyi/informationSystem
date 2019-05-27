@@ -13,6 +13,7 @@ public class DishСategory implements Serializable {
      * @param name
      */
     public DishСategory(String name) {
+        dishes = new LinkedList<>();
         this.name = name;
     }
 

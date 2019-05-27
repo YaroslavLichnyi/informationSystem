@@ -1,6 +1,7 @@
 package information.system.Server.Model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author Yaroslav Lichnyi
@@ -71,5 +72,20 @@ public class Dish implements Serializable {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Double.compare(dish.price, price) == 0 &&
+                Objects.equals(name, dish.name) &&
+                Objects.equals(description, dish.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, description);
     }
 }
