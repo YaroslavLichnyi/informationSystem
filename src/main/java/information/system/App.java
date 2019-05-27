@@ -16,7 +16,7 @@ import java.util.LinkedList;
  */
 public class App 
 {
-    public static void main( String[] args ) throws InformSystException{
+    public static void main( String[] args ) {
        /* Dish dish1 = new Dish("name1", 13, "Some descr");
         ArrayList<Dish> menu = new ArrayList<>();
         menu.add(dish1);
