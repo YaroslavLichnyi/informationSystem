@@ -11,10 +11,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * Hello world!
- *
+ * Class for lunching Client
  */
-public class App 
+public class ClientApp
 {
     public static void main( String[] args ) {
        /* Dish dish1 = new Dish("name1", 13, "Some descr");

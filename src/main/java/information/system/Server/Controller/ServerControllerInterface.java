@@ -25,7 +25,7 @@ public interface ServerControllerInterface {
      * @param port is a number of new port, which is set
      * @return true if the changing was successful, else return false.
      */
-    boolean changeConfiguration(int port);
+    boolean changePort(int port);
 
     /**TODO
      * public void createAccount();
