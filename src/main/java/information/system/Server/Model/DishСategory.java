@@ -17,6 +17,10 @@ public class DishСategory implements Serializable {
         this.name = name;
     }
 
+    public DishСategory() {
+        dishes = new LinkedList<>();
+    }
+
     /**
      *
      * @return name of the dish category.
@@ -88,5 +92,13 @@ public class DishСategory implements Serializable {
      */
     public void setHealthyFood(boolean healthyFood) {
         this.healthyFood = healthyFood;
+    }
+
+    public String toString() {
+        return "DishСategory{" +
+                "name='" + name + '\'' +
+                ", dishes=" + dishes.toString() +
+                ", healthyFood=" + healthyFood +
+                '}';
     }
 }

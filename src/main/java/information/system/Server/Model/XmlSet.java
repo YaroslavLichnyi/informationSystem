@@ -1,5 +1,19 @@
 package information.system.Server.Model;
+import information.system.Server.Controller.Server;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSSerializer;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.List;
 
 /**
@@ -10,8 +24,12 @@ import java.util.List;
  *          4) Gets objects from XML-file;
  *          5) Converts a string to a document;
  *          6) Converts a document to a string.
+ *
+ * @author Yaroslav Lichnyi
  */
 public class XmlSet {
+    private static final Logger LOGGER = Logger.getLogger(XmlSet.class);
+
     /**
      * Parses given document and extracts dishes from it.
      *
@@ -29,6 +47,40 @@ public class XmlSet {
      * @return dishes from <code>document</code>
      */
     public static List<DishСategory> getDishCategoriesFrom(Document document){
+ //       int amountOfNullParameters = countNullParameters(document);
+
+        //String id = document.getDocumentElement().getFirstChild().getTextContent();
+        String name = document.getDocumentElement().getFirstChild().getNextSibling().getTextContent();
+        String facultyName = document.getDocumentElement().getFirstChild().getNextSibling().
+                getNextSibling().getTextContent();
+
+        Document documentOfXmlFile = getDocumentFromFile(Command.CLIENT_FILE_RESTAURANT);
+        Document documentOfFoundResults;
+
+        NodeList items = documentOfXmlFile.getDocumentElement().getChildNodes(); //gets all nodes
+        for (int i = 0; i < items.getLength(); i++) {
+            if ("dishcategory".equals(items.item(i).getNodeName())) {
+                Element element = (Element) items.item(i);
+                NodeList nodes = element.getChildNodes();
+                int countOfMatchings = 0;
+
+                for (int j = 0; j < nodes.getLength(); j++) { //in cycle gets every group
+                    if (nodes.item(j).getNodeType() == Node.ELEMENT_NODE) {
+                        if ("name".equals(nodes.item(j).getNodeName()) //doesn't look up by ID
+                                && name.equals(nodes.item(j).getTextContent())
+                                || "facultyName".equals(nodes.item(j).getNodeName())
+                                && facultyName.equals(nodes.item(j).getTextContent())) {
+                            countOfMatchings++;
+                        }
+                    }
+                }
+//                if (countOfMatchings < 3 - amountOfNullParameters) { //every group has only 3 parameters
+ //                   documentOfXmlFile.getDocumentElement().removeChild(items.item(i));
+ //               }
+            }
+        }
+//        documentOfFoundResults = documentOfXmlFile;
+//        return documentToString(documentOfFoundResults);
         return null;
     }
 
@@ -72,6 +124,11 @@ public class XmlSet {
      * @return document of the file.
      */
     public static Document getDocumentFromFile(String fileName){
+        try {
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
+        } catch (IOException | SAXException | ParserConfigurationException  e) {
+            LOGGER.error("Getting a document from " + fileName + " was failed.");
+        }
         return null;
     }
 
@@ -82,7 +139,28 @@ public class XmlSet {
      * @return a string created from the document.
      */
     public static String convertDocumentToString(Document document){
-        return null;
+        DOMImplementationLS domImplementation = (DOMImplementationLS) document.getImplementation();
+        LSSerializer serializer = domImplementation.createLSSerializer();
+        return serializer.writeToString(document);
+        //сделать логгирование
+        /*
+        аналог
+        try {
+        StringWriter sw = new StringWriter();
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer transformer = tf.newTransformer();
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
+        transformer.transform(new DOMSource(doc), new StreamResult(sw));
+        return sw.toString();
+    } catch (Exception ex) {
+        throw new RuntimeException("Error converting to String", ex);
+    }
+         */
+
     }
 
     /**
@@ -92,7 +170,16 @@ public class XmlSet {
      * @return a document created from the string.
      */
     public static Document convertStringToDocument(String str){
-        return null;
+        Document document = null;
+        try {
+            DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            InputSource is = new InputSource();
+            is.setCharacterStream(new StringReader(str));
+            document = db.parse(is);
+        } catch (IOException | ParserConfigurationException | SAXException e) {
+            LOGGER.error("Converting string \"" + str + "\" was failed.",e);
+        }
+        return document;
     }
 
 }
