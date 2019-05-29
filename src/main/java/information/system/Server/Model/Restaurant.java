@@ -187,4 +187,11 @@ public class Restaurant implements RestaurantInterface{
 
     public Restaurant() {
     }
+    /*public int getUbiqueIdForDish(){
+        int lastId = -1;
+        for (Dish dish: menu ) {
+            lastId = dish.getId();
+        }
+        return lastId + 1;
+    }*/
 }
