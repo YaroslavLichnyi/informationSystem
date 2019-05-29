@@ -3,8 +3,8 @@ package information.system.Client.Controller;
 import information.system.Server.Model.Admin;
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishСategory;
+import java.util.List;
 
-import java.util.Observer;
 
 /**
  * Determines which methods are needed for user interaction with the server.
@@ -20,11 +20,6 @@ public interface ClientController {
      * Creates JFrame with information about all dish categories.
      */
     void showDishCategoriesFrame();
-
-    /**
-     * Updates content, getting actual information from server.
-     */
-    void updateInformation();
 
     /**
      * Checks server connection.
@@ -92,4 +87,11 @@ public interface ClientController {
      * @return true if an <code>admin</code> was added
      */
     boolean signUp(Admin admin);
+
+    /**
+     * Finds dishes whisn contain <code>subStr</code> in the name.
+     * @param subStr is the substring that the name must contain.
+     * @return dishes which contain <code>subStr</code> in the name.
+     */
+    List<Dish> getDishesWhichContains(String subStr);
 }

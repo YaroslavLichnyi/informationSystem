@@ -31,7 +31,6 @@ public class InformSystXML {
     private static final String HEALTHY_FOOD = "healthy-food";
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
 
-
     /**
      * Writes data to a file considering the variable values of each of the dishes.
      * @param dishСategories are objects that are written.
@@ -60,7 +59,6 @@ public class InformSystXML {
 
                 for ( Dish dish : dishСategory.getDishes()) {
                     Element dishEl = document.createElement(DISH);
-                  //  dishEl.appendChild(document.createTextNode(dishСategory.getDescription()));
                     dishCategoryEl.appendChild(dishEl);
 
                     Attr attrDishName = document.createAttribute(NAME);
