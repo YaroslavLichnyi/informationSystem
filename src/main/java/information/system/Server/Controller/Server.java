@@ -37,7 +37,7 @@ public class Server extends Observable implements ServerControllerInterface {
    // @Override
       public void startServer() {
         try {
-            view.display("Server starts to work");
+            view.display("Server is starting");
             serverSocket = new ServerSocket(port);
             while (true){
                 Socket clientSocket = serverSocket.accept();
@@ -45,7 +45,7 @@ public class Server extends Observable implements ServerControllerInterface {
                 clients.add(new ClientListener(clientSocket,this));
             }
         } catch (IOException e) {
-            LOGGER.error(e.toString());
+            LOGGER.error("Error server starting. " + e.getStackTrace());// .toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class Server extends Observable implements ServerControllerInterface {
     @Override
     public void stopServer() {
         try {
-            view.display("Server is stopped");
+            view.display("Server is stopping");
             serverSocket.close();
             view.closeView();
         } catch (IOException e) {
@@ -79,9 +79,13 @@ public class Server extends Observable implements ServerControllerInterface {
      * @return true if the changing was successful, else return false.
      */
     @Override
-    public boolean changeConfiguration(int port) {
-        if (port < 1024) return false;
+    public boolean changePort(int port) {
+        if (port < 1024) {
+            LOGGER.error("Port cannot be less than 1025.");
+            return false;
+        }
         this.port = port;
+        LOGGER.info("Port was successfully changed onto " + port + ".");
         return true;
     }
 
