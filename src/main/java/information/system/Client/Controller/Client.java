@@ -1,8 +1,10 @@
 package information.system.Client.Controller;
+import information.system.Server.Controller.Protocol;
 import information.system.Server.Controller.Server;
 import information.system.Server.Model.Admin;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
+import information.system.Server.Model.DishСategory;
 import information.system.Server.Model.DishСategory;
 import org.apache.log4j.Logger;
 import java.io.*;
@@ -25,10 +27,9 @@ public class Client implements ClientController {
     static private Socket clientSocket;
     static BufferedWriter writer;
     static BufferedReader reader;
-    private ServerListener serverListener;
 
     public static void main(String[] args) {
-         new Client();
+        new Client();
     }
 
 
@@ -38,7 +39,6 @@ public class Client implements ClientController {
             connectToServer();
             writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            serverListener = new ServerListener(this);
             /*writer.write(Command.GET_ALL_INFORMATION);
             writer.newLine();
             writer.flush();
@@ -75,14 +75,6 @@ public class Client implements ClientController {
      */
     @Override
     public void showDishCategoriesFrame() {
-
-    }
-
-    /**
-     * Updates content, getting actual information from server.
-     */
-    @Override
-    public void updateInformation() {
 
     }
 
@@ -156,10 +148,13 @@ public class Client implements ClientController {
 
     @Override
     public void exit() {
-        try {
-            clientSocket.close();
-        } catch (IOException e) {
-            LOGGER.error(e);
+        sendRequest(Protocol.END_OF_SESSION);
+        if (clientSocket != null){
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                LOGGER.error(e);
+            }
         }
     }
 
@@ -178,10 +173,10 @@ public class Client implements ClientController {
 
     @Override
     public boolean signIn(String login, String password) {
-        sendRequest(Command.SIGN_IN);
+        sendRequest(Protocol.SIGN_IN);
         sendRequest(login);
         sendRequest(password);
-        //вместить в одно послание
+        //РІРјРµСЃС‚РёС‚СЊ РІ РѕРґРЅРѕ РїРѕСЃР»Р°РЅРёРµ
         return false;
     }
 
@@ -200,44 +195,80 @@ public class Client implements ClientController {
     public Socket getServerSocket() {
         return serverSocket;
     }
-/*
-    public void sendFile(File file){
+    /*
+        public void sendFile(File file){
 
-           // File file = new File(Command.SERVER_FILE_RESTAURANT);
-            // Get the size of the file
-            long length = file.length();
-            byte[] bytes = new byte[16 * 1024];
-            InputStream in = new FileInputStream(file);
-            OutputStream out = clientSocket.getOutputStream();
+               // File file = new File(Command.SERVER_FILE_RESTAURANT);
+                // Get the size of the file
+                long length = file.length();
+                byte[] bytes = new byte[16 * 1024];
+                InputStream in = new FileInputStream(file);
+                OutputStream out = clientSocket.getOutputStream();
 
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-
-            if (out != null){
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    LOGGER.error(e);
+                int count;
+                while ((count = in.read(bytes)) > 0) {
+                    out.write(bytes, 0, count);
                 }
-            }
-            if ( in != null){
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    LOGGER.error(e);
+
+                if (out != null){
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        LOGGER.error(e);
+                    }
                 }
-            }
-    }
-*/
-    //передаём параметр по которому будем сортировать
-    public List <Dish> getDishesSortedByDishCategory(String sortBy){
-            return null;
+                if ( in != null){
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        LOGGER.error(e);
+                    }
+                }
         }
+    */
+    //РїРµСЂРµРґР°С‘Рј РїР°СЂР°РјРµС‚СЂ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ Р±СѓРґРµРј СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ
+    public List <Dish> getDishesSortedBy(String sortBy){
+        return null;
+    }
 
     @Override
     public boolean signUp(Admin admin) {
         return false;
+    }
+
+
+    /**
+     * Finds dishes whisn contain <code>subStr</code> in the name.
+     *
+     * @param subStr is the substring that the name must contain.
+     * @return dishes which contain <code>subStr</code> in the name.
+     */
+    public List<Dish> getDishesWhichContains(String subStr) {
+        return null;
+    }
+
+    public void hearServer(){
+        new Thread(){
+            @Override
+            public void run() {
+                String responce;
+                while (true){
+                    try {
+                        responce = reader.readLine();
+                        switch(responce)
+                        {
+                            case "someResponce":
+                                System.out.println("STOP");
+                                break;
+
+                            default:
+                                System.out.println("no match");
+                        }
+                    } catch (IOException e){
+                        LOGGER.error(e);
+                    }
+                }
+            }
+        }.start();
     }
 }
