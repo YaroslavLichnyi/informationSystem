@@ -1,11 +1,18 @@
 package information.system.Server.View;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import information.system.Server.Controller.Server;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
@@ -14,9 +21,10 @@ import org.apache.log4j.Logger;
 public class ServerViewGUI implements ServerViewGeneral {
 
     final static Logger logger = Logger.getLogger(ServerViewGeneral.class);
+    Server server;
 
     public ServerViewGUI() {
-
+        this.server = new Server(this);
     }
 
     @FXML
@@ -26,29 +34,32 @@ public class ServerViewGUI implements ServerViewGeneral {
     private URL location;
 
     @FXML
-    private Button ServerStopButton;
+    private TextField portTextField;
 
     @FXML
-    private Button ServerTerminateButton;
+    private Button serverStopButton;
 
     @FXML
-    private Button ServerStartButton;
+    private Button serverTerminateButton;
 
     @FXML
-    private Label ServerStateLabel;
+    private Button serverStartButton;
 
     @FXML
-    private Button ServerPortApplyButton;
+    public Label serverStateLabel;
 
     @FXML
-    private Button ServerRestartButton;
+    private Button serverPortApplyButton;
+
+    @FXML
+    private Button serverRestartButton;
 
     @FXML
     /**
      * Event handler onServerStartButtonPressed.
      */
     public void onServerStartButtonPressed(ActionEvent event) {
-
+        server.start();
     }
 
     @FXML
@@ -56,7 +67,7 @@ public class ServerViewGUI implements ServerViewGeneral {
      * Event handler onServerRestartButtonPressed.
      */
     public void onServerRestartButtonPressed(ActionEvent event) {
-
+        server.restart();
     }
 
     @FXML
@@ -64,7 +75,11 @@ public class ServerViewGUI implements ServerViewGeneral {
      * Event handler onServerStopButtonPressed.
      */
     public void onServerStopButtonPressed(ActionEvent event) {
-
+        if (server.isRunning()) {
+            server.stop();
+        } else {
+            logger.info("fault: attempt to stop a down server");
+        }
     }
 
     @FXML
@@ -73,6 +88,9 @@ public class ServerViewGUI implements ServerViewGeneral {
      */
     public void onServerTerminateButtonPressed(ActionEvent event) {
         logger.info("server is terminating.");
+        if (server.isRunning()) {
+            server.stop();
+        }
         System.exit(0);
     }
 
@@ -81,7 +99,12 @@ public class ServerViewGUI implements ServerViewGeneral {
      * Event handler onServerPortApplyButtonPressed.
      */
     public void onServerPortApplyButtonPressed(ActionEvent event) {
-
+        int newPort = Integer.parseInt(portTextField.getText());
+        server.changePort(newPort);
+        if (server.portChanged()) {
+            portTextField.setText(String.valueOf(server.getPort()));
+            server.setPortChanged(false);
+        }
     }
 
     // onCloseWindow ***************************************************************************************************
@@ -107,22 +130,24 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     @FXML
     void initialize() {
-        assert ServerStopButton != null :
-                "fx:id=\"ServerStopButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
-        assert ServerTerminateButton != null :
-                "fx:id=\"ServerTerminateButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
-        assert ServerStartButton != null :
-                "fx:id=\"ServerStartButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
-        assert ServerStateLabel != null :
-                "fx:id=\"ServerStateLabel\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
-        assert ServerPortApplyButton != null :
-                "fx:id=\"ServerPortApplyButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
-        assert ServerRestartButton != null :
-                "fx:id=\"ServerRestartButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverStopButton != null :
+                "fx:id=\"serverStopButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverTerminateButton != null :
+                "fx:id=\"serverTerminateButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverStartButton != null :
+                "fx:id=\"serverStartButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverStateLabel != null :
+                "fx:id=\"serverStateLabel\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverPortApplyButton != null :
+                "fx:id=\"serverPortApplyButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
+        assert serverRestartButton != null :
+                "fx:id=\"serverRestartButton\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
 
-        ServerTerminateButton.setOnAction(event -> {
+        serverTerminateButton.setOnAction(event -> {
             onServerTerminateButtonPressed(new ActionEvent());
         });
+
+        portTextField.setText(String.valueOf(server.getPort()));
 
         logger.info("ServerViewGUI started.");
 
@@ -130,13 +155,13 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     @Override
     public void display(String message) {
-        ServerStateLabel.setText(message);
+        serverStateLabel.setText(message);
     }
 
     @Override
     public void closeView() {
         logger.info("ServerView will be closed.");
-        ServerTerminateButton.getScene().getWindow().hide();
+        serverTerminateButton.getScene().getWindow().hide();
         //System.exit(0); // is needed to be added into Controller
     }
 
