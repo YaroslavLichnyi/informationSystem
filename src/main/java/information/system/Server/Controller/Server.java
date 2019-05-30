@@ -1,51 +1,54 @@
 package information.system.Server.Controller;
 
 import information.system.Server.Model.*;
-import information.system.Server.View.ServerView;
+import information.system.Server.View.ServerViewGUI;
 import org.apache.log4j.Logger;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.Observable;
+import java.util.Scanner;
 
 public class Server extends Observable implements ServerControllerInterface {
-    private static final Logger LOGGER = Logger.getLogger(Server.class);
-    private int portNumber;
+    private static final Logger logger = Logger.getLogger(Server.class);
     private ServerSocket serverSocket;
-    private ServerView view;
+    private ServerViewGUI view;
     private LinkedList <ClientListener> clients = new LinkedList<>();
-    static private int port = 8000;
+    private int port;
+    private boolean portWasChanged;
     private Restaurant restaurant;
+    private File file;
+    private boolean running;
 
-    public static void main(String[] args){
-        new Server(port);
-    }
-
-    public Server(int portNumber) {
-        this.portNumber = portNumber;
+    public Server(ServerViewGUI view) {
+        this.setRunning(false);
+        file = new File("settings/server.ini");
+        this.port = readPort();
+        this.portWasChanged = false;
         restaurant = new Restaurant();
-        view = new ServerView();
-        startServer();
+        this.view = view;
     }
 
 
     /**
      * Starts server.
      */
-   // @Override
-      public void startServer() {
+    @Override
+    public void start() {
+        logger.info("server is starting.");
+        view.display("server is running");
         try {
-            view.display("Server is starting");
             serverSocket = new ServerSocket(port);
-            while (true){
+            this.setRunning(true);
+            logger.info("server is running.");
+            while (true) {
                 Socket clientSocket = serverSocket.accept();
-                view.display("New client detected");
+                view.display("new client accepted.");
                 clients.add(new ClientListener(clientSocket,this));
             }
         } catch (IOException e) {
-            LOGGER.error("Error server starting. " + e.getStackTrace());// .toString());
+            logger.error("error server starting. " + e.getStackTrace());
         }
     }
 
@@ -53,47 +56,62 @@ public class Server extends Observable implements ServerControllerInterface {
      * Restarts server.
      */
     @Override
-    public void restartServer() {
-        stopServer();
-        startServer();
+    public void restart() {
+        stop();
+        start();
     }
 
     /**
      * Stops server.
      */
     @Override
-    public void stopServer() {
+    public void stop() {
         try {
-            view.display("Server is stopping");
+            view.display("server is stopping");
             serverSocket.close();
-            view.closeView();
+            this.setRunning(false);
+            view.display("server stopped");
+//            view.closeView();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Changes server's configurations
+     * Change server port
      *
      * @param port is a number of new port, which is set
      * @return true if the changing was successful, else return false.
      */
     @Override
     public boolean changePort(int port) {
-        if (port < 1024) {
-            LOGGER.error("Port cannot be less than 1025.");
+        if (port == this.port) {
+            logger.info("port is the same and has not been changed.");
+            return false;
+        }
+        if (port < 1_024 || port > 65_535) {
+            logger.error("port cannot be less than 1025 or more than 65535.");
             return false;
         }
         this.port = port;
-        LOGGER.info("Port was successfully changed onto " + port + ".");
+        this.portWasChanged = true;
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(file);
+            fw.write(String.valueOf(port));
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        logger.info("port was successfully changed onto " + port + ".");
         return true;
     }
 
-    public ServerView getView() {
+    public ServerViewGUI getView() {
         return view;
     }
 
-    public void setView(ServerView view) {
+    public void setView(ServerViewGUI view) {
         this.view = view;
     }
 
@@ -104,26 +122,73 @@ public class Server extends Observable implements ServerControllerInterface {
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
-/*
-    public void sendFile(){
-        try {
-            // Get the size of the file
-            File file = new File(Command.CLIENT_FILE_RESTAURANT);
-            long length = file.length();
-            byte[] bytes = new byte[16 * 1024];
-            InputStream in = new FileInputStream(file);
-            OutputStream out =  clientSocket.getOutputStream();
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-            out.close();
-            in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+    /**
+     * Get port from server.
+     * @return int port
+     */
+    public int getPort() {
+        return this.port;
     }
-    */
+
+    /**
+     * Get port from file. Create file in case file does not exist.
+     * @return
+     * @throws IOException
+     */
+    public int readPort() {
+
+        int port = 8_000;
+
+        if (file.exists()) {
+            FileReader fr = null;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Scanner scan = new Scanner(fr);
+            if (scan.hasNextInt()) {
+                port = scan.nextInt();
+            }
+            if (fr != null) {
+                try {
+                    fr.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            FileWriter fw = null;
+            try {
+                fw = new FileWriter(file);
+                fw.write("8000");
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return port;
+    }
+
+    /**
+     * Port was changed lately or not.
+     * @return boolean portWasChanged
+     */
+    public boolean portChanged() {
+        return portWasChanged;
+    }
+
+    public void setPortChanged(boolean changed) {
+        this.portWasChanged = changed;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
 }
