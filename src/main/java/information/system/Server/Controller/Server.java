@@ -37,18 +37,22 @@ public class Server extends Observable implements ServerControllerInterface {
     @Override
     public void start() {
         logger.info("server is starting.");
+        view.logging("Server is starting.");
         view.display("server is running");
         try {
             serverSocket = new ServerSocket(port);
             this.setRunning(true);
             logger.info("server is running.");
+            view.logging("Server is running.");
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 view.display("new client accepted.");
+                view.logging("New client accepted.");
                 clients.add(new ClientListener(clientSocket,this));
             }
         } catch (IOException e) {
             logger.error("error server starting. " + e.getStackTrace());
+            view.logging("Error server starting. " + e.getMessage());
         }
     }
 
@@ -68,9 +72,11 @@ public class Server extends Observable implements ServerControllerInterface {
     public void stop() {
         try {
             view.display("server is stopping");
+            view.logging("Server is stopping");
             serverSocket.close();
             this.setRunning(false);
             view.display("server stopped");
+            view.logging("Server stopped.");
 //            view.closeView();
         } catch (IOException e) {
             e.printStackTrace();
@@ -87,10 +93,12 @@ public class Server extends Observable implements ServerControllerInterface {
     public boolean changePort(int port) {
         if (port == this.port) {
             logger.info("port is the same and has not been changed.");
+            view.logging("Port is the same and has not been changed.");
             return false;
         }
         if (port < 1_024 || port > 65_535) {
             logger.error("port cannot be less than 1025 or more than 65535.");
+            view.logging("Port cannot be less than 1025 or more than 65535.");
             return false;
         }
         this.port = port;
@@ -104,6 +112,7 @@ public class Server extends Observable implements ServerControllerInterface {
             e.printStackTrace();
         }
         logger.info("port was successfully changed onto " + port + ".");
+        view.logging("Port was successfully changed onto " + port + ".");
         return true;
     }
 
