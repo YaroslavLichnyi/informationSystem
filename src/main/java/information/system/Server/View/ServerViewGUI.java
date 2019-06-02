@@ -2,7 +2,6 @@ package information.system.Server.View;
 
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 import information.system.Server.Controller.Server;
 import javafx.event.ActionEvent;
@@ -14,11 +13,17 @@ import javafx.scene.control.TextField;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
+/**
+ * Graphic component View for MVC-pattern of Information System - class ServerViewGUI.
+ */
 public class ServerViewGUI implements ServerViewGeneral {
 
     final static Logger logger = Logger.getLogger(ServerViewGeneral.class);
     Server server;
 
+    /**
+     * Constructor of class ServerViewGUI.
+     */
     public ServerViewGUI() {
         this.server = new Server(this);
     }
@@ -74,12 +79,7 @@ public class ServerViewGUI implements ServerViewGeneral {
      * Event handler onServerStopButtonPressed.
      */
     public void onServerStopButtonPressed(ActionEvent event) {
-        if (server.isRunning()) {
             server.stop();
-        } else {
-            logger.error("fault: attempt to stop a down server.");
-            logging("Fault: attempt to stop a down server.");
-        }
     }
 
     @FXML
@@ -112,7 +112,7 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     // onCloseWindow ***************************************************************************************************
     /**                                                                                                              //*
-     * Event handler onCloseWindow                                                                                   //*
+     * Event handler onCloseWindow.                                                                                  //*
      */                                                                                                              //*
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
         @Override                                                                                                    //*
@@ -151,7 +151,9 @@ public class ServerViewGUI implements ServerViewGeneral {
                 "fx:id=\"serverLogTextArea\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
 
 
-
+        /**
+         * Event handler for terminateButton press.
+         */
         serverTerminateButton.setOnAction(event -> {
             onServerTerminateButtonPressed(new ActionEvent());
         });
@@ -162,11 +164,18 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     }
 
+    /**
+     * Display server state in serverStateLabel.
+     * @param message
+     */
     @Override
     public void display(String message) {
         serverStateLabel.setText(message);
     }
 
+    /**
+     * Event handler for View closing.
+     */
     @Override
     public void closeView() {
         logger.info("ServerView will be closed.");
@@ -174,9 +183,12 @@ public class ServerViewGUI implements ServerViewGeneral {
         //System.exit(0); // is needed to be added into Controller
     }
 
+    /**
+     * Logging server events into serverLogTextArea.
+     * @param message
+     */
     @Override
     public void logging(String message) {
-//        serverLogTextArea.appendText("\n" + ZonedDateTime.now() + message);
         serverLogTextArea.appendText(LocalDateTime.now() + " - " + message + "\n");
 
     }
