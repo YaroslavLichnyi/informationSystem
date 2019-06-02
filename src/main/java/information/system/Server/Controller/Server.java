@@ -10,16 +10,21 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Scanner;
 
+/**
+ * Server of client-server application for the restaurant.
+ */
 public class Server extends Observable implements ServerControllerInterface {
     private static final Logger logger = Logger.getLogger(Server.class);
     private ServerSocket serverSocket;
+    private Socket clientSocket;
     private ServerViewGUI view;
-    private LinkedList <ClientListener> clients = new LinkedList<>();
+    private static LinkedList <ClientListener> clients = new LinkedList<>();
     private int port;
     private boolean portWasChanged;
     private Restaurant restaurant;
     private File file;
     private boolean running;
+    private Thread serverThread;
 
     public Server(ServerViewGUI view) {
         this.setRunning(false);
@@ -32,32 +37,46 @@ public class Server extends Observable implements ServerControllerInterface {
 
 
     /**
-     * Starts server.
+     * Start server.
      */
     @Override
     public void start() {
-        logger.info("server is starting.");
-        view.logging("Server is starting.");
-        view.display("server is running");
-        try {
-            serverSocket = new ServerSocket(port);
-            this.setRunning(true);
-            logger.info("server is running.");
-            view.logging("Server is running.");
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                view.display("new client accepted.");
-                view.logging("New client accepted.");
-                clients.add(new ClientListener(clientSocket,this));
-            }
-        } catch (IOException e) {
-            logger.error("error server starting. " + e.getStackTrace());
-            view.logging("Error server starting. " + e.getMessage());
+//        logger.info("server is starting.");
+//        view.logging("Server is starting.");
+        if (isRunning()) {
+            view.logging("Fault: attempt to start running server.");
+            logger.error("fault: attempt to start running server.");
+            return;
         }
+        serverThread = new Thread( () -> {
+            try {
+                serverSocket = new ServerSocket(port);
+                this.setRunning(true);
+                while (true) {                                       // is being blocked until the new client connection
+                    clientSocket = serverSocket.accept();
+                    System.out.println("Client connected");
+                    view.display("new client accepted.");
+                    view.logging("New client accepted.");
+                    clients.add(new ClientListener(clientSocket, this));
+                }
+            } catch (IOException e) {
+                if (!serverSocket.isClosed()) {
+                    try {
+                        serverSocket.close();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
+        serverThread.start();
+        logger.info("server is running.");
+        view.logging("Server is running.");
+        view.display("server is running");
     }
 
     /**
-     * Restarts server.
+     * Restart server.
      */
     @Override
     public void restart() {
@@ -66,20 +85,29 @@ public class Server extends Observable implements ServerControllerInterface {
     }
 
     /**
-     * Stops server.
+     * Stop server.
      */
     @Override
     public void stop() {
-        try {
-            view.display("server is stopping");
-            view.logging("Server is stopping");
-            serverSocket.close();
-            this.setRunning(false);
-            view.display("server stopped");
-            view.logging("Server stopped.");
-//            view.closeView();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (this.isRunning()) {
+            try {
+                view.display("server is stopping");
+                view.logging("Server is stopping");
+                logger.info("server is stoping.");
+                if (serverSocket.isBound()) {
+                    serverSocket.close();
+                    this.setRunning(false);
+                    view.display("server stopped and ready to start");
+                    view.logging("Server stopped.");
+                    logger.info("server stopped");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            view.display("server stopped and ready to start");
+            view.logging("Fault: attempt to stop a down server.");
+            logger.info("fault: attempt to stop a down server.");
         }
     }
 
@@ -116,18 +144,34 @@ public class Server extends Observable implements ServerControllerInterface {
         return true;
     }
 
+    /**
+     * Getter for graphic view.
+     * @return ServerViewGUI
+     */
     public ServerViewGUI getView() {
         return view;
     }
 
+    /**
+     * Setter for graphic view.
+     * @param view - ServerViewGUI
+     */
     public void setView(ServerViewGUI view) {
         this.view = view;
     }
 
+    /**
+     * Getter for Restaurant.
+     * @return Restaurant
+     */
     public Restaurant getRestaurant() {
         return restaurant;
     }
 
+    /**
+     * Getter for ServerSocket.
+     * @return ServerSocket
+     */
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
@@ -182,22 +226,36 @@ public class Server extends Observable implements ServerControllerInterface {
     }
 
     /**
-     * Port was changed lately or not.
+     * (Getter) Port was changed lately or not.
      * @return boolean portWasChanged
      */
     public boolean portChanged() {
         return portWasChanged;
     }
 
+    /**
+     * (Setter) Port was changed lately or not.
+     * @return boolean portWasChanged
+     */
     public void setPortChanged(boolean changed) {
         this.portWasChanged = changed;
     }
 
+    /**
+     * (Getter) Server is running or not.
+     * @return boolean running
+     */
     public boolean isRunning() {
         return running;
     }
 
+    /**
+     * (Setter) Server is running or not.
+     * @param running boolean
+     */
     public void setRunning(boolean running) {
         this.running = running;
     }
+
+
 }
