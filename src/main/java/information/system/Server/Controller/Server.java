@@ -41,8 +41,6 @@ public class Server extends Observable implements ServerControllerInterface {
      */
     @Override
     public void start() {
-//        logger.info("server is starting.");
-//        view.logging("Server is starting.");
         if (isRunning()) {
             view.logging("Fault: attempt to start running server.");
             logger.error("fault: attempt to start running server.");
@@ -55,7 +53,6 @@ public class Server extends Observable implements ServerControllerInterface {
                 while (true) {                                       // is being blocked until the new client connection
                     clientSocket = serverSocket.accept();
                     System.out.println("Client connected");
-                    view.display("new client accepted.");
                     view.logging("New client accepted.");
                     clients.add(new ClientListener(clientSocket, this));
                 }
@@ -80,8 +77,66 @@ public class Server extends Observable implements ServerControllerInterface {
      */
     @Override
     public void restart() {
-        stop();
-        start();
+//        stop();
+        logger.info("server is going to be restarted.");
+        view.logging("Restarting server...");
+        view.display("restarting...");
+        if (this.isRunning()) {
+            if (!clients.isEmpty()) {
+                for (ClientListener clientListener: clients) {
+                    try {
+                        clientListener.getSocket().close();
+                    } catch (IOException e) {
+                        logger.error("client socket closing error.", e);
+                        view.logging("Client socket closing error.");
+                    }
+                    logger.info("client " + clientListener.getName() + " was disconnected.");
+                    view.logging("Client " + clientListener.getName() + " was disconnected.");
+                }
+
+            }
+            try {
+                serverSocket.close();
+            } catch (IOException e) {
+                logger.error("server socket closing error.", e);
+                view.logging("Server socket closing error.");
+            }
+            logger.info("server was stopped.");
+            view.logging("Server was stopped.");
+        }
+//        start();
+        serverThread = new Thread( () -> {
+            try {
+                serverSocket = new ServerSocket(port);
+                this.setRunning(true);
+                // reconnect old clients
+                for (ClientListener clientListener: clients) {
+                    clientListener.setSocket(serverSocket.accept());
+                }
+                // connect of new clients
+                while (true) {                                       // is being blocked until the new client connection
+                    clientSocket = serverSocket.accept();
+                    System.out.println("New client connected");
+                    view.logging("New client accepted.");
+                    clients.add(new ClientListener(clientSocket, this));
+                }
+            } catch (IOException e) {
+                if (!serverSocket.isClosed()) {
+                    try {
+                        serverSocket.close();
+                    } catch (IOException e1) {
+                        logger.error("server socket closing error.", e1);
+                        view.logging("Server socket closing error.");
+                    }
+                    logger.error("server socket error.", e);
+                    view.logging("Server socket error.");
+                }
+            }
+        });
+        serverThread.start();
+        logger.info("server is running.");
+        view.logging("Server is running.");
+        view.display("server is running");
     }
 
     /**
@@ -92,8 +147,15 @@ public class Server extends Observable implements ServerControllerInterface {
         if (this.isRunning()) {
             try {
                 view.display("server is stopping");
-                view.logging("Server is stopping");
+                view.logging("Server is stopping...");
                 logger.info("server is stoping.");
+                // disconnect clients
+                for (ClientListener clientListener: clients) {
+                    clientListener.getSocket().close();
+                    logger.info("client " + clientListener.getName() + " was disconnected.");
+                }
+                clients.clear();
+                // stop server - close serverSocket
                 if (serverSocket.isBound()) {
                     serverSocket.close();
                     this.setRunning(false);
@@ -138,6 +200,23 @@ public class Server extends Observable implements ServerControllerInterface {
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        // reconnect all clients onto new port
+        if (!clients.isEmpty()) {
+            try {
+                serverSocket = new ServerSocket(port);
+            } catch (IOException e) {
+                logger.error("error creation server socket with new port. ", e);
+                view.logging("Error creation server socket with new port.");
+            }
+            for (ClientListener clientListener: clients) {
+                try {
+                    clientListener.setSocket(serverSocket.accept());
+                } catch (IOException e) {
+                    logger.error("error reconnect clients onto new port. ", e);
+                    view.logging("error reconnect clients onto new port.");
+                }
+            }
         }
         logger.info("port was successfully changed onto " + port + ".");
         view.logging("Port was successfully changed onto " + port + ".");
