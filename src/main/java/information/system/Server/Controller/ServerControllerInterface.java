@@ -6,22 +6,22 @@ package information.system.Server.Controller;
  */
 public interface ServerControllerInterface {
     /**
-     * Starts server.
+     * Start server.
      */
-  //   void startServer() ;
+    void start() ;
 
     /**
-     * Restarts server.
+     * Restart server.
      */
-    void restartServer();
+    void restart();
 
     /**
-     * Stops server.
+     * Stop server.
      */
-    void stopServer();
+    void stop();
 
     /**
-     * Changes server's configurations
+     * Change server port.
      * @param port is a number of new port, which is set
      * @return true if the changing was successful, else return false.
      */
