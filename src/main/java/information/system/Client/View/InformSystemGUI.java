@@ -28,7 +28,6 @@ public abstract class InformSystemGUI extends JFrame {
         gridBag = new GridBagConstraints();
         gridBagLayout = new GridBagLayout();
         panel.setLayout(gridBagLayout);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public Client getClient() {

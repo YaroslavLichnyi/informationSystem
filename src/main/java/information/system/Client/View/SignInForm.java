@@ -11,8 +11,9 @@ import java.awt.event.ActionListener;
 
 public class SignInForm extends InformSystemGUI {
     public SignInForm(Client client) {
-        setBounds(dimension.width / 2 - 125, dimension.height / 2 - 100, 250, 200);
+        setBounds(dimension.width / 2 - 135, dimension.height / 2 - 100, 270, 200);
         setClient(client);
+        this.client = client;
         basicInit();
         add(panel);
         setVisible(true);
@@ -90,7 +91,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(2,10,7,0);
+    //    gridBag.insets = new Insets(0,10,7,0);
         gridBagLayout.setConstraints( btBut0, gridBag );
         panel.add( btBut0 );
         btBut0.addActionListener(new ActionListener() {
@@ -120,7 +121,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btBut1, gridBag );
-        gridBag.insets = new Insets(2,0,7,10);
+  //      gridBag.insets = new Insets(0,0,7,10);
         panel.add( btBut1 );
         btBut1.addActionListener(new ActionListener() {
             @Override

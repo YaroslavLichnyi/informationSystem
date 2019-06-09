@@ -1,10 +1,6 @@
 package information.system.Server.Model;
-import information.system.Server.Controller.Server;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.InputSource;
@@ -47,40 +43,6 @@ public class XmlSet {
      * @return dishes from <code>document</code>
      */
     public static List<DishСategory> getDishCategoriesFrom(Document document){
- //       int amountOfNullParameters = countNullParameters(document);
-
-        //String id = document.getDocumentElement().getFirstChild().getTextContent();
-        String name = document.getDocumentElement().getFirstChild().getNextSibling().getTextContent();
-        String facultyName = document.getDocumentElement().getFirstChild().getNextSibling().
-                getNextSibling().getTextContent();
-
-        Document documentOfXmlFile = getDocumentFromFile(Command.CLIENT_FILE_RESTAURANT);
-        Document documentOfFoundResults;
-
-        NodeList items = documentOfXmlFile.getDocumentElement().getChildNodes(); //gets all nodes
-        for (int i = 0; i < items.getLength(); i++) {
-            if ("dishcategory".equals(items.item(i).getNodeName())) {
-                Element element = (Element) items.item(i);
-                NodeList nodes = element.getChildNodes();
-                int countOfMatchings = 0;
-
-                for (int j = 0; j < nodes.getLength(); j++) { //in cycle gets every group
-                    if (nodes.item(j).getNodeType() == Node.ELEMENT_NODE) {
-                        if ("name".equals(nodes.item(j).getNodeName()) //doesn't look up by ID
-                                && name.equals(nodes.item(j).getTextContent())
-                                || "facultyName".equals(nodes.item(j).getNodeName())
-                                && facultyName.equals(nodes.item(j).getTextContent())) {
-                            countOfMatchings++;
-                        }
-                    }
-                }
-//                if (countOfMatchings < 3 - amountOfNullParameters) { //every group has only 3 parameters
- //                   documentOfXmlFile.getDocumentElement().removeChild(items.item(i));
- //               }
-            }
-        }
-//        documentOfFoundResults = documentOfXmlFile;
-//        return documentToString(documentOfFoundResults);
         return null;
     }
 

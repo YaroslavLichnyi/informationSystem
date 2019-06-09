@@ -7,14 +7,16 @@ public class DishСategory implements Serializable {
     private String name;
     private LinkedList <Dish> dishes;
     private boolean healthyFood;
+    private int id;
 
     /**
      *
      * @param name
      */
-    public DishСategory(String name) {
+    public DishСategory(String name, int id) {
         dishes = new LinkedList<>();
         this.name = name;
+        this.id = id;
     }
 
     public DishСategory() {
@@ -35,6 +37,14 @@ public class DishСategory implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -58,6 +68,7 @@ public class DishСategory implements Serializable {
      * @param dish is added in collection of dishes.
      */
     public void addDish(Dish dish){
+        dish.setDishCategoryId(getId());
         dishes.add(dish);
     }
 
