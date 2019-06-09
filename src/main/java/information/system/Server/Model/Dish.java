@@ -7,10 +7,12 @@ import java.util.Objects;
  * @author Yaroslav Lichnyi
  */
 public class Dish implements Serializable {
-
     private String name;
     private double price;
     private String description;
+    private int id;
+    private int dishCategoryId;
+
 
     public Dish(String name, double price, String description) {
         this.name = name;
@@ -19,7 +21,27 @@ public class Dish implements Serializable {
     }
 
     public Dish() {
+    }
+
+    public Dish(int id) {
         super();
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDishCategoryId() {
+        return dishCategoryId;
+    }
+
+    public void setDishCategoryId(int dishCategoryId) {
+        this.dishCategoryId = dishCategoryId;
     }
 
     /**

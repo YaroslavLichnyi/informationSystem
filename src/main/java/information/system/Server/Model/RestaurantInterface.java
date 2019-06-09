@@ -34,6 +34,9 @@ public interface RestaurantInterface {
      */
     DishСategory getDishCategory(int index);
 
+    ArrayList<DishСategory> getAllDishCategories();
+
+
     /**
      * Removes dish from {@link RestaurantInterface#dishCategories}.
      * @param dishCategory is removed from {@link RestaurantInterface#dishCategories}.

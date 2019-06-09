@@ -1,10 +1,8 @@
 package information.system.Client.Controller;
+import information.system.Client.View.SignInForm;
 import information.system.Server.Controller.Protocol;
 import information.system.Server.Controller.Server;
-import information.system.Server.Model.Admin;
-import information.system.Server.Model.Command;
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishСategory;
+import information.system.Server.Model.*;
 import information.system.Server.Model.DishСategory;
 import org.apache.log4j.Logger;
 import java.io.*;
@@ -35,24 +33,45 @@ public class Client implements ClientController {
 
     public Client()  {
         try{
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Dish dish1 = new Dish("name1", 3.56, "Some defhdjkdgkdgjkscr");
+            Dish dish3 = new Dish("name3", 34.45, "Some defhkfkhscr");
+            Dish dish2 = new Dish("name2", 3.57, "Some defhkdfhkdgfscr");
+            Dish dish4 = new Dish("name4", 17.56, "Some defhdjkdgkdgjkscr");
+            Dish dish5 = new Dish("name5", 45, "Some defhkfkhscr");
+            Dish dish6 = new Dish("name6", 3.57, "Some defhkdfhkdgfscr");
+            menu.add(dish3);
+            menu.add(dish2);
+            menu.add(dish1);
+            menu.add(dish5);
+            menu.add(dish4);
+            menu.add(dish6);
+            DishСategory dishСategory1 = new DishСategory();
+            DishСategory dishСategory2 = new DishСategory();
+            DishСategory dishСategory3 = new DishСategory();
+            dishСategory1.setName("alco");
+            dishСategory2.setName("salads");
+            dishСategory3.setName("ice cream");
+
+            dishСategory1.addDish(dish1);
+            dishСategory1.addDish(dish2);
+            dishСategory2.addDish(dish3);
+            dishСategory2.addDish(dish4);
+            dishСategory3.addDish(dish5);
+            dishСategory3.addDish(dish6);
+            dishCategories.add(dishСategory1);
+            dishCategories.add(dishСategory2);
+            dishCategories.add(dishСategory3);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             clientSocket = new Socket("127.0.0.1", 8000);
             connectToServer();
             writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            /*writer.write(Command.GET_ALL_INFORMATION);
-            writer.newLine();
-            writer.flush();
-            */
-            //sendRequest(Command.FILE);
-            //sendFile(new File(Command.CLIENT_FILE_RESTAURANT));
-            while(true){
-                System.out.println("Enter message");
-                Scanner scanner = new Scanner(System.in);
-                writer.write(scanner.next());
-                writer.newLine();
-                writer.flush();
-            }
 
+            XmlStream xmlStream = new XmlStream();
+            xmlStream.transformXmlToString(XmlSet.getDocumentFromFile("restaurant.xml"), clientSocket);
+
+            new SignInForm(this);
         } catch (IOException e){
             LOGGER.error(e);
         }
@@ -270,5 +289,13 @@ public class Client implements ClientController {
                 }
             }
         }.start();
+    }
+
+    public ArrayList<Dish> getMenu() {
+        return menu;
+    }
+
+    public ArrayList<DishСategory> getDishCategories() {
+        return dishCategories;
     }
 }

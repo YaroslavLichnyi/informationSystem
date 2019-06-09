@@ -16,7 +16,7 @@ public class Restaurant implements RestaurantInterface{
                 return false;
             }
         }
-        dishCategories.add(new DishСategory(name));
+        dishCategories.add(new DishСategory(name, generateUniqueIdForDishCategory()));
         return true;
     }
 
@@ -29,6 +29,11 @@ public class Restaurant implements RestaurantInterface{
     @Override
     public DishСategory getDishCategory(int index) {
         return dishCategories.get(index);
+    }
+
+    @Override
+    public ArrayList<DishСategory> getAllDishCategories() {
+        return dishCategories;
     }
 
     /**
@@ -172,7 +177,7 @@ public class Restaurant implements RestaurantInterface{
      * @return true, if <b>login</b> and <b>password</b> were inputted correct, else return false.
      */
     public static boolean isInputtedDataCorrect(String login, String password){
-        if (login != null && password != null && login.length() > 5 && password.length() > 5) return true;
+        if (login.length() > 4 && password.length() > 4) return true;
         return false;
     }
 
@@ -194,4 +199,39 @@ public class Restaurant implements RestaurantInterface{
         }
         return lastId + 1;
     }*/
+
+    public int generateUniqueIdForDishCategory(){
+        int id = 0;
+        boolean free = false;
+        if(dishCategories.size() > 0){
+            while (!free){
+                for (DishСategory dishСategory: dishCategories) {
+                    if (dishСategory.getId() == id){
+                        id++;
+                        continue;
+                    }
+                    free = true;
+                }
+            }
+        } else return 0;
+        return id;
+    }
+
+    public int generateUniqueIdForDish(){
+        int id = 0;
+        boolean free = false;
+        if(dishCategories.size() > 0){
+            while (!free){
+                for (Dish dish: menu) {
+                    if (dish.getId() == id){
+                        id++;
+                        continue;
+                    }
+                    free = true;
+                }
+            }
+        } else return 0;
+        return id;
+    }
+
 }
