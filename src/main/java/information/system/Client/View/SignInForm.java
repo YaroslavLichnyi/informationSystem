@@ -1,13 +1,15 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
+import information.system.Server.Model.XmlSet;
+import information.system.Server.Model.XmlStream;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class SignInForm extends InformSystemGUI {
     public SignInForm(Client client) {
@@ -126,7 +128,10 @@ public class SignInForm extends InformSystemGUI {
         btBut1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SignUpForm(client);
+                XmlStream xmlStream = new XmlStream();
+                xmlStream.output(XmlSet.getDocumentFromFile("file.xml"), client.getClientSocket());
+
+                //new SignUpForm(client);
             }
         });
 

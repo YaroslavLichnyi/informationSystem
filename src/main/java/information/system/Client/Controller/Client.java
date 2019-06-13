@@ -3,13 +3,12 @@ import information.system.Client.View.SignInForm;
 import information.system.Server.Controller.Protocol;
 import information.system.Server.Controller.Server;
 import information.system.Server.Model.*;
-import information.system.Server.Model.DishСategory;
+import information.system.Server.Model.DishCategory;
 import org.apache.log4j.Logger;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author Yaroslav Lichnyi
@@ -18,7 +17,7 @@ import java.util.Scanner;
 public class Client implements ClientController {
     private static final Logger LOGGER = Logger.getLogger(Client.class);
     private ArrayList<Dish> menu = new ArrayList<>();
-    private ArrayList<DishСategory> dishCategories = new ArrayList<>();
+    private ArrayList<DishCategory> dishCategories = new ArrayList<>();
     static private Server server;
     private Socket serverSocket;
     private String name;
@@ -46,9 +45,9 @@ public class Client implements ClientController {
             menu.add(dish5);
             menu.add(dish4);
             menu.add(dish6);
-            DishСategory dishСategory1 = new DishСategory();
-            DishСategory dishСategory2 = new DishСategory();
-            DishСategory dishСategory3 = new DishСategory();
+            DishCategory dishСategory1 = new DishCategory();
+            DishCategory dishСategory2 = new DishCategory();
+            DishCategory dishСategory3 = new DishCategory();
             dishСategory1.setName("alco");
             dishСategory2.setName("salads");
             dishСategory3.setName("ice cream");
@@ -68,10 +67,9 @@ public class Client implements ClientController {
             writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            XmlStream xmlStream = new XmlStream();
-            xmlStream.transformXmlToString(XmlSet.getDocumentFromFile("restaurant.xml"), clientSocket);
 
             new SignInForm(this);
+
         } catch (IOException e){
             LOGGER.error(e);
         }
@@ -121,7 +119,7 @@ public class Client implements ClientController {
      * @return true if the addition was successful, else return false.
      */
     @Override
-    public boolean add(DishСategory dishСategory) {
+    public boolean add(DishCategory dishСategory) {
         return false;
     }
 
@@ -195,7 +193,6 @@ public class Client implements ClientController {
         sendRequest(Protocol.SIGN_IN);
         sendRequest(login);
         sendRequest(password);
-        //РІРјРµСЃС‚РёС‚СЊ РІ РѕРґРЅРѕ РїРѕСЃР»Р°РЅРёРµ
         return false;
     }
 
@@ -245,7 +242,7 @@ public class Client implements ClientController {
                 }
         }
     */
-    //РїРµСЂРµРґР°С‘Рј РїР°СЂР°РјРµС‚СЂ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ Р±СѓРґРµРј СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ
+
     public List <Dish> getDishesSortedBy(String sortBy){
         return null;
     }
@@ -295,7 +292,7 @@ public class Client implements ClientController {
         return menu;
     }
 
-    public ArrayList<DishСategory> getDishCategories() {
+    public ArrayList<DishCategory> getDishCategories() {
         return dishCategories;
     }
 }

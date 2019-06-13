@@ -3,7 +3,7 @@ package information.system.Server.Model;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class DishСategory implements Serializable {
+public class DishCategory implements Serializable {
     private String name;
     private LinkedList <Dish> dishes;
     private boolean healthyFood;
@@ -13,13 +13,13 @@ public class DishСategory implements Serializable {
      *
      * @param name
      */
-    public DishСategory(String name, int id) {
+    public DishCategory(String name, int id) {
         dishes = new LinkedList<>();
         this.name = name;
         this.id = id;
     }
 
-    public DishСategory() {
+    public DishCategory() {
         dishes = new LinkedList<>();
     }
 
@@ -74,7 +74,7 @@ public class DishСategory implements Serializable {
 
     /**
      *
-     * @param index is a number of the dish which is got from {@link DishСategory #dishes}.
+     * @param index is a number of the dish which is got from {@link DishCategory #dishes}.
      * @return
      */
     public Dish getDish(int index){
@@ -83,7 +83,7 @@ public class DishСategory implements Serializable {
 
     /**
      *
-     * @param dish is removed from {@link DishСategory #dishes}.
+     * @param dish is removed from {@link DishCategory #dishes}.
      */
     public void removeDish(Dish dish){
         dishes.remove(dish);
@@ -91,7 +91,7 @@ public class DishСategory implements Serializable {
 
     /**
      *
-     * @return value of variable {@link DishСategory #healthyFood}.
+     * @return value of variable {@link DishCategory #healthyFood}.
      */
     public boolean isHealthyFood() {
         return healthyFood;
@@ -99,7 +99,7 @@ public class DishСategory implements Serializable {
 
     /**
      *
-     * @param healthyFood is set as value for {@link DishСategory #healthyFood}.
+     * @param healthyFood is set as value for {@link DishCategory #healthyFood}.
      */
     public void setHealthyFood(boolean healthyFood) {
         this.healthyFood = healthyFood;

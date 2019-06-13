@@ -11,12 +11,12 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean addDishCategory(String name) {
-        for (DishСategory dishCategory: dishCategories) {
+        for (DishCategory dishCategory: dishCategories) {
             if (dishCategory.getName().equals(name)){
                 return false;
             }
         }
-        dishCategories.add(new DishСategory(name, generateUniqueIdForDishCategory()));
+        dishCategories.add(new DishCategory(name, generateUniqueIdForDishCategory()));
         return true;
     }
 
@@ -27,12 +27,12 @@ public class Restaurant implements RestaurantInterface{
      * @return DishCategory from {@link RestaurantInterface#dishCategories}.
      */
     @Override
-    public DishСategory getDishCategory(int index) {
+    public DishCategory getDishCategory(int index) {
         return dishCategories.get(index);
     }
 
     @Override
-    public ArrayList<DishСategory> getAllDishCategories() {
+    public ArrayList<DishCategory> getAllDishCategories() {
         return dishCategories;
     }
 
@@ -43,7 +43,7 @@ public class Restaurant implements RestaurantInterface{
      * @return true if an object was removed, else return false.
      */
     @Override
-    public boolean removeDishCategory(DishСategory dishCategory) {
+    public boolean removeDishCategory(DishCategory dishCategory) {
         return dishCategories.remove(dishCategory);
     }
 
@@ -109,7 +109,7 @@ public class Restaurant implements RestaurantInterface{
     @Override
     public List<Dish> sortDishesByDishCategory() {
         ArrayList<Dish> result = new ArrayList<>();
-        for (DishСategory dishCategory: dishCategories) {
+        for (DishCategory dishCategory: dishCategories) {
             for (Dish dish: getDishesWithDishCategory(dishCategory)) {
                 result.add(dish);
             }
@@ -145,8 +145,8 @@ public class Restaurant implements RestaurantInterface{
      * @return a collection of dished which satisfy a condition.
      */
     @Override
-    public List<Dish> getDishesWithDishCategory(DishСategory dishCategory) {
-        for (DishСategory dishСat : dishCategories) {
+    public List<Dish> getDishesWithDishCategory(DishCategory dishCategory) {
+        for (DishCategory dishСat : dishCategories) {
             if (dishCategory.equals(dishСat)){
                 return dishСat.getDishes();
             }
@@ -205,7 +205,7 @@ public class Restaurant implements RestaurantInterface{
         boolean free = false;
         if(dishCategories.size() > 0){
             while (!free){
-                for (DishСategory dishСategory: dishCategories) {
+                for (DishCategory dishСategory: dishCategories) {
                     if (dishСategory.getId() == id){
                         id++;
                         continue;
