@@ -2,7 +2,7 @@ package information.system.Client.Controller;
 
 import information.system.Server.Model.Admin;
 import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishСategory;
+import information.system.Server.Model.DishCategory;
 import java.util.List;
 
 
@@ -36,7 +36,7 @@ public interface ClientController {
      * Adds new object in the table.
      * @return true if the addition was successful, else return false.
      */
-    boolean add(DishСategory dishСategory );
+    boolean add(DishCategory dishСategory );
 
 
     /**

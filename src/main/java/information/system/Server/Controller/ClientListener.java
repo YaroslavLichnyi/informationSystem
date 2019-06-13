@@ -48,6 +48,15 @@ public class ClientListener extends Thread {
         System.out.println("ClientListener works");
 
         //recieveFile();
+        while (true){
+            XmlStream xmlStream1 = new XmlStream();
+            try {
+                xmlStream1.input(socket.getInputStream());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+        /*
         try {
             while (true) {
                 System.out.println("waiting for request");
@@ -107,7 +116,34 @@ public class ClientListener extends Thread {
         } catch (IOException e) {
             LOGGER.error(e);
         }
+        */
     }
+    /*
+                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                builder = factory.newDocumentBuilder();
+                Document document;
+                document = builder.parse(socket.getInputStream());
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = null;
+                try {
+                    transformer = transformerFactory.newTransformer();
+                } catch (TransformerConfigurationException e) {
+                    e.printStackTrace();
+                }
+
+                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules.dtd");
+                DOMSource domSource = new DOMSource(document);
+                StreamResult streamResult = new StreamResult(new File("result.xml"));
+                try {
+                    transformer.transform(domSource, streamResult);
+                } catch (TransformerException e) {
+                    e.printStackTrace();
+                }
+
+     */
 
     /**
      * Sends message(response) from server to client

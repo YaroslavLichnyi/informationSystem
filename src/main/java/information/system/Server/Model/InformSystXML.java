@@ -28,15 +28,19 @@ public class InformSystXML {
     private static final String ADMIN = "admin";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
+    private static final String ID = "id";
+    private static final String DISH_CATEGORY_ID = "dish-category-id";
+
     private static final String HEALTHY_FOOD = "healthy-food";
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
+
 
     /**
      * Writes data to a file considering the variable values of each of the dishes.
      * @param dishСategories are objects that are written.
      * @param fileName is a file location.
      */
-    static public void writeXML(List<DishСategory> dishСategories, String fileName){
+    static public void writeXML(List<DishCategory> dishСategories, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
         DocumentBuilder documentBuilder = null;
@@ -45,9 +49,13 @@ public class InformSystXML {
             Document document = documentBuilder.newDocument();
             Element rootElement = document.createElement("restaurant");
             document.appendChild(rootElement);
-            for (DishСategory dishСategory : dishСategories) {
+            for (DishCategory dishСategory : dishСategories) {
                 Element dishCategoryEl = document.createElement(DISH_CATEGORY);
                 rootElement.appendChild(dishCategoryEl);
+
+                Attr attrDishCategoryID = document.createAttribute(ID);
+                attrDishCategoryID.setValue(String.valueOf(dishСategory.getId()));
+                dishCategoryEl.setAttributeNode(attrDishCategoryID);
 
                 Attr attrDishCategoryName = document.createAttribute(NAME);
                 attrDishCategoryName.setValue(String.valueOf(dishСategory.getName()));
@@ -60,6 +68,14 @@ public class InformSystXML {
                 for ( Dish dish : dishСategory.getDishes()) {
                     Element dishEl = document.createElement(DISH);
                     dishCategoryEl.appendChild(dishEl);
+
+                    Attr attrDishId = document.createAttribute(ID);
+                    attrDishId.setValue(String.valueOf(dish.getId()));
+                    dishEl.setAttributeNode(attrDishId);
+
+                    Attr attrDishCategoryId = document.createAttribute(DISH_CATEGORY_ID);
+                    attrDishCategoryId.setValue(String.valueOf(dish.getDishCategoryId()));
+                    dishEl.setAttributeNode(attrDishCategoryId);
 
                     Attr attrDishName = document.createAttribute(NAME);
                     attrDishName.setValue(String.valueOf(dish.getName()));
@@ -77,7 +93,9 @@ public class InformSystXML {
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
- //           transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
             transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules.dtd");
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(fileName));
@@ -94,8 +112,8 @@ public class InformSystXML {
      * @param fileName is a file location.
      * @return List of dishes the were read from file.
      */
-    static public  LinkedList<DishСategory> readXML(String fileName) {
-        LinkedList <DishСategory> dishСategories = new LinkedList<>();
+    static public  LinkedList<DishCategory> readXML(String fileName) {
+        LinkedList <DishCategory> dishСategories = new LinkedList<>();
         File inputFile = new File(fileName);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setNamespaceAware(true);
@@ -125,9 +143,12 @@ public class InformSystXML {
                 NodeList dishCategoriesFromXML = doc.getDocumentElement().getChildNodes();
                 for (int i = 0; i < dishCategoriesFromXML.getLength(); i++) {
                     if (dishCategoriesFromXML.item(i).getNodeName().equals(DISH_CATEGORY)) {
-                        DishСategory dishСategory = new DishСategory();
+                        DishCategory dishСategory = new DishCategory();
                         for (int j = 0; j < dishCategoriesFromXML.item(i).getAttributes().getLength(); j++) {
                             switch (dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeName()) {
+                                case ID:
+                                    dishСategory.setId(Integer.valueOf(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                                    break;
                                 case NAME:
                                     dishСategory.setName(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue());
                                     break;
@@ -145,6 +166,12 @@ public class InformSystXML {
                                 Dish newDish = new Dish();
                                 for (int k = 0; k < childrenOfElementsOfDishCategories.item(j).getAttributes().getLength(); k++) {
                                     switch (childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeName()) {
+                                        case ID:
+                                            newDish.setId(Integer.valueOf(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue()));
+                                            break;
+                                        case DISH_CATEGORY_ID:
+                                            newDish.setDishCategoryId(Integer.valueOf(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue()));
+                                            break;
                                         case NAME:
                                             newDish.setName(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue());
                                             break;

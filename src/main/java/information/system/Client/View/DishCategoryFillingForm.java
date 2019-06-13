@@ -1,6 +1,6 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.DishСategory;
+import information.system.Server.Model.DishCategory;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -90,7 +90,7 @@ public class DishCategoryFillingForm extends InformSystemGUI {
                 if(tfText0.getText().length() < 3 ){
                     showMessage("Name is too short");
                 } else {
-                    DishСategory newDishCategory = new DishСategory();
+                    DishCategory newDishCategory = new DishCategory();
                     newDishCategory.setName(tfText0.getText());
                     newDishCategory.setHealthyFood(cbBox0.isSelected());
                     client.add(newDishCategory);

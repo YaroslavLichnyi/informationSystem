@@ -1,7 +1,7 @@
 package information.system.Server.Model;
 
 import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishСategory;
+import information.system.Server.Model.DishCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public interface RestaurantInterface {
     /**
      * Collection of dish categories.
      */
-    ArrayList<DishСategory> dishCategories = new ArrayList<>();
+    ArrayList<DishCategory> dishCategories = new ArrayList<>();
 
     /**
      * Adds new dish category at {@link RestaurantInterface#dishCategories}.
@@ -32,9 +32,9 @@ public interface RestaurantInterface {
      * @param index is a place of a dish in the list, which You get.
      * @return DishCategory from {@link RestaurantInterface#dishCategories}.
      */
-    DishСategory getDishCategory(int index);
+    DishCategory getDishCategory(int index);
 
-    ArrayList<DishСategory> getAllDishCategories();
+    ArrayList<DishCategory> getAllDishCategories();
 
 
     /**
@@ -42,7 +42,7 @@ public interface RestaurantInterface {
      * @param dishCategory is removed from {@link RestaurantInterface#dishCategories}.
      * @return true if an object was removed, else return false.
      */
-    boolean removeDishCategory(DishСategory dishCategory);
+    boolean removeDishCategory(DishCategory dishCategory);
 
     /**
      * Adds new dish at {@link RestaurantInterface#menu}.
@@ -91,7 +91,7 @@ public interface RestaurantInterface {
      * @param dishCategory is a parameter by which the search is performed.
      * @return a collection of dished which satisfy a condition.
      */
-    List<Dish> getDishesWithDishCategory(DishСategory dishCategory);
+    List<Dish> getDishesWithDishCategory(DishCategory dishCategory);
 
 //    static boolean isLoginFree(String login);
 
