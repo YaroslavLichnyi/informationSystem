@@ -27,9 +27,4 @@ public interface ServerControllerInterface {
      */
     boolean changePort(int port);
 
-    /**TODO
-     * public void createAccount();
-     * public void signIn();
-     * public void removeAccount();
-     */
 }
