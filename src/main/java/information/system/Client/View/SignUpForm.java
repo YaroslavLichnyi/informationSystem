@@ -1,7 +1,9 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Admin;
+import information.system.Server.Model.User;
 import information.system.Server.Model.Restaurant;
+import information.system.Server.Model.User;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -133,7 +135,7 @@ public class SignUpForm extends InformSystemGUI {
                 } else if(!Restaurant.isLoginFree(tfLogin.getText())) {
                     showMessage("This login is not free. There is a user with the same login.");
                 } else {
-                    Admin newUser = new Admin();
+                    User newUser = new User();
                     newUser.setName(tfName.getText());
                     newUser.setLogin(tfLogin.getText());
                     newUser.setPassword(tfPassword.getText());

@@ -105,11 +105,13 @@ public class DishCategory implements Serializable {
         this.healthyFood = healthyFood;
     }
 
+    @Override
     public String toString() {
-        return "DishСategory{" +
+        return "DishCategory{" +
                 "name='" + name + '\'' +
-                ", dishes=" + dishes.toString() +
+                ", dishes=" + dishes +
                 ", healthyFood=" + healthyFood +
+                ", id=" + id +
                 '}';
     }
 }

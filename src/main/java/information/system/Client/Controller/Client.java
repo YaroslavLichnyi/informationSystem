@@ -248,7 +248,7 @@ public class Client implements ClientController {
     }
 
     @Override
-    public boolean signUp(Admin admin) {
+    public boolean signUp(User user) {
         return false;
     }
 
@@ -276,7 +276,6 @@ public class Client implements ClientController {
                             case "someResponce":
                                 System.out.println("STOP");
                                 break;
-
                             default:
                                 System.out.println("no match");
                         }

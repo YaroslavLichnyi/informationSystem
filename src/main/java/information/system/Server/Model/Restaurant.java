@@ -156,13 +156,13 @@ public class Restaurant implements RestaurantInterface{
 
     /**
      * Signin in application.
-     * @param login is admin's {@link Admin#login}.
-     * @param password is admin's {@link Admin#password}.
+     * @param login is admin's {@link User#login}.
+     * @param password is admin's {@link User#password}.
      * @return Admin object, if there is the admin with the same name
      *        or return null, if there is no admin with the same name
      */
-    public static Admin singIn(String login, String password){
-        for (Admin admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+    public static User singIn(String login, String password){
+        for (User admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
             if (admin.getLogin().equals(login) && admin.getPassword().equals(password)){
                 return admin;
             }
@@ -171,9 +171,9 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
-     * Check if {@link Admin#login} and {@link Admin#password} were inputted correct.
-     * @param login is admin's {@link Admin#login}.
-     * @param password is admin's {@link Admin#password}.
+     * Check if {@link User#login} and {@link User#password} were inputted correct.
+     * @param login is admin's {@link User#login}.
+     * @param password is admin's {@link User#password}.
      * @return true, if <b>login</b> and <b>password</b> were inputted correct, else return false.
      */
     public static boolean isInputtedDataCorrect(String login, String password){
