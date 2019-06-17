@@ -1,17 +1,17 @@
 package information.system.Server.Model;
 
-public class Admin {
+public class User {
     String name;
     String login;
     String password;
 
-    public Admin(String name, String login, String password) {
+    public User(String name, String login, String password) {
         this.name = name;
         this.login = login;
         this.password = password;
     }
 
-    public Admin() {
+    public User() {
     }
 
     public String getName() {
@@ -38,4 +38,12 @@ public class Admin {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

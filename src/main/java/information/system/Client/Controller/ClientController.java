@@ -1,6 +1,6 @@
 package information.system.Client.Controller;
 
-import information.system.Server.Model.Admin;
+import information.system.Server.Model.User;
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishCategory;
 import java.util.List;
@@ -83,10 +83,10 @@ public interface ClientController {
 
     /**
      * Adds a new user to the database of existing ones.
-     * @param admin is added as a new Admin
-     * @return true if an <code>admin</code> was added
+     * @param user is added as a new Admin
+     * @return true if an <code>user</code> was added
      */
-    boolean signUp(Admin admin);
+    boolean signUp(User user);
 
     /**
      * Finds dishes whisn contain <code>subStr</code> in the name.

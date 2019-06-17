@@ -63,9 +63,11 @@ public class XmlStream {
                     xmlSet.setIdUser(Long.parseLong(result));
                 } */
             } catch (SAXException | IOException e){
+                System.out.println(e);
                 LOGGER.error(e);
             }
         } catch (ParserConfigurationException e){
+            System.out.println(e);
             LOGGER.error(e);
         }
     }

@@ -25,12 +25,11 @@ public class InformSystXML {
     private static final String PRICE = "price";
     private static final String DISH = "dish";
     private static final String DESCRIPTION = "description";
-    private static final String ADMIN = "admin";
+    private static final String USER = "user";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String ID = "id";
     private static final String DISH_CATEGORY_ID = "dish-category-id";
-
     private static final String HEALTHY_FOOD = "healthy-food";
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
 
@@ -106,128 +105,93 @@ public class InformSystXML {
 
     }
 
-
     /**
      * Writes data to a file considering the variable values of each of the dishes.
      * @param fileName is a file location.
      * @return List of dishes the were read from file.
      */
-    static public  LinkedList<DishCategory> readXML(String fileName) {
-        LinkedList <DishCategory> dishСategories = new LinkedList<>();
-        File inputFile = new File(fileName);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        dbFactory.setNamespaceAware(true);
-        dbFactory.setValidating(true);
-        try {
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            dBuilder.setErrorHandler(new ErrorHandler() {
-                @Override
-                public void error(SAXParseException exception) throws SAXException {
-                    LOGGER.error(exception);
-                    return;
+    static public LinkedList<DishCategory> getMenu(String fileName){
+        Document doc = XmlSet.getDocumentFromFile(fileName);
+        NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
+        LinkedList<DishCategory> dishCategories = new LinkedList();
+        for (int i = 0; i < nodes.getLength() ; i++) {
+            if (DISH_CATEGORY.equals(nodes.item(i).getNodeName())) {
+                DishCategory newDishCategory = new DishCategory();
+                for (int k = 0; k < nodes.item(i).getAttributes().getLength(); k++) {
+                    switch (nodes.item(i).getAttributes().item(k).getNodeName()) {
+                        case ID:
+                            newDishCategory.setId(Integer.valueOf(nodes.item(i).getAttributes().item(k).getNodeValue()));
+                            break;
+                        case NAME:
+                            newDishCategory.setName(nodes.item(i).getAttributes().item(k).getNodeValue());
+                            break;
+                        case HEALTHY_FOOD:
+                            newDishCategory.setHealthyFood(Boolean.parseBoolean(nodes.item(i).getAttributes().item(k).getNodeValue()));
+                            break;
+                        default:
+                            LOGGER.error("Unknown attribute was detected during parsing XML");
+                    }
                 }
-                @Override
-                public void fatalError(SAXParseException exception) throws SAXException {
-                    LOGGER.error(exception);
-                    return;
-                }
-                @Override
-                public void warning(SAXParseException exception) throws SAXException {
-                    LOGGER.error(exception);
-                    return;
-                }
-            });
-            try {
-                Document doc = dBuilder.parse(inputFile);
-                doc.getDocumentElement().normalize();
-                NodeList dishCategoriesFromXML = doc.getDocumentElement().getChildNodes();
-                for (int i = 0; i < dishCategoriesFromXML.getLength(); i++) {
-                    if (dishCategoriesFromXML.item(i).getNodeName().equals(DISH_CATEGORY)) {
-                        DishCategory dishСategory = new DishCategory();
-                        for (int j = 0; j < dishCategoriesFromXML.item(i).getAttributes().getLength(); j++) {
-                            switch (dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeName()) {
+                NodeList dishes = nodes.item(i).getChildNodes();
+                for (int j = 0; j < dishes.getLength(); j++) {
+                    if (dishes.item(j).getNodeName().equals(DISH)) {
+                        Dish newDish = new Dish();
+                        for (int k = 0; k < dishes.item(j).getAttributes().getLength(); k++) {
+                            switch (dishes.item(j).getAttributes().item(k).getNodeName()) {
                                 case ID:
-                                    dishСategory.setId(Integer.valueOf(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                                    newDish.setId(Integer.valueOf(dishes.item(j).getAttributes().item(k).getNodeValue()));
+                                    break;
+                                case DISH_CATEGORY_ID:
+                                    newDish.setDishCategoryId(Integer.valueOf(dishes.item(j).getAttributes().item(k).getNodeValue()));
                                     break;
                                 case NAME:
-                                    dishСategory.setName(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                    newDish.setName(dishes.item(j).getAttributes().item(k).getNodeValue());
                                     break;
-                                case HEALTHY_FOOD:
-                                    dishСategory.setHealthyFood(Boolean.parseBoolean(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                                case PRICE:
+                                    newDish.setPrice(Double.parseDouble(dishes.item(j).getAttributes().item(k).getNodeValue()));
                                     break;
                                 default:
                                     LOGGER.error("Unknown attribute was detected during parsing XML");
                             }
                         }
-                        NodeList childrenOfElementsOfDishCategories = dishCategoriesFromXML.item(i).getChildNodes();
-                        List<String> dishes = new LinkedList<>();
-                        for (int j = 0; j < childrenOfElementsOfDishCategories.getLength(); j++) {
-                            if (childrenOfElementsOfDishCategories.item(i).getNodeName().equals(DISH)) {
-                                Dish newDish = new Dish();
-                                for (int k = 0; k < childrenOfElementsOfDishCategories.item(j).getAttributes().getLength(); k++) {
-                                    switch (childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeName()) {
-                                        case ID:
-                                            newDish.setId(Integer.valueOf(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue()));
-                                            break;
-                                        case DISH_CATEGORY_ID:
-                                            newDish.setDishCategoryId(Integer.valueOf(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue()));
-                                            break;
-                                        case NAME:
-                                            newDish.setName(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue());
-                                            break;
-                                        case PRICE:
-                                            newDish.setPrice(Double.parseDouble(childrenOfElementsOfDishCategories.item(j).getAttributes().item(k).getNodeValue()));
-                                            break;
-                                        default:
-                                            LOGGER.error("Unknown attribute was detected during parsing XML");
-                                    }
-                                }
-                                NodeList childrenOfDishNode = childrenOfElementsOfDishCategories.item(j).getChildNodes();
-                                // for (int n = 0; n < childrenOfDishNode.getLength(); n++) {
-                                if (DESCRIPTION.equals(childrenOfDishNode.item(0).getNodeName())) {
-                                    newDish.setDescription(childrenOfDishNode.item(0).getTextContent());
-                                } else {
-                                    LOGGER.error("Problem with reading XML-file");
-                                }
-                                // }
-                                dishСategory.addDish(newDish);
+                        NodeList childrenOfDishNode = dishes.item(j).getChildNodes();
+                        for (int k = 0; k < childrenOfDishNode.getLength(); k++) {
+                            if (DESCRIPTION.equals(childrenOfDishNode.item(k).getNodeName())) {
+                                newDish.setDescription(childrenOfDishNode.item(k).getTextContent());
                             }
                         }
-                        dishСategories.add(dishСategory);
+                        newDishCategory.addDish(newDish);
                     }
                 }
-            } catch (SAXException | IOException e) {
-                LOGGER.error(e);
+                dishCategories.add(newDishCategory);
             }
-        } catch (ParserConfigurationException e) {
-            LOGGER.error(e);
         }
-        return dishСategories;
+        return dishCategories;
     }
 
-    static public void writeAdmins(List<Admin> admins, String fileName){
+    static public void writeAdmins(List<User> users, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
         DocumentBuilder documentBuilder = null;
         try {
             documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.newDocument();
-            Element rootElement = document.createElement("admins");
+            Element rootElement = document.createElement("users");
             document.appendChild(rootElement);
-            for (Admin admin : admins) {
-                Element dishEL = document.createElement(ADMIN);
+            for (User user : users) {
+                Element dishEL = document.createElement(USER);
                 rootElement.appendChild(dishEL);
 
                 Attr attr1 = document.createAttribute(NAME);
-                attr1.setValue(String.valueOf(admin.getName()));
+                attr1.setValue(String.valueOf(user.getName()));
                 dishEL.setAttributeNode(attr1);
 
                 Attr attr2 = document.createAttribute(LOGIN);
-                attr2.setValue(String.valueOf(admin.getLogin()));
+                attr2.setValue(String.valueOf(user.getLogin()));
                 dishEL.setAttributeNode(attr2);
 
                 Attr attr3 = document.createAttribute(PASSWORD);
-                attr3.setValue(String.valueOf(admin.getPassword()));
+                attr3.setValue(String.valueOf(user.getPassword()));
                 dishEL.setAttributeNode(attr3);
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -236,18 +200,13 @@ public class InformSystXML {
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(fileName));
             transformer.transform(domSource, streamResult);
-        } catch (ParserConfigurationException e) {
-            LOGGER.error(e);
-        } catch (TransformerConfigurationException e) {
-            LOGGER.error(e);
-        } catch (TransformerException e) {
+        } catch (ParserConfigurationException | TransformerException e) {
             LOGGER.error(e);
         }
-
     }
 
-    static public  LinkedList<Admin> readAdmins(String fileName){
-        LinkedList<Admin> admins = new LinkedList<>();
+    static public  LinkedList<User> readAdmins(String fileName){
+        LinkedList<User> admins = new LinkedList<>();
         try {
             File inputFile = new File(fileName);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -275,25 +234,25 @@ public class InformSystXML {
             doc.getDocumentElement().normalize();
             NodeList adminsFromXML = doc.getDocumentElement().getChildNodes();
             for (int i = 0; i < adminsFromXML.getLength(); i++){
-                if (adminsFromXML.item(i).getNodeName().equals(ADMIN)){
-                    Admin newAdmin = new Admin();
+                if (adminsFromXML.item(i).getNodeName().equals(USER)){
+                    User newUser = new User();
                     for (int j = 0; j <adminsFromXML.item(i).getAttributes().getLength() ; j++) {
                         switch(adminsFromXML.item(i).getAttributes().item(j).getNodeName())
                         {
                             case NAME:
-                                newAdmin.setName(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                newUser.setName(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
                                 break;
                             case LOGIN:
-                                newAdmin.setLogin(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                newUser.setLogin(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
                                 break;
                             case PASSWORD:
-                                newAdmin.setPassword(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
+                                newUser.setPassword(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
                                 break;
                             default:
                                 LOGGER.error("Unknown attribute was detected during parsing XML");
                         }
                     }
-                    admins.add(newAdmin);
+                    admins.add(newUser);
                 }
             }
         } catch (Exception e) {

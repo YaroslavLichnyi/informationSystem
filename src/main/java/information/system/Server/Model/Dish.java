@@ -93,6 +93,8 @@ public class Dish implements Serializable {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
+                ", id=" + id +
+                ", dishCategoryId=" + dishCategoryId +
                 '}';
     }
 

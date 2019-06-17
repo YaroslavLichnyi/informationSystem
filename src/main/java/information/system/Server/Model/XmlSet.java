@@ -6,24 +6,17 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
-import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,223 +38,350 @@ public class XmlSet {
     private static final String PRICE = "price";
     private static final String DISH = "dish";
     private static final String DESCRIPTION = "description";
-    private static final String ADMIN = "admin";
+    private static final String USER = "user";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String HEALTHY_FOOD = "healthy-food";
     private static final String ID = "id";
     private static final String DISH_CATEGORY_ID = "dish-category-id";
+    private static final String ROOT_ELEMENT = "message";
+    private static final String COMMAND = "command";
+
 
     private String userId;
     private String command;
+    private Document document;
 
 
     public XmlSet() {
+        cleanOutDocument();
     }
 
     /**
-     * Parses given document and extracts dishes from it.
-     *
-     * @param document is a resource from which dishes come from.
-     * @return dishes from <code>document</code>
+     * Cleans out the document and put the root in it.
      */
-    public static List<Dish> getDishesFrom(Document document){
-        return null;
-    }
-
-    /**
-     * Parses given document and extracts dish categories from it.
-     *
-     * @param document is a resource from which dish categories come from.
-     * @return dishes from <code>document</code>
-     */
-    public static List<DishCategory> getDishCategoriesFrom(Document document){
-        return null;
-    }
-
-
-    /**
-     * Inserts new dishes into existing file.
-     *
-     * @param dishes are added to existing file.
-     */
-    public static void insertDishesIntoXmlFile(List<Dish> dishes, String fileName){
-        Document document = getDocumentFromFile(fileName);
-
-        Element root = document.getDocumentElement();
-        for (Dish dish : dishes) {
-            NodeList dishCategoriesFromXML = document.getDocumentElement().getChildNodes();
-            for (int i = 0; i < dishCategoriesFromXML.getLength(); i++) {
-                if (dishCategoriesFromXML.item(i).getNodeName().equals(DISH_CATEGORY)) {
-                    DishCategory dishСategory = new DishCategory();
-                    for (int j = 0; j < dishCategoriesFromXML.item(i).getAttributes().getLength(); j++) {
-                        if ("id".equals(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeName())
-                                && (String.valueOf(dish.getDishCategoryId())).equals(dishCategoriesFromXML.item(i).getAttributes()
-                                .item(j).getNodeValue())){
-
-                            Element dishEl = document.createElement(DISH);
-                            dishCategoriesFromXML.item(i).appendChild(dishEl);
-
-                            Attr attrDishId = document.createAttribute(ID);
-                            attrDishId.setValue(String.valueOf(dish.getId()));
-                            dishEl.setAttributeNode(attrDishId);
-
-                            Attr attrDishCategoryId = document.createAttribute(DISH_CATEGORY_ID);
-                            attrDishCategoryId.setValue(String.valueOf(dish.getDishCategoryId()));
-                            dishEl.setAttributeNode(attrDishCategoryId);
-
-                            Attr attrDishName = document.createAttribute(NAME);
-                            attrDishName.setValue(String.valueOf(dish.getName()));
-                            dishEl.setAttributeNode(attrDishName);
-
-                            Attr attrDishPrice = document.createAttribute(PRICE);
-                            attrDishPrice.setValue(String.valueOf(dish.getPrice()));
-                            dishEl.setAttributeNode(attrDishPrice);
-
-                            Element description = document.createElement(DESCRIPTION);
-                            description.appendChild(document.createTextNode(dish.getDescription()));
-                            dishEl.appendChild(description);
-
-                            dishCategoriesFromXML.item(i).appendChild(dishEl);
-                        }
-                    }
-                }
-            }
-        }
-        DOMSource source = new DOMSource(document);
+    public  void cleanOutDocument(){
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            StreamResult result = new StreamResult(fileName);
-            transformer.transform(source, result);
-        } catch (TransformerException e) {
-
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            document = documentBuilder.newDocument();
+            Element rootElement = document.createElement(ROOT_ELEMENT);
+            document.appendChild(rootElement);
+        } catch (ParserConfigurationException e) {
+            LOGGER.error("Exception while document creating", e);
         }
     }
 
     /**
-     * Inserts new dishCategories into existing file.
+     * Converts objects of type User into xml format and puts them into a {@link XmlSet#document}.
      *
-     * @param dishCategory is added to existing file.
+     * @param users are added into {@link XmlSet#document} as an element in xml-file.
      */
-    public static void insertDishCategoriesIntoXmlFile( DishCategory dishCategory, String fileName){
-        Document document = getDocumentFromFile(fileName);
-        Element rootElement = document.getDocumentElement();
+    public void setUsersToDocument(List<User> users) {
+     Element root = document.getDocumentElement();
+     Element rootAdmins = document.createElement("users");
+     root.appendChild(rootAdmins);
+     for (User user : users) {
+         Element dishEL = document.createElement(USER);
+         rootAdmins.appendChild(dishEL);
 
-        Element dishCategoryEl = document.createElement(DISH_CATEGORY);
-        rootElement.appendChild(dishCategoryEl);
+         Attr attrLogin = document.createAttribute(LOGIN);
+         attrLogin.setValue(user.getLogin());
+         dishEL.setAttributeNode(attrLogin);
 
-        Attr attrDishCategoryID = document.createAttribute(ID);
-        attrDishCategoryID.setValue(String.valueOf(dishCategory.getId()));
-        dishCategoryEl.setAttributeNode(attrDishCategoryID);
+         Attr attrPassword = document.createAttribute(PASSWORD);
+         attrPassword.setValue(user.getPassword());
+         dishEL.setAttributeNode(attrPassword);
 
-        Attr attrDishCategoryName = document.createAttribute(NAME);
-        attrDishCategoryName.setValue(String.valueOf(dishCategory.getName()));
-        dishCategoryEl.setAttributeNode(attrDishCategoryName);
-
-        Attr attrDishCategoryHealthyFood = document.createAttribute(HEALTHY_FOOD);
-        attrDishCategoryHealthyFood.setValue(String.valueOf(dishCategory.isHealthyFood()));
-        dishCategoryEl.setAttributeNode(attrDishCategoryHealthyFood);
-        DOMSource source = new DOMSource(document);
-        try {
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            StreamResult result = new StreamResult(fileName);
-            transformer.transform(source, result);
-        } catch (TransformerException e) {
-
-        }
+         Attr attrName = document.createAttribute(NAME);
+         attrName.setValue(user.getName());
+         dishEL.setAttributeNode(attrName);
+     }
     }
 
     /**
-     * Deletes given dishes from XML-file information about the dishes is stored.
+     * Gets users from giving document.
      *
-     * @param dishId is an if of the dish which is deleted from XML-file.
+     * @param doc is a resource where users are getted from.
+     * @return list of users
      */
-    public static void deleteDishesFromXmlFile(int dishId, String fileName){
-        Document document = getDocumentFromFile(fileName);
-        NodeList nodes = document.getElementsByTagName(DISH);
-
-
-        document.getDocumentElement().normalize();
-        NodeList dishCategoriesFromXML = document.getDocumentElement().getChildNodes();
-        for (int i = 0; i < dishCategoriesFromXML.getLength(); i++) {
-            if (dishCategoriesFromXML.item(i).getNodeName().equals(DISH_CATEGORY)) {
-                NodeList dishElements = dishCategoriesFromXML.item(i).getChildNodes();
-//                for (int j = 0; j < dishElements.getLength(); j++) {
-                for (int j = 0; j < 5; j++) {
-
-                    if (dishElements.item(i).getNodeName().equals(DISH)) {
-                        System.out.println(dishElements.item(j).getNodeName());
-                        for (int k = 0; k < dishElements.item(j).getAttributes().getLength(); k++) {
-                            if("id".equals(dishElements.item(j).getAttributes().item(k).getNodeName())
-                            && Integer.valueOf(dishElements.item(j).getAttributes().item(k).getNodeValue()) == dishId)
-                                System.out.println(Integer.valueOf(dishElements.item(j).getAttributes().item(k).getNodeValue()));
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-
-
-/*
-
+    public static List<User> getUserFromDocument (Document doc) {
+        List<User> users = new LinkedList<>();
+        doc.getDocumentElement().normalize();
+        NodeList nodes = doc.getElementsByTagName("user");
         for (int i = 0; i < nodes.getLength(); i++) {
-            Element dishEl = (Element)nodes.item(i);
-            //Element id = (Element)dishEl.getElementsByTagName("name").item(0);
-            System.out.println(dishEl.getAttribute("id"));
-            if (dishId == Integer.valueOf(dishEl.getAttribute("id"))){
-                dishEl.getParentNode().removeChild(dishEl);
-            }
-            /*
-            for (int j = 0; j < dishEl.getAttributes().getLength(); j++) {
-                switch (dishEl.getAttributes().item(j).getNodeName()) {
-
-                    case ID:
-
-                        break;
+            User user = new User();
+            for (int j = 0; j <  nodes.item(i).getAttributes().getLength(); j++) {
+                switch (nodes.item(i).getAttributes().item(j).getNodeName()) {
                     case NAME:
-                        dishСategory.setName(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue());
+                        user.setName(nodes.item(i).getAttributes().item(j).getNodeValue());
                         break;
-                    case HEALTHY_FOOD:
-                        dishСategory.setHealthyFood(Boolean.parseBoolean(dishCategoriesFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                    case LOGIN:
+                        user.setLogin(nodes.item(i).getAttributes().item(j).getNodeValue());
+                        break;
+                    case PASSWORD:
+                        user.setPassword(nodes.item(i).getAttributes().item(j).getNodeValue());
                         break;
                     default:
                         LOGGER.error("Unknown attribute was detected during parsing XML");
                 }
             }
-            */ /*
+            users.add(user);
         }
-        Transformer transformer = null;
-        try {
-            transformer = TransformerFactory.newInstance().newTransformer();
-            //    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-            StreamResult result = new StreamResult(new StringWriter());
-            DOMSource source = new DOMSource(getDocumentFromFile(fileName));
-            transformer.transform(source, result);
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
-        */
-
-
+        return users;
     }
+
+    /**
+     * Sets command into a {@link XmlSet#document}.
+     *
+     * @param command is added into {@link XmlSet#document} as an element in xml-file.
+     */
+    public void setCommandToDocument(String command) {
+        deleteCommandFromDocument(document);
+        Element root = document.getDocumentElement();
+        Element commandEl = document.createElement(COMMAND);
+        commandEl.setTextContent(command);
+        root.appendChild(commandEl);
+    }
+
+    /**
+     * Gets command from a {@link XmlSet#document}.
+     *
+     * @param doc is a resource where command is got from.
+     * @return command from a {@link XmlSet#document}.
+     */
+    public static String getCommandFromDocument(Document doc) {
+        NodeList nodes = doc.getElementsByTagName(COMMAND);
+        if (nodes.getLength() > 1){
+            LOGGER.error("XML-file cannot contain more than 1 command");
+        }
+        return nodes.item(0).getTextContent();
+    }
+
+    /**
+     * Deletes command from {@link XmlSet#document}.
+     *
+     * @param doc s a resource where command is deleted from.
+     */
+    public void deleteCommandFromDocument(Document doc) {
+        NodeList nodes = doc.getElementsByTagName(COMMAND);
+        for (int i = 0; i < nodes.getLength(); i++) {
+            nodes.item(i).getParentNode().removeChild( nodes.item(i));
+        }
+    }
+
+    /**
+     * Parses given document and extracts dishes from it.
+     *
+     * @param doc is a resource from which dishes come from.
+     * @return dishes from {@link XmlSet#document}.
+     */
+    public static List<Dish> getDishesFrom(Document doc){
+        NodeList nodes = doc.getElementsByTagName(DISH);
+        List<Dish> dishes = new LinkedList<>();
+        for (int j = 0; j < nodes.getLength(); j++) {
+            if (nodes.item(j).getNodeName().equals(DISH)) {
+                Dish newDish = new Dish();
+                for (int k = 0; k < nodes.item(j).getAttributes().getLength(); k++) {
+                    switch (nodes.item(j).getAttributes().item(k).getNodeName()) {
+                        case ID:
+                            newDish.setId(Integer.valueOf(nodes.item(j).getAttributes().item(k).getNodeValue()));
+                            break;
+                        case DISH_CATEGORY_ID:
+                            newDish.setDishCategoryId(Integer.valueOf(nodes.item(j).getAttributes().item(k).getNodeValue()));
+                            break;
+                        case NAME:
+                            newDish.setName(nodes.item(j).getAttributes().item(k).getNodeValue());
+                            break;
+                        case PRICE:
+                            newDish.setPrice(Double.parseDouble(nodes.item(j).getAttributes().item(k).getNodeValue()));
+                            break;
+                        default:
+                            LOGGER.error("Unknown attribute was detected during parsing XML");
+                    }
+                }
+                NodeList childrenOfDishNode = nodes.item(j).getChildNodes();
+                // for (int n = 0; n < childrenOfDishNode.getLength(); n++) {
+                if (DESCRIPTION.equals(childrenOfDishNode.item(0).getNodeName())) {
+                    newDish.setDescription(childrenOfDishNode.item(0).getTextContent());
+                } else {
+                    LOGGER.error("Problem with reading XML-file");
+                }
+                dishes.add(newDish);
+            }
+        }
+        return dishes;
+    }
+
 
 
     /**
-     * Deletes given dishes from XML-file information about the dish categories is stored.
+     * Converts objects of type Dish into xml format and puts them into a {@link XmlSet#document}.
      *
-     * @param dishCategories are deleted from XML-file.
+     * @param dishes are added into {@link XmlSet#document}.
      */
-    public static void deleteDishCategoriesFromXmlFile(List<DishCategory> dishCategories){
+    public  void setDishesToDocument(List<Dish> dishes){
+        Element root = document.getDocumentElement();
+        Element rootDishes = document.createElement("dishes");
+        root.appendChild(rootDishes);
+        for (Dish dish : dishes) {
+            Element dishEl = document.createElement(DISH);
+            rootDishes.appendChild(dishEl);
+
+            Attr attrDishId = document.createAttribute(ID);
+            attrDishId.setValue(String.valueOf(dish.getId()));
+            dishEl.setAttributeNode(attrDishId);
+
+            Attr attrDishCategoryId = document.createAttribute(DISH_CATEGORY_ID);
+            attrDishCategoryId.setValue(String.valueOf(dish.getDishCategoryId()));
+            dishEl.setAttributeNode(attrDishCategoryId);
+
+            Attr attrDishName = document.createAttribute(NAME);
+            attrDishName.setValue(String.valueOf(dish.getName()));
+            dishEl.setAttributeNode(attrDishName);
+
+            Attr attrDishPrice = document.createAttribute(PRICE);
+            attrDishPrice.setValue(String.valueOf(dish.getPrice()));
+            dishEl.setAttributeNode(attrDishPrice);
+
+            Element description = document.createElement(DESCRIPTION);
+            description.appendChild(document.createTextNode(dish.getDescription()));
+            dishEl.appendChild(description);
+        }
     }
+
+    /**
+     * Converts objects of type DishCategory into xml format and puts them into a {@link XmlSet#document}.
+     *
+     * @param dishCategories are added into {@link XmlSet#document}.
+     */
+    public void setDishCategoriesToDocument(List <DishCategory> dishCategories){
+        Element root = document.getDocumentElement();
+        Element rootDishes = document.createElement("dish-categories");
+        root.appendChild(rootDishes);
+        for (DishCategory dishCategory : dishCategories) {
+            Element dishCategoryEl = document.createElement(DISH_CATEGORY);
+            rootDishes.appendChild(dishCategoryEl);
+
+            Attr attrDishCategoryID = document.createAttribute(ID);
+            attrDishCategoryID.setValue(String.valueOf(dishCategory.getId()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryID);
+
+            Attr attrDishCategoryName = document.createAttribute(NAME);
+            attrDishCategoryName.setValue(String.valueOf(dishCategory.getName()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryName);
+
+            Attr attrDishCategoryHealthyFood = document.createAttribute(HEALTHY_FOOD);
+            attrDishCategoryHealthyFood.setValue(String.valueOf(dishCategory.isHealthyFood()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryHealthyFood);
+        }
+    }
+
+    /**
+     * Parses given document and extracts dish categories from it.
+     *
+     * @param doc is a resource from which dish categories come from.
+     * @return dishes from {@link XmlSet#document}.
+     */
+    public static List<DishCategory> getDishCategoriesFrom(Document doc){
+        NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
+        List<DishCategory> dishCategories = new LinkedList<>();
+        for (int j = 0; j < nodes.getLength(); j++) {
+            if (nodes.item(j).getNodeName().equals(DISH_CATEGORY)) {
+                DishCategory newDishCategory = new DishCategory();
+                for (int k = 0; k < nodes.item(j).getAttributes().getLength(); k++) {
+                    switch (nodes.item(j).getAttributes().item(k).getNodeName()) {
+                        case ID:
+                            newDishCategory.setId(Integer.valueOf(nodes.item(j).getAttributes().item(k).getNodeValue()));
+                            break;
+                        case NAME:
+                            newDishCategory.setName(nodes.item(j).getAttributes().item(k).getNodeValue());
+                            break;
+                        case HEALTHY_FOOD:
+                            newDishCategory.setHealthyFood(Boolean.parseBoolean(nodes.item(j).getAttributes().item(k).getNodeValue()));
+                            break;
+                        default:
+                            LOGGER.error("Unknown attribute was detected during parsing XML");
+                    }
+                }
+                dishCategories.add(newDishCategory);
+            }
+        }
+        return dishCategories;
+    }
+
+    /**
+     *
+     * @param doc
+     */
+    public static void setMenuToDocument(Document doc) {
+
+    }
+
+    /**
+     * Parses given document and extracts dish categories <b>and</b> dishes from it.
+     *
+     * @param doc
+     * @return
+     */
+    public static List<DishCategory> getMenuFromDocument(Document doc) {
+        NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
+        LinkedList<DishCategory> dishCategories = new LinkedList();
+        for (int i = 0; i < nodes.getLength() ; i++) {
+            if (DISH_CATEGORY.equals(nodes.item(i).getNodeName())) {
+                DishCategory newDishCategory = new DishCategory();
+                for (int k = 0; k < nodes.item(i).getAttributes().getLength(); k++) {
+                    switch (nodes.item(i).getAttributes().item(k).getNodeName()) {
+                        case ID:
+                            newDishCategory.setId(Integer.valueOf(nodes.item(i).getAttributes().item(k).getNodeValue()));
+                            break;
+                        case NAME:
+                            newDishCategory.setName(nodes.item(i).getAttributes().item(k).getNodeValue());
+                            break;
+                        case HEALTHY_FOOD:
+                            newDishCategory.setHealthyFood(Boolean.parseBoolean(nodes.item(i).getAttributes().item(k).getNodeValue()));
+                            break;
+                        default:
+                            LOGGER.error("Unknown attribute was detected during parsing XML");
+                    }
+                }
+                NodeList dishes = nodes.item(i).getChildNodes();
+                for (int j = 0; j < dishes.getLength(); j++) {
+                    if (dishes.item(j).getNodeName().equals(DISH)) {
+                        Dish newDish = new Dish();
+                        for (int k = 0; k < dishes.item(j).getAttributes().getLength(); k++) {
+                            switch (dishes.item(j).getAttributes().item(k).getNodeName()) {
+                                case ID:
+                                    newDish.setId(Integer.valueOf(dishes.item(j).getAttributes().item(k).getNodeValue()));
+                                    break;
+                                case DISH_CATEGORY_ID:
+                                    newDish.setDishCategoryId(Integer.valueOf(dishes.item(j).getAttributes().item(k).getNodeValue()));
+                                    break;
+                                case NAME:
+                                    newDish.setName(dishes.item(j).getAttributes().item(k).getNodeValue());
+                                    break;
+                                case PRICE:
+                                    newDish.setPrice(Double.parseDouble(dishes.item(j).getAttributes().item(k).getNodeValue()));
+                                    break;
+                                default:
+                                    LOGGER.error("Unknown attribute was detected during parsing XML");
+                            }
+                        }
+                        NodeList childrenOfDishNode = dishes.item(j).getChildNodes();
+                        for (int k = 0; k < childrenOfDishNode.getLength(); k++) {
+                            if (DESCRIPTION.equals(childrenOfDishNode.item(k).getNodeName())) {
+                                newDish.setDescription(childrenOfDishNode.item(k).getTextContent());
+                            }
+                        }
+                        newDishCategory.addDish(newDish);
+                    }
+                }
+                dishCategories.add(newDishCategory);
+            }
+        }
+        return dishCategories;
+    }
+
 
     /**
      * Gets a document from the given xml-file.
@@ -270,42 +390,6 @@ public class XmlSet {
      * @return document of the file.
      */
     public static Document getDocumentFromFile(String fileName) {
-            //////////////////////////////////////////////////////
-        /*
-            File inputFile = new File(fileName);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            dbFactory.setNamespaceAware(true);
-            dbFactory.setValidating(true);
-            try {
-                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-                dBuilder.setErrorHandler(new ErrorHandler() {
-                    @Override
-                    public void error(SAXParseException exception) throws SAXException {
-                        LOGGER.error(exception);
-                        return;
-                    }
-
-                    @Override
-                    public void fatalError(SAXParseException exception) throws SAXException {
-                        LOGGER.error(exception);
-                        return;
-                    }
-
-                    @Override
-                    public void warning(SAXParseException exception) throws SAXException {
-                        LOGGER.error(exception);
-                        return;
-                    }
-                });
-                */
-                //////////////////////////////////////////////////////////
-        /*
-                return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
-            } catch (IOException | SAXException | ParserConfigurationException e) {
-                LOGGER.error("Getting a document from " + fileName + " was failed.");
-            }
-        return null;
-    */
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
         } catch (SAXException  |IOException | ParserConfigurationException e ) {
@@ -324,25 +408,6 @@ public class XmlSet {
         DOMImplementationLS domImplementation = (DOMImplementationLS) document.getImplementation();
         LSSerializer serializer = domImplementation.createLSSerializer();
         return serializer.writeToString(document);
-        //сделать логгирование
-        /*
-        аналог
-        try {
-        StringWriter sw = new StringWriter();
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer = tf.newTransformer();
-        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
-        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-
-        transformer.transform(new DOMSource(doc), new StreamResult(sw));
-        return sw.toString();
-    } catch (Exception ex) {
-        throw new RuntimeException("Error converting to String", ex);
-    }
-         */
-
     }
 
     /**
@@ -364,4 +429,11 @@ public class XmlSet {
         return document;
     }
 
+    /**
+     * Gets {@link XmlSet#document}.
+     * @return {@link XmlSet#document}.
+     */
+    public Document getDocument() {
+        return document;
+    }
 }
