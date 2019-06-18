@@ -37,12 +37,13 @@ public class ServerGUIApp extends Application {
         loader.setController(serverViewGUI);
         Parent root = loader.getRoot();
         primaryStage.setTitle("Information System Server");
-        primaryStage.setScene(new Scene(root, 390, 390));
+        primaryStage.setScene(new Scene(root, 590, 390));
         primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(serverViewGUI.getCloseEventHandler());
         primaryStage.show();
 
     }
+
     /**
      * Main method.
      * @param args

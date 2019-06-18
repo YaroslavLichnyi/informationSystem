@@ -3,6 +3,7 @@ package information.system.Server.View;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import org.apache.log4j.Logger;
 import information.system.Server.Controller.Server;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.WindowEvent;
-import org.apache.log4j.Logger;
 
 /**
  * Graphic component View for MVC-pattern of Information System - class ServerViewGUI.
@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 public class ServerViewGUI implements ServerViewGeneral {
 
     final static Logger logger = Logger.getLogger(ServerViewGeneral.class);
-    Server server;
+    private Server server;
 
     /**
      * Constructor of class ServerViewGUI.
@@ -58,49 +58,49 @@ public class ServerViewGUI implements ServerViewGeneral {
     @FXML
     private TextArea serverLogTextArea;
 
-    @FXML
     /**
      * Event handler onServerStartButtonPressed.
      */
+    @FXML
     public void onServerStartButtonPressed(ActionEvent event) {
         server.start();
     }
 
-    @FXML
     /**
      * Event handler onServerRestartButtonPressed.
      */
+    @FXML
     public void onServerRestartButtonPressed(ActionEvent event) {
         server.restart();
     }
 
-    @FXML
     /**
      * Event handler onServerStopButtonPressed.
      */
+    @FXML
     public void onServerStopButtonPressed(ActionEvent event) {
-            server.stop();
+        server.stop();
     }
 
-    @FXML
     /**
      * Event handler onServerTerminateButtonPressed.
      */
+    @FXML
     public void onServerTerminateButtonPressed(ActionEvent event) {
-        logger.info("server is terminating.");
-        logging("Server is terminating.");
+        logger.info("server is being terminated.");
+//        logging("Server is terminating.");        // generates an error
         if (server.isRunning()) {
             server.stop();
         }
         logger.info("application is being closed.");
-        logging("Application is being closed.");
+//        logging("Application is being closed.");  // generates an error
         System.exit(0);
     }
 
-    @FXML
     /**
      * Event handler onServerPortApplyButtonPressed.
      */
+    @FXML
     public void onServerPortApplyButtonPressed(ActionEvent event) {
         int newPort = Integer.parseInt(portTextField.getText());
         server.changePort(newPort);
@@ -111,16 +111,16 @@ public class ServerViewGUI implements ServerViewGeneral {
     }
 
     // onCloseWindow ***************************************************************************************************
+    //*
+//*
+//*
     /**                                                                                                              //*
      * Event handler onCloseWindow.                                                                                  //*
      */                                                                                                              //*
-    private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
-        @Override                                                                                                    //*
-        public void handle(WindowEvent event) {                                                                      //*
-            onServerTerminateButtonPressed(new ActionEvent());                                                       //*
-        }                                                                                                            //*
+    private javafx.event.EventHandler<WindowEvent> closeEventHandler = event -> {                                    //*
+        onServerTerminateButtonPressed(new ActionEvent());                                                           //*
     };                                                                                                               //*
-                                                                                                                     //*
+    //*
     /**                                                                                                              //*
      * Getter for event handler.                                                                                     //*
      * @return EventHandler<WindowEvent>.                                                                            //*
@@ -151,10 +151,10 @@ public class ServerViewGUI implements ServerViewGeneral {
                 "fx:id=\"serverLogTextArea\" was not injected: check your FXML file 'ServerViewGUI.fxml'.";
 
 
-        /**
+        /*
          * Event handler for terminateButton press.
          */
-        serverTerminateButton.setOnAction(event -> {
+        serverTerminateButton.setOnAction((ActionEvent event) -> {
             onServerTerminateButtonPressed(new ActionEvent());
         });
 
@@ -166,7 +166,6 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     /**
      * Display server state in serverStateLabel.
-     * @param message
      */
     @Override
     public void display(String message) {
@@ -185,7 +184,6 @@ public class ServerViewGUI implements ServerViewGeneral {
 
     /**
      * Logging server events into serverLogTextArea.
-     * @param message
      */
     @Override
     public void logging(String message) {
@@ -194,4 +192,3 @@ public class ServerViewGUI implements ServerViewGeneral {
     }
 
 }
-
