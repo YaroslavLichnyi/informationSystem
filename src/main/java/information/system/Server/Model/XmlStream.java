@@ -72,20 +72,3 @@ public class XmlStream {
         }
     }
 }
-
-
-
-/*
-    Чтение из InputStream:
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        builder = factory.newDocumentBuilder();
-        XmlSet xmlSet = new XmlSet(-1);
-        Document document;
-        document = builder.parse(in);                                       //it will test in thread!!!
-        document.getDocumentElement().normalize()
-        String result;
-        // parsing id of user
-        if ((result = readChild(document, ID_USER)) != null) {
-        xmlSet.setIdUser(Long.parseLong(result));
-        }
-*/

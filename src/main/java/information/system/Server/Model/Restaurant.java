@@ -192,14 +192,11 @@ public class Restaurant implements RestaurantInterface{
 
     public Restaurant() {
     }
-    /*public int getUbiqueIdForDish(){
-        int lastId = -1;
-        for (Dish dish: menu ) {
-            lastId = dish.getId();
-        }
-        return lastId + 1;
-    }*/
 
+    /**
+     * Generates unique id for dish category.
+     * @return unique id.
+     */
     public int generateUniqueIdForDishCategory(){
         int id = 0;
         boolean free = false;
@@ -217,6 +214,10 @@ public class Restaurant implements RestaurantInterface{
         return id;
     }
 
+    /**
+     * Generates unique id for dish.
+     * @return unique id.
+     */
     public int generateUniqueIdForDish(){
         int id = 0;
         boolean free = false;

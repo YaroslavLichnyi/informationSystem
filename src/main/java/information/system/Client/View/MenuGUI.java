@@ -39,6 +39,7 @@ public class MenuGUI extends InformSystemGUI {
     }
 
     private void initFroAdmin() {
+
         btAdd = new JButton( "Add a dish"  );
         gridBag.gridx = 3;
         gridBag.gridy = 1;
@@ -77,12 +78,13 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
+
     }
 
     @Override
     protected void basicInit(){
-        String []variantsOfSorts = {Command.PRICE, Command.DISH_CAREGORY };
-        cmbSortBy = new JComboBox( variantsOfSorts );
+         String []variantsOfSorting = {Command.PRICE, Command.DISH_CAREGORY };
+        cmbSortBy = new JComboBox( variantsOfSorting );
         gridBag.gridx = 5;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
@@ -140,14 +142,23 @@ public class MenuGUI extends InformSystemGUI {
 
 
         Object[] headers = {"Name", "Price", "Description"};
-        model = new DefaultTableModel(null, headers);
-        dishesTable = new JTable(model){
+
+
+        DefaultTableModel model = new DefaultTableModel(null, headers);
+        JTable jTable = new JTable(model){
             @Override
             public boolean isCellEditable(int arg0, int arg1) {
                 return false;
             }
         };
-        JScrollPane scrollPane = new JScrollPane( dishesTable );
+        jTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(jTable.getSelectedRow());
+            }
+        });
+        //Создаем панель прокрутки и включаем в ее состав нашу таблицу
+        JScrollPane jscrlp = new JScrollPane(jTable);
         gridBag.gridx = 3;
         gridBag.gridy = 4;
         gridBag.gridwidth = 3;
@@ -156,15 +167,11 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBagLayout.setConstraints( scrollPane, gridBag );
-        panel.add( scrollPane );
-        model.setRowCount(3);
-        model.setValueAt("1", 1 , 1);
-        model.setValueAt("2", 1 , 1);
-        model.setValueAt("3", 2 , 1);
-        panel.add(dishesTable);
+        gridBagLayout.setConstraints( jscrlp, gridBag );
+        panel.add( jscrlp );
+      //  panel.add(jTable);;
 
-        dishesTable.addMouseListener(new MouseAdapter() {
+        jTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
@@ -186,7 +193,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints( lbSortBy, gridBag );
         panel.add( lbSortBy );
 
-        btUpdate = new JButton( "Update");
+    /*    btUpdate = new JButton( "Update");
         gridBag.gridx = 5;
         gridBag.gridy = 3;
         gridBag.gridwidth = 1;
@@ -198,7 +205,9 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btUpdate, gridBag );
         panel.add(btUpdate);
-        setValuesAtTable(new ArrayList<Dish>());
+        */
+      //  setValuesAtTable(new ArrayList<Dish>());
+
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 

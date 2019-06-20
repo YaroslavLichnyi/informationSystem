@@ -169,6 +169,11 @@ public class InformSystXML {
         return dishCategories;
     }
 
+    /**
+     * Writes list of users into xml-file.
+     * @param users is written  into document.
+     * @param fileName is a path to resource, where information is stored.
+     */
     static public void writeAdmins(List<User> users, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
@@ -205,6 +210,12 @@ public class InformSystXML {
         }
     }
 
+
+    /**
+     * Read list of users from xml-file.
+     * @param fileName  is a path to resource, where information is stored.
+     * @return list of users, what are stored in xml-file.
+     */
     static public  LinkedList<User> readAdmins(String fileName){
         LinkedList<User> admins = new LinkedList<>();
         try {

@@ -46,10 +46,16 @@ public interface ClientController {
     boolean edit();
 
     /**
-     * Edits existing objects in the table.
+     * Deletes existing dish.
      * @return true if the deleting was successful, else return false.
      */
-    boolean delete();
+    boolean delete(Dish dish);
+
+    /**
+     * Deletes existing dish category.
+     * @return true if the deleting was successful, else return false.
+     */
+    boolean delete(DishCategory dishCategory);
 
     /**
      * Updates content, getting actual information.
@@ -77,9 +83,9 @@ public interface ClientController {
      * Checks if a user with the same password and login exists.
      * @param login is the parameter by which the user is checked.
      * @param password is the parameter by which the user is checked.
-     * @return true, if there is the user exists in user base.
+     * @return user, if there is the user exists in user base, return null, if there is not the user exists in user base
      */
-    boolean signIn(String login, String password);
+    User signIn(String login, String password);
 
     /**
      * Adds a new user to the database of existing ones.
@@ -94,4 +100,11 @@ public interface ClientController {
      * @return dishes which contain <code>subStr</code> in the name.
      */
     List<Dish> getDishesWhichContains(String subStr);
+
+    /**
+     * Sorts dishes by a criteria, which is pointed in parameter.
+     * @param sortBy is a criteria, by which dishes are sorted.
+     * @return list of dishes sorted by pointed criteria.
+     */
+    List <Dish> getDishesSortedBy(String sortBy);
 }
