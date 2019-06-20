@@ -40,7 +40,7 @@ public abstract class InformSystemGUI extends JFrame {
 
     protected abstract void basicInit();
 
-    protected void showMessage(String message){
+    public static void showMessage(String message){
         JFrame frame = new JFrame("Attention!");
         JOptionPane.showMessageDialog(frame, message);
     }

@@ -142,8 +142,6 @@ public class SignUpForm extends InformSystemGUI {
                     client.signUp(newUser);
                     dispose();
 
-
-
                 }
             }
         });

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SignInForm extends InformSystemGUI {
     public SignInForm(Client client) {
-        setBounds(dimension.width / 2 - 135, dimension.height / 2 - 100, 270, 200);
+        setBounds(dimension.width / 2 - 150, dimension.height / 2 - 125, 300, 250);
         setClient(client);
         this.client = client;
         basicInit();
@@ -30,7 +30,7 @@ public class SignInForm extends InformSystemGUI {
         JLabel lbLogin;
         JLabel lbPassword;
         final JTextField tfPassword;
-        JButton btBut0;
+        JButton btSignIn;
         JButton btBut1;
 
         tfLogin = new JTextField( );
@@ -56,7 +56,6 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(0,10,0,0);
         gridBagLayout.setConstraints( lbLogin, gridBag );
         panel.add( lbLogin );
 
@@ -69,7 +68,6 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(0,10,0,0);
         gridBagLayout.setConstraints( lbPassword, gridBag );
         panel.add( lbPassword );
 
@@ -82,12 +80,11 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(0,10,0,10);
         gridBagLayout.setConstraints( tfPassword, gridBag );
         panel.add( tfPassword );
         ((AbstractDocument) tfPassword.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
 
-        btBut0 = new JButton( "Sign in"  );
+        btSignIn = new JButton( "Sign in"  );
         gridBag.gridx = 0;
         gridBag.gridy = 4;
         gridBag.gridwidth = 1;
@@ -96,10 +93,10 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
-    //    gridBag.insets = new Insets(0,10,7,0);
-        gridBagLayout.setConstraints( btBut0, gridBag );
-        panel.add( btBut0 );
-        btBut0.addActionListener(new ActionListener() {
+        gridBag.insets = new Insets(10,10,5,10);
+        gridBagLayout.setConstraints( btSignIn, gridBag );
+        panel.add( btSignIn );
+        btSignIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 /*
@@ -124,9 +121,9 @@ public class SignInForm extends InformSystemGUI {
         gridBag.fill = GridBagConstraints.BOTH;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
+        gridBag.insets = new Insets(10,10,5,10);
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btBut1, gridBag );
-  //      gridBag.insets = new Insets(0,0,7,10);
         panel.add( btBut1 );
         btBut1.addActionListener(new ActionListener() {
             @Override
@@ -140,6 +137,7 @@ public class SignInForm extends InformSystemGUI {
                 xmlSet.setUsersToDocument(users);
                 xmlSet.setCommandToDocument(Command.SIGN_IN);
                 client.sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+                System.out.println(XmlSet.convertDocumentToString(XmlSet.convertStringToDocument(XmlSet.convertDocumentToString(xmlSet.getDocument()))));
                 //new SignUpForm(client);
             }
         });
