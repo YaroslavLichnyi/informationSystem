@@ -63,9 +63,10 @@ public class Server extends Observable implements ServerControllerInterface {
                     try {
                         serverSocket.close();
                     } catch (IOException e1) {
-                        e1.printStackTrace();
+                        logger.error("error closing server socket, ", e1);
                     }
                 }
+                logger.error("error server socket, ", e);
             }
         });
         serverThread.start();
@@ -107,7 +108,7 @@ public class Server extends Observable implements ServerControllerInterface {
                     logger.info("server stopped.");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("error during server stopping, ", e);
             }
         } else {
             view.display("server stopped and ready to start");
@@ -142,7 +143,7 @@ public class Server extends Observable implements ServerControllerInterface {
             fw.write(String.valueOf(port));
             fw.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("writing settings file error, ", e);
         }
         logger.info("port was successfully changed onto " + port + ".");
         view.logging("Port was successfully changed onto " + port + ".");
@@ -202,7 +203,7 @@ public class Server extends Observable implements ServerControllerInterface {
             try {
                 fr = new FileReader(file);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                logger.error("reading settings file error, ", e);
             }
             Scanner scan = new Scanner(fr);
             if (scan.hasNextInt()) {
@@ -212,7 +213,7 @@ public class Server extends Observable implements ServerControllerInterface {
                 try {
                     fr.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("closing settings file error, ", e);
                 }
             }
         } else {
@@ -222,7 +223,7 @@ public class Server extends Observable implements ServerControllerInterface {
                 fw.write("8000");
                 fw.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("writing settings file error, ", e);
             }
         }
 
