@@ -3,7 +3,6 @@ package information.system.Server.Controller;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
-
 import java.io.*;
 import java.net.Socket;
 

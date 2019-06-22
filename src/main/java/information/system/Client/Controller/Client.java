@@ -1,13 +1,12 @@
 package information.system.Client.Controller;
+
 import information.system.Client.View.InformSystemGUI;
 import information.system.Client.View.SignInForm;
 import information.system.Server.Controller.Protocol;
 import information.system.Server.Controller.Server;
 import information.system.Server.Model.*;
-import information.system.Server.Model.DishCategory;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -85,7 +84,6 @@ public class Client implements ClientController {
             clientSocket.close();*/
     }
 
-
     /**
      * Creates JFrame with information about all dishes.
      */
@@ -111,7 +109,7 @@ public class Client implements ClientController {
     }
 
     /**
-     * Adds new object in the table.
+     * Adds new object on the table.
      *
      * @return true if the addition was successful, else return false.
      */
@@ -354,7 +352,7 @@ public class Client implements ClientController {
         return dishCategories;
     }
 
-    class Listener extends Thread{
+    class Listener extends Thread {
         Exchanger <String> exchanger;
         public Listener(Exchanger<String> exchanger) {
             this.exchanger = exchanger;
@@ -367,8 +365,7 @@ public class Client implements ClientController {
                     String responseStr = reader.readLine();
                     Document responseDoc  = XmlSet.convertStringToDocument(responseStr);
                     String command = XmlSet.getCommandFromDocument(responseDoc);
-                    switch(command)
-                    {
+                    switch(command) {
                         case Protocol.SIGN_IN:
                             user = XmlSet.getUserFromDocument(responseDoc).get(0);
                             break;
