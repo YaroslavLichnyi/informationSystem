@@ -116,7 +116,7 @@ public class Client implements ClientController {
     @Override
     public boolean add(Dish dish) {
         XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.ADD);
+        xmlSet.setCommandToDocument(Protocol.ADD_DISH);
         LinkedList <Dish> list = new LinkedList();
         list.add(dish);
         xmlSet.setDishesToDocument(list);
@@ -132,7 +132,7 @@ public class Client implements ClientController {
     @Override
     public boolean add(DishCategory dishСategory) {
         XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.ADD);
+        xmlSet.setCommandToDocument(Protocol.ADD_DISH_CATEGORY);
         LinkedList <DishCategory> list = new LinkedList();
         list.add(dishСategory);
         xmlSet.setDishCategoriesToDocument(list);
@@ -170,7 +170,7 @@ public class Client implements ClientController {
     @Override
     public boolean delete(Dish dish) {
         XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.DELETE);
+        xmlSet.setCommandToDocument(Protocol.DELETE_DISH);
         LinkedList <Dish> dishes = new LinkedList<>();
         dishes.add(dish);
         xmlSet.setDishesToDocument(dishes);
@@ -187,7 +187,7 @@ public class Client implements ClientController {
     @Override
     public boolean delete(DishCategory dishCategory) {
         XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.DELETE);
+        xmlSet.setCommandToDocument(Protocol.DELETE_DISH_CATEGORY);
         LinkedList <DishCategory> dishCategories = new LinkedList<>();
         dishCategories.add(dishCategory);
         xmlSet.setDishCategoriesToDocument(dishCategories);
@@ -310,7 +310,7 @@ public class Client implements ClientController {
         XmlSet xmlSet = new XmlSet();
         if (Command.PRICE.equals(sortBy)){
             xmlSet.setCommandToDocument(Protocol.SORT_BY_PRICE);
-        } else if (Command.DISH_CAREGORY.equals(sortBy)){
+        } else if (Command.DISH_CATEGORY.equals(sortBy)){
             xmlSet.setCommandToDocument(Protocol.SORT_BY_DISH_CATEGORY);
         }
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));

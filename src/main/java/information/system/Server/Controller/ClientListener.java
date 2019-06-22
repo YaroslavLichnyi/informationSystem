@@ -8,22 +8,21 @@ import java.net.Socket;
 
 
 public class ClientListener extends Thread {
-    private Socket socket; // сокет, через который сервер общается с клиентом,
-    // кроме него - клиент и сервер никак не связаны
-    private static final Logger LOGGER = Logger.getLogger(Client.class);
+    private Socket socket;  // сокет, через который сервер общается с клиентом,
+                            // кроме него - клиент и сервер никак не связаны
+    private static final Logger logger = Logger.getLogger(Client.class);
     private Server server;
     private BufferedReader reader; // поток чтения из сокета
     private BufferedWriter writer; // поток записи в сокет
 
-    public ClientListener(Socket socket, Server server)  {
+    ClientListener(Socket socket, Server server)  {
         this.socket = socket;
         this.server = server;
         try {
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
         } catch (IOException e) {
-            LOGGER.error(e);
+            logger.error("ClientListener creation error, ", e);
         }
         //recieveFile();
         //sendFile();
@@ -46,103 +45,83 @@ public class ClientListener extends Thread {
         String word;
         System.out.println("ClientListener works");
 
-        //recieveFile();
-        while (true){
-            XmlStream xmlStream1 = new XmlStream();
-            try {
-                xmlStream1.input(socket.getInputStream());
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-        /*
         try {
             while (true) {
                 System.out.println("waiting for request");
                 word = reader.readLine();
                 System.out.println("REQUEST: " + word);
-                switch(word)
-                {
-                    case Command.SIGN_IN:
-                        System.out.println("Signin in");
-                        String login = reader.readLine();
-                        String password = reader.readLine();
-                        //до этого на стороне клиента должны были провериться данные при помощи метода Restaurant.isInputtedDataCorrect()
-                        Admin responce = Restaurant.singIn(login, password);
-                        if (responce != null){
-                            //тправить админа в xml
-                            sendMessage(Command.CORRECT);
-                        } else {
-                            sendMessage(Command.INCORRECT);
-                        }
-                        break;
-                    case Command.STOP:
-                        System.out.println("STOP");
+                switch(word) {
+
+                    case Protocol.ADD_DISH:
+
                         break;
 
-                    case Command.FILE:
-                        //recieveFile();
-                        //System.out.println("File was recieved");
-                        break;
-                    case Command.ADD:
+                    case Protocol.ADD_DISH_CATEGORY:
 
-                        System.out.println("Smth was added");
-                        sendMessage("Smth was added");
-                        //server.getRestaurant().addDish(null);
                         break;
-                    case Command.EDIT:
-                        System.out.println("Smth was edited");
-                        sendMessage("Smth was edited");
-                        //server.getRestaurant().removeDish(null);
-                        //server.getRestaurant().addDish(null);
+
+                    case Protocol.SIGN_UP:
+
                         break;
-                    case Command.REMOVE:
-                        System.out.println("Smth was removed");
-                        sendMessage("Smth was removed");
-                        //server.getRestaurant().removeDish(null);
+
+                    case Protocol.DELETE_DISH:
+
                         break;
-                    case Command.GET_ALL_INFORMATION:
-                        sendFile();
-                        System.out.println("Smth was removed");
-                        sendMessage("Smth was removed");
-                        //server.getRestaurant().removeDish(null);
+
+                    case Protocol.DELETE_DISH_CATEGORY:
+
                         break;
+
+                    case Protocol.DELETE_USER:
+
+                        break;
+
+                    case Protocol.EDIT_DISH:
+
+                        break;
+
+                    case Protocol.EDIT_DISH_CATEGORY:
+
+                        break;
+
+                    case Protocol.EDIT_USER:
+
+                        break;
+
+                    case Protocol.GET_INFORMATION:
+
+                        break;
+
+                    case Protocol.END_OF_SESSION:
+
+                        break;
+
+                    case Protocol.SIGN_IN:
+
+                        break;
+
+                    case Protocol.FIND_DISH:
+
+                        break;
+
+                    case Protocol.SORT_BY_PRICE:
+
+                        break;
+
+                    case Protocol.SORT_BY_DISH_CATEGORY:
+
+                        break;
+
                     default:
                         System.out.println("no match");
                         sendMessage("no match");
                 }
             }
         } catch (IOException e) {
-            LOGGER.error(e);
+            logger.error("protocol error, ", e);
         }
-        */
+
     }
-    /*
-                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                builder = factory.newDocumentBuilder();
-                Document document;
-                document = builder.parse(socket.getInputStream());
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = null;
-                try {
-                    transformer = transformerFactory.newTransformer();
-                } catch (TransformerConfigurationException e) {
-                    e.printStackTrace();
-                }
-
-                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules.dtd");
-                DOMSource domSource = new DOMSource(document);
-                StreamResult streamResult = new StreamResult(new File("result.xml"));
-                try {
-                    transformer.transform(domSource, streamResult);
-                } catch (TransformerException e) {
-                    e.printStackTrace();
-                }
-
-     */
 
     /**
      * Sends message(response) from server to client
@@ -153,7 +132,7 @@ public class ClientListener extends Thread {
             writer.write(msg + "\n");
             writer.flush();
         } catch (IOException ex) {
-            LOGGER.error(ex);
+            logger.error("sending mesage error, ", ex);
         }
     }
 
@@ -179,7 +158,7 @@ public class ClientListener extends Thread {
             in.close();
 
         } catch (IOException e){
-
+            logger.error("file sending error, ", e);
         }
     }
 
@@ -196,12 +175,12 @@ public class ClientListener extends Thread {
 
                 in = socket.getInputStream();
             } catch (IOException ex) {
-                System.out.println("Can't get socket input stream. ");
+                logger.error("cannot get socket input stream, ", ex);
             }
             try {
                 out = new FileOutputStream(Command.CLIENT_FILE_RESTAURANT);
             } catch (FileNotFoundException ex) {
-                System.out.println("File not found. ");
+                logger.error("file not found, ", ex);
             }
             byte[] bytes = new byte[16 * 1024];
             int count;
@@ -213,7 +192,7 @@ public class ClientListener extends Thread {
 
 
         } catch (IOException e) {
-
+            logger.error("file recieving error, ", e);
         }
     }
 
@@ -221,7 +200,7 @@ public class ClientListener extends Thread {
      * Gets value of {@link ClientListener#socket}.
      * @return {@link ClientListener#socket} value
      */
-    public Socket getSocket() {
+    Socket getSocket() {
         return socket;
     }
 
