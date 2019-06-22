@@ -1,9 +1,5 @@
 package information.system.Server.View;
 
-import java.net.URL;
-import java.time.LocalDateTime;
-import java.util.ResourceBundle;
-import org.apache.log4j.Logger;
 import information.system.Server.Controller.Server;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.WindowEvent;
+import org.apache.log4j.Logger;
+
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
 /**
  * Graphic component View for MVC-pattern of Information System - class ServerViewGUI.
@@ -111,16 +112,16 @@ public class ServerViewGUI implements ServerViewGeneral {
     }
 
     // onCloseWindow ***************************************************************************************************
-    //*
-//*
-//*
+                                                                                                                     //*
+                                                                                                                     //*
+                                                                                                                     //*
     /**                                                                                                              //*
      * Event handler onCloseWindow.                                                                                  //*
      */                                                                                                              //*
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = event -> {                                    //*
         onServerTerminateButtonPressed(new ActionEvent());                                                           //*
     };                                                                                                               //*
-    //*
+                                                                                                                     //*
     /**                                                                                                              //*
      * Getter for event handler.                                                                                     //*
      * @return EventHandler<WindowEvent>.                                                                            //*

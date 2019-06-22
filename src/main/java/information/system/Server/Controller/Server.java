@@ -35,7 +35,6 @@ public class Server extends Observable implements ServerControllerInterface {
         this.view = view;
     }
 
-
     /**
      * Start server.
      */
