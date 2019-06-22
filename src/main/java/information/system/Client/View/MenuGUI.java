@@ -2,6 +2,7 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -9,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,12 +52,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints( btAdd, gridBag );
         panel.add( btAdd );
-        btAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishFillingForm(client);
-            }
-        });
+        btAdd.addActionListener(e -> new DishFillingForm(client));
 
         btAddDishCategory = new JButton( "Add new dish category"  );
         gridBag.gridx = 1;
@@ -71,12 +66,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints(btAddDishCategory, gridBag );
         panel.add(btAddDishCategory);
-        btAddDishCategory.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishCategoryFillingForm(client);
-            }
-        });
+        btAddDishCategory.addActionListener(e -> new DishCategoryFillingForm(client));
     }
 
     @Override
@@ -85,11 +75,8 @@ public class MenuGUI extends InformSystemGUI {
         JMenu closeMenu = new JMenu("Close programme");
         JMenu userMenu = new JMenu("User");
         JMenuItem itChangeData = new JMenuItem("Change data");
-        itChangeData.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        itChangeData.addActionListener(e -> {
 
-            }
         });
         userMenu.add(itChangeData);
         userMenu.add(new JMenuItem("Sign out"));
@@ -98,7 +85,7 @@ public class MenuGUI extends InformSystemGUI {
         this.setJMenuBar(jMenuBar);
         this.revalidate();
 
-         String []variantsOfSorting = {Command.PRICE, Command.DISH_CAREGORY };
+        String []variantsOfSorting = {Command.PRICE, Command.DISH_CATEGORY };
         cmbSortBy = new JComboBox( variantsOfSorting );
         gridBag.gridx = 4;
         gridBag.gridy = 2;
