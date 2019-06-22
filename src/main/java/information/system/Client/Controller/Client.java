@@ -21,8 +21,8 @@ import java.util.concurrent.Exchanger;
  */
 public class Client implements ClientController {
     private static final Logger LOGGER = Logger.getLogger(Client.class);
-    private ArrayList<Dish> menu = new ArrayList<>();
-    private ArrayList<DishCategory> dishCategories = new ArrayList<>();
+    private ArrayList<Dish> menu;
+    private ArrayList<DishCategory> dishCategories;
     private Server server;
     private Socket serverSocket;
     private Socket clientSocket;
@@ -37,6 +37,8 @@ public class Client implements ClientController {
 
     public Client()  {
         try{
+            menu = new ArrayList<>();
+            dishCategories = new ArrayList<>();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             Dish dish1 = new Dish("name1", 3.56, "Some defhdjkdgkdgjkscr");
             Dish dish3 = new Dish("name3", 34.45, "Some defhkfkhscr");

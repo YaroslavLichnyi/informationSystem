@@ -27,7 +27,7 @@ public class MenuGUI extends InformSystemGUI {
 
     public MenuGUI(Client client, boolean singnedIn) {
         super();
-        setBounds(dimension.width / 2 - 300, dimension.height / 2 - 150, 600, 300);
+        setBounds(dimension.width / 2 - 350, dimension.height / 2 - 300, 700, 600);
         setClient(client);
         this.client = client;
         basicInit();
@@ -40,13 +40,13 @@ public class MenuGUI extends InformSystemGUI {
 
     private void initFroAdmin() {
 
-        btAdd = new JButton( "Add a dish"  );
-        gridBag.gridx = 3;
+        btAdd = new JButton( "Add new dish"  );
+        gridBag.gridx = 1;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
-        gridBag.weightx = 1;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
+        gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,0);
@@ -59,13 +59,13 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
-        btAddDishCategory = new JButton( "Add a dish category"  );
-        gridBag.gridx = 3;
+        btAddDishCategory = new JButton( "Add new dish category"  );
+        gridBag.gridx = 1;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 1;
+        gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,0);
@@ -77,20 +77,35 @@ public class MenuGUI extends InformSystemGUI {
                 new DishCategoryFillingForm(client);
             }
         });
-
-
     }
 
     @Override
     protected void basicInit(){
+        JMenuBar jMenuBar = new JMenuBar();
+        JMenu closeMenu = new JMenu("Close programme");
+        JMenu userMenu = new JMenu("User");
+        JMenuItem itChangeData = new JMenuItem("Change data");
+        itChangeData.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        userMenu.add(itChangeData);
+        userMenu.add(new JMenuItem("Sign out"));
+        jMenuBar.add(closeMenu);
+        jMenuBar.add(userMenu);
+        this.setJMenuBar(jMenuBar);
+        this.revalidate();
+
          String []variantsOfSorting = {Command.PRICE, Command.DISH_CAREGORY };
         cmbSortBy = new JComboBox( variantsOfSorting );
-        gridBag.gridx = 5;
+        gridBag.gridx = 4;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 1;
+        gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
@@ -105,27 +120,26 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
-        tfName = new JTextField( );
-        gridBag.gridx = 4;
+        tfName = new JTextField();
+        gridBag.gridx = 3;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.BOTH;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
-        gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.ipadx = 50;
+        gridBag.anchor = GridBagConstraints.EAST;
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints(tfName, gridBag );
         panel.add(tfName);
 
         btFind = new JButton( "Find"  );
-        gridBag.gridx = 5;
+        gridBag.gridx = 4;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.BOTH;
-        gridBag.weightx = 1;
+        gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
@@ -144,34 +158,34 @@ public class MenuGUI extends InformSystemGUI {
         Object[] headers = {"Name", "Price", "Description"};
 
 
-        DefaultTableModel model = new DefaultTableModel(null, headers);
-        JTable jTable = new JTable(model){
+        model = new DefaultTableModel(null, headers);
+        dishesTable = new JTable(model){
             @Override
             public boolean isCellEditable(int arg0, int arg1) {
                 return false;
             }
         };
-        jTable.addMouseListener(new MouseAdapter() {
+        dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(jTable.getSelectedRow());
+                System.out.println(dishesTable.getSelectedRow());
             }
         });
-        //Создаем панель прокрутки и включаем в ее состав нашу таблицу
-        JScrollPane jscrlp = new JScrollPane(jTable);
-        gridBag.gridx = 3;
+        JScrollPane jscrlp = new JScrollPane(dishesTable);
+        gridBag.gridx = 1;
         gridBag.gridy = 4;
-        gridBag.gridwidth = 3;
-        gridBag.gridheight = 1;
+        gridBag.gridwidth = 4;
+        gridBag.gridheight = 4;
         gridBag.fill = GridBagConstraints.BOTH;
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets(0,15,15,15);
         gridBagLayout.setConstraints( jscrlp, gridBag );
         panel.add( jscrlp );
-      //  panel.add(jTable);;
 
-        jTable.addMouseListener(new MouseAdapter() {
+
+        dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
@@ -181,15 +195,15 @@ public class MenuGUI extends InformSystemGUI {
         });
 
         lbSortBy = new JLabel( "Sort by:"  );
-        gridBag.gridx = 4;
+        gridBag.gridx = 3;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.NORTHEAST;
+        gridBag.fill = GridBagConstraints.EAST;
         gridBag.weightx = 1;
         gridBag.weighty = 1;
-        gridBag.anchor = GridBagConstraints.NORTHEAST;
-        gridBag.insets = new Insets(15,15,0,0);
+        gridBag.anchor = GridBagConstraints.EAST;
+        gridBag.insets = new Insets(3,5,0,0);
         gridBagLayout.setConstraints( lbSortBy, gridBag );
         panel.add( lbSortBy );
 
@@ -206,7 +220,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints(btUpdate, gridBag );
         panel.add(btUpdate);
         */
-      //  setValuesAtTable(new ArrayList<Dish>());
+        setValuesAtTable(client.getMenu());
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

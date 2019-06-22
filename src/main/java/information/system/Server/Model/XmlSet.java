@@ -39,6 +39,7 @@ public class XmlSet {
     private static final String DISH = "dish";
     private static final String DESCRIPTION = "description";
     private static final String USER = "user";
+    private static final String ADMIN = "admin";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String HEALTHY_FOOD = "healthy-food";
@@ -46,12 +47,9 @@ public class XmlSet {
     private static final String DISH_CATEGORY_ID = "dish-category-id";
     private static final String ROOT_ELEMENT = "message";
     private static final String COMMAND = "command";
-
-
     private String userId;
     private String command;
     private Document document;
-
 
     public XmlSet() {
         cleanOutDocument();
@@ -85,6 +83,14 @@ public class XmlSet {
          Element dishEL = document.createElement(USER);
          rootAdmins.appendChild(dishEL);
 
+         Attr attrId = document.createAttribute(ID);
+         attrId.setValue(String.valueOf(user.getId()));
+         dishEL.setAttributeNode(attrId);
+
+         Attr attrAdmin = document.createAttribute(ADMIN);
+         attrAdmin.setValue(String.valueOf(user.isAdmin()));
+         dishEL.setAttributeNode(attrAdmin);
+
          Attr attrLogin = document.createAttribute(LOGIN);
          attrLogin.setValue(user.getLogin());
          dishEL.setAttributeNode(attrLogin);
@@ -113,6 +119,12 @@ public class XmlSet {
             User user = new User();
             for (int j = 0; j <  nodes.item(i).getAttributes().getLength(); j++) {
                 switch (nodes.item(i).getAttributes().item(j).getNodeName()) {
+                    case ID:
+                        user.setId(Integer.valueOf(nodes.item(i).getAttributes().item(j).getNodeValue()));
+                        break;
+                    case ADMIN:
+                        user.setAdmin(Boolean.parseBoolean(nodes.item(i).getAttributes().item(j).getNodeValue()));
+                        break;
                     case NAME:
                         user.setName(nodes.item(i).getAttributes().item(j).getNodeValue());
                         break;

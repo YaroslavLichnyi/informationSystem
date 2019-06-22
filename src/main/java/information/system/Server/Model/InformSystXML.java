@@ -29,6 +29,7 @@ public class InformSystXML {
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String ID = "id";
+    private static final String ADMIN = "admin";
     private static final String DISH_CATEGORY_ID = "dish-category-id";
     private static final String HEALTHY_FOOD = "healthy-food";
     private static final Logger LOGGER = Logger.getLogger(InformSystXML.class);
@@ -187,17 +188,25 @@ public class InformSystXML {
                 Element dishEL = document.createElement(USER);
                 rootElement.appendChild(dishEL);
 
-                Attr attr1 = document.createAttribute(NAME);
-                attr1.setValue(String.valueOf(user.getName()));
-                dishEL.setAttributeNode(attr1);
+                Attr attrId = document.createAttribute(ID);
+                attrId.setValue(String.valueOf(user.getId()));
+                dishEL.setAttributeNode(attrId);
 
-                Attr attr2 = document.createAttribute(LOGIN);
-                attr2.setValue(String.valueOf(user.getLogin()));
-                dishEL.setAttributeNode(attr2);
+                Attr attrAdmin = document.createAttribute(ADMIN);
+                attrAdmin.setValue(String.valueOf(user.isAdmin()));
+                dishEL.setAttributeNode(attrAdmin);
 
-                Attr attr3 = document.createAttribute(PASSWORD);
-                attr3.setValue(String.valueOf(user.getPassword()));
-                dishEL.setAttributeNode(attr3);
+                Attr attrName = document.createAttribute(NAME);
+                attrName.setValue(user.getName());
+                dishEL.setAttributeNode(attrName);
+
+                Attr attrLogin = document.createAttribute(LOGIN);
+                attrLogin.setValue(user.getLogin());
+                dishEL.setAttributeNode(attrLogin);
+
+                Attr attrPassword = document.createAttribute(PASSWORD);
+                attrPassword.setValue(user.getPassword());
+                dishEL.setAttributeNode(attrPassword);
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -250,6 +259,12 @@ public class InformSystXML {
                     for (int j = 0; j <adminsFromXML.item(i).getAttributes().getLength() ; j++) {
                         switch(adminsFromXML.item(i).getAttributes().item(j).getNodeName())
                         {
+                            case ID:
+                                newUser.setId(Integer.valueOf(adminsFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                                break;
+                            case ADMIN:
+                                newUser.setAdmin(Boolean.parseBoolean(adminsFromXML.item(i).getAttributes().item(j).getNodeValue()));
+                                break;
                             case NAME:
                                 newUser.setName(adminsFromXML.item(i).getAttributes().item(j).getNodeValue());
                                 break;
