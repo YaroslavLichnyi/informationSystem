@@ -66,7 +66,6 @@ public class Server extends Observable implements ServerControllerInterface {
                         logger.error("error closing server socket, ", e1);
                     }
                 }
-                logger.error("error server socket, ", e);
             }
         });
         serverThread.start();
@@ -170,7 +169,7 @@ public class Server extends Observable implements ServerControllerInterface {
      * Getter for Restaurant.
      * @return Restaurant
      */
-    public Restaurant getRestaurant() {
+    Restaurant getRestaurant() {
         return restaurant;
     }
 
@@ -194,7 +193,7 @@ public class Server extends Observable implements ServerControllerInterface {
      * Get port from file. Create file in case file does not exist.
      * @return port
      */
-    public int readPort() {
+    int readPort() {
 
         int port = 8_000;
 
@@ -257,7 +256,7 @@ public class Server extends Observable implements ServerControllerInterface {
      * (Setter) Server is running or not.
      * @param running boolean
      */
-    public void setRunning(boolean running) {
+    void setRunning(boolean running) {
         this.running = running;
     }
 
