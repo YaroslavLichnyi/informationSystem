@@ -1,5 +1,883 @@
-2019-06-18 19:32:41 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
-2019-06-18 19:32:43 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
-2019-06-18 19:32:46 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
-2019-06-18 19:32:48 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
-2019-06-18 19:32:48 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
+2019-05-30 00:26:07 INFO  ServerGUIApp:27:start - application started.
+2019-05-30 00:26:08 INFO  ServerViewGeneral:127:initialize - ServerViewGUI started.
+2019-05-30 00:27:00 INFO  ServerViewGeneral:75:onServerTerminateButtonPressed - server is terminating.
+2019-05-30 15:50:04 INFO  ServerGUIApp:27:start - application started.
+2019-05-30 15:50:05 INFO  ServerViewGeneral:127:initialize - ServerViewGUI started.
+2019-05-30 15:50:08 INFO  ServerViewGeneral:75:onServerTerminateButtonPressed - server is terminating.
+2019-05-30 15:53:13 ERROR Client:57:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 17:07:26 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:12:37 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:15:27 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:21:51 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:23:51 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:24:15 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:30:58 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:32:53 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 17:33:16 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 17:46:01 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 17:46:36 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:49:19 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:49:41 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:50:28 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:52:12 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:52:51 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:53:21 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 17:57:50 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 18:00:12 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 18:00:45 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:18:32 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 19:19:02 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 19:19:09 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 19:19:43 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:21:33 ERROR Client:85:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-01 19:21:58 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:22:37 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:23:05 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:23:54 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:25:04 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:25:50 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:26:17 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:26:56 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:28:12 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:28:38 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-01 19:29:07 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-02 15:30:28 ERROR Client:75:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-02 15:32:04 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-02 15:43:44 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-02 16:07:25 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-02 16:35:40 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-02 18:51:45 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:34:22 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:40:30 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:49:40 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:50:12 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:50:25 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 22:53:29 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:06:49 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:29:19 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:29:46 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:30:33 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:31:44 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:32:30 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:32:50 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:33:35 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:33:58 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-05 23:34:23 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-09 22:58:29 INFO  ServerGUIApp:27:start - application started.
+2019-06-09 22:58:31 INFO  ServerViewGeneral:127:initialize - ServerViewGUI started.
+2019-06-09 23:01:21 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-10 00:18:25 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-10 15:49:57 ERROR InformSystXML:129:fatalError - org.xml.sax.SAXParseException; systemId: file:/C:/Users/home/IdeaProjects/InformationSystem/rules.dtd; lineNumber: 11; columnNumber: 27; The attribute type is required in the declaration of attribute "dish-category-id" for element "dish".
+2019-06-10 15:49:57 ERROR InformSystXML:198:readXML - org.xml.sax.SAXParseException; systemId: file:/C:/Users/home/IdeaProjects/InformationSystem/rules.dtd; lineNumber: 11; columnNumber: 27; The attribute type is required in the declaration of attribute "dish-category-id" for element "dish".
+2019-06-11 21:28:41 INFO  ServerGUIApp:27:start - application started.
+2019-06-11 21:28:42 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-11 21:28:52 INFO  Server:185:changePort - port is the same and has not been changed.
+2019-06-11 21:28:54 INFO  Server:70:start - server is running.
+2019-06-11 21:29:17 ERROR Client:143:run - org.xml.sax.SAXParseException; lineNumber: 20; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+2019-06-11 21:29:18 ERROR Client:143:run - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+2019-06-11 21:29:33 INFO  Server:81:restart - server is going to be restarted.
+2019-06-11 21:29:33 INFO  Server:93:restart - client Thread-5 was disconnected.
+2019-06-11 21:29:33 INFO  Server:93:restart - client Thread-6 was disconnected.
+2019-06-11 21:29:33 INFO  Server:104:restart - server was stopped.
+2019-06-11 21:29:33 INFO  Server:137:restart - server is running.
+2019-06-11 21:29:41 INFO  Server:151:stop - server is stoping.
+2019-06-11 21:29:41 INFO  Server:155:stop - client Thread-5 was disconnected.
+2019-06-11 21:29:41 INFO  Server:155:stop - client Thread-6 was disconnected.
+2019-06-11 21:29:41 INFO  Server:164:stop - server stopped
+2019-06-11 21:29:43 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
+2019-06-11 21:37:05 INFO  ServerGUIApp:27:start - application started.
+2019-06-11 21:37:06 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-11 21:37:14 INFO  Server:70:start - server is running.
+2019-06-11 21:37:25 ERROR Client:143:run - org.xml.sax.SAXParseException; lineNumber: 20; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+2019-06-11 21:37:26 ERROR Client:143:run - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+2019-06-13 12:10:36 INFO  ServerGUIApp:27:start - application started.
+2019-06-13 12:10:37 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-13 12:11:04 INFO  Server:70:start - server is running.
+2019-06-13 12:13:57 INFO  ServerGUIApp:27:start - application started.
+2019-06-13 12:13:58 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-13 12:14:00 INFO  Server:70:start - server is running.
+2019-06-13 16:14:15 ERROR Client:74:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-13 16:14:29 INFO  ServerGUIApp:27:start - application started.
+2019-06-13 16:14:30 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-13 16:14:33 INFO  Server:70:start - server is running.
+2019-06-13 16:14:47 ERROR XmlStream:65:input - org.xml.sax.SAXParseException; lineNumber: 31; columnNumber: 1; Content is not allowed in trailing section.
+2019-06-13 16:14:51 ERROR XmlStream:65:input - org.xml.sax.SAXParseException; lineNumber: 31; columnNumber: 1; Content is not allowed in trailing section.
+2019-06-13 16:14:51 ERROR XmlStream:65:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 9; The markup in the document preceding the root element must be well-formed.
+2019-06-13 16:16:03 INFO  ServerViewGeneral:90:onServerTerminateButtonPressed - server is terminating.
+2019-06-13 16:31:02 INFO  ServerGUIApp:27:start - application started.
+2019-06-13 16:31:02 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-13 16:31:05 INFO  Server:70:start - server is running.
+2019-06-13 16:31:19 ERROR XmlStream:65:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 16:32:31 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:32:38 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 16:32:51 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:32:58 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 16:33:24 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:33:30 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 16:34:05 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:34:16 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:34:16 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:35:12 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 16:35:13 ERROR Client:108:run - java.net.SocketException: Connection reset
+2019-06-13 16:36:10 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:11:25 INFO  ServerGUIApp:27:start - application started.
+2019-06-13 17:11:26 INFO  ServerViewGeneral:163:initialize - ServerViewGUI started.
+2019-06-13 17:11:52 INFO  Server:70:start - server is running.
+2019-06-13 17:12:01 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 31; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 31; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 5; columnNumber: 3; The markup in the document following the root element must be well-formed.
+2019-06-13 17:12:15 ERROR XmlStream:66:input - org.xml.sax.SAXParseException; lineNumber: 31; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+2019-06-21 23:51:34 INFO  ServerGUIApp:27:start - application started.
+2019-06-21 23:51:35 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-21 23:51:41 INFO  Server:73:start - server is running.
+2019-06-21 23:51:44 INFO  Server:96:stop - server is stoping.
+2019-06-21 23:51:44 INFO  Server:108:stop - server stopped.
+2019-06-21 23:51:44 INFO  Server:73:start - server is running.
+2019-06-21 23:51:45 INFO  Server:96:stop - server is stoping.
+2019-06-21 23:51:45 INFO  Server:108:stop - server stopped.
+2019-06-21 23:51:46 INFO  Server:129:changePort - port is the same and has not been changed.
+2019-06-21 23:51:48 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-21 23:51:48 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 12:35:41 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 12:35:42 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 12:35:45 INFO  Server:73:start - server is running.
+2019-06-22 12:35:46 INFO  Server:96:stop - server is stoping.
+2019-06-22 12:35:46 INFO  Server:108:stop - server stopped.
+2019-06-22 12:35:46 INFO  Server:73:start - server is running.
+2019-06-22 12:35:47 INFO  Server:96:stop - server is stoping.
+2019-06-22 12:35:47 INFO  Server:108:stop - server stopped.
+2019-06-22 12:35:51 INFO  Server:129:changePort - port is the same and has not been changed.
+2019-06-22 12:35:57 INFO  Server:148:changePort - port was successfully changed onto 8009.
+2019-06-22 12:36:05 INFO  Server:116:stop - fault: attempt to stop a down server.
+2019-06-22 12:36:12 INFO  Server:73:start - server is running.
+2019-06-22 12:36:13 ERROR Server:48:start - fault: attempt to start running server.
+2019-06-22 12:36:16 INFO  Server:96:stop - server is stoping.
+2019-06-22 12:36:16 INFO  Server:108:stop - server stopped.
+2019-06-22 12:36:16 INFO  Server:73:start - server is running.
+2019-06-22 12:36:18 INFO  Server:96:stop - server is stoping.
+2019-06-22 12:36:18 INFO  Server:108:stop - server stopped.
+2019-06-22 12:36:19 INFO  Server:116:stop - fault: attempt to stop a down server.
+2019-06-22 12:36:19 INFO  Server:73:start - server is running.
+2019-06-22 12:36:25 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 12:36:25 INFO  Server:96:stop - server is stoping.
+2019-06-22 12:36:25 INFO  Server:108:stop - server stopped.
+2019-06-22 12:36:25 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 13:30:23 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 13:30:23 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 13:30:25 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 13:30:25 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 13:30:59 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 13:30:59 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 13:31:04 INFO  Server:73:start - server is running.
+2019-06-22 13:31:06 INFO  Server:96:stop - server is stoping.
+2019-06-22 13:31:06 INFO  Server:108:stop - server stopped.
+2019-06-22 13:31:06 INFO  Server:73:start - server is running.
+2019-06-22 13:31:06 INFO  Server:96:stop - server is stoping.
+2019-06-22 13:31:06 INFO  Server:108:stop - server stopped.
+2019-06-22 13:31:06 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 13:31:06 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 13:33:03 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 13:33:04 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 13:33:05 INFO  Server:73:start - server is running.
+2019-06-22 13:33:06 INFO  Server:96:stop - server is stoping.
+2019-06-22 13:33:06 INFO  Server:108:stop - server stopped.
+2019-06-22 13:33:06 INFO  Server:73:start - server is running.
+2019-06-22 13:33:06 INFO  Server:96:stop - server is stoping.
+2019-06-22 13:33:06 INFO  Server:108:stop - server stopped.
+2019-06-22 13:33:07 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 13:33:07 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 17:18:37 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 17:18:38 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 17:18:40 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 17:18:40 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 18:15:59 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 18:16:00 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 18:16:01 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 18:16:01 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 21:56:37 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 21:56:37 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 21:56:39 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 21:56:39 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 21:59:04 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 21:59:05 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 21:59:06 INFO  Server:73:start - server is running.
+2019-06-22 21:59:12 ERROR Client:80:<init> - java.net.ConnectException: Connection refused: connect
+2019-06-22 21:59:21 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 21:59:22 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 21:59:23 INFO  Server:73:start - server is running.
+2019-06-22 21:59:29 INFO  Server:73:start - server is running.
+2019-06-22 21:59:31 INFO  Server:148:changePort - port was successfully changed onto 8000.
+2019-06-22 21:59:32 INFO  Server:73:start - server is running.
+2019-06-22 21:59:43 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 21:59:43 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 21:59:46 INFO  Server:73:start - server is running.
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:44 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 22:00:45 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 22:00:45 ERROR XmlStream:67:input - java.net.SocketException: Connection reset
+2019-06-22 23:59:37 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 23:59:37 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 23:59:39 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 23:59:39 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 23:59:43 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 23:59:44 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 23:59:46 INFO  Server:73:start - server is running.
+2019-06-22 23:59:50 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-22 23:59:50 INFO  Server:96:stop - server is stoping.
+2019-06-22 23:59:50 INFO  Server:108:stop - server stopped.
+2019-06-22 23:59:50 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-22 23:59:50 ERROR Server:69:lambda$start$0 - error server socket, 
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at information.system.Server.Controller.Server.lambda$start$0(Server.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+2019-06-22 23:59:55 INFO  ServerGUIApp:27:start - application started.
+2019-06-22 23:59:56 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-22 23:59:57 INFO  Server:73:start - server is running.
+2019-06-22 23:59:59 INFO  Server:96:stop - server is stoping.
+2019-06-22 23:59:59 INFO  Server:108:stop - server stopped.
+2019-06-22 23:59:59 ERROR Server:69:lambda$start$0 - error server socket, 
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at information.system.Server.Controller.Server.lambda$start$0(Server.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+2019-06-23 00:00:01 INFO  Server:73:start - server is running.
+2019-06-23 00:00:15 INFO  Server:96:stop - server is stoping.
+2019-06-23 00:00:15 ERROR Server:69:lambda$start$0 - error server socket, 
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at information.system.Server.Controller.Server.lambda$start$0(Server.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+2019-06-23 00:00:15 INFO  Server:108:stop - server stopped.
+2019-06-23 00:00:19 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-23 00:00:19 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-23 17:54:37 INFO  ServerGUIApp:27:start - application started.
+2019-06-23 17:54:37 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-23 17:54:40 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-23 17:54:40 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-23 18:11:27 INFO  ServerGUIApp:27:start - application started.
+2019-06-23 18:11:27 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-23 18:11:31 INFO  Server:73:start - server is running.
+2019-06-23 18:11:32 INFO  Server:96:stop - server is stoping.
+2019-06-23 18:11:32 INFO  Server:108:stop - server stopped.
+2019-06-23 18:11:32 INFO  Server:73:start - server is running.
+2019-06-23 18:11:32 ERROR Server:69:lambda$start$0 - error server socket, 
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at information.system.Server.Controller.Server.lambda$start$0(Server.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+2019-06-23 18:11:35 INFO  Server:96:stop - server is stoping.
+2019-06-23 18:11:35 ERROR Server:69:lambda$start$0 - error server socket, 
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at information.system.Server.Controller.Server.lambda$start$0(Server.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+2019-06-23 18:11:35 INFO  Server:108:stop - server stopped.
+2019-06-23 18:11:39 INFO  Server:129:changePort - port is the same and has not been changed.
+2019-06-23 18:11:45 INFO  Server:148:changePort - port was successfully changed onto 8001.
+2019-06-23 18:11:49 INFO  Server:148:changePort - port was successfully changed onto 8000.
+2019-06-23 18:11:50 INFO  Server:116:stop - fault: attempt to stop a down server.
+2019-06-23 18:11:52 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-23 18:11:52 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.

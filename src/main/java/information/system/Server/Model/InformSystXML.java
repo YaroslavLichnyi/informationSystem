@@ -1,4 +1,5 @@
 package information.system.Server.Model;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -6,17 +7,19 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.log4j.Logger;
 
 
 public class InformSystXML {
@@ -37,10 +40,10 @@ public class InformSystXML {
 
     /**
      * Writes data to a file considering the variable values of each of the dishes.
-     * @param dishСategories are objects that are written.
+     * @param dishCategories are objects that are written.
      * @param fileName is a file location.
      */
-    static public void writeXML(List<DishCategory> dishСategories, String fileName){
+    static public void writeXML(List<DishCategory> dishCategories, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
         DocumentBuilder documentBuilder = null;
@@ -49,23 +52,23 @@ public class InformSystXML {
             Document document = documentBuilder.newDocument();
             Element rootElement = document.createElement("restaurant");
             document.appendChild(rootElement);
-            for (DishCategory dishСategory : dishСategories) {
+            for (DishCategory dishCategory : dishCategories) {
                 Element dishCategoryEl = document.createElement(DISH_CATEGORY);
                 rootElement.appendChild(dishCategoryEl);
 
                 Attr attrDishCategoryID = document.createAttribute(ID);
-                attrDishCategoryID.setValue(String.valueOf(dishСategory.getId()));
+                attrDishCategoryID.setValue(String.valueOf(dishCategory.getId()));
                 dishCategoryEl.setAttributeNode(attrDishCategoryID);
 
                 Attr attrDishCategoryName = document.createAttribute(NAME);
-                attrDishCategoryName.setValue(String.valueOf(dishСategory.getName()));
+                attrDishCategoryName.setValue(String.valueOf(dishCategory.getName()));
                 dishCategoryEl.setAttributeNode(attrDishCategoryName);
 
                 Attr attrDishCategoryHealthyFood = document.createAttribute(HEALTHY_FOOD);
-                attrDishCategoryHealthyFood.setValue(String.valueOf(dishСategory.isHealthyFood()));
+                attrDishCategoryHealthyFood.setValue(String.valueOf(dishCategory.isHealthyFood()));
                 dishCategoryEl.setAttributeNode(attrDishCategoryHealthyFood);
 
-                for ( Dish dish : dishСategory.getDishes()) {
+                for ( Dish dish : dishCategory.getDishes()) {
                     Element dishEl = document.createElement(DISH);
                     dishCategoryEl.appendChild(dishEl);
 
