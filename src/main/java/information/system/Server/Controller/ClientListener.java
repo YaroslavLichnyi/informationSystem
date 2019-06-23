@@ -5,9 +5,9 @@ import information.system.Server.Model.Command;
 import information.system.Server.Model.XmlSet;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 
 public class ClientListener extends Thread {
@@ -51,17 +51,26 @@ public class ClientListener extends Thread {
         try {
             while (true) {
                 System.out.println("waiting for request");
-                strDoc = reader.readLine();
-                Document doc = XmlSet.convertStringToDocument(strDoc);
+                String line;
+                String documentInStr = "";
+                while ((line = reader.readLine()) != null) {
+                    if (line.isEmpty()) {
+                        break;
+                    }
+                    documentInStr = documentInStr + line;
+                }
+                Document doc = XmlSet.convertStringToDocument(documentInStr);
                 switch(XmlSet.getCommandFromDocument(doc)) {
 
                     case Protocol.ADD_DISH:
                         server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0));
-                        logger.info("using protocol ADD_DISH was detected. Dish was added into database.");
+                        logger.info("using protocol ADD_DISH was detected. Dish was added into the storage.");
                         break;
 
                     case Protocol.ADD_DISH_CATEGORY:
-
+                        server.getRestaurant().addDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0).toString());
+                        logger.info("using protocol ADD_DISH_CATEGORY was detected." +
+                                    " DishCategory was added into the storage.");
                         break;
 
                     case Protocol.SIGN_UP:
@@ -69,11 +78,14 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.DELETE_DISH:
-
+                        server.getRestaurant().removeDish(XmlSet.getDishesFrom(doc).get(0));
+                        logger.info("using protocol DELETE_DISH was detected. Dish was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_DISH_CATEGORY:
-
+                        server.getRestaurant().removeDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0));
+                        logger.info("using protocol DELETE_DISH_CATEGORY was detected." +
+                                    " DishCategory was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_USER:
@@ -101,7 +113,17 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.SIGN_IN:
-
+//                        String login = reader.readLine();
+//                        String password = reader.readLine();
+//                        //до этого на стороне клиента должны были провериться данные
+//                        // при помощи метода Restaurant.isInputtedDataCorrect()
+//                        User responce = Restaurant.singIn(login, password);
+//                        if (responce != null) {
+//                            //тправить админа в xml
+//                            sendMessage(Command.CORRECT);
+//                        } else {
+//                            sendMessage(Command.INCORRECT);
+//                        }
                         break;
 
                     case Protocol.FIND_DISH:
@@ -109,15 +131,18 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.SORT_BY_PRICE:
-
+                        server.getRestaurant().sortDishesByPrice(new ArrayList(XmlSet.getDishesFrom(doc)));
+                        logger.info("using protocol SORT_BY_PRICE was detected. Dishes was sorted by price.");
                         break;
 
                     case Protocol.SORT_BY_DISH_CATEGORY:
-
+                        server.getRestaurant().sortDishesByDishCategory();
+                        logger.info("using protocol SORT_BY_DISH_CATEGORY was detected." +
+                                    " Dishes was sorted by category.");
                         break;
 
                     default:
-                        System.out.println("no match");
+                        logger.error("unknown command was entered.");
                         sendMessage("no match");
                 }
             }
