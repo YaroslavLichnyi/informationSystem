@@ -131,7 +131,7 @@ public class Restaurant implements RestaurantInterface{
         }
         List<Dish> result = new ArrayList<>();
         for (Dish dish : menu) {
-            if (dish.getPrice() > from && dish.getPrice() < to){
+            if (dish.getPrice() >= from && dish.getPrice() <= to){  // Aleksandr has added =, =
                 result.add(dish);
             }
         }
