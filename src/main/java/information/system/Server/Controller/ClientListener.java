@@ -53,7 +53,7 @@ public class ClientListener extends Thread {
                 switch(word) {
 
                     case Protocol.ADD_DISH:
-
+//                        server.getRestaurant().addDish();
                         break;
 
                     case Protocol.ADD_DISH_CATEGORY:
