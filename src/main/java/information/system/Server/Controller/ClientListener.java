@@ -9,14 +9,16 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-
+/**
+ * ClientListener for each of the clients.
+ */
 public class ClientListener extends Thread {
-    private Socket socket;  // сокет, через который сервер общается с клиентом,
-                            // кроме него - клиент и сервер никак не связаны
+
+    private Socket socket;
     private static final Logger logger = Logger.getLogger(Client.class);
     private Server server;
-    private BufferedReader reader; // поток чтения из сокета
-    private BufferedWriter writer; // поток записи в сокет
+    private BufferedReader reader;
+    private BufferedWriter writer;
 
     ClientListener(Socket socket, Server server)  {
         this.socket = socket;
@@ -27,8 +29,6 @@ public class ClientListener extends Thread {
         } catch (IOException e) {
             logger.error("ClientListener creation error, ", e);
         }
-        //recieveFile();
-        //sendFile();
         start();
     }
 
