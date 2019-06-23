@@ -1,8 +1,11 @@
 package information.system.Server.Controller;
 
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.*;
+import information.system.Server.Model.Command;
+import information.system.Server.Model.XmlSet;
 import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -42,18 +45,19 @@ public class ClientListener extends Thread {
      */
     @Override
     public void run() {
-        String word;
+        String strDoc;
         System.out.println("ClientListener works");
 
         try {
             while (true) {
                 System.out.println("waiting for request");
-                word = reader.readLine();
-                System.out.println("REQUEST: " + word);
-                switch(word) {
+                strDoc = reader.readLine();
+                Document doc = XmlSet.convertStringToDocument(strDoc);
+                switch(XmlSet.getCommandFromDocument(doc)) {
 
                     case Protocol.ADD_DISH:
-//                        server.getRestaurant().addDish();
+                        server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0));
+                        logger.info("using protocol ADD_DISH was detected. Dish was added into database.");
                         break;
 
                     case Protocol.ADD_DISH_CATEGORY:

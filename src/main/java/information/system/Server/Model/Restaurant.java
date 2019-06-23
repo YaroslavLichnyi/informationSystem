@@ -146,9 +146,9 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public List<Dish> getDishesWithDishCategory(DishCategory dishCategory) {
-        for (DishCategory dishСat : dishCategories) {
-            if (dishCategory.equals(dishСat)){
-                return dishСat.getDishes();
+        for (DishCategory dishCat : dishCategories) {
+            if (dishCategory.equals(dishCat)){
+                return dishCat.getDishes();
             }
         }
         return null;
@@ -202,8 +202,8 @@ public class Restaurant implements RestaurantInterface{
         boolean free = false;
         if(dishCategories.size() > 0){
             while (!free){
-                for (DishCategory dishСategory: dishCategories) {
-                    if (dishСategory.getId() == id){
+                for (DishCategory dishCategory: dishCategories) {
+                    if (dishCategory.getId() == id){
                         id++;
                         continue;
                     }
