@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.Exchanger;
 
 /**
@@ -30,6 +31,7 @@ public class Client implements ClientController {
     private User user;
     private Exchanger<String> exgr;
     private int port;
+    private File file;
 
     public static void main(String[] args) {
         new Client();
@@ -69,7 +71,9 @@ public class Client implements ClientController {
             dishCategories.add(dishCategory2);
             dishCategories.add(dishCategory3);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            clientSocket = new Socket("127.0.0.1", 8000);
+            file = new File("settings/client.ini");
+            this.port = readPort();
+            clientSocket = new Socket("127.0.0.1", getPort());
             connectToServer();
             writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -83,6 +87,82 @@ public class Client implements ClientController {
                   /*  writer.close();
             reader.close();
             clientSocket.close();*/
+    }
+
+    /**
+     * Get port from file. Create file in case file does not exist.
+     * @return port
+     */
+    int readPort() {
+
+        int port = 8_000;
+
+        if (file.exists()) {
+            FileReader fr = null;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                LOGGER.error("reading settings file error, ", e);
+            }
+            Scanner scan = new Scanner(fr);
+            if (scan.hasNextInt()) {
+                port = scan.nextInt();
+            }
+            if (fr != null) {
+                try {
+                    fr.close();
+                } catch (IOException e) {
+                    LOGGER.error("closing settings file error, ", e);
+                }
+            }
+        } else {
+            FileWriter fw;
+            try {
+                fw = new FileWriter(file);
+                fw.write("8000");
+                fw.close();
+            } catch (IOException e) {
+                LOGGER.error("writing settings file error, ", e);
+            }
+        }
+
+        return port;
+    }
+
+    /**
+     * Get port for client.
+     * @return int port
+     */
+    public int getPort() {
+        return this.port;
+    }
+
+    /**
+     * Change client port
+     *
+     * @param port is a number of new port, which is set
+     * @return true if the changing was successful, else return false.
+     */
+    public boolean changePort(int port) {
+        if (port == this.port) {
+            LOGGER.info("port is the same and has not been changed.");
+            return false;
+        }
+        if (port < 1_024 || port > 65_535) {
+            LOGGER.error("port cannot be less than 1025 or more than 65535.");
+            return false;
+        }
+        this.port = port;
+        FileWriter fw;
+        try {
+            fw = new FileWriter(file);
+            fw.write(String.valueOf(port));
+            fw.close();
+        } catch (IOException e) {
+            LOGGER.error("writing settings file error, ", e);
+        }
+        LOGGER.info("port was successfully changed onto " + port + ".");
+        return true;
     }
 
     /**
