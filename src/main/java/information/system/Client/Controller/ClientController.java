@@ -36,7 +36,7 @@ public interface ClientController {
      * Adds new object in the table.
      * @return true if the addition was successful, else return false.
      */
-    boolean add(DishCategory dishСategory );
+    boolean add(DishCategory dishCategory );
 
 
     /**

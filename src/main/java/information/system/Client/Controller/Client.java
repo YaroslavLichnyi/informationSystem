@@ -29,6 +29,7 @@ public class Client implements ClientController {
     private BufferedReader reader;
     private User user;
     private Exchanger<String> exgr;
+    private int port;
 
     public static void main(String[] args) {
         new Client();
@@ -51,22 +52,22 @@ public class Client implements ClientController {
             menu.add(dish5);
             menu.add(dish4);
             menu.add(dish6);
-            DishCategory dishСategory1 = new DishCategory();
-            DishCategory dishСategory2 = new DishCategory();
-            DishCategory dishСategory3 = new DishCategory();
-            dishСategory1.setName("alco");
-            dishСategory2.setName("salads");
-            dishСategory3.setName("ice cream");
+            DishCategory dishCategory1 = new DishCategory();
+            DishCategory dishCategory2 = new DishCategory();
+            DishCategory dishCategory3 = new DishCategory();
+            dishCategory1.setName("alco");
+            dishCategory2.setName("salads");
+            dishCategory3.setName("ice cream");
 
-            dishСategory1.addDish(dish1);
-            dishСategory1.addDish(dish2);
-            dishСategory2.addDish(dish3);
-            dishСategory2.addDish(dish4);
-            dishСategory3.addDish(dish5);
-            dishСategory3.addDish(dish6);
-            dishCategories.add(dishСategory1);
-            dishCategories.add(dishСategory2);
-            dishCategories.add(dishСategory3);
+            dishCategory1.addDish(dish1);
+            dishCategory1.addDish(dish2);
+            dishCategory2.addDish(dish3);
+            dishCategory2.addDish(dish4);
+            dishCategory3.addDish(dish5);
+            dishCategory3.addDish(dish6);
+            dishCategories.add(dishCategory1);
+            dishCategories.add(dishCategory2);
+            dishCategories.add(dishCategory3);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             clientSocket = new Socket("127.0.0.1", 8000);
             connectToServer();
@@ -130,11 +131,11 @@ public class Client implements ClientController {
      * @return true if the addition was successful, else return false.
      */
     @Override
-    public boolean add(DishCategory dishСategory) {
+    public boolean add(DishCategory dishCategory) {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.ADD_DISH_CATEGORY);
         LinkedList <DishCategory> list = new LinkedList();
-        list.add(dishСategory);
+        list.add(dishCategory);
         xmlSet.setDishCategoriesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         /*try {
