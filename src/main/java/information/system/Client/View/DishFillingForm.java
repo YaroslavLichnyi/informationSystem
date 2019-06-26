@@ -1,12 +1,10 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishCategory;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,13 +16,13 @@ public class DishFillingForm extends InformSystemGUI {
         setClient(client);
         this.client = client;
         setBounds(dimension.width / 2 - 150, dimension.height / 2 - 200, 300, 400);
-        basicInit();
+        init();
         add(panel);
         setVisible(true);
     }
 
     @Override
-    protected void basicInit() {
+    protected void init() {
         final JTextArea taDishDescription;
         final JTextField tfDishName;
         JLabel lbDishName;
@@ -206,9 +204,9 @@ public class DishFillingForm extends InformSystemGUI {
             public void actionPerformed(ActionEvent e) {
                 Dish newDish = new Dish();
                 newDish.setName(tfDishName.getText());
-                newDish.setPrice((int)spnHryvnas.getValue() + ((double)spnKopeikas.getValue())/100);
+                newDish.setPrice(Double.valueOf((int)spnHryvnas.getValue())
+                                 + (Double.valueOf((int)spnKopeikas.getValue()))/100);
                 newDish.setDescription(taDishDescription.getText());
-                //механизм добавления блюд
                 client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
                 client.add(newDish);
             }

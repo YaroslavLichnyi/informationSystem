@@ -155,9 +155,47 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
+     * Edits existing dish.
+     *
+     * @param oldDish is a dish, witch is added.
+     * @param newDish is a dish, which parameter's existing dish adopts.
+     * @return true if dish was successfully edited.
+     */
+    @Override
+    public boolean edit(Dish oldDish, Dish newDish) {
+        for (Dish dish : menu) {
+            if (dish.equals(oldDish)){
+                dish.setName(newDish.getName());
+                dish.setPrice(newDish.getPrice());
+                dish.setDescription(newDish.getDescription());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Edits existing dish.
+     *
+     * @param oldDishCategory is a dish category, witch is added.
+     * @param newDishCategory is a dish category, which parameter's existing dish adopts.
+     */
+    @Override
+    public boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory) {
+        for (DishCategory dishCategory: dishCategories) {
+            if (dishCategory.equals(oldDishCategory)){
+                dishCategory.setName(newDishCategory.getName());
+                dishCategory.setHealthyFood(newDishCategory.isHealthyFood());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Signin in application.
-     * @param login is admin's {@link User#login}.
-     * @param password is admin's {@link User#password}.
+     * @param login is admin's <code>login</code>.
+     * @param password is admin's <code>password</code>.
      * @return Admin object, if there is the admin with the same name
      *        or return null, if there is no admin with the same name
      */
@@ -171,9 +209,9 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
-     * Check if {@link User#login} and {@link User#password} were inputted correct.
-     * @param login is admin's {@link User#login}.
-     * @param password is admin's {@link User#password}.
+     * Check if <code>password</code> and <code>password</code> were inputted correct.
+     * @param login is admin's <code>password</code>.
+     * @param password is admin's <code>password</code>.
      * @return true, if <b>login</b> and <b>password</b> were inputted correct, else return false.
      */
     public static boolean isInputtedDataCorrect(String login, String password){

@@ -3,6 +3,8 @@ package information.system.Client.Controller;
 import information.system.Server.Model.User;
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishCategory;
+
+import java.io.IOException;
 import java.util.List;
 
 
@@ -11,15 +13,6 @@ import java.util.List;
  * @author Yaroslav Lichnyi
  */
 public interface ClientController {
-    /**
-     * Creates JFrame with information about all dishes.
-     */
-    void showMenuFrame();
-
-    /**
-     * Creates JFrame with information about all dish categories.
-     */
-    void showDishCategoriesFrame();
 
     /**
      * Checks server connection.
@@ -40,10 +33,22 @@ public interface ClientController {
 
 
     /**
-     * Edits existing data in the table.
+     * Edits existing dish.
      * @return true if the edition was successful, else return false.
      */
-    boolean edit();
+    boolean edit(Dish oldDish, Dish newDish);
+
+    /**
+     * Edits existing dish category.
+     * @return true if the edition was successful, else return false.
+     */
+    boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory);
+
+    /**
+     * Edits existing user.
+     * @return true if the edition was successful, else return false.
+     */
+    boolean edit(User oldUser, User newUser);
 
     /**
      * Deletes existing dish.
@@ -58,6 +63,13 @@ public interface ClientController {
     boolean delete(DishCategory dishCategory);
 
     /**
+     * Deletes existing user account.
+     * @param user
+     * @return
+     */
+    boolean delete(User user);
+
+    /**
      * Updates content, getting actual information.
      * @return true if the update was successful, else return false.
      */
@@ -66,7 +78,7 @@ public interface ClientController {
     /**
      * Connects to server
      */
-    void connectToServer();
+    void connectToServer() throws IOException;
 
     /**
      * Disconnects from the server. Finishes the client session.
@@ -89,10 +101,15 @@ public interface ClientController {
 
     /**
      * Adds a new user to the database of existing ones.
-     * @param user is added as a new Admin
-     * @return true if an <code>user</code> was added
+     * @param user is added as a new Admin.
+     * @return true if an <code>user</code> was added.
      */
     boolean signUp(User user);
+
+    /**
+     * Signs out
+     */
+    void signOut();
 
     /**
      * Finds dishes whisn contain <code>subStr</code> in the name.
@@ -107,4 +124,9 @@ public interface ClientController {
      * @return list of dishes sorted by pointed criteria.
      */
     List <Dish> getDishesSortedBy(String sortBy);
+
+    /**
+     *  Shows general frame.
+     */
+    void showGeneralFrame();
 }

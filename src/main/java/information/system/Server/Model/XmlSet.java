@@ -43,8 +43,6 @@ public class XmlSet {
     private static final String DISH_CATEGORY_ID = "dish-category-id";
     private static final String ROOT_ELEMENT = "message";
     private static final String COMMAND = "command";
-    private String userId;
-    private String command;
     private Document document;
 
     public XmlSet() {
@@ -316,12 +314,54 @@ public class XmlSet {
         return dishCategories;
     }
 
-    /**
-     *
-     * @param doc
-     */
-    public static void setMenuToDocument(Document doc) {
 
+    /**
+     * Sets given list of dish categories and list of dishes, which dish categories contains to document.
+     * @param menu is a list data of which is set in document.
+     */
+    public void setMenuToDocument(List<DishCategory> menu) {
+        Element rootMenu = document.createElement("menu");
+        for (DishCategory dishCategory: menu) {
+            Element dishCategoryEl = document.createElement(DISH_CATEGORY);
+            rootMenu.appendChild(dishCategoryEl);
+
+            Attr attrDishCategoryID = document.createAttribute(ID);
+            attrDishCategoryID.setValue(String.valueOf(dishCategory.getId()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryID);
+
+            Attr attrDishCategoryName = document.createAttribute(NAME);
+            attrDishCategoryName.setValue(String.valueOf(dishCategory.getName()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryName);
+
+            Attr attrDishCategoryHealthyFood = document.createAttribute(HEALTHY_FOOD);
+            attrDishCategoryHealthyFood.setValue(String.valueOf(dishCategory.isHealthyFood()));
+            dishCategoryEl.setAttributeNode(attrDishCategoryHealthyFood);
+
+            for ( Dish dish : dishCategory.getDishes()) {
+                Element dishEl = document.createElement(DISH);
+                dishCategoryEl.appendChild(dishEl);
+
+                Attr attrDishId = document.createAttribute(ID);
+                attrDishId.setValue(String.valueOf(dish.getId()));
+                dishEl.setAttributeNode(attrDishId);
+
+                Attr attrDishCategoryId = document.createAttribute(DISH_CATEGORY_ID);
+                attrDishCategoryId.setValue(String.valueOf(dish.getDishCategoryId()));
+                dishEl.setAttributeNode(attrDishCategoryId);
+
+                Attr attrDishName = document.createAttribute(NAME);
+                attrDishName.setValue(String.valueOf(dish.getName()));
+                dishEl.setAttributeNode(attrDishName);
+
+                Attr attrDishPrice = document.createAttribute(PRICE);
+                attrDishPrice.setValue(String.valueOf(dish.getPrice()));
+                dishEl.setAttributeNode(attrDishPrice);
+
+                Element description = document.createElement(DESCRIPTION);
+                description.appendChild(document.createTextNode(dish.getDescription()));
+                dishEl.appendChild(description);
+            }
+        }
     }
 
     /**
@@ -437,6 +477,7 @@ public class XmlSet {
 
     /**
      * Gets {@link XmlSet#document}.
+     *
      * @return {@link XmlSet#document}.
      */
     public Document getDocument() {

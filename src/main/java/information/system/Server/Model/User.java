@@ -1,5 +1,4 @@
 package information.system.Server.Model;
-
 import java.util.Objects;
 
 public class User {

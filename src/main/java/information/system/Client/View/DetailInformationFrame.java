@@ -3,9 +3,7 @@ import information.system.Client.Controller.Client;
 import information.system.Server.Model.Dish;
 
 import javax.swing.JPanel;
-import javax.swing.BorderFactory;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -16,13 +14,13 @@ public class DetailInformationFrame extends InformSystemGUI{
         this.dish = dish;
         setBounds(dimension.width / 2 - 200, dimension.height / 2 - 150, 400, 300);
  //       setClient(client);
-        basicInit();
+        init();
         add(panel);
         setVisible(true);
     }
 
     @Override
-    protected void basicInit() {
+    protected void init() {
         JLabel lbName;
         JLabel lbDishName;
         JLabel lbPrice;

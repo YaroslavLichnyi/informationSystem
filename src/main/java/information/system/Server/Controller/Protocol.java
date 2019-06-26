@@ -20,4 +20,7 @@ public interface Protocol {
     String FIND_DISH             = "find_dish";
     String SORT_BY_PRICE         = "sort_by_price";
     String SORT_BY_DISH_CATEGORY = "sort_by_dish_category";
+    String UPDATE_INFORMATION    = "update_information";
+    String TRUE                  = "true";
+    String FALSE                 = "false";
 }
