@@ -18,16 +18,11 @@ public abstract class InformSystemGUI extends JFrame {
         toolkit = Toolkit.getDefaultToolkit();
         dimension = toolkit.getScreenSize();
         panel = new JPanel();
-        /*
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        */
         gridBag = new GridBagConstraints();
         gridBagLayout = new GridBagLayout();
         panel.setLayout(gridBagLayout);
+        add(panel);
+        setVisible(true);
     }
 
     public Client getClient() {
@@ -38,7 +33,7 @@ public abstract class InformSystemGUI extends JFrame {
         this.client = client;
     }
 
-    protected abstract void basicInit();
+    protected abstract void init();
 
     public static void showMessage(String message){
         JFrame frame = new JFrame("Attention!");

@@ -2,7 +2,6 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -18,10 +17,9 @@ public class MenuGUI extends InformSystemGUI {
     private JButton btAddDishCategory;
     private JComboBox cmbSortBy;
     private JTextField tfName;
-    private JButton btFind;
+    private JButton btShowDishCategories;
     private JTable dishesTable;
     private JLabel lbSortBy;
-    private JButton btUpdate;
     private DefaultTableModel model;
     private Client client;
 
@@ -30,7 +28,7 @@ public class MenuGUI extends InformSystemGUI {
         setBounds(dimension.width / 2 - 350, dimension.height / 2 - 300, 700, 600);
         setClient(client);
         this.client = client;
-        basicInit();
+        init();
         if (singnedIn){
             initFroAdmin();
         }
@@ -39,7 +37,7 @@ public class MenuGUI extends InformSystemGUI {
     }
 
     private void initFroAdmin() {
-
+/*
         btAdd = new JButton( "Add new dish"  );
         gridBag.gridx = 1;
         gridBag.gridy = 1;
@@ -52,7 +50,12 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints( btAdd, gridBag );
         panel.add( btAdd );
-        btAdd.addActionListener(e -> new DishFillingForm(client));
+        btAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DishFillingForm(client);
+            }
+        });
 
         btAddDishCategory = new JButton( "Add new dish category"  );
         gridBag.gridx = 1;
@@ -66,26 +69,65 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints(btAddDishCategory, gridBag );
         panel.add(btAddDishCategory);
-        btAddDishCategory.addActionListener(e -> new DishCategoryFillingForm(client));
+        btAddDishCategory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DishCategoryFillingForm(client);
+            }
+        }); */
     }
 
     @Override
-    protected void basicInit(){
+    protected void init(){
         JMenuBar jMenuBar = new JMenuBar();
-        JMenu closeMenu = new JMenu("Close programme");
-        JMenu userMenu = new JMenu("User");
-        JMenuItem itChangeData = new JMenuItem("Change data");
-        itChangeData.addActionListener(e -> {
 
+        JMenu addMenu = new JMenu("Add");
+        JMenuItem itAddNewDish = new JMenuItem("Add new dish");
+        JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
+        itAddNewDish.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DishFillingForm(client);
+            }
         });
+        itAddNewDishCategory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DishCategoryFillingForm(client);
+            }
+        });
+        addMenu.add(itAddNewDish);
+        addMenu.add(itAddNewDishCategory);
+
+        JMenu closeMenu = new JMenu("Exit");
+
+        JMenu userMenu = new JMenu("User");
+
+        JMenuItem itChangeData = new JMenuItem("Change information");
+        itChangeData.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ChangeUserDataForm(client, client.getUser());
+            }
+        });
+        JMenu changePort = new JMenu("Change port");
+        changePort.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ChangePortForm(client);
+            }
+        });
+        jMenuBar.add(changePort);
         userMenu.add(itChangeData);
         userMenu.add(new JMenuItem("Sign out"));
         jMenuBar.add(closeMenu);
+        jMenuBar.add(addMenu);
         jMenuBar.add(userMenu);
+
         this.setJMenuBar(jMenuBar);
         this.revalidate();
 
-        String []variantsOfSorting = {Command.PRICE, Command.DISH_CATEGORY };
+         String []variantsOfSorting = {Command.PRICE, Command.DISH_CATEGORY };
         cmbSortBy = new JComboBox( variantsOfSorting );
         gridBag.gridx = 4;
         gridBag.gridy = 2;
@@ -120,7 +162,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints(tfName, gridBag );
         panel.add(tfName);
 
-        btFind = new JButton( "Find"  );
+        btShowDishCategories = new JButton( "Find"  );
         gridBag.gridx = 4;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
@@ -130,9 +172,9 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
-        gridBagLayout.setConstraints( btFind, gridBag );
-        panel.add( btFind );
-        btFind.addActionListener(new ActionListener() {
+        gridBagLayout.setConstraints(btShowDishCategories, gridBag );
+        panel.add(btShowDishCategories);
+        btShowDishCategories.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setValuesAtTable(
@@ -143,8 +185,6 @@ public class MenuGUI extends InformSystemGUI {
 
 
         Object[] headers = {"Name", "Price", "Description"};
-
-
         model = new DefaultTableModel(null, headers);
         dishesTable = new JTable(model){
             @Override
@@ -170,8 +210,6 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(0,15,15,15);
         gridBagLayout.setConstraints( jscrlp, gridBag );
         panel.add( jscrlp );
-
-
         dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -180,6 +218,20 @@ public class MenuGUI extends InformSystemGUI {
                 }
             }
         });
+
+
+        btShowDishCategories = new JButton( "Show dish categories"  );
+        gridBag.gridx = 2;
+        gridBag.gridy = 1;
+        gridBag.gridwidth = 1;
+        gridBag.gridheight = 1;
+        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.weightx = 0;
+        gridBag.weighty = 0;
+        gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets(15,15,0,15);
+        gridBagLayout.setConstraints(btShowDishCategories, gridBag );
+        panel.add(btShowDishCategories);
 
         lbSortBy = new JLabel( "Sort by:"  );
         gridBag.gridx = 3;
@@ -194,19 +246,6 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints( lbSortBy, gridBag );
         panel.add( lbSortBy );
 
-    /*    btUpdate = new JButton( "Update");
-        gridBag.gridx = 5;
-        gridBag.gridy = 3;
-        gridBag.gridwidth = 1;
-        gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 1;
-        gridBag.weighty = 1;
-        gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(15,15,0,15);
-        gridBagLayout.setConstraints(btUpdate, gridBag );
-        panel.add(btUpdate);
-        */
         setValuesAtTable(client.getMenu());
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

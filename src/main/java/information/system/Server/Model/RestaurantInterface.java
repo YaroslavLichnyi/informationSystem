@@ -1,8 +1,5 @@
 package information.system.Server.Model;
 
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishCategory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +26,7 @@ public interface RestaurantInterface {
 
     /**
      * Sets variable value {@link RestaurantInterface#dishCategories}.
+     *
      * @param index is a place of a dish in the list, which You get.
      * @return DishCategory from {@link RestaurantInterface#dishCategories}.
      */
@@ -39,6 +37,7 @@ public interface RestaurantInterface {
 
     /**
      * Removes dish from {@link RestaurantInterface#dishCategories}.
+     *
      * @param dishCategory is removed from {@link RestaurantInterface#dishCategories}.
      * @return true if an object was removed, else return false.
      */
@@ -46,6 +45,7 @@ public interface RestaurantInterface {
 
     /**
      * Adds new dish at {@link RestaurantInterface#menu}.
+     *
      * @param dish is added as new Dish to {@link RestaurantInterface#menu}.
      * @return true is the dish was added, else false, if there is already the same dish.
      */
@@ -53,6 +53,7 @@ public interface RestaurantInterface {
 
     /**
      * Gets a dish from @link RestaurantInterface#menu}.
+     *
      * @param index is a place of a dish in the list, which You get.
      * @return Dish from {@link RestaurantInterface#menu}.
      */
@@ -60,6 +61,7 @@ public interface RestaurantInterface {
 
     /**
      * Removes a dish from @link RestaurantInterface#menu}.
+     *
      * @param dish is removed from {@link RestaurantInterface#menu}.
      * @return true if an object was removed, else return false.
      */
@@ -67,6 +69,7 @@ public interface RestaurantInterface {
 
     /**
      * Sorts dished by dish price.
+     *
      * @param menu is a collection that is sorted
      * @return collection of dishes ordered by price by descent.
      */
@@ -74,12 +77,14 @@ public interface RestaurantInterface {
 
     /**
      * Sorts dished by dish category.
+     *
      * @return collection of dishes ordered by dish category.
      */
     List<Dish> sortDishesByDishCategory();
 
     /**
      * Finds a variety of dishes that are in the period from and to.
+     *
      * @param from is the lowest search boundary.
      * @param to is the highest search boundary.
      * @return  a set of dishes whose prices are in the range of numbers, passed as a parameter.
@@ -88,10 +93,30 @@ public interface RestaurantInterface {
 
     /**
      * Finds a variety of dishes that are satisfy a condition.
+     *
      * @param dishCategory is a parameter by which the search is performed.
      * @return a collection of dished which satisfy a condition.
      */
     List<Dish> getDishesWithDishCategory(DishCategory dishCategory);
+
+    /**
+     * Edits existing dish.
+     *
+     * @param oldDish is a dish, witch is added.
+     * @param newDish is a dish, which parameter's existing dish adopts.
+     * @return true if dish was successfully edited.
+     */
+    boolean edit(Dish oldDish, Dish newDish);
+
+    /**
+     * Edits existing dish.
+     *
+     * @param OldDishCategory is a dish category, witch is added.
+     * @param NewDishCategory is a dish category, which parameter's existing dish adopts.
+     * @return true if dish category was successfully edited.
+     */
+    boolean edit(DishCategory OldDishCategory, DishCategory NewDishCategory);
+
 
 //    static boolean isLoginFree(String login);
 

@@ -2,7 +2,6 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.User;
 import information.system.Server.Model.Restaurant;
-import information.system.Server.Model.User;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -19,13 +18,13 @@ public class SignUpForm extends InformSystemGUI {
         super();
         setBounds(dimension.width / 2 - 135, dimension.height / 2 - 100, 270, 200);
         setClient(client);
-        basicInit();
+        init();
         add(panel);
         setVisible(true);
     }
 
     @Override
-    protected void basicInit() {
+    protected void init() {
         final JTextField tfName;
         final JTextField tfLogin;
         final JTextField tfPassword;
