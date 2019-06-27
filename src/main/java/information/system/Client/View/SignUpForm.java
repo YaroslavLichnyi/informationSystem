@@ -1,16 +1,13 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.User;
 import information.system.Server.Model.Restaurant;
+import information.system.Server.Model.User;
 
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.text.AbstractDocument;
 
 public class SignUpForm extends InformSystemGUI {
     private Client client;
@@ -131,7 +128,7 @@ public class SignUpForm extends InformSystemGUI {
                     showMessage("Name cannot contain less than 2 symbols");
                 } else if (!Restaurant.isInputtedDataCorrect(tfLogin.getText(),tfPassword.getText() )){
                     showMessage("Login and password cannot contain less than 5 symbols");
-                } else if(!Restaurant.isLoginFree(tfLogin.getText())) {
+                } else if(!User.isLoginFree(tfLogin.getText())) {
                     showMessage("This login is not free. There is a user with the same login.");
                 } else {
                     User newUser = new User();
