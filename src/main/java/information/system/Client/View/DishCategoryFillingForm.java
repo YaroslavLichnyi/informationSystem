@@ -1,12 +1,15 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.DishCategory;
-
-import javax.swing.*;
-import javax.swing.text.AbstractDocument;
-import java.awt.*;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.text.AbstractDocument;
 
 public class DishCategoryFillingForm extends InformSystemGUI {
     public DishCategoryFillingForm(Client client) {
