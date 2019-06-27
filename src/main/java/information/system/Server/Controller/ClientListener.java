@@ -1,24 +1,23 @@
 package information.system.Server.Controller;
 
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Command;
-import information.system.Server.Model.XmlSet;
+import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
-/**
- * ClientListener for each of the clients.
- */
+
 public class ClientListener extends Thread {
-
-    private Socket socket;
+    private Socket socket;  // сокет, через который сервер общается с клиентом,
+                            // кроме него - клиент и сервер никак не связаны
     private static final Logger logger = Logger.getLogger(Client.class);
     private Server server;
-    private BufferedReader reader;
-    private BufferedWriter writer;
+    private BufferedReader reader; // поток чтения из сокета
+    private BufferedWriter writer; // поток записи в сокет
 
     ClientListener(Socket socket, Server server)  {
         this.socket = socket;
@@ -29,6 +28,8 @@ public class ClientListener extends Thread {
         } catch (IOException e) {
             logger.error("ClientListener creation error, ", e);
         }
+        //recieveFile();
+        //sendFile();
         start();
     }
 
@@ -50,7 +51,10 @@ public class ClientListener extends Thread {
 
         try {
             while (true) {
-                System.out.println("waiting for request");
+                /*System.out.println("waiting for request");
+                strDoc = reader.readLine();
+                */
+
                 String line;
                 String documentInStr = "";
                 while ((line = reader.readLine()) != null) {
@@ -59,53 +63,84 @@ public class ClientListener extends Thread {
                     }
                     documentInStr = documentInStr + line;
                 }
+                System.out.println(documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
+               // Document doc = XmlSet.convertStringToDocument(strDoc);
+                XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
-
                     case Protocol.ADD_DISH:
-                        server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0));
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf(server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0))));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol ADD_DISH was detected. Dish was added into the storage.");
-                        break;
+                    break;
 
                     case Protocol.ADD_DISH_CATEGORY:
-                        server.getRestaurant().addDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0).toString());
+                        DishCategory dishCategory = XmlSet.getDishCategoriesFrom(doc).get(0);
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf(server.getRestaurant().addDishCategory(dishCategory)));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol ADD_DISH_CATEGORY was detected." +
-                                    " DishCategory was added into the storage.");
+                                " DishCategory was added into the storage.");
                         break;
 
                     case Protocol.SIGN_UP:
+                        User newUser = XmlSet.getUsersFromDocument(doc).get(0);
+                       // xmlToSend.setCommandToDocument(server.getRestaurant().);
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+
 
                         break;
 
                     case Protocol.DELETE_DISH:
-                        server.getRestaurant().removeDish(XmlSet.getDishesFrom(doc).get(0));
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf(server.getRestaurant().removeDish(XmlSet.getDishesFrom(doc).get(0))));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol DELETE_DISH was detected. Dish was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_DISH_CATEGORY:
-                        server.getRestaurant().removeDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0));
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf(server.getRestaurant().removeDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0)))
+                        );
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol DELETE_DISH_CATEGORY was detected." +
-                                    " DishCategory was deleted from the storage.");
+                                " DishCategory was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_USER:
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+
 
                         break;
 
                     case Protocol.EDIT_DISH:
-
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf
+                                        (server.getRestaurant().
+                                                edit(XmlSet.getDishesFrom(doc).get(0),XmlSet.getDishesFrom(doc).get(1))));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.EDIT_DISH_CATEGORY:
+                        xmlToSend.setCommandToDocument(
+                                String.valueOf
+                                        (server.getRestaurant().
+                                                edit(XmlSet.getDishCategoriesFrom(doc).get(0),XmlSet.getDishCategoriesFrom(doc).get(1))));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
 
                         break;
 
                     case Protocol.EDIT_USER:
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
 
                         break;
 
                     case Protocol.GET_INFORMATION:
-
+                        xmlToSend.setCommandToDocument(Protocol.GET_INFORMATION);
+                        //указать путь
+                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(""));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.END_OF_SESSION:
@@ -113,37 +148,39 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.SIGN_IN:
-//                        String login = reader.readLine();
-//                        String password = reader.readLine();
-//                        //до этого на стороне клиента должны были провериться данные
-//                        // при помощи метода Restaurant.isInputtedDataCorrect()
-//                        User responce = Restaurant.singIn(login, password);
-//                        if (responce != null) {
-//                            //тправить админа в xml
-//                            sendMessage(Command.CORRECT);
-//                        } else {
-//                            sendMessage(Command.INCORRECT);
-//                        }
+                        User user = XmlSet.getUsersFromDocument(doc).get(0);
+                        User signedInUser = User.singIn(user.getLogin(), user.getPassword());
+                        if(signedInUser != null){
+                            LinkedList<User> list = new LinkedList<>();
+                            list.add(signedInUser);
+                            xmlToSend.setCommandToDocument(Protocol.SIGN_IN);
+                            xmlToSend.setUsersToDocument(list);
+                        } else {
+                            xmlToSend.setCommandToDocument(Protocol.FALSE);
+                        }
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
 
                         break;
 
                     case Protocol.SORT_BY_PRICE:
-                        server.getRestaurant().sortDishesByPrice(new ArrayList(XmlSet.getDishesFrom(doc)));
+                        xmlToSend.setDishesToDocument(server.getRestaurant().sortDishesByPrice());
+                        xmlToSend.setCommandToDocument(Protocol.SORT_BY_PRICE);
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol SORT_BY_PRICE was detected. Dishes was sorted by price.");
                         break;
 
                     case Protocol.SORT_BY_DISH_CATEGORY:
-                        server.getRestaurant().sortDishesByDishCategory();
+                        xmlToSend.setDishesToDocument(server.getRestaurant().sortDishesByDishCategory());
+                        xmlToSend.setCommandToDocument(Protocol.SORT_BY_PRICE);
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol SORT_BY_DISH_CATEGORY was detected." +
-                                    " Dishes was sorted by category.");
+                                " Dishes was sorted by category.");
                         break;
 
-                    default:
-                        logger.error("unknown command was entered.");
-                        sendMessage("no match");
                 }
             }
         } catch (IOException e) {
@@ -158,7 +195,8 @@ public class ClientListener extends Thread {
      */
     private void sendMessage(String msg) {
         try {
-            writer.write(msg + "\n");
+            //writer.write(msg + "\n");
+            writer.write(msg);
             writer.flush();
         } catch (IOException ex) {
             logger.error("sending mesage error, ", ex);
@@ -194,6 +232,7 @@ public class ClientListener extends Thread {
     /**
      * Recieve a file from client
      */
+    /*
     public void recieveFile() {
         try {
             Socket socket = server.getServerSocket().accept();
@@ -224,6 +263,7 @@ public class ClientListener extends Thread {
             logger.error("file recieving error, ", e);
         }
     }
+    */
 
     /**
      * Gets value of {@link ClientListener#socket}.

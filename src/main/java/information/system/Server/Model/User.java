@@ -1,4 +1,5 @@
 package information.system.Server.Model;
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class User {
@@ -58,24 +59,78 @@ public class User {
         this.id = id;
     }
 
-    private int generateUniqueId(){
-        /*
+    private static int generateUniqueId(){
         int id = 0;
         boolean free = false;
-        InformSystXML.readAdmins("");
-        if(dishCategories.size() > 0){
+        LinkedList <User> users = InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS);
+        if(users.size() > 0){
             while (!free){
-                for (Dish dish: menu) {
-                    if (dish.getId() == id){
+                for (User user : users) {
+                    if (user.getId() == id){
                         id++;
                         continue;
                     }
                     free = true;
                 }
             }
-        } else return 0;
-        */
+        } else {
+            return 0;
+        }
         return id;
+    }
+
+    public static boolean edit(User oldUser, User newUser) {
+        for (User user : InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+            if (user.equals(oldUser)){
+                user.setName(newUser.getName());
+                user.setLogin(newUser.getLogin());
+                user.setPassword(newUser.getPassword());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Signin in application.
+     * @param login is admin's <code>login</code>.
+     * @param password is admin's <code>password</code>.
+     * @return Admin object, if there is the admin with the same name
+     *        or return null, if there is no admin with the same name
+     */
+    public static User singIn(String login, String password){
+        for (User user:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+            if (user.getLogin().equals(login) && user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static boolean singUp(User user){
+        if (isLoginFree(user.getLogin())){
+            LinkedList<User> users = InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS);
+            users.add(user);
+            user.setId(generateUniqueId());
+            InformSystXML.writeAdmins(users, Command.SERVER_FILE_ADMINS);
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Checks if a user with the same login exists.
+     * @param login is a login which is checked.
+     * @return true if there is no user with the same login.
+     */
+    public static boolean isLoginFree(String login) {
+        for (User admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+            if (admin.getLogin().equals(login)){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -105,4 +160,5 @@ public class User {
                 ", id=" + id +
                 '}';
     }
+
 }

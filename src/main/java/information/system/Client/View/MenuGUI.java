@@ -37,44 +37,7 @@ public class MenuGUI extends InformSystemGUI {
     }
 
     private void initFroAdmin() {
-/*
-        btAdd = new JButton( "Add new dish"  );
-        gridBag.gridx = 1;
-        gridBag.gridy = 1;
-        gridBag.gridwidth = 1;
-        gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 0;
-        gridBag.weighty = 0;
-        gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(15,15,0,0);
-        gridBagLayout.setConstraints( btAdd, gridBag );
-        panel.add( btAdd );
-        btAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishFillingForm(client);
-            }
-        });
 
-        btAddDishCategory = new JButton( "Add new dish category"  );
-        gridBag.gridx = 1;
-        gridBag.gridy = 2;
-        gridBag.gridwidth = 1;
-        gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 0;
-        gridBag.weighty = 0;
-        gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(15,15,0,0);
-        gridBagLayout.setConstraints(btAddDishCategory, gridBag );
-        panel.add(btAddDishCategory);
-        btAddDishCategory.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishCategoryFillingForm(client);
-            }
-        }); */
     }
 
     @Override
@@ -251,7 +214,7 @@ public class MenuGUI extends InformSystemGUI {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    private void setValuesAtTable(List<Dish> menu){
+    public void setValuesAtTable(List<Dish> menu){
         final int tableRowSize = menu.size();
         model.setRowCount(tableRowSize);
         Iterator<Dish> taskIterator = menu.iterator();

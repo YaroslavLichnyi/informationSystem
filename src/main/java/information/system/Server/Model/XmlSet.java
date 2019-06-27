@@ -105,7 +105,7 @@ public class XmlSet {
      * @param doc is a resource where users are getted from.
      * @return list of users
      */
-    public static List<User> getUserFromDocument (Document doc) {
+    public static List<User> getUsersFromDocument(Document doc) {
         List<User> users = new LinkedList<>();
         doc.getDocumentElement().normalize();
         NodeList nodes = doc.getElementsByTagName("user");

@@ -10,7 +10,6 @@ import org.w3c.dom.Document;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -110,7 +109,7 @@ public class Client implements ClientController {
         list.add(dish);
         xmlSet.setDishesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        return false;
+        return getExchange();
     }
 
     /**
@@ -126,18 +125,7 @@ public class Client implements ClientController {
         list.add(dishСategory);
         xmlSet.setDishCategoriesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        /*try {
-            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            LinkedList <User> list = (LinkedList<User>) XmlSet.getUserFromDocument(document);
-            if (list.size() < 1){
-                return null;
-            } else {
-                return list.get(0);
-            }
-        } catch (InterruptedException e) {
-            LOGGER.error("Exception while exchanging", e);
-        }*/
-        return false;
+        return getExchange();
 
     }
 
@@ -150,7 +138,14 @@ public class Client implements ClientController {
      */
     @Override
     public boolean edit(Dish oldDish, Dish newDish) {
-        return false;
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.EDIT_DISH);
+        LinkedList <Dish> dishes = new LinkedList<>();
+        dishes.add(oldDish);
+        dishes.add(newDish);
+        xmlSet.setDishesToDocument(dishes);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        return getExchange();
     }
 
     /**
@@ -162,7 +157,14 @@ public class Client implements ClientController {
      */
     @Override
     public boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory) {
-        return false;
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.EDIT_DISH_CATEGORY);
+        LinkedList <DishCategory> dishCategories = new LinkedList<>();
+        dishCategories.add(oldDishCategory);
+        dishCategories.add(newDishCategory);
+        xmlSet.setDishCategoriesToDocument(dishCategories);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        return getExchange();
     }
 
     /**
@@ -174,7 +176,14 @@ public class Client implements ClientController {
      */
     @Override
     public boolean edit(User oldUser, User newUser) {
-        return false;
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.EDIT_USER);
+        LinkedList <User> users = new LinkedList<>();
+        users.add(oldUser);
+        users.add(newUser);
+        xmlSet.setUsersToDocument(users);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        return getExchange();
     }
 
 
@@ -191,7 +200,7 @@ public class Client implements ClientController {
         dishes.add(dish);
         xmlSet.setDishesToDocument(dishes);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        return false;
+        return getExchange();
     }
 
     /**
@@ -208,7 +217,7 @@ public class Client implements ClientController {
         dishCategories.add(dishCategory);
         xmlSet.setDishCategoriesToDocument(dishCategories);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        return false;
+        return getExchange();
     }
 
     /**
@@ -225,7 +234,7 @@ public class Client implements ClientController {
         users.add(user);
         xmlSet.setUsersToDocument(users);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        return false;
+        return getExchange();
     }
 
     /**
@@ -324,7 +333,7 @@ public class Client implements ClientController {
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         try {
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            LinkedList <User> list = (LinkedList<User>) XmlSet.getUserFromDocument(document);
+            LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
             if (list.size() < 1){
                 return null;
             } else {
@@ -427,6 +436,18 @@ public class Client implements ClientController {
         this.user = user;
     }
 
+    private boolean getExchange(){
+        try {
+            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
+            if (Protocol.TRUE.equals(XmlSet.getCommandFromDocument(document))){
+                return true;
+            }
+        } catch (InterruptedException e) {
+            LOGGER.error("Exception while exchanging", e);
+        }
+        return false;
+    }
+
     /**
      * Get port from file. Create file in case file does not exist.
      * @return port
@@ -523,29 +544,16 @@ public class Client implements ClientController {
                         }
                         responseStr = responseStr + line;
                     }
-                    //System.out.println(responseStr);
                     Document responseDoc = XmlSet.convertStringToDocument(responseStr);
-
-
-
-
-                   /* reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    String responseStr = reader.readLine();
-                    Document responseDoc  = XmlSet.convertStringToDocument(responseStr);*/
                     String command = XmlSet.getCommandFromDocument(responseDoc);
                     switch(command)
                     {
                         case Protocol.SIGN_IN:
-                            user = XmlSet.getUserFromDocument(responseDoc).get(0);
-                            break;
-                        case Protocol.END_OF_SESSION:
-                            break;
-                        case Protocol.SORT_BY_DISH_CATEGORY:
-                            break;
-                        case Protocol.SORT_BY_PRICE:
-                            break;
-                        case "true":
-                            InformSystemGUI.showMessage("PEREMOGA");
+                            try {
+                                exchanger.exchange(responseStr);
+                            } catch (InterruptedException e) {
+                                LOGGER.error("Exception while exchanging",e);
+                            }
                             break;
                         case Protocol.SIGN_UP:
                             try {
@@ -556,11 +564,39 @@ public class Client implements ClientController {
                             break;
                         case Protocol.UPDATE_INFORMATION:
                             menu = (ArrayList<Dish>) XmlSet.getDishesFrom(responseDoc);
+                            menuGUI.setValuesAtTable(menu);
                             dishCategories = (ArrayList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
+                            break;
+
+                        case Protocol.END_OF_SESSION:
+                            break;
+
+                        case Protocol.FIND_DISH:
+                            break;
+
+                        case Protocol.SORT_BY_PRICE:
+                            menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
+                            break;
+
+                        case Protocol.SORT_BY_DISH_CATEGORY:
+                            break;
+
+                        case Protocol.TRUE:
+                            try {
+                                exchanger.exchange(responseStr);
+                            } catch (InterruptedException e) {
+                                LOGGER.error("Exception while exchanging",e);
+                            }
+                            break;
+                        case Protocol.FALSE:
+                            try {
+                                exchanger.exchange(responseStr);
+                            } catch (InterruptedException e) {
+                                LOGGER.error("Exception while exchanging",e);
+                            }
                             break;
                         default:
                             LOGGER.error("Unknown protocol");
-                            InformSystemGUI.showMessage("Unknown protocol");
                     }
                     } catch (IOException e){
                         LOGGER.error(e);

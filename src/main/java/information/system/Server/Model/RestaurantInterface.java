@@ -1,5 +1,8 @@
 package information.system.Server.Model;
 
+import information.system.Server.Model.Dish;
+import information.system.Server.Model.DishCategory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +22,10 @@ public interface RestaurantInterface {
 
     /**
      * Adds new dish category at {@link RestaurantInterface#dishCategories}.
-     * @param name is set as name of new dish category.
+     * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
-    boolean addDishCategory(String name);
+    boolean addDishCategory(DishCategory newDishCategory);
 
     /**
      * Sets variable value {@link RestaurantInterface#dishCategories}.
@@ -70,10 +73,9 @@ public interface RestaurantInterface {
     /**
      * Sorts dished by dish price.
      *
-     * @param menu is a collection that is sorted
      * @return collection of dishes ordered by price by descent.
      */
-    ArrayList<Dish> sortDishesByPrice(ArrayList<Dish> menu);
+    ArrayList<Dish> sortDishesByPrice();
 
     /**
      * Sorts dished by dish category.

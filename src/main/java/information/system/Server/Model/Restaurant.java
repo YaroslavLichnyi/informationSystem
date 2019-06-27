@@ -6,17 +6,18 @@ public class Restaurant implements RestaurantInterface{
 
     /**
      * Adds new dish category at {@link RestaurantInterface#dishCategories}.
-     * @param name is set as name of new dish category.
+     * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
     @Override
-    public boolean addDishCategory(String name) {
-        for (DishCategory dishCategory: dishCategories) {
-            if (dishCategory.getName().equals(name)){
+    public boolean addDishCategory(DishCategory newDishCategory) {
+        for (DishCategory dishCategoryFromList: dishCategories) {
+            if (dishCategoryFromList.getName().equals(newDishCategory.getName())){
                 return false;
             }
         }
-        dishCategories.add(new DishCategory(name, generateUniqueIdForDishCategory()));
+        newDishCategory.setId(generateUniqueIdForDishCategory());
+        dishCategories.add(newDishCategory);
         return true;
     }
 
@@ -87,11 +88,10 @@ public class Restaurant implements RestaurantInterface{
 
     /**
      * Sorts dished by dish price.
-     * @param menu is a collection that is sorted
      * @return collection of dishes ordered by price by descent.
      */
     @Override
-    public ArrayList<Dish> sortDishesByPrice(ArrayList<Dish> menu) {
+    public ArrayList<Dish> sortDishesByPrice() {
         ArrayList<Dish> result = (ArrayList<Dish>) menu.clone();;
         Collections.sort(result, new Comparator<Dish>() {
             @Override
@@ -192,21 +192,6 @@ public class Restaurant implements RestaurantInterface{
         return false;
     }
 
-    /**
-     * Signin in application.
-     * @param login is admin's <code>login</code>.
-     * @param password is admin's <code>password</code>.
-     * @return Admin object, if there is the admin with the same name
-     *        or return null, if there is no admin with the same name
-     */
-    public static User singIn(String login, String password){
-        for (User admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
-            if (admin.getLogin().equals(login) && admin.getPassword().equals(password)){
-                return admin;
-            }
-        }
-        return null;
-    }
 
     /**
      * Check if <code>password</code> and <code>password</code> were inputted correct.
@@ -219,17 +204,6 @@ public class Restaurant implements RestaurantInterface{
         return false;
     }
 
-    /**
-     * Checks if a user with the same login exists.
-     * @param login is a login which is checked.
-     * @return true if there is no user with the same login.
-     */
-    public static boolean isLoginFree(String login) {
-        return false;
-    }
-
-    public Restaurant() {
-    }
 
     /**
      * Generates unique id for dish category.
