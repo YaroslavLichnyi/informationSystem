@@ -8,9 +8,7 @@ Desserts: Cake, Ice Cream, Chocolate
 Drinks: Coffee, Juice, Water, Cola, Milk
  */
 
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishCategory;
-import information.system.Server.Model.XmlSet;
+import information.system.Server.Model.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -78,6 +76,7 @@ public class FillRestaurant {
         dishCategory5.setHealthyFood(false);
 
         //TODO
+
         XmlSet xmlSet = new XmlSet();
         List<DishCategory> list = new LinkedList<>();
         list.add(dishCategory1);
@@ -85,7 +84,7 @@ public class FillRestaurant {
         list.add(dishCategory3);
         list.add(dishCategory4);
         list.add(dishCategory5);
-        xmlSet.setDishCategoriesToDocument(list);
+        InformSystXML.writeXML(list, Command.SERVER_FILE_RESTAURANT);
 
     }
 }

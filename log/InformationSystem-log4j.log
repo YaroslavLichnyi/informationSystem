@@ -1,0 +1,783 @@
+2019-06-28 10:59:53 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 10:59:53 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:02:08 INFO  Client:525:changePort - port was successfully changed onto 8001.
+2019-06-28 11:02:09 ERROR ChangePortForm:81:actionPerformed - Enable to connect to server.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:256)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:77)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-28 11:02:21 INFO  Client:525:changePort - port was successfully changed onto 8000.
+2019-06-28 11:02:22 ERROR ChangePortForm:81:actionPerformed - Enable to connect to server.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:256)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:77)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-28 11:04:30 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 11:04:30 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 11:09:13 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:09:14 ERROR ChangePortForm:82:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:256)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:78)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-28 11:09:26 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 11:09:26 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:09:29 INFO  Server:72:start - server is running.
+2019-06-28 11:14:04 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:14:04 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:14:04 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:14:04 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:14:18 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:14:41 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 11:14:42 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:14:45 INFO  Server:72:start - server is running.
+2019-06-28 11:14:59 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:14:59 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:14:59 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:14:59 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:16:45 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:16:45 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:16:45 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:16:45 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:17:33 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:17:41 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:17:41 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:17:41 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:17:41 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:20:06 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:20:06 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:20:06 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:20:06 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:20:45 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:20:45 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:20:45 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:20:45 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:24:27 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:24:31 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:24:31 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:24:31 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:24:31 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:24:54 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 11:24:54 INFO  Server:95:stop - server is stoping.
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 11:24:54 INFO  Client:553:run - Listener got from server string: 
+2019-06-28 11:24:54 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-6 was disconnected.
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-7 was disconnected.
+2019-06-28 11:24:54 INFO  Client:553:run - Listener got from server string: 
+2019-06-28 11:24:54 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:24:54 INFO  Client:553:run - Listener got from server string: 
+2019-06-28 11:24:54 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-8 was disconnected.
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-9 was disconnected.
+2019-06-28 11:24:54 INFO  Client:553:run - Listener got from server string: 
+2019-06-28 11:24:54 INFO  Server:99:stop - client Thread-10 was disconnected.
+2019-06-28 11:24:54 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:24:54 INFO  Server:107:stop - server stopped.
+2019-06-28 11:24:54 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 11:24:54 ERROR XmlSet:473:convertStringToDocument - Converting string "" was failed.
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at information.system.Server.Model.XmlSet.convertStringToDocument(XmlSet.java:471)
+	at information.system.Client.Controller.Client$Listener.run(Client.java:554)
+2019-06-28 11:24:54 ERROR XmlSet:473:convertStringToDocument - Converting string "" was failed.
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at information.system.Server.Model.XmlSet.convertStringToDocument(XmlSet.java:471)
+	at information.system.Client.Controller.Client$Listener.run(Client.java:554)
+2019-06-28 11:24:54 ERROR XmlSet:473:convertStringToDocument - Converting string "" was failed.
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at information.system.Server.Model.XmlSet.convertStringToDocument(XmlSet.java:471)
+	at information.system.Client.Controller.Client$Listener.run(Client.java:554)
+2019-06-28 11:24:54 ERROR XmlSet:473:convertStringToDocument - Converting string "" was failed.
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at information.system.Server.Model.XmlSet.convertStringToDocument(XmlSet.java:471)
+	at information.system.Client.Controller.Client$Listener.run(Client.java:554)
+2019-06-28 11:25:31 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 11:25:32 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:25:43 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:25:44 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:256)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-28 11:25:48 INFO  Server:72:start - server is running.
+2019-06-28 11:25:49 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:25:49 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:25:49 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:25:49 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:26:21 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:26:41 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:26:41 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:26:41 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:26:41 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:26:52 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:27:03 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:27:03 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:27:03 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:27:03 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:31:01 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:31:09 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:31:09 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:31:09 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:31:09 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:42:21 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:42:26 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:42:26 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:42:26 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:42:26 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:45:30 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:45:37 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:45:37 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:45:37 INFO  Client:539:run - Listener starts its work.
+2019-06-28 11:45:37 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:53:36 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:53:41 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 11:53:41 INFO  Server:95:stop - server is stoping.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-6 was disconnected.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-7 was disconnected.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-8 was disconnected.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-9 was disconnected.
+2019-06-28 11:53:41 INFO  Server:99:stop - client Thread-10 was disconnected.
+2019-06-28 11:53:41 INFO  Server:107:stop - server stopped.
+2019-06-28 11:53:41 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 11:55:00 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 11:55:00 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:55:02 INFO  Server:72:start - server is running.
+2019-06-28 11:55:10 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:55:10 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:55:10 INFO  Client:539:run - Listener starts working
+2019-06-28 11:55:10 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:55:26 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:55:35 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:55:35 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:55:35 INFO  Client:539:run - Listener starts working
+2019-06-28 11:55:35 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:55:42 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:55:48 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:55:48 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:55:48 INFO  Client:539:run - Listener starts working
+2019-06-28 11:55:48 INFO  Client:544:run - Listener waits for response.
+2019-06-28 11:56:10 ERROR Client:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 11:57:10 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 11:57:10 INFO  Server:95:stop - server is stoping.
+2019-06-28 11:57:10 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 11:57:10 INFO  Server:99:stop - client Thread-6 was disconnected.
+2019-06-28 11:57:10 INFO  Server:99:stop - client Thread-7 was disconnected.
+2019-06-28 11:57:10 INFO  Server:107:stop - server stopped.
+2019-06-28 11:57:10 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 11:59:20 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 11:59:20 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 11:59:22 INFO  Server:72:start - server is running.
+2019-06-28 11:59:30 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 11:59:30 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 11:59:30 INFO  Client:539:run - Listener starts working
+2019-06-28 11:59:30 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:11:53 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:11:53 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:11:55 INFO  Server:72:start - server is running.
+2019-06-28 12:12:03 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:12:03 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 12:12:03 INFO  Client:539:run - Listener starts working
+2019-06-28 12:12:03 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:12:44 ERROR Client:185:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 12:13:23 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 12:13:23 INFO  Server:95:stop - server is stoping.
+2019-06-28 12:13:23 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 12:13:23 INFO  Server:107:stop - server stopped.
+2019-06-28 12:13:23 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 12:15:02 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:15:02 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:15:06 INFO  Server:72:start - server is running.
+2019-06-28 12:15:13 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:15:13 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 12:15:13 INFO  Client:539:run - Listener starts working
+2019-06-28 12:15:13 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:15:49 ERROR Client:185:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:56)
+2019-06-28 12:16:12 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:16:13 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:16:14 INFO  Server:72:start - server is running.
+2019-06-28 12:16:22 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:16:22 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 12:16:22 INFO  Client:539:run - Listener starts working
+2019-06-28 12:16:22 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:17:21 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:17:21 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:17:23 INFO  Server:72:start - server is running.
+2019-06-28 12:17:31 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:17:31 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 12:17:31 INFO  Client:539:run - Listener starts working
+2019-06-28 12:17:31 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:18:56 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:18:56 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:18:57 INFO  Server:72:start - server is running.
+2019-06-28 12:19:04 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:19:04 INFO  Client:264:connectToServer - Client was connected to server.
+2019-06-28 12:19:04 INFO  Client:539:run - Listener starts working
+2019-06-28 12:19:04 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:22:45 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:22:45 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:22:47 INFO  Server:72:start - server is running.
+2019-06-28 12:22:56 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:22:56 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:22:56 INFO  Client:539:run - Listener starts working
+2019-06-28 12:22:56 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:24:09 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:24:09 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:24:11 INFO  Server:72:start - server is running.
+2019-06-28 12:24:16 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:24:16 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:24:16 INFO  Client:539:run - Listener starts working
+2019-06-28 12:24:16 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:24:36 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:24:36 INFO  Client:539:run - Listener starts working
+2019-06-28 12:24:36 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:32:28 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:32:28 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:32:30 INFO  Server:72:start - server is running.
+2019-06-28 12:33:37 INFO  Server:115:stop - fault: attempt to stop a down server.
+2019-06-28 12:34:55 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 12:34:55 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 12:35:00 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:35:00 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:35:03 INFO  Server:72:start - server is running.
+2019-06-28 12:35:12 INFO  Client:509:changePort - port is the same and has not been changed.
+2019-06-28 12:35:12 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:35:12 INFO  Client:539:run - Listener starts working
+2019-06-28 12:35:12 INFO  Client:544:run - Listener waits for response.
+2019-06-28 12:36:18 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:36:18 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:36:19 INFO  Server:72:start - server is running.
+2019-06-28 12:36:27 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 12:36:27 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:36:27 INFO  Client:540:run - Listener starts working
+2019-06-28 12:36:27 INFO  Client:545:run - Listener waits for response.
+2019-06-28 12:50:07 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:50:07 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:50:09 INFO  Server:72:start - server is running.
+2019-06-28 12:50:17 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 12:50:17 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:50:17 INFO  Client:540:run - Listener starts working
+2019-06-28 12:50:17 INFO  Client:545:run - Listener waits for response.
+2019-06-28 12:51:54 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:51:54 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:51:56 INFO  Server:72:start - server is running.
+2019-06-28 12:52:05 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 12:52:05 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:52:05 INFO  Client:540:run - Listener starts working
+2019-06-28 12:52:05 INFO  Client:545:run - Listener waits for response.
+2019-06-28 12:55:39 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 12:55:39 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 12:55:41 INFO  Server:72:start - server is running.
+2019-06-28 12:55:48 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 12:55:48 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 12:55:48 INFO  Client:540:run - Listener starts working
+2019-06-28 12:55:48 INFO  Client:545:run - Listener waits for response.
+2019-06-28 13:38:17 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 13:38:17 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 13:38:19 INFO  Server:72:start - server is running.
+2019-06-28 13:38:25 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 13:38:25 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 13:38:25 INFO  Client:540:run - Listener starts working
+2019-06-28 13:38:25 INFO  Client:545:run - Listener waits for response.
+2019-06-28 13:38:41 INFO  Client:84:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 13:39:54 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 13:39:54 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 13:39:55 INFO  Server:72:start - server is running.
+2019-06-28 13:40:04 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 13:40:04 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 13:40:04 INFO  Client:540:run - Listener starts working
+2019-06-28 13:40:04 INFO  Client:545:run - Listener waits for response.
+2019-06-28 13:40:18 INFO  Client:84:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 13:43:46 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 13:43:46 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 13:43:47 INFO  Server:72:start - server is running.
+2019-06-28 13:43:56 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 13:43:56 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 13:43:56 INFO  Client:540:run - Listener starts working
+2019-06-28 13:43:56 INFO  Client:545:run - Listener waits for response.
+2019-06-28 13:44:09 INFO  Client:84:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 13:45:46 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 13:45:46 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 13:45:48 INFO  Server:72:start - server is running.
+2019-06-28 13:45:56 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 13:45:56 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 13:45:56 INFO  Client:540:run - Listener starts working
+2019-06-28 13:45:56 INFO  Client:545:run - Listener waits for response.
+2019-06-28 13:46:08 INFO  Client:84:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 13:46:08 INFO  Client:558:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-06-28 13:46:08 INFO  Client:601:run - Response "true" was delivered to client
+2019-06-28 14:00:38 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 14:00:38 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 14:00:42 INFO  Server:72:start - server is running.
+2019-06-28 14:00:53 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 14:00:53 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 14:00:53 INFO  Client:540:run - Listener starts working
+2019-06-28 14:00:53 INFO  Client:545:run - Listener waits for response.
+2019-06-28 14:05:12 INFO  Client:80:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 14:05:12 INFO  Client:558:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-06-28 14:05:12 INFO  Client:601:run - Response "true" was delivered to client
+2019-06-28 14:06:10 INFO  Client:80:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-28 14:07:00 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 14:07:01 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 14:07:02 INFO  Server:72:start - server is running.
+2019-06-28 14:07:08 INFO  Client:510:changePort - port is the same and has not been changed.
+2019-06-28 14:07:08 INFO  Client:265:connectToServer - Client was connected to server.
+2019-06-28 14:07:08 INFO  Client:540:run - Listener starts working
+2019-06-28 14:07:08 INFO  Client:545:run - Listener waits for response.
+2019-06-28 14:08:49 ERROR Client:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:63)
+2019-06-28 14:39:13 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 14:39:13 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 14:39:21 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 14:39:21 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 17:29:09 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 17:29:09 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 17:29:11 INFO  Server:72:start - server is running.
+2019-06-28 17:29:34 INFO  Client:539:changePort - port is the same and has not been changed.
+2019-06-28 17:29:34 INFO  Client:284:connectToServer - Client was connected to server.
+2019-06-28 17:29:34 INFO  Client:569:run - Listener starts working
+2019-06-28 17:29:35 INFO  Client:631:run - Response "false" was delivered to client
+2019-06-28 17:30:53 ERROR Client:181:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:63)
+2019-06-28 17:31:02 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 17:31:02 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 17:31:06 INFO  Server:72:start - server is running.
+2019-06-28 17:31:14 INFO  Client:539:changePort - port is the same and has not been changed.
+2019-06-28 17:31:14 INFO  Client:284:connectToServer - Client was connected to server.
+2019-06-28 17:31:14 INFO  Client:569:run - Listener starts working
+2019-06-28 17:31:22 INFO  Client:586:run - Command "sign in" was performed
+2019-06-28 17:35:41 ERROR Client:181:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:63)
+2019-06-28 17:35:43 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 17:35:43 INFO  Server:95:stop - server is stoping.
+2019-06-28 17:35:43 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 17:35:43 INFO  Server:107:stop - server stopped.
+2019-06-28 17:35:43 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.

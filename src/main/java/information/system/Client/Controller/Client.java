@@ -262,7 +262,7 @@ public class Client implements ClientController {
     @Override
     public boolean updateContent() {
         XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.GET_INFORMATION);
+        xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         return false;
     }
