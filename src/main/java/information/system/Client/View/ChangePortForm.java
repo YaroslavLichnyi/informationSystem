@@ -52,7 +52,7 @@ public class ChangePortForm extends InformSystemGUI{
         gridBagLayout.setConstraints( lbPort, gridBag );
         panel.add( lbPort );
 
-        btSave = new JButton( "Save"  );
+        btSave = new JButton( "Apply"  );
         gridBag.gridx = 0;
         gridBag.gridy = 1;
         gridBag.gridwidth = 2;
