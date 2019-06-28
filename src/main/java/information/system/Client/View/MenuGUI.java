@@ -84,6 +84,7 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
+
         JMenu userMenu = new JMenu("User");
 
         JMenuItem itChangeData = new JMenuItem("Change information");
