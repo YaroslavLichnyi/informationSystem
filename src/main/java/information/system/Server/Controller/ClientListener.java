@@ -7,7 +7,6 @@ import org.w3c.dom.Document;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 
@@ -46,15 +45,12 @@ public class ClientListener extends Thread {
      */
     @Override
     public void run() {
-        String strDoc;
         System.out.println("ClientListener works");
-
         try {
             while (true) {
                 /*System.out.println("waiting for request");
                 strDoc = reader.readLine();
                 */
-
                 String line;
                 String documentInStr = "";
                 while ((line = reader.readLine()) != null) {
@@ -65,7 +61,6 @@ public class ClientListener extends Thread {
                 }
                 System.out.println(documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
-               // Document doc = XmlSet.convertStringToDocument(strDoc);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
                     case Protocol.ADD_DISH:
@@ -199,7 +194,7 @@ public class ClientListener extends Thread {
             writer.write(msg);
             writer.flush();
         } catch (IOException ex) {
-            logger.error("sending mesage error, ", ex);
+            logger.error("Sending message error, ", ex);
         }
     }
 
