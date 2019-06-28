@@ -45,27 +45,29 @@ public class ClientListener extends Thread {
      */
     @Override
     public void run() {
-        System.out.println("ClientListener works");
         try {
             while (true) {
                 /*System.out.println("waiting for request");
                 strDoc = reader.readLine();
                 */
                 String line;
-                String documentInStr = "";
-                while ((line = reader.readLine()) != null) {
+               // String documentInStr = "";
+                /*while ((line = reader.readLine()) != null) {
                     if (line.isEmpty()) {
                         break;
                     }
+                    System.out.println("2"+line);
                     documentInStr = documentInStr + line;
-                }
-                System.out.println(documentInStr);
+                    System.out.println("3"+documentInStr);
+                } */
+                String documentInStr = reader.readLine();
+                documentInStr += reader.readLine();
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
                     case Protocol.ADD_DISH:
                         xmlToSend.setCommandToDocument(
-                                String.valueOf(server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0))));
+                                    String.valueOf(server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol ADD_DISH was detected. Dish was added into the storage.");
                     break;
@@ -73,10 +75,10 @@ public class ClientListener extends Thread {
                     case Protocol.ADD_DISH_CATEGORY:
                         DishCategory dishCategory = XmlSet.getDishCategoriesFrom(doc).get(0);
                         xmlToSend.setCommandToDocument(
-                                String.valueOf(server.getRestaurant().addDishCategory(dishCategory)));
+                                    String.valueOf(server.getRestaurant().addDishCategory(dishCategory)));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol ADD_DISH_CATEGORY was detected." +
-                                " DishCategory was added into the storage.");
+                                    " DishCategory was added into the storage.");
                         break;
 
                     case Protocol.SIGN_UP:
@@ -190,8 +192,8 @@ public class ClientListener extends Thread {
      */
     private void sendMessage(String msg) {
         try {
-            //writer.write(msg + "\n");
             writer.write(msg);
+            writer.newLine();
             writer.flush();
         } catch (IOException ex) {
             logger.error("Sending message error, ", ex);
@@ -223,42 +225,6 @@ public class ClientListener extends Thread {
             logger.error("file sending error, ", e);
         }
     }
-
-    /**
-     * Recieve a file from client
-     */
-    /*
-    public void recieveFile() {
-        try {
-            Socket socket = server.getServerSocket().accept();
-
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-
-                in = socket.getInputStream();
-            } catch (IOException ex) {
-                logger.error("cannot get socket input stream, ", ex);
-            }
-            try {
-                out = new FileOutputStream(Command.CLIENT_FILE_RESTAURANT);
-            } catch (FileNotFoundException ex) {
-                logger.error("file not found, ", ex);
-            }
-            byte[] bytes = new byte[16 * 1024];
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-            out.close();
-            in.close();
-
-
-        } catch (IOException e) {
-            logger.error("file recieving error, ", e);
-        }
-    }
-    */
 
     /**
      * Gets value of {@link ClientListener#socket}.
