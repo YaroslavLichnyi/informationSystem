@@ -178,7 +178,7 @@ public class InformSystXML {
      * @param users is written  into document.
      * @param fileName is a path to resource, where information is stored.
      */
-    static public void writeAdmins(List<User> users, String fileName){
+    static public void writeUsers(List<User> users, String fileName){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(true);
         DocumentBuilder documentBuilder = null;
@@ -213,7 +213,7 @@ public class InformSystXML {
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules4admins.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "rules4users.dtd");
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(fileName));
             transformer.transform(domSource, streamResult);
@@ -228,7 +228,7 @@ public class InformSystXML {
      * @param fileName  is a path to resource, where information is stored.
      * @return list of users, what are stored in xml-file.
      */
-    static public  LinkedList<User> readAdmins(String fileName){
+    static public  LinkedList<User> readUsers(String fileName){
         LinkedList<User> admins = new LinkedList<>();
         try {
             File inputFile = new File(fileName);
