@@ -98,7 +98,7 @@ public class User {
      * @return Admin object, if there is the admin with the same name
      *        or return null, if there is no admin with the same name
      */
-    public static User singIn(String login, String password){
+    public static User signIn(String login, String password){
         for (User user:InformSystXML.readUsers(Command.SERVER_FILE_ADMINS)) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)){
                 return user;
@@ -107,7 +107,7 @@ public class User {
         return null;
     }
 
-    public static boolean singUp(User user){
+    public static boolean signUp(User user){
         if (isLoginFree(user.getLogin())){
             LinkedList<User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
             users.add(user);

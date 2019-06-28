@@ -79,7 +79,6 @@ public class FillRestaurant {
 
         // Filling
 
-        XmlSet xmlSet = new XmlSet();
         List<DishCategory> list = new LinkedList<>();
         list.add(dishCategory1);
         list.add(dishCategory2);

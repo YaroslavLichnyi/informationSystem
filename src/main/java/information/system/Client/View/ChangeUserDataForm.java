@@ -4,13 +4,11 @@ import information.system.Server.Model.User;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 public class ChangeUserDataForm extends InformSystemGUI{
 
     private User user;
 
-    public ChangeUserDataForm(Client client, User user) {
+    ChangeUserDataForm(Client client, User user) {
         super();
         this.user = user;
         setBounds(dimension.width / 2 - 125, dimension.height / 2 - 125, 250, 250);
@@ -152,23 +150,18 @@ public class ChangeUserDataForm extends InformSystemGUI{
         gridBagLayout.setConstraints( tfLogin, gridBag );
         panel.add( tfLogin );
 
-        btSave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User newUser = new User();
-                newUser.setName(tfName.getText());
-                newUser.setLogin(tfLogin.getText());
-                newUser.setPassword(tfPassword.getText());
-                client.edit(user, newUser);
-            }
+        btSave.addActionListener(e -> {
+            User newUser = new User();
+            newUser.setName(tfName.getText());
+            //**************************************
+            newUser.setLogin(tfLogin.getText());
+            newUser.setPassword(tfPassword.getText());
+            client.edit(user, newUser);
         });
 
-        btDeleteAccount.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (client.delete(user)){
-                    client.signOut();
-                }
+        btDeleteAccount.addActionListener(e -> {
+            if (client.delete(user)){
+                client.signOut();
             }
         });
         add(panel);
