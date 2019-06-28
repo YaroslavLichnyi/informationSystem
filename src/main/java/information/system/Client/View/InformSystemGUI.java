@@ -14,7 +14,7 @@ public abstract class InformSystemGUI extends JFrame {
     protected Client client;
 
     public InformSystemGUI() {
-        super("Menu");
+        super("Information System");
         toolkit = Toolkit.getDefaultToolkit();
         dimension = toolkit.getScreenSize();
         panel = new JPanel();
@@ -23,6 +23,7 @@ public abstract class InformSystemGUI extends JFrame {
         panel.setLayout(gridBagLayout);
         add(panel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(false);
         setVisible(true);
     }
 

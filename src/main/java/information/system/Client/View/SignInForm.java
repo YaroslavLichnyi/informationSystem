@@ -1,18 +1,11 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Command;
-import information.system.Server.Model.User;
-import information.system.Server.Model.XmlSet;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
-import java.util.List;
 
 public class SignInForm extends InformSystemGUI {
     public SignInForm(Client client) {
@@ -21,6 +14,8 @@ public class SignInForm extends InformSystemGUI {
         this.client = client;
         init();
         add(panel);
+        setTitle("Login");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
@@ -32,27 +27,6 @@ public class SignInForm extends InformSystemGUI {
         final JTextField tfPassword;
         JButton btSignIn;
         JButton btBut1;
-
-        JMenuBar jMenuBar = new JMenuBar();
-        JMenu changePort = new JMenu("Change port");
-        jMenuBar.add(changePort);
-        this.setJMenuBar(jMenuBar);
-        changePort.addMenuListener(new MenuListener() {
-            @Override
-            public void menuSelected(MenuEvent e) {
-                new ChangePortForm(client);
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
-            }
-        });
 
         tfLogin = new JTextField( );
         gridBag.gridx = 0;
@@ -149,18 +123,7 @@ public class SignInForm extends InformSystemGUI {
         btBut1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                XmlSet xmlSet = new XmlSet();
-                List<User> users = new LinkedList<>();
-                User user = new User();
-                user.setLogin(tfLogin.getText());
-                user.setPassword(tfPassword.getText());
-                users.add(user);
-                xmlSet.setUsersToDocument(users);
-                xmlSet.setCommandToDocument(Command.SIGN_IN);
-                client.sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-                System.out.println(XmlSet.convertDocumentToString(XmlSet.convertStringToDocument(XmlSet.convertDocumentToString(xmlSet.getDocument()))));
-
-               // new SignUpForm(client);
+                new SignUpForm(client);
             }
         });
 
