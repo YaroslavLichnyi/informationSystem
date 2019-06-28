@@ -1,5 +1,13 @@
 package information.system.Server.Controller;
 
+import information.system.Server.Model.*;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Class for filling the restaurant with dishes and dish categories.
+ * For one-time using.
+ */
 /*
 Meat: Pork, Beaf, Chicken, Crab
 Garnishes: Potato, Buckwheat, Pasta, Rice
@@ -7,12 +15,6 @@ Salads: Cabbage, Fresh vegetables
 Desserts: Cake, Ice Cream, Chocolate
 Drinks: Coffee, Juice, Water, Cola, Milk
  */
-
-import information.system.Server.Model.*;
-
-import java.util.LinkedList;
-import java.util.List;
-
 public class FillRestaurant {
 
     private final static String dishCategory_1 = "Meat";
@@ -75,7 +77,7 @@ public class FillRestaurant {
         dishCategory5.addDish(new Dish(dish_5_5, 15.00, "Pure milk"));
         dishCategory5.setHealthyFood(false);
 
-        //TODO
+        // Filling
 
         XmlSet xmlSet = new XmlSet();
         List<DishCategory> list = new LinkedList<>();
