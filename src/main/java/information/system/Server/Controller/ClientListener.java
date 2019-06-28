@@ -85,8 +85,6 @@ public class ClientListener extends Thread {
                         User newUser = XmlSet.getUsersFromDocument(doc).get(0);
                        // xmlToSend.setCommandToDocument(server.getRestaurant().);
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
-
                         break;
 
                     case Protocol.DELETE_DISH:
@@ -133,10 +131,9 @@ public class ClientListener extends Thread {
 
                         break;
 
-                    case Protocol.GET_INFORMATION:
-                        xmlToSend.setCommandToDocument(Protocol.GET_INFORMATION);
-                        //указать путь
-                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(""));
+                    case Protocol.UPDATE_INFORMATION:
+                        xmlToSend.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
