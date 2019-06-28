@@ -536,7 +536,7 @@ public class Client implements ClientController {
 
         @Override
         public void run() {
-            LOGGER.info("Listener starts its work.");
+            LOGGER.info("Listener starts working");
             //  connectToServer();
             if(!clientSocket.isClosed() && clientSocket.isConnected()){
                 try {

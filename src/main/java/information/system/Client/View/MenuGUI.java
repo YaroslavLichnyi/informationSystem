@@ -2,7 +2,11 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MenuGUI extends InformSystemGUI {
-    private JButton btAdd;
-    private JButton btAddDishCategory;
+    private static final org.apache.log4j.Logger LOGGER = Logger.getLogger(MenuGUI.class);
     private JComboBox cmbSortBy;
     private JTextField tfName;
     private JButton btShowDishCategories;
@@ -45,7 +48,7 @@ public class MenuGUI extends InformSystemGUI {
     protected void init(){
         JMenuBar jMenuBar = new JMenuBar();
 
-        JMenu addMenu = new JMenu("Add");
+        JMenu addRestMenu = new JMenu("Restaurant menu");
         JMenuItem itAddNewDish = new JMenuItem("Add new dish");
         JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
         itAddNewDish.addActionListener(new ActionListener() {
@@ -60,10 +63,26 @@ public class MenuGUI extends InformSystemGUI {
                 new DishCategoryFillingForm(client);
             }
         });
-        addMenu.add(itAddNewDish);
-        addMenu.add(itAddNewDishCategory);
+        addRestMenu.add(itAddNewDish);
+        addRestMenu.add(itAddNewDishCategory);
 
-        JMenu closeMenu = new JMenu("Exit");
+        JMenu exit = new JMenu("Exit");
+        exit.addMenuListener(new MenuListener() {
+            @Override
+            public void menuSelected(MenuEvent e) {
+                System.exit(0);
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
 
         JMenu userMenu = new JMenu("User");
 
@@ -74,19 +93,23 @@ public class MenuGUI extends InformSystemGUI {
                 new ChangeUserDataForm(client, client.getUser());
             }
         });
-        JMenu changePort = new JMenu("Change port");
-        changePort.addActionListener(new ActionListener() {
+
+        JMenuItem signOut = new JMenuItem("Sign out");
+        signOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ChangePortForm(client);
+                client.setUser(null);
+                new SignInForm(getClient());
+                dispose();
+                LOGGER.info("User signed out");
             }
         });
-        jMenuBar.add(changePort);
         userMenu.add(itChangeData);
-        userMenu.add(new JMenuItem("Sign out"));
-        jMenuBar.add(closeMenu);
-        jMenuBar.add(addMenu);
+        userMenu.add(signOut);
+
+        jMenuBar.add(addRestMenu);
         jMenuBar.add(userMenu);
+        jMenuBar.add(exit);
 
         this.setJMenuBar(jMenuBar);
         this.revalidate();
