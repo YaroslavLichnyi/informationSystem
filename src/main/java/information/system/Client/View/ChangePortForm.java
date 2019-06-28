@@ -23,7 +23,7 @@ public class ChangePortForm extends InformSystemGUI{
     protected void init() {
         JSpinner spnPort;
         JLabel lbPort;
-        JButton btSave;
+        JButton btApply;
 
         spnPort = new JSpinner( );
         spnPort.setValue(client.getPort());
@@ -52,7 +52,7 @@ public class ChangePortForm extends InformSystemGUI{
         gridBagLayout.setConstraints( lbPort, gridBag );
         panel.add( lbPort );
 
-        btSave = new JButton( "Apply"  );
+        btApply = new JButton( "Apply"  );
         gridBag.gridx = 0;
         gridBag.gridy = 1;
         gridBag.gridwidth = 2;
@@ -62,9 +62,9 @@ public class ChangePortForm extends InformSystemGUI{
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets( 3,5,5,5 );
-        gridBagLayout.setConstraints( btSave, gridBag );
-        panel.add( btSave );
-        btSave.addActionListener(new ActionListener() {
+        gridBagLayout.setConstraints( btApply, gridBag );
+        panel.add( btApply );
+        btApply.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int port = (int)spnPort.getValue();
