@@ -127,8 +127,15 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.EDIT_USER:
-                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
+/*                        User oldUser = XmlSet.getUsersFromDocument(doc).get(0);
+                        User newUser = XmlSet.getUsersFromDocument(doc).get(1);
+                        if (User.isLoginFree()) {
+                            xmlToSend.setCommandToDocument(User.edit(oldUser, newUser));
+                            sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        } else {
+                            sendMessage();
+                        }
+*/
                         break;
 
                     case Protocol.UPDATE_INFORMATION:
@@ -143,7 +150,7 @@ public class ClientListener extends Thread {
 
                     case Protocol.SIGN_IN:
                         User user = XmlSet.getUsersFromDocument(doc).get(0);
-                        User signedInUser = User.singIn(user.getLogin(), user.getPassword());
+                        User signedInUser = User.signIn(user.getLogin(), user.getPassword());
                         if(signedInUser != null){
                             LinkedList<User> list = new LinkedList<>();
                             list.add(signedInUser);
