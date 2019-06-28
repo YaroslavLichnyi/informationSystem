@@ -1,12 +1,11 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.User;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 public class ChangeUserDataForm extends InformSystemGUI{
 
     private User user;
@@ -17,6 +16,7 @@ public class ChangeUserDataForm extends InformSystemGUI{
         setBounds(dimension.width / 2 - 125, dimension.height / 2 - 125, 250, 250);
         setClient(client);
         init();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     @Override

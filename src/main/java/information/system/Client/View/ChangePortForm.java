@@ -12,7 +12,7 @@ public class ChangePortForm extends InformSystemGUI{
 
     public ChangePortForm(Client client) {
         super();
-        setBounds(dimension.width / 2 - 80, dimension.height / 2 - 75, 160, 150);
+        setBounds(dimension.width / 2 - 175, dimension.height / 2 - 100, 350, 200);
         setClient(client);
         setVisible(true);
         init();
@@ -55,7 +55,7 @@ public class ChangePortForm extends InformSystemGUI{
         btApply = new JButton( "Apply"  );
         gridBag.gridx = 0;
         gridBag.gridy = 1;
-        gridBag.gridwidth = 2;
+        gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.BOTH;
         gridBag.weightx = 1;
@@ -78,9 +78,28 @@ public class ChangePortForm extends InformSystemGUI{
                     new SignInForm(getClient());
                     dispose();
                 } catch (IOException e1) {
-                    LOGGER.error("Enable to connect to server.", e1);
-                    InformSystemGUI.showMessage("Enable to connect to server.");
+                    LOGGER.error("Unable to connect to server", e1);
+                    InformSystemGUI.showMessage("Unable to connect to server");
                 }
+            }
+        });
+
+        JButton btClose = new JButton( "Close"  );
+        gridBag.gridx = 1;
+        gridBag.gridy = 1;
+        gridBag.gridwidth = 1;
+        gridBag.gridheight = 1;
+        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.weightx = 1;
+        gridBag.weighty = 0;
+        gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets( 3,5,5,5 );
+        gridBagLayout.setConstraints( btClose, gridBag );
+        panel.add( btClose );
+        btClose.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
             }
         });
     }
