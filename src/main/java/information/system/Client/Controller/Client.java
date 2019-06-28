@@ -260,6 +260,7 @@ public class Client implements ClientController {
             LOGGER.error("Cannot keep socket live", e);
         }
         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
         new Listener(exgr);
         LOGGER.info("Client was connected to server.");
     }
@@ -308,7 +309,7 @@ public class Client implements ClientController {
     public void sendRequest(String message) {
         try {
             //connectToServer();
-            writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            System.out.println("REQUEST: " + message);
             writer.write(message);
             writer.newLine();
             writer.flush();
@@ -543,13 +544,17 @@ public class Client implements ClientController {
                     reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                     LOGGER.info("Listener waits for response.");
                     String line;
-                    String responseStr = "";
+                   /* String responseStr = "";
                     while ((line = reader.readLine()) != null) {
                         if (line.isEmpty()) {
                             break;
                         }
                         responseStr = responseStr + line;
-                    }
+                    } */
+                    String responseStr = reader.readLine();
+                    System.out.println("1. Response: " + responseStr);
+                    responseStr += reader.readLine();
+                    System.out.println("2. Response: " + responseStr);
                     LOGGER.info("Listener got from server string: " + responseStr);
                     Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                     String command = XmlSet.getCommandFromDocument(responseDoc);
