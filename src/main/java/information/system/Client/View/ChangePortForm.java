@@ -2,26 +2,21 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import org.apache.log4j.Logger;
 
-import javax.swing.JPanel;
-import javax.swing.BorderFactory;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.swing.JSpinner;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 public class ChangePortForm extends InformSystemGUI{
     private static final Logger LOGGER = Logger.getLogger(ChangePortForm.class);
 
     public ChangePortForm(Client client) {
         super();
-        setBounds(dimension.width / 2 - 75, dimension.height / 2 - 75, 150, 150);
+        setBounds(dimension.width / 2 - 80, dimension.height / 2 - 75, 160, 150);
         setClient(client);
         setVisible(true);
         init();
+        revalidate();
     }
 
     @Override
@@ -83,8 +78,8 @@ public class ChangePortForm extends InformSystemGUI{
                     new SignInForm(getClient());
                     dispose();
                 } catch (IOException e1) {
-                    LOGGER.error("Cannot to connect to server.", e1);
-                    InformSystemGUI.showMessage("Chose another port");
+                    LOGGER.error("Enable to connect to server.", e1);
+                    InformSystemGUI.showMessage("Enable to connect to server.");
                 }
             }
         });

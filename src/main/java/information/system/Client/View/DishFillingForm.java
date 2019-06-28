@@ -19,6 +19,7 @@ public class DishFillingForm extends InformSystemGUI {
         init();
         add(panel);
         setVisible(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     @Override

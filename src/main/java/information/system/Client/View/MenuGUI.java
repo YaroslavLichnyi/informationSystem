@@ -26,6 +26,7 @@ public class MenuGUI extends InformSystemGUI {
     public MenuGUI(Client client, boolean singnedIn) {
         super();
         setBounds(dimension.width / 2 - 350, dimension.height / 2 - 300, 700, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setClient(client);
         this.client = client;
         init();
@@ -195,6 +196,12 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btShowDishCategories, gridBag );
         panel.add(btShowDishCategories);
+        btShowDishCategories.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DishCategoryInfo(getClient());
+            }
+        });
 
         lbSortBy = new JLabel( "Sort by:"  );
         gridBag.gridx = 3;

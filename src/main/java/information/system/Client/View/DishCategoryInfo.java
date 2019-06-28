@@ -1,18 +1,13 @@
 package information.system.Client.View;
 
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishCategory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 public class DishCategoryInfo extends InformSystemGUI{
     private DefaultTableModel model = new DefaultTableModel();
@@ -36,12 +31,6 @@ public class DishCategoryInfo extends InformSystemGUI{
                 return false;
             }
         };
-        dishesTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(dishesTable.getSelectedRow());
-            }
-        });
         JScrollPane jscrlp = new JScrollPane(dishesTable);
         gridBag.gridx = 0;
         gridBag.gridy = 0;
@@ -54,16 +43,11 @@ public class DishCategoryInfo extends InformSystemGUI{
         gridBag.insets = new Insets(5,10,10,10);
         gridBagLayout.setConstraints( jscrlp, gridBag );
         panel.add( jscrlp );
-        dishesTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
-                    new DetailInformationFrame(getClient(), client.getMenu().get(dishesTable.getSelectedRow()));
-                }
-            }
-        });
     }
 
+    /**
+     *  Gets
+     */
     private void setValuesAtTable(){
         ArrayList<DishCategory> dishCategories = client.getDishCategories();
         final int tableRowSize = dishCategories.size();
