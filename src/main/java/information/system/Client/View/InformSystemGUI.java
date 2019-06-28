@@ -22,6 +22,7 @@ public abstract class InformSystemGUI extends JFrame {
         gridBagLayout = new GridBagLayout();
         panel.setLayout(gridBagLayout);
         add(panel);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 

@@ -1,15 +1,16 @@
 package information.system.Client.Controller;
+import information.system.Client.View.ChangePortForm;
 import information.system.Client.View.InformSystemGUI;
 import information.system.Client.View.MenuGUI;
 import information.system.Client.View.SignInForm;
 import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
-import information.system.Server.Model.DishCategory;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class Client implements ClientController {
     private MenuGUI menuGUI;
 
     public static void main(String[] args) {
-        new Client();
+        new ChangePortForm(new Client());
     }
 
     public Client()  {
@@ -77,14 +78,10 @@ public class Client implements ClientController {
             user.setPassword("passsssword");
             user.setLogin("login");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            /*connectToServer();
-            writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-            reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            */
             file = new File("settings/client.ini");
             this.port = readPort();
-            //new SignInForm(this);
             exgr = new Exchanger<>();
+
 
     }
 
@@ -109,6 +106,7 @@ public class Client implements ClientController {
         list.add(dish);
         xmlSet.setDishesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        LOGGER.info("New dish was added: " + dish.toString());
         return getExchange();
     }
 
@@ -256,6 +254,12 @@ public class Client implements ClientController {
     @Override
     public synchronized void connectToServer() throws IOException {
         clientSocket = new Socket("127.0.0.1", getPort());
+        try {
+            clientSocket.setKeepAlive(true);
+        } catch (SocketException e) {
+            LOGGER.error("Cannot keep socket live", e);
+        }
+        reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         new Listener(exgr);
         LOGGER.info("Client was connected to server.");
     }
@@ -303,12 +307,12 @@ public class Client implements ClientController {
     @Override
     public void sendRequest(String message) {
         try {
-            connectToServer();
+            //connectToServer();
             writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             writer.write(message);
             writer.newLine();
             writer.flush();
-            writer.close();
+            //writer.close();
         } catch (IOException e) {
             LOGGER.error(e);
         }
@@ -532,10 +536,12 @@ public class Client implements ClientController {
 
         @Override
         public void run() {
+            LOGGER.info("Listener starts its work.");
             //  connectToServer();
             if(!clientSocket.isClosed() && clientSocket.isConnected()){
                 try {
                     reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    LOGGER.info("Listener waits for response.");
                     String line;
                     String responseStr = "";
                     while ((line = reader.readLine()) != null) {
@@ -544,6 +550,7 @@ public class Client implements ClientController {
                         }
                         responseStr = responseStr + line;
                     }
+                    LOGGER.info("Listener got from server string: " + responseStr);
                     Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                     String command = XmlSet.getCommandFromDocument(responseDoc);
                     switch(command)
@@ -551,6 +558,7 @@ public class Client implements ClientController {
                         case Protocol.SIGN_IN:
                             try {
                                 exchanger.exchange(responseStr);
+                                LOGGER.info("Command \"sign in\" was performed");
                             } catch (InterruptedException e) {
                                 LOGGER.error("Exception while exchanging",e);
                             }
@@ -558,6 +566,7 @@ public class Client implements ClientController {
                         case Protocol.SIGN_UP:
                             try {
                                 exchanger.exchange(responseStr);
+                                LOGGER.info("Command \"sign up\" was performed");
                             } catch (InterruptedException e) {
                                 LOGGER.error("Exception while exchanging",e);
                             }
@@ -584,6 +593,8 @@ public class Client implements ClientController {
                         case Protocol.TRUE:
                             try {
                                 exchanger.exchange(responseStr);
+                                LOGGER.info("Response \"true\" was delivered to client");
+
                             } catch (InterruptedException e) {
                                 LOGGER.error("Exception while exchanging",e);
                             }
@@ -591,6 +602,7 @@ public class Client implements ClientController {
                         case Protocol.FALSE:
                             try {
                                 exchanger.exchange(responseStr);
+                                LOGGER.info("Response \"false\" was delivered to client");
                             } catch (InterruptedException e) {
                                 LOGGER.error("Exception while exchanging",e);
                             }
@@ -601,7 +613,10 @@ public class Client implements ClientController {
                     } catch (IOException e){
                         LOGGER.error(e);
                     }
-                }
+                } else {
+                LOGGER.info("Socket was closed");
+                InformSystemGUI.showMessage("Problems with connection");
+            }
         }
     }
 }
