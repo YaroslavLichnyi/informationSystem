@@ -10,32 +10,36 @@ Drinks: Coffee, Juice, Water, Cola, Milk
 
 import information.system.Server.Model.Dish;
 import information.system.Server.Model.DishCategory;
+import information.system.Server.Model.XmlSet;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class FillRestaurant {
 
-    final static String dishCategory_1 = "Meat";
-    final static String dishCategory_2 = "Garnishes";
-    final static String dishCategory_3 = "Salads";
-    final static String dishCategory_4 = "Desserts";
-    final static String dishCategory_5 = "Drinks";
-    final static String dish_1_1 = "Pork";
-    final static String dish_1_2 = "Beaf";
-    final static String dish_1_3 = "Chicken";
-    final static String dish_1_4 = "Crab";
-    final static String dish_2_1 = "Potato";
-    final static String dish_2_2 = "Buckwheat";
-    final static String dish_2_3 = "Pasta";
-    final static String dish_2_4 = "Rice";
-    final static String dish_3_1 = "Cabbage";
-    final static String dish_3_2 = "Fresh vegetables";
-    final static String dish_4_1 = "Cake";
-    final static String dish_4_2 = "Ice Cream";
-    final static String dish_4_3 = "Chocolate";
-    final static String dish_5_1 = "Coffee";
-    final static String dish_5_2 = "Juice";
-    final static String dish_5_3 = "Water";
-    final static String dish_5_4 = "Cola";
-    final static String dish_5_5 = "Milk";
+    private final static String dishCategory_1 = "Meat";
+    private final static String dishCategory_2 = "Garnishes";
+    private final static String dishCategory_3 = "Salads";
+    private final static String dishCategory_4 = "Desserts";
+    private final static String dishCategory_5 = "Drinks";
+    private final static String dish_1_1 = "Pork";
+    private final static String dish_1_2 = "Beaf";
+    private final static String dish_1_3 = "Chicken";
+    private final static String dish_1_4 = "Crab";
+    private final static String dish_2_1 = "Potato";
+    private final static String dish_2_2 = "Buckwheat";
+    private final static String dish_2_3 = "Pasta";
+    private final static String dish_2_4 = "Rice";
+    private final static String dish_3_1 = "Cabbage";
+    private final static String dish_3_2 = "Fresh vegetables";
+    private final static String dish_4_1 = "Cake";
+    private final static String dish_4_2 = "Ice Cream";
+    private final static String dish_4_3 = "Chocolate";
+    private final static String dish_5_1 = "Coffee";
+    private final static String dish_5_2 = "Juice";
+    private final static String dish_5_3 = "Water";
+    private final static String dish_5_4 = "Cola";
+    private final static String dish_5_5 = "Milk";
 
 
     public static void main(String[] args) {
@@ -74,7 +78,14 @@ public class FillRestaurant {
         dishCategory5.setHealthyFood(false);
 
         //TODO
-
+        XmlSet xmlSet = new XmlSet();
+        List<DishCategory> list = new LinkedList<>();
+        list.add(dishCategory1);
+        list.add(dishCategory2);
+        list.add(dishCategory3);
+        list.add(dishCategory4);
+        list.add(dishCategory5);
+        xmlSet.setDishCategoriesToDocument(list);
 
     }
 }
