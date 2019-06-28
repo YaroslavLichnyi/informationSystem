@@ -16,6 +16,7 @@ public class ChangePortForm extends InformSystemGUI{
         setClient(client);
         setVisible(true);
         init();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         revalidate();
     }
 
@@ -99,7 +100,7 @@ public class ChangePortForm extends InformSystemGUI{
         btClose.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                System.exit(0);
             }
         });
     }
