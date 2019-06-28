@@ -62,7 +62,7 @@ public class User {
     private static int generateUniqueId(){
         int id = 0;
         boolean free = false;
-        LinkedList <User> users = InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS);
+        LinkedList <User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
         if(users.size() > 0){
             while (!free){
                 for (User user : users) {
@@ -80,7 +80,7 @@ public class User {
     }
 
     public static boolean edit(User oldUser, User newUser) {
-        for (User user : InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+        for (User user : InformSystXML.readUsers(Command.SERVER_FILE_ADMINS)) {
             if (user.equals(oldUser)){
                 user.setName(newUser.getName());
                 user.setLogin(newUser.getLogin());
@@ -99,7 +99,7 @@ public class User {
      *        or return null, if there is no admin with the same name
      */
     public static User singIn(String login, String password){
-        for (User user:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+        for (User user:InformSystXML.readUsers(Command.SERVER_FILE_ADMINS)) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)){
                 return user;
             }
@@ -109,10 +109,10 @@ public class User {
 
     public static boolean singUp(User user){
         if (isLoginFree(user.getLogin())){
-            LinkedList<User> users = InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS);
+            LinkedList<User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
             users.add(user);
             user.setId(generateUniqueId());
-            InformSystXML.writeAdmins(users, Command.SERVER_FILE_ADMINS);
+            InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
             return true;
         }
         return false;
@@ -125,7 +125,7 @@ public class User {
      * @return true if there is no user with the same login.
      */
     public static boolean isLoginFree(String login) {
-        for (User admin:InformSystXML.readAdmins(Command.SERVER_FILE_ADMINS)) {
+        for (User admin:InformSystXML.readUsers(Command.SERVER_FILE_ADMINS)) {
             if (admin.getLogin().equals(login)){
                 return false;
             }

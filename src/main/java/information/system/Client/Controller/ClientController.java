@@ -101,10 +101,10 @@ public interface ClientController {
 
     /**
      * Adds a new user to the database of existing ones.
-     * @param user is added as a new Admin.
-     * @return true if an <code>user</code> was added.
+     * @param user is added as a new Admin
+     * @return true if an <code>user</code> was added
      */
-    boolean signUp(User user);
+     User signUp(User user);
 
     /**
      * Signs out

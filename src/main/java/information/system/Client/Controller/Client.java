@@ -35,6 +35,25 @@ public class Client implements ClientController {
     private MenuGUI menuGUI;
 
     public static void main(String[] args) {
+        User user1 = new User();
+        user1.setLogin("Yaroslav0108");
+        user1.setPassword("01081999");
+        user1.setName("Yaroslav");
+        user1.setAdmin(true);
+        User user2 = new User();
+        user2.setLogin("Alexxxx");
+        user2.setPassword("qwerty");
+        user2.setName("Alexandr");
+        user2.setAdmin(true);
+        User user3 = new User();
+        user3.setLogin("Login");
+        user3.setPassword("Password");
+        user3.setName("Guest");
+        LinkedList<User> users = new LinkedList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
         new ChangePortForm(new Client());
     }
 
@@ -308,12 +327,10 @@ public class Client implements ClientController {
     @Override
     public void sendRequest(String message) {
         try {
-            //connectToServer();
             System.out.println("REQUEST: " + message);
             writer.write(message);
             writer.newLine();
             writer.flush();
-            //writer.close();
         } catch (IOException e) {
             LOGGER.error(e);
         }
@@ -339,10 +356,37 @@ public class Client implements ClientController {
         try {
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
             LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
-            if (list.size() < 1){
+            if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
                 return null;
             } else {
-                return list.get(0);
+                return XmlSet.getUsersFromDocument(document).get(0);
+            }
+        } catch (InterruptedException e) {
+            LOGGER.error("Exception while exchanging", e);
+        }
+        return null;
+    }
+
+    /**
+     * Adds a new user to the database of existing ones.
+     * @param user is added as a new Admin
+     * @return true if an <code>user</code> was added
+     */
+    @Override
+    public User signUp(User user) {
+        XmlSet xmlSet = new XmlSet();
+        LinkedList<User> users = new LinkedList<>();
+        users.add(user);
+        xmlSet.setUsersToDocument(users);
+        xmlSet.setCommandToDocument(Protocol.SIGN_UP);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        try {
+            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
+            LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
+            if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
+                return null;
+            } else {
+                return XmlSet.getUsersFromDocument(document).get(0);
             }
         } catch (InterruptedException e) {
             LOGGER.error("Exception while exchanging", e);
@@ -388,21 +432,6 @@ public class Client implements ClientController {
         menuGUI = new MenuGUI(this, user.isAdmin());
     }
 
-    /**
-     * Adds a new user to the database of existing ones.
-     * @param user is added as a new Admin
-     * @return true if an <code>user</code> was added
-     */
-    @Override
-    public boolean signUp(User user) {
-        XmlSet xmlSet = new XmlSet();
-        LinkedList<User> users = new LinkedList<>();
-        users.add(user);
-        xmlSet.setUsersToDocument(users);
-        xmlSet.setCommandToDocument(Protocol.SIGN_UP);
-        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        return false;
-    }
 
     /**
      * Signs out
@@ -538,24 +567,15 @@ public class Client implements ClientController {
         @Override
         public void run() {
             LOGGER.info("Listener starts working");
-            //  connectToServer();
             if(!clientSocket.isClosed() && clientSocket.isConnected()){
                 try {
                     reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    LOGGER.info("Listener waits for response.");
-                    String line;
-                   /* String responseStr = "";
-                    while ((line = reader.readLine()) != null) {
-                        if (line.isEmpty()) {
-                            break;
-                        }
-                        responseStr = responseStr + line;
-                    } */
+                   // LOGGER.info("Listener waits for response.");
                     String responseStr = reader.readLine();
-                    System.out.println("1. Response: " + responseStr);
+                    //System.out.println("1. Response: " + responseStr);
                     responseStr += reader.readLine();
-                    System.out.println("2. Response: " + responseStr);
-                    LOGGER.info("Listener got from server string: " + responseStr);
+                   // System.out.println("2. Response: " + responseStr);
+                    //LOGGER.info("Listener got from server string: " + responseStr);
                     Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                     String command = XmlSet.getCommandFromDocument(responseDoc);
                     switch(command)
@@ -593,6 +613,7 @@ public class Client implements ClientController {
                             break;
 
                         case Protocol.SORT_BY_DISH_CATEGORY:
+                            menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
                             break;
 
                         case Protocol.TRUE:

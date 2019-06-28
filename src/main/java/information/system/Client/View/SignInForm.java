@@ -1,5 +1,6 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
+import information.system.Server.Model.User;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -94,17 +95,16 @@ public class SignInForm extends InformSystemGUI {
         btSignIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*
-                if(client.signIn(tfLogin.getText(), tfPassword.getText())){
-                    new MenuGUI(client, true);
-                    dispose();
-                } else {
+                User user = client.signIn(tfLogin.getText(), tfPassword.getText());
+                if (user == null){
                     JFrame frame = new JFrame("Error");
                     JOptionPane.showMessageDialog(frame, "There is no user with the same login or/and password");
+                } else {
+                    client.setUser(user);
+                    client.showGeneralFrame();
+                    dispose();
                 }
-                */
-                client.showGeneralFrame();
-                dispose();
+
             }
         });
 
