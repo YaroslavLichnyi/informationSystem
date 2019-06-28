@@ -69,11 +69,12 @@ public class FillRestaurant {
         dishCategory5.addDish(new Dish(dish_5_1, 60.00, "Pure black coffee"));
         dishCategory5.addDish(new Dish(dish_5_2, 20.00, "Fruit juice"));
         dishCategory5.addDish(new Dish(dish_5_3, 10.00, "Drink water"));
-        dishCategory5.addDish(new Dish(dish_5_3, 15.00, "Pure milk"));
+        dishCategory5.addDish(new Dish(dish_5_4, 25.00, "Coca cola"));
+        dishCategory5.addDish(new Dish(dish_5_5, 15.00, "Pure milk"));
         dishCategory5.setHealthyFood(false);
 
         //TODO
-        
+
 
     }
 }
