@@ -781,3 +781,34 @@ java.net.SocketException: Connection reset
 2019-06-28 17:35:43 INFO  Server:99:stop - client Thread-5 was disconnected.
 2019-06-28 17:35:43 INFO  Server:107:stop - server stopped.
 2019-06-28 17:35:43 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 22:38:53 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 22:38:53 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 22:38:58 INFO  Server:72:start - server is running.
+2019-06-28 22:39:06 INFO  Client:539:changePort - port is the same and has not been changed.
+2019-06-28 22:39:06 INFO  Client:284:connectToServer - Client was connected to server.
+2019-06-28 22:39:06 INFO  Client:569:run - Listener starts working
+2019-06-28 22:40:27 INFO  Client:586:run - Command "sign in" was performed
+2019-06-28 22:51:19 ERROR Client:181:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:63)
+2019-06-28 22:51:27 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-28 22:51:27 INFO  Server:95:stop - server is stoping.
+2019-06-28 22:51:27 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-28 22:51:27 INFO  Server:107:stop - server stopped.
+2019-06-28 22:51:27 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-28 23:28:13 INFO  ServerGUIApp:27:start - application started.
+2019-06-28 23:28:13 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-28 23:28:15 INFO  Server:72:start - server is running.
+2019-06-28 23:28:24 INFO  Client:539:changePort - port is the same and has not been changed.
+2019-06-28 23:28:24 INFO  Client:284:connectToServer - Client was connected to server.
+2019-06-28 23:28:24 INFO  Client:569:run - Listener starts working
+2019-06-28 23:28:48 INFO  Client:586:run - Command "sign in" was performed
