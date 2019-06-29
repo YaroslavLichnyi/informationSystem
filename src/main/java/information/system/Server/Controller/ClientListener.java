@@ -46,6 +46,10 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         try {
+            XmlSet xmlSet = new XmlSet();
+            xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+            xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
+            sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
             while (true) {
                 /*System.out.println("waiting for request");
                 strDoc = reader.readLine();
@@ -59,7 +63,7 @@ public class ClientListener extends Thread {
                     System.out.println("2"+line);
                     documentInStr = documentInStr + line;
                     System.out.println("3"+documentInStr);
-                } */
+                }*/
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
                 Document doc = XmlSet.convertStringToDocument(documentInStr);

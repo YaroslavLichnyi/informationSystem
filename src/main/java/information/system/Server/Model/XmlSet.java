@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -210,9 +211,9 @@ public class XmlSet {
      * @param doc is a resource from which dishes come from.
      * @return dishes from {@link XmlSet#document}.
      */
-    public static List<Dish> getDishesFrom(Document doc){
+    public static ArrayList<Dish> getDishesFrom(Document doc){
         NodeList nodes = doc.getElementsByTagName(DISH);
-        List<Dish> dishes = new LinkedList<>();
+        ArrayList<Dish> dishes = new ArrayList<>();
         for (int j = 0; j < nodes.getLength(); j++) {
             if (nodes.item(j).getNodeName().equals(DISH)) {
                 Dish newDish = new Dish();

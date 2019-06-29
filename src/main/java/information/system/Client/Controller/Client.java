@@ -34,25 +34,6 @@ public class Client implements ClientController {
     private MenuGUI menuGUI;
 
     public static void main(String[] args) {
-        User user1 = new User();
-        user1.setLogin("Yaroslav0108");
-        user1.setPassword("01081999");
-        user1.setName("Yaroslav");
-        user1.setAdmin(true);
-        User user2 = new User();
-        user2.setLogin("Alexxxx");
-        user2.setPassword("qwerty");
-        user2.setName("Alexandr");
-        user2.setAdmin(true);
-        User user3 = new User();
-        user3.setLogin("Login");
-        user3.setPassword("Password");
-        user3.setName("Guest");
-        LinkedList<User> users = new LinkedList<>();
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-        InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
         new ChangePortForm(new Client());
     }
 
