@@ -50,7 +50,7 @@ public class ClientListener extends Thread {
                 /*System.out.println("waiting for request");
                 strDoc = reader.readLine();
                 */
-                String line;
+               // String line;
                // String documentInStr = "";
                 /*while ((line = reader.readLine()) != null) {
                     if (line.isEmpty()) {
@@ -85,8 +85,6 @@ public class ClientListener extends Thread {
                         User newUser = XmlSet.getUsersFromDocument(doc).get(0);
                        // xmlToSend.setCommandToDocument(server.getRestaurant().);
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
-
                         break;
 
                     case Protocol.DELETE_DISH:
@@ -129,14 +127,20 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.EDIT_USER:
-                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
+/*                        User oldUser = XmlSet.getUsersFromDocument(doc).get(0);
+                        User newUser = XmlSet.getUsersFromDocument(doc).get(1);
+                        if (User.isLoginFree()) {
+                            xmlToSend.setCommandToDocument(User.edit(oldUser, newUser));
+                            sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        } else {
+                            sendMessage();
+                        }
+*/
                         break;
 
-                    case Protocol.GET_INFORMATION:
-                        xmlToSend.setCommandToDocument(Protocol.GET_INFORMATION);
-                        //указать путь
-                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(""));
+                    case Protocol.UPDATE_INFORMATION:
+                        xmlToSend.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
@@ -146,7 +150,7 @@ public class ClientListener extends Thread {
 
                     case Protocol.SIGN_IN:
                         User user = XmlSet.getUsersFromDocument(doc).get(0);
-                        User signedInUser = User.singIn(user.getLogin(), user.getPassword());
+                        User signedInUser = User.signIn(user.getLogin(), user.getPassword());
                         if(signedInUser != null){
                             LinkedList<User> list = new LinkedList<>();
                             list.add(signedInUser);
