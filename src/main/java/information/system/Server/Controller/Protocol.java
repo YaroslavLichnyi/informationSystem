@@ -14,7 +14,6 @@ public interface Protocol {
     String EDIT_DISH             = "edit_dish";
     String EDIT_DISH_CATEGORY    = "edit_dish_category";
     String EDIT_USER             = "edit_user";
-//    String GET_INFORMATION       = "get_information";
     String END_OF_SESSION        = "end_of_session";
     String SIGN_IN               = "sign_in";
     String FIND_DISH             = "find_dish";
