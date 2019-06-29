@@ -183,7 +183,6 @@ public class XmlSet {
      * @param subStr is added into {@link XmlSet#document} as an element in xml-file.
      */
     public void setSubstrToDocument(String subStr) {
-        deleteCommandFromDocument(document);
         Element root = document.getDocumentElement();
         Element commandEl = document.createElement(SUB_STRING);
         commandEl.setTextContent(subStr);
