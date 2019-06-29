@@ -1103,3 +1103,10 @@ java.net.SocketException: Connection reset
 	at information.system.Server.Controller.ClientListener.run(ClientListener.java:63)
 2019-06-29 20:16:18 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
 2019-06-29 20:16:18 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-29 20:18:08 INFO  ServerGUIApp:27:start - application started.
+2019-06-29 20:18:09 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-29 20:18:12 INFO  Server:72:start - server is running.
+2019-06-29 20:21:40 INFO  Client:534:changePort - port is the same and has not been changed.
+2019-06-29 20:21:40 INFO  Client:281:connectToServer - Client was connected to server.
+2019-06-29 20:21:40 INFO  Client:564:run - Listener starts working
+2019-06-29 20:21:56 INFO  Client:581:run - Command "sign in" was performed
