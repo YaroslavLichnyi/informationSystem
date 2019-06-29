@@ -191,13 +191,13 @@ public class DishFillingForm extends InformSystemGUI {
         btAdd = new JButton( "Add"  );
         gridBag.gridx = 1;
         gridBag.gridy = 8;
-        gridBag.gridwidth = 1;
+        gridBag.gridwidth = 2;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(5,0,10,0);
+        gridBag.insets = new Insets(5,15,10,15);
         gridBagLayout.setConstraints( btAdd, gridBag );
         panel.add( btAdd );
         btAdd.addActionListener(new ActionListener() {

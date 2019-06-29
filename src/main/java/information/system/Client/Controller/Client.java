@@ -440,6 +440,17 @@ public class Client implements ClientController {
      * @return dishes which contain <code>subStr</code> in the name.
      */
     public List<Dish> getDishesWhichContains(String subStr) {
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.FIND_DISH);
+        xmlSet.setSubstrToDocument(subStr);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        try {
+            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
+            List<Dish> list = XmlSet.getDishesFrom(document);
+            return list;
+        } catch (InterruptedException e) {
+            LOGGER.error("Exception while exchanging", e);
+    }
         return null;
     }
 

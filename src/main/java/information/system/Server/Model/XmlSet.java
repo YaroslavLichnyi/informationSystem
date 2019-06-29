@@ -43,6 +43,7 @@ public class XmlSet {
     private static final String DISH_CATEGORY_ID = "dish-category-id";
     private static final String ROOT_ELEMENT = "message";
     private static final String COMMAND = "command";
+    private static final String SUB_STRING = "sub-str";
     private Document document;
 
     public XmlSet() {
@@ -174,6 +175,34 @@ public class XmlSet {
         for (int i = 0; i < nodes.getLength(); i++) {
             nodes.item(i).getParentNode().removeChild( nodes.item(i));
         }
+    }
+
+    /**
+     * Sets substring into a {@link XmlSet#document}.
+     *
+     * @param subStr is added into {@link XmlSet#document} as an element in xml-file.
+     */
+    public void setSubstrToDocument(String subStr) {
+        deleteCommandFromDocument(document);
+        Element root = document.getDocumentElement();
+        Element commandEl = document.createElement(SUB_STRING);
+        commandEl.setTextContent(subStr);
+        root.appendChild(commandEl);
+    }
+
+    /**
+     * Gets substring from a {@link XmlSet#document}.
+     *
+     * @param doc is a resource where substring is got from.
+     * @return command from a {@link XmlSet#document}.
+     */
+    public static String getSubstrFromDocument(Document doc) {
+        NodeList nodes = doc.getElementsByTagName(SUB_STRING);
+        if (nodes.getLength() != 1){
+            LOGGER.error("XML-file cannot contain more than 1 substring");
+            return null;
+        }
+        return nodes.item(0).getTextContent();
     }
 
     /**
