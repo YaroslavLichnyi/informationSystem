@@ -46,20 +46,8 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         try {
+            updateInformation();
             while (true) {
-                /*System.out.println("waiting for request");
-                strDoc = reader.readLine();
-                */
-               // String line;
-               // String documentInStr = "";
-                /*while ((line = reader.readLine()) != null) {
-                    if (line.isEmpty()) {
-                        break;
-                    }
-                    System.out.println("2"+line);
-                    documentInStr = documentInStr + line;
-                    System.out.println("3"+documentInStr);
-                } */
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
@@ -69,6 +57,7 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(
                                     String.valueOf(server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
                         logger.info("using protocol ADD_DISH was detected. Dish was added into the storage.");
                     break;
 
@@ -77,56 +66,59 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(
                                     String.valueOf(server.getRestaurant().addDishCategory(dishCategory)));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
                         logger.info("using protocol ADD_DISH_CATEGORY was detected." +
                                     " DishCategory was added into the storage.");
                         break;
 
                     case Protocol.SIGN_UP:
                         xmlToSend.setCommandToDocument(String.valueOf(User.signUp(
-                                XmlSet.getUsersFromDocument(doc).get(0)
-                        )));
+                                XmlSet.getUsersFromDocument(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
+                        logger.info("using protocol SIGN_UP was detected. User logged into the system.");
                         break;
-
-
 
                     case Protocol.DELETE_DISH:
                         xmlToSend.setCommandToDocument(
                                 String.valueOf(server.getRestaurant().removeDish(XmlSet.getDishesFrom(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
                         logger.info("using protocol DELETE_DISH was detected. Dish was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_DISH_CATEGORY:
-                        xmlToSend.setCommandToDocument(
-                                String.valueOf(server.getRestaurant().removeDishCategory(XmlSet.getDishCategoriesFrom(doc).get(0)))
-                        );
+                        xmlToSend.setCommandToDocument(String.valueOf(server.getRestaurant().removeDishCategory(
+                                                                        XmlSet.getDishCategoriesFrom(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
                         logger.info("using protocol DELETE_DISH_CATEGORY was detected." +
-                                " DishCategory was deleted from the storage.");
+                                    " DishCategory was deleted from the storage.");
                         break;
 
                     case Protocol.DELETE_USER:
+                        XmlSet.deleteUser(XmlSet.getUsersFromDocument(doc).get(0));
+//                        xmlToSend.setCommandToDocument(String.valueOf(User.delete(
+//                                                                        XmlSet.getUsersFromDocument(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
-
+                        updateInformation();
+                        logger.info("using protocol DELETE_USER was detected. User was deleted from the storage.");
                         break;
 
                     case Protocol.EDIT_DISH:
-                        xmlToSend.setCommandToDocument(
-                                String.valueOf
-                                        (server.getRestaurant().
-                                                edit(XmlSet.getDishesFrom(doc).get(0),XmlSet.getDishesFrom(doc).get(1))));
+                        xmlToSend.setCommandToDocument(String.valueOf(server.getRestaurant().edit(
+                                                XmlSet.getDishesFrom(doc).get(0),XmlSet.getDishesFrom(doc).get(1))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
+                        logger.info("");
                         break;
 
                     case Protocol.EDIT_DISH_CATEGORY:
-                        xmlToSend.setCommandToDocument(
-                                String.valueOf
-                                        (server.getRestaurant().
-                                                edit(XmlSet.getDishCategoriesFrom(doc).get(0),XmlSet.getDishCategoriesFrom(doc).get(1))));
+                        xmlToSend.setCommandToDocument(String.valueOf(server.getRestaurant().edit(
+                                   XmlSet.getDishCategoriesFrom(doc).get(0),XmlSet.getDishCategoriesFrom(doc).get(1))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
+                        updateInformation();
+                        logger.info("");
                         break;
 
                     case Protocol.EDIT_USER:
@@ -139,16 +131,20 @@ public class ClientListener extends Thread {
                             sendMessage();
                         }
 */
+                        updateInformation();
+                        logger.info("");
                         break;
 
                     case Protocol.UPDATE_INFORMATION:
-                        xmlToSend.setCommandToDocument(Protocol.UPDATE_INFORMATION);
-                        xmlToSend.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
-                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
+                        logger.info("");//правильно
                         break;
 
                     case Protocol.END_OF_SESSION:
 
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        updateInformation();
+                        logger.info("");
                         break;
 
                     case Protocol.SIGN_IN:
@@ -159,15 +155,17 @@ public class ClientListener extends Thread {
                             list.add(signedInUser);
                             xmlToSend.setCommandToDocument(Protocol.SIGN_IN);
                             xmlToSend.setUsersToDocument(list);
+                            logger.info("");
                         } else {
                             xmlToSend.setCommandToDocument(Protocol.FALSE);
+                            logger.info("");
                         }
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-
+                        logger.info("");
                         break;
 
                     case Protocol.SORT_BY_PRICE:
@@ -182,7 +180,7 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(Protocol.SORT_BY_PRICE);
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         logger.info("using protocol SORT_BY_DISH_CATEGORY was detected." +
-                                " Dishes was sorted by category.");
+                                    " Dishes was sorted by category.");
                         break;
 
                 }
@@ -207,6 +205,15 @@ public class ClientListener extends Thread {
         }
     }
 
+    /**
+     * Method for updating information of all clients.
+     */
+    public void updateInformation() {
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+        xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
+        sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+    }
 
     /**
      * Sends a file to client

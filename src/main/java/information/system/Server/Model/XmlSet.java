@@ -170,7 +170,7 @@ public class XmlSet {
      *
      * @param doc s a resource where command is deleted from.
      */
-    public void deleteCommandFromDocument(Document doc) {
+    public static void deleteCommandFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(COMMAND);
         for (int i = 0; i < nodes.getLength(); i++) {
             nodes.item(i).getParentNode().removeChild( nodes.item(i));
@@ -511,4 +511,18 @@ public class XmlSet {
     public Document getDocument() {
         return document;
     }
+
+    public static boolean deleteUser(User user) {
+//        List<User> list = new LinkedList<>();
+//        list.add(user);
+//        XmlSet.setUsersToDocument(list);
+        String documentInStr = user.toString();
+        Document doc = XmlSet.convertStringToDocument(documentInStr);
+        XmlSet.deleteCommandFromDocument(doc);
+        //лезем в xml у удаляем оттуда нужного пользователя. Пользователь,которого мы удаляем,
+        //сразу отключается (у него срабатывает sign out),поэтому с этим проблем не будет,что удалённый пользователь будет в сети
+        return true;
+    }
+
+
 }
