@@ -50,7 +50,7 @@ public class ClientListener extends Thread {
                 /*System.out.println("waiting for request");
                 strDoc = reader.readLine();
                 */
-                String line;
+               // String line;
                // String documentInStr = "";
                 /*while ((line = reader.readLine()) != null) {
                     if (line.isEmpty()) {
