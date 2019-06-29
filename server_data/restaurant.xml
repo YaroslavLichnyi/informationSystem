@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE restaurant SYSTEM "rules.dtd">
+<restaurant><dish name="name1" price="13.0"><description>Some descr</description></dish></restaurant>
