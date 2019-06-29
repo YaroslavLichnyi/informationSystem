@@ -164,6 +164,7 @@ public class ChangeUserDataForm extends InformSystemGUI{
                 client.signOut();
             }
         });
+
         add(panel);
     }
 }

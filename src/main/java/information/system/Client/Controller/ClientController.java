@@ -104,7 +104,8 @@ public interface ClientController {
      * @param user is added as a new Admin
      * @return true if an <code>user</code> was added
      */
-     User signUp(User user);
+    boolean signUp(User user);
+
 
     /**
      * Signs out

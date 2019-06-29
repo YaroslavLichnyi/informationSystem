@@ -373,25 +373,14 @@ public class Client implements ClientController {
      * @return true if an <code>user</code> was added
      */
     @Override
-    public User signUp(User user) {
+    public boolean signUp(User user) {
         XmlSet xmlSet = new XmlSet();
         LinkedList<User> users = new LinkedList<>();
         users.add(user);
         xmlSet.setUsersToDocument(users);
         xmlSet.setCommandToDocument(Protocol.SIGN_UP);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        try {
-            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
-            if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
-                return null;
-            } else {
-                return XmlSet.getUsersFromDocument(document).get(0);
-            }
-        } catch (InterruptedException e) {
-            LOGGER.error("Exception while exchanging", e);
-        }
-        return null;
+        return getExchange();
     }
 
     public InputStream getInputStream() throws IOException{

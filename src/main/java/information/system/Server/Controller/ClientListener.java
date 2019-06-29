@@ -82,10 +82,13 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.SIGN_UP:
-                        User newUser = XmlSet.getUsersFromDocument(doc).get(0);
-                       // xmlToSend.setCommandToDocument(server.getRestaurant().);
+                        xmlToSend.setCommandToDocument(String.valueOf(User.signUp(
+                                XmlSet.getUsersFromDocument(doc).get(0)
+                        )));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
+
+
 
                     case Protocol.DELETE_DISH:
                         xmlToSend.setCommandToDocument(
