@@ -27,45 +27,42 @@ public class MenuGUI extends InformSystemGUI {
     private DefaultTableModel model;
     private Client client;
 
-    public MenuGUI(Client client, boolean singnedIn) {
+    public MenuGUI(Client client) {
         super();
         setBounds(dimension.width / 2 - 350, dimension.height / 2 - 300, 700, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setClient(client);
         this.client = client;
         init();
-        if (singnedIn){
-            initFroAdmin();
-        }
         add(panel);
         setVisible(true);
     }
 
-    private void initFroAdmin() {
-
-    }
 
     @Override
     protected void init(){
         JMenuBar jMenuBar = new JMenuBar();
 
-        JMenu addRestMenu = new JMenu("Restaurant menu");
-        JMenuItem itAddNewDish = new JMenuItem("Add new dish");
-        JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
-        itAddNewDish.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishFillingForm(client);
-            }
-        });
-        itAddNewDishCategory.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishCategoryFillingForm(client);
-            }
-        });
-        addRestMenu.add(itAddNewDish);
-        addRestMenu.add(itAddNewDishCategory);
+        if (client.getUser().isAdmin()){
+            JMenu addRestMenu = new JMenu("Restaurant menu");
+            JMenuItem itAddNewDish = new JMenuItem("Add new dish");
+            JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
+            itAddNewDish.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new DishFillingForm(client);
+                }
+            });
+            itAddNewDishCategory.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new DishCategoryFillingForm(client);
+                }
+            });
+            addRestMenu.add(itAddNewDish);
+            addRestMenu.add(itAddNewDishCategory);
+            jMenuBar.add(addRestMenu);
+        }
 
         JMenu exit = new JMenu("Exit");
         exit.addMenuListener(new MenuListener() {
@@ -109,7 +106,6 @@ public class MenuGUI extends InformSystemGUI {
         userMenu.add(itChangeData);
         userMenu.add(signOut);
 
-        jMenuBar.add(addRestMenu);
         jMenuBar.add(userMenu);
         jMenuBar.add(exit);
 
@@ -192,12 +188,6 @@ public class MenuGUI extends InformSystemGUI {
                 return false;
             }
         };
-        dishesTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(dishesTable.getSelectedRow());
-            }
-        });
         JScrollPane jscrlp = new JScrollPane(dishesTable);
         gridBag.gridx = 1;
         gridBag.gridy = 4;

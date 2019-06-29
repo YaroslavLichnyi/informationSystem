@@ -1,19 +1,17 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Dish;
+import information.system.Server.Model.DishCategory;
 
-import javax.swing.JPanel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JButton;
+import javax.swing.*;
+import java.awt.*;
 public class DetailInformationFrame extends InformSystemGUI{
     private Dish dish;
     public DetailInformationFrame(Client client, Dish dish) {
         super();
         this.dish = dish;
         setBounds(dimension.width / 2 - 200, dimension.height / 2 - 150, 400, 300);
- //       setClient(client);
+        this.client = client;
         init();
         add(panel);
         setVisible(true);
@@ -28,8 +26,8 @@ public class DetailInformationFrame extends InformSystemGUI{
         JLabel lbLabel6;
         JLabel lbLabel9;
         JLabel lbDishcategoryName;
-        JButton btBut0;
-        JButton btBut1;
+        JButton btEdit;
+        JButton btRomove;
         panel = new JPanel();
 
         panel.setLayout( gridBagLayout );
@@ -125,7 +123,18 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBagLayout.setConstraints( lbLabel9, gridBag );
         panel.add( lbLabel9 );
 
-        lbDishcategoryName = new JLabel( ""  );
+        lbDishcategoryName = new JLabel();
+        for (DishCategory dishCategory : client.getDishCategories()){
+            if (dish.getDishCategoryId()==dishCategory.getId()){
+                if (dishCategory.isHealthyFood()){
+                    lbDishcategoryName.setText(dishCategory.getName() + " (healthy)");
+                    lbDishcategoryName.setForeground(Color.GREEN);
+                } else {
+                    lbDishcategoryName.setText(dishCategory.getName() + " (not healthy)");
+                }
+                break;
+            }
+        }
         gridBag.gridx = 3;
         gridBag.gridy = 4;
         gridBag.gridwidth = 1;
@@ -138,7 +147,8 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBagLayout.setConstraints( lbDishcategoryName, gridBag );
         panel.add( lbDishcategoryName );
 
-        btBut0 = new JButton( "Edit"  );
+        btEdit = new JButton( "Edit"  );
+        btEdit.setEnabled(client.getUser().isAdmin());
         gridBag.gridx = 2;
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;
@@ -148,10 +158,11 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.weighty = 0;
         gridBag.insets = new Insets(15,15,15,0);
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBagLayout.setConstraints( btBut0, gridBag );
-        panel.add( btBut0 );
+        gridBagLayout.setConstraints( btEdit, gridBag );
+        panel.add( btEdit );
 
-        btBut1 = new JButton( "Remove"  );
+        btRomove = new JButton( "Remove"  );
+        btRomove.setEnabled(client.getUser().isAdmin());
         gridBag.gridx = 3;
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;
@@ -161,8 +172,8 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.weighty = 0;
         gridBag.insets = new Insets(15,0,15,15);
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBagLayout.setConstraints( btBut1, gridBag );
-        panel.add( btBut1 );
+        gridBagLayout.setConstraints( btRomove, gridBag );
+        panel.add( btRomove );
         add(panel);
     }
 

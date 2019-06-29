@@ -7,7 +7,6 @@ import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
@@ -58,7 +57,6 @@ public class Client implements ClientController {
     }
 
     public Client()  {
-
             menu = new ArrayList<>();
             dishCategories = new ArrayList<>();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,18 +88,17 @@ public class Client implements ClientController {
             dishCategories.add(dishСategory1);
             dishCategories.add(dishСategory2);
             dishCategories.add(dishСategory3);
-
+/*
             user = new User();
             user.setAdmin(true);
             user.setName("Naaaaame");
             user.setPassword("passsssword");
             user.setLogin("login");
+            */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             file = new File("settings/client.ini");
             this.port = readPort();
             exgr = new Exchanger<>();
-
-
     }
 
     /**
@@ -418,9 +415,8 @@ public class Client implements ClientController {
      */
     @Override
     public void showGeneralFrame() {
-        menuGUI = new MenuGUI(this, user.isAdmin());
+        menuGUI = new MenuGUI(this);
     }
-
 
     /**
      * Signs out
@@ -431,7 +427,6 @@ public class Client implements ClientController {
         new SignInForm(this);
         menuGUI.dispose();
     }
-
 
     /**
      * Finds dishes which contain <code>subStr</code> in the name.
