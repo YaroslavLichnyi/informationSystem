@@ -25,7 +25,7 @@ public class SignInForm extends InformSystemGUI {
         final JTextField tfLogin;
         JLabel lbLogin;
         JLabel lbPassword;
-        final JTextField tfPassword;
+        final JPasswordField tfPassword;
         JButton btSignIn;
         JButton btBut1;
 
@@ -67,7 +67,7 @@ public class SignInForm extends InformSystemGUI {
         gridBagLayout.setConstraints( lbPassword, gridBag );
         panel.add( lbPassword );
 
-        tfPassword = new JTextField( );
+        tfPassword = new JPasswordField( );
         gridBag.gridx = 0;
         gridBag.gridy = 3;
         gridBag.gridwidth = 2;
@@ -104,7 +104,6 @@ public class SignInForm extends InformSystemGUI {
                     client.showGeneralFrame();
                     dispose();
                 }
-
             }
         });
 

@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -131,9 +132,7 @@ public class MenuGUI extends InformSystemGUI {
         cmbSortBy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setValuesAtTable(
-                        client.getDishesSortedBy(
-                                (String) cmbSortBy.getSelectedItem()));
+                setValuesAtTable(client.getDishesSortedBy((String) cmbSortBy.getSelectedItem()));
             }
         });
 
@@ -148,6 +147,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.anchor = GridBagConstraints.EAST;
         gridBag.insets = new Insets(15,15,0,0);
         gridBagLayout.setConstraints(tfName, gridBag );
+        ((AbstractDocument) tfName.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
         panel.add(tfName);
 
         btShowDishCategories = new JButton( "Find"  );
@@ -161,13 +161,25 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btShowDishCategories, gridBag );
+
+
         panel.add(btShowDishCategories);
         btShowDishCategories.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setValuesAtTable(
-                        client.getDishesWhichContains(
-                                tfName.getText()));
+                if(tfName.getText().length() > 0){
+                    List <Dish> dishes = client.getDishesWhichContains(tfName.getText());
+                    if (dishes==null){
+                        InformSystemGUI.showMessage("Problems with getting dishes from server");
+                    } else if (dishes.size() == 0){
+                        InformSystemGUI.showMessage("There are no dishes, which contain \""
+                                + tfName.getText() + "\" in name");
+                    } else {
+                        setValuesAtTable(dishes);
+                    }
+                } else {
+                 InformSystemGUI.showMessage("Enter at least 1 letter");
+                }
             }
         });
 
