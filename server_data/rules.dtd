@@ -1,0 +1,7 @@
+<!ELEMENT restaurant (dish*)>
+<!ELEMENT dish (description+)>
+<!ATTLIST dish
+        name CDATA #REQUIRED
+        price CDATA #REQUIRED
+>
+<!ELEMENT description (#PCDATA)>
