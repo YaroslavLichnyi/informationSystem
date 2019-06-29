@@ -1,8 +1,5 @@
 package information.system.Server.Model;
 
-import information.system.Server.Model.Dish;
-import information.system.Server.Model.DishCategory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +32,11 @@ public interface RestaurantInterface {
      */
     DishCategory getDishCategory(int index);
 
+    /**
+     *
+     * @return dish categories
+     */
     ArrayList<DishCategory> getAllDishCategories();
-
 
     /**
      * Removes dish from {@link RestaurantInterface#dishCategories}.
@@ -119,7 +119,11 @@ public interface RestaurantInterface {
      */
     boolean edit(DishCategory OldDishCategory, DishCategory NewDishCategory);
 
-
-//    static boolean isLoginFree(String login);
+    /**
+     *  Gets dishes which contains substring in the name.
+     * @param substr is a substring.
+     * @return dishes which contains substring in the name.
+     */
+    List<Dish> getDishesWithSubstrInName(String substr);
 
 }

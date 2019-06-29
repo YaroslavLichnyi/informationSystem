@@ -192,6 +192,23 @@ public class Restaurant implements RestaurantInterface{
         return false;
     }
 
+    /**
+     * Gets dishes which contains substring in the name.
+     *
+     * @param substr is a substring.
+     * @return dishes which contains substring in the name.
+     */
+    @Override
+    public List<Dish> getDishesWithSubstrInName(String substr) {
+        List <Dish> result = new LinkedList<>();
+        for (Dish dish : menu) {
+            if (dish.getName().contains(substr)){
+                result.add(dish);
+            }
+        }
+        return result;
+    }
+
 
     /**
      * Check if <code>password</code> and <code>password</code> were inputted correct.
