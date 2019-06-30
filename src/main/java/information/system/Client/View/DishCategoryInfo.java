@@ -5,6 +5,8 @@ import information.system.Server.Model.DishCategory;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -42,11 +44,17 @@ public class DishCategoryInfo extends InformSystemGUI{
         gridBag.insets = new Insets(5,10,10,10);
         gridBagLayout.setConstraints( jscrlp, gridBag );
         panel.add( jscrlp );
+        dishesTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
+                    new EditDishCategoryForm(getClient(), client.getDishCategories().get(dishesTable.getSelectedRow()));
+                }
+            }
+        });
     }
 
-    /**
-     *  Gets
-     */
+
     private void setValuesAtTable(){
         LinkedList<DishCategory> dishCategories = client.getDishCategories();
         final int tableRowSize = dishCategories.size();
