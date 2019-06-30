@@ -349,7 +349,9 @@ public class XmlSet {
      * @param menu is a list data of which is set in document.
      */
     public void setMenuToDocument(List<DishCategory> menu) {
+        Element root = document.getDocumentElement();
         Element rootMenu = document.createElement("menu");
+        root.appendChild(rootMenu);
         for (DishCategory dishCategory: menu) {
             Element dishCategoryEl = document.createElement(DISH_CATEGORY);
             rootMenu.appendChild(dishCategoryEl);
