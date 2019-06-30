@@ -1,12 +1,7 @@
 package information.system.Server.Model;
-
-import org.w3c.dom.Document;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-
-import static sun.plugin.javascript.navig.JSType.Document;
 
 public class User {
     private String name;
@@ -137,6 +132,29 @@ public class User {
             }
         }
         return true;
+    }
+
+    public static boolean delete(User userToDelete){
+        List<User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
+        if (users.remove(userToDelete)){
+            InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
+            return true;
+        }
+        /*Document doc = XmlSet.getDocumentFromFile(Command.SERVER_FILE_ADMINS);
+        NodeList nodes = doc.getElementsByTagName("user");
+        for (int i = 0; i < nodes.getLength(); i++) {
+            for (int j = 0; j < nodes.item(i).getAttributes().getLength(); j++) {
+                if (nodes.item(i).getAttributes().item(j).getNodeName().equals("id")
+                        && nodes.item(i).getAttributes().item(j).getTextContent().equals(String.valueOf(userToDelete.getId()))){
+                    Element user = (Element)nodes.item(i);
+                    user.getParentNode().removeChild(user);
+                    //person.getParentNode().removeChild(person);
+                    //nodes.item(i).getParentNode().removeChild( nodes.item(i));
+                    return true;
+                }
+            }
+        }*/
+        return false;
     }
 
     @Override

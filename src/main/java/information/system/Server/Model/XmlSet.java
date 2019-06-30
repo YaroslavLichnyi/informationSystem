@@ -8,12 +8,12 @@ import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -211,9 +211,9 @@ public class XmlSet {
      * @param doc is a resource from which dishes come from.
      * @return dishes from {@link XmlSet#document}.
      */
-    public static ArrayList<Dish> getDishesFrom(Document doc){
+    public static LinkedList<Dish> getDishesFrom(Document doc){
         NodeList nodes = doc.getElementsByTagName(DISH);
-        ArrayList<Dish> dishes = new ArrayList<>();
+        LinkedList<Dish> dishes = new LinkedList<>();
         for (int j = 0; j < nodes.getLength(); j++) {
             if (nodes.item(j).getNodeName().equals(DISH)) {
                 Dish newDish = new Dish();

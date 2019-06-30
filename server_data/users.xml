@@ -3,4 +3,7 @@
     <user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/>
     <user admin="true" id="1" login="Alexxxx" name="Alexandr" password="qwerty"/>
     <user admin="false" id="2" login="Login" name="Guest" password="Password"/>
+    <user admin="true" id="3" login="Alina20" name="Alina" password="123456"/>
+    <user admin="false" id="4" login="Anonim" name="Anonim" password="Anonim00"/>
+    <user admin="false" id="5" login="fffff" name="fffff" password="ffffff"/>
 </users>
