@@ -6,8 +6,6 @@ import information.system.Server.Model.Restaurant;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class EditDishForm extends DishFillingForm {
     private JButton btEdit;
@@ -36,17 +34,24 @@ public class EditDishForm extends DishFillingForm {
         gridBag.insets = new Insets(5,15,10,15);
         gridBagLayout.setConstraints( btEdit, gridBag );
         panel.add( btEdit );
-        btEdit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        btEdit.addActionListener(e -> {
+            if((double) (int) spnHryvnas.getValue()
+                    + ((double) (int) spnKopeikas.getValue())/100 < 0 ){
+                InformSystemGUI.showMessage("The price can not be less than 0");
+            } else {
                 Dish newDish = new Dish();
                 newDish.setName(tfDishName.getText());
-                newDish.setPrice(Double.valueOf((int)spnHryvnas.getValue())
-                        + (Double.valueOf((int)spnKopeikas.getValue()))/100);
+                newDish.setPrice((double) (int) spnHryvnas.getValue()
+                        + ((double) (int) spnKopeikas.getValue())/100);
                 newDish.setDescription(taDishDescription.getText());
                 client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
-                client.edit(oldDish,newDish);
+                if(client.edit(oldDish,newDish)){
+                    dispose();
+                } else {
+                    InformSystemGUI.showMessage("Dish was not edited");
+                }
             }
+
         });
     }
 }

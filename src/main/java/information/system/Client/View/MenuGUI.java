@@ -87,28 +87,40 @@ public class MenuGUI extends InformSystemGUI {
         JMenu userMenu = new JMenu("User");
 
         JMenuItem itChangeData = new JMenuItem("Change information");
-        itChangeData.addActionListener(new ActionListener() {
+        itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
+
+        JMenuItem signOut = new JMenuItem("Sign out");
+        signOut.addActionListener(e -> {
+            client.setUser(null);
+            new SignInForm(getClient());
+            dispose();
+            LOGGER.info("User signed out");
+        });
+
+        JMenu updateMenu = new JMenu("Update content");
+        updateMenu.addMenuListener(new MenuListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                new ChangeUserDataForm(client, client.getUser());
+            public void menuSelected(MenuEvent e) {
+                client.updateContent();
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
             }
         });
 
-        JMenuItem signOut = new JMenuItem("Sign out");
-        signOut.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                client.setUser(null);
-                new SignInForm(getClient());
-                dispose();
-                LOGGER.info("User signed out");
-            }
-        });
         userMenu.add(itChangeData);
         userMenu.add(signOut);
 
         jMenuBar.add(userMenu);
         jMenuBar.add(exit);
+        jMenuBar.add(updateMenu);
 
         this.setJMenuBar(jMenuBar);
         this.revalidate();
