@@ -160,6 +160,9 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btEdit, gridBag );
         panel.add( btEdit );
+        btEdit.addActionListener( e -> {
+            new EditDishForm(client, dish);
+        });
 
         btRomove = new JButton( "Remove"  );
         btRomove.setEnabled(client.getUser().isAdmin());
@@ -174,6 +177,13 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btRomove, gridBag );
         panel.add( btRomove );
+        btRomove.addActionListener( e -> {
+            if (client.delete(dish)){
+                dispose();
+            } else {
+                InformSystemGUI.showMessage("Dish was not removed");
+            }
+        });
         add(panel);
     }
 

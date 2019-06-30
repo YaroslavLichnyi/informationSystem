@@ -1,16 +1,21 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-import information.system.Server.Model.Dish;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class DishFillingForm extends InformSystemGUI {
-    private Client client;
+    protected JTextArea taDishDescription;
+    protected JTextField tfDishName;
+    protected JLabel lbDishName;
+    protected JLabel lbLabel1;
+    protected JSpinner spnHryvnas;
+    protected JLabel lbDishDescription;
+    protected JSpinner spnKopeikas;
+    protected JLabel lbHrn;
+    protected JLabel lbKop;
+    protected JComboBox cmbDishCategory;
     public DishFillingForm(Client client) {
         super();
         setClient(client);
@@ -24,17 +29,7 @@ public class DishFillingForm extends InformSystemGUI {
 
     @Override
     protected void init() {
-        final JTextArea taDishDescription;
-        final JTextField tfDishName;
-        JLabel lbDishName;
-        JLabel lbLabel1;
-        final JSpinner spnHryvnas;
-        JLabel lbDishDescription;
-        final JSpinner spnKopeikas;
-        JLabel lbHrn;
-        JLabel lbKop;
-        JButton btAdd;
-        JComboBox cmbDishCategory;
+
 
         taDishDescription = new JTextArea(2,10);
         gridBag.gridx = 0;
@@ -187,31 +182,6 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.insets = new Insets(0,15,0,15);
         gridBagLayout.setConstraints(cmbDishCategory, gridBag );
         panel.add(cmbDishCategory);
-
-        btAdd = new JButton( "Add"  );
-        gridBag.gridx = 1;
-        gridBag.gridy = 8;
-        gridBag.gridwidth = 2;
-        gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.HORIZONTAL;
-        gridBag.weightx = 1;
-        gridBag.weighty = 0;
-        gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(5,15,10,15);
-        gridBagLayout.setConstraints( btAdd, gridBag );
-        panel.add( btAdd );
-        btAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Dish newDish = new Dish();
-                newDish.setName(tfDishName.getText());
-                newDish.setPrice(Double.valueOf((int)spnHryvnas.getValue())
-                                 + (Double.valueOf((int)spnKopeikas.getValue()))/100);
-                newDish.setDescription(taDishDescription.getText());
-                client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
-                client.add(newDish);
-            }
-        });
         add(panel);
     }
 }
