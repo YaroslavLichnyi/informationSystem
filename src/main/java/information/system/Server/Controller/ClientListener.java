@@ -207,9 +207,11 @@ public class ClientListener extends Thread {
     public void updateInformation() {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+        System.out.println();
         xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
-
         sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        System.out.println("MENU:" + InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT).toString());
+        System.out.println("DOC: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
         System.out.println("!!!: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
     }
 

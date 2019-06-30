@@ -35,6 +35,12 @@ public class Client implements ClientController {
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());
+        /*XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
+        LinkedList<DishCategory> list = InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT);
+        list.toString();
+        xmlSet.setMenuToDocument(list);
+        System.out.println(XmlSet.convertDocumentToString(xmlSet.getDocument()));*/
     }
 
     public Client()  {
@@ -305,7 +311,7 @@ public class Client implements ClientController {
     @Override
     public void sendRequest(String message) {
         try {
-            System.out.println("REQUEST: " + message);
+            LOGGER.info("Client send next request: " + message);
             writer.write(message);
             writer.newLine();
             writer.flush();
