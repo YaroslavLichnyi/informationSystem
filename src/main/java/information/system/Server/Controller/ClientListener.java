@@ -206,6 +206,7 @@ public class ClientListener extends Thread {
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
         xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
         sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        System.out.println("!!!: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
     }
 
     /**
