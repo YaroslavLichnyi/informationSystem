@@ -1,5 +1,5 @@
-<!ELEMENT restaurant (dish-category+)>
-        <!ELEMENT dish-category (dish+)>
+<!ELEMENT restaurant (dish-category*)>
+        <!ELEMENT dish-category (dish*)>
         <!ATTLIST dish-category
                 id CDATA #REQUIRED
                 name CDATA #REQUIRED
