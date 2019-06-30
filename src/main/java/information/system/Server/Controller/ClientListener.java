@@ -190,7 +190,7 @@ public class ClientListener extends Thread {
      * Sends message(response) from server to client
      * @param msg is a message that is sent
      */
-    private void sendMessage(String msg) {
+    private synchronized void sendMessage(String msg) {
         try {
             writer.write(msg);
             writer.newLine();
@@ -203,7 +203,7 @@ public class ClientListener extends Thread {
     /**
      * Method for updating information of all clients.
      */
-    public void updateInformation() {
+    public synchronized void updateInformation() {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
         xmlSet.setMenuToDocument(server.getRestaurant().getAllDishCategories());
