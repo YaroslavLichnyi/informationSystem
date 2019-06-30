@@ -6,8 +6,8 @@ import information.system.Server.Model.DishCategory;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class DishCategoryInfo extends InformSystemGUI{
     private DefaultTableModel model = new DefaultTableModel();
@@ -49,7 +49,7 @@ public class DishCategoryInfo extends InformSystemGUI{
      *  Gets
      */
     private void setValuesAtTable(){
-        ArrayList<DishCategory> dishCategories = client.getDishCategories();
+        LinkedList<DishCategory> dishCategories = client.getDishCategories();
         final int tableRowSize = dishCategories.size();
         model.setRowCount(tableRowSize);
         Iterator<DishCategory> dishCategoryIterator = dishCategories.iterator();

@@ -7,10 +7,10 @@ import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,8 +22,8 @@ import java.util.concurrent.Exchanger;
  */
 public class Client implements ClientController {
     private static final Logger LOGGER = Logger.getLogger(Client.class);
-    private ArrayList<Dish> menu;
-    private ArrayList<DishCategory> dishCategories;
+    private LinkedList<Dish> menu;
+    private LinkedList<DishCategory> dishCategories;
     private Socket clientSocket;
     private BufferedWriter writer;
     private BufferedReader reader;
@@ -38,8 +38,8 @@ public class Client implements ClientController {
     }
 
     public Client()  {
-            menu = new ArrayList<>();
-            dishCategories = new ArrayList<>();
+            menu = new LinkedList<>();
+            dishCategories = new LinkedList<>();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             Dish dish1 = new Dish("name1", 3.56, "Some defhdjkdgkdgjkscr");
             Dish dish3 = new Dish("name3", 34.45, "Some defhkfkhscr");
@@ -430,11 +430,11 @@ public class Client implements ClientController {
         return null;
     }
 
-    public ArrayList<Dish> getMenu() {
+    public LinkedList<Dish> getMenu() {
         return menu;
     }
 
-    public ArrayList<DishCategory> getDishCategories() {
+    public LinkedList<DishCategory> getDishCategories() {
         return dishCategories;
     }
 
@@ -546,12 +546,9 @@ public class Client implements ClientController {
             if(!clientSocket.isClosed() && clientSocket.isConnected()){
                 try {
                     reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                   // LOGGER.info("Listener waits for response.");
                     String responseStr = reader.readLine();
-                    //System.out.println("1. Response: " + responseStr);
                     responseStr += reader.readLine();
-                   // System.out.println("2. Response: " + responseStr);
-                    //LOGGER.info("Listener got from server string: " + responseStr);
+                    LOGGER.info("Listener got from server string: " + responseStr);
                     Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                     String command = XmlSet.getCommandFromDocument(responseDoc);
                     switch(command)
@@ -573,9 +570,11 @@ public class Client implements ClientController {
                             }
                             break;
                         case Protocol.UPDATE_INFORMATION:
-                            menu = (ArrayList<Dish>) XmlSet.getDishesFrom(responseDoc);
-                            menuGUI.setValuesAtTable(menu);
-                            dishCategories = (ArrayList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
+                            menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
+                            if (user != null ){
+                                menuGUI.setValuesAtTable(menu);
+                            }
+                            dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
                             break;
 
                         case Protocol.END_OF_SESSION:
