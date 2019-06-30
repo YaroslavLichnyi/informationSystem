@@ -155,6 +155,7 @@ public class ClientListener extends Thread {
                                         "It was wrong trying to log the user out.");
                         }
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        System.out.println("111. " + XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:
