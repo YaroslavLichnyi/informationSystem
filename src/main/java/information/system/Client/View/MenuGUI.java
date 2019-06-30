@@ -57,7 +57,7 @@ public class MenuGUI extends InformSystemGUI {
             itAddNewDishCategory.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new DishCategoryFillingForm(client);
+                    new AddDishCategoryForm(client);
                 }
             });
             addRestMenu.add(itAddNewDish);
