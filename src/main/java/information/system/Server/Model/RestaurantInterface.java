@@ -1,6 +1,7 @@
 package information.system.Server.Model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public interface RestaurantInterface {
     /**
      * Collection of dish categories, which contain dishes.
      */
-    List<DishCategory> menu = null;
+    List<DishCategory> menu = new LinkedList<>();
 
     /**
      * Sets dishes from tile to local variable.
