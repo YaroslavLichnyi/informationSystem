@@ -130,4 +130,5 @@ public interface ClientController {
      *  Shows general frame.
      */
     void showGeneralFrame();
+
 }

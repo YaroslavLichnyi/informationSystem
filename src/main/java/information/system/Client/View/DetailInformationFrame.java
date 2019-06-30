@@ -178,6 +178,7 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBagLayout.setConstraints( btRomove, gridBag );
         panel.add( btRomove );
         btRomove.addActionListener( e -> {
+            client.delete(dish);
             if (client.delete(dish)){
                 dispose();
             } else {
@@ -188,7 +189,3 @@ public class DetailInformationFrame extends InformSystemGUI{
     }
 
 }
-
-
-
-

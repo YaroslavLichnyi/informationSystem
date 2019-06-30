@@ -26,16 +26,23 @@ public class AddDishForm extends DishFillingForm {
         gridBagLayout.setConstraints( btAdd, gridBag );
         panel.add( btAdd );
         btAdd.addActionListener(e -> {
-            Dish newDish = new Dish();
-            newDish.setName(tfDishName.getText());
-            newDish.setPrice(Double.valueOf((int)spnHryvnas.getValue())
-                    + (Double.valueOf((int)spnKopeikas.getValue()))/100);
-            newDish.setDescription(taDishDescription.getText());
-            client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
-            if(client.add(newDish)){
-                dispose();
+            if((double) (int) spnHryvnas.getValue()
+                    + ((double) (int) spnKopeikas.getValue())/100 < 0 ){
+                InformSystemGUI.showMessage("The price can not be less than 0");
             } else {
-                InformSystemGUI.showMessage("Dish was not added");
+                Dish newDish = new Dish();
+                newDish.setName(tfDishName.getText());
+                newDish.setPrice((double) (int) spnHryvnas.getValue()
+                        + ((double) (int) spnKopeikas.getValue())/100);
+                newDish.setDescription(taDishDescription.getText());
+                client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
+                //срабатывает если поставть client.add(newDish) два раза
+                client.add(newDish);
+                if(client.add(newDish)){
+                    dispose();
+                } else {
+                    InformSystemGUI.showMessage("Dish was not added");
+                }
             }
         });
     }
