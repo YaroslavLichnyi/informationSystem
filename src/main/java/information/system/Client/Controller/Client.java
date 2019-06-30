@@ -35,12 +35,6 @@ public class Client implements ClientController {
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());
-        /*XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
-        LinkedList<DishCategory> list = InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT);
-        list.toString();
-        xmlSet.setMenuToDocument(list);
-        System.out.println(XmlSet.convertDocumentToString(xmlSet.getDocument()));*/
     }
 
     public Client()  {
@@ -559,6 +553,7 @@ public class Client implements ClientController {
                         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                         String responseStr = reader.readLine();
                         responseStr += reader.readLine();
+
                         LOGGER.info("Listener got from server string: " + responseStr);
                         Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                         String command = XmlSet.getCommandFromDocument(responseDoc);
@@ -583,6 +578,7 @@ public class Client implements ClientController {
                             case Protocol.UPDATE_INFORMATION:
                                 menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
                                 if (user != null ){
+                                    LOGGER.info("Data at dishTable was updated");
                                     menuGUI.setValuesAtTable(menu);
                                 }
                                 dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
