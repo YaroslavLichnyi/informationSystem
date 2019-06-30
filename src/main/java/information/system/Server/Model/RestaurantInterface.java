@@ -8,27 +8,31 @@ import java.util.List;
  * @author Yaroslav Lichnyi
  */
 public interface RestaurantInterface {
-    /**
-     * Collection of dishes.
-     */
-    ArrayList<Dish> menu = new ArrayList<>();
-    /**
-     * Collection of dish categories.
-     */
-    ArrayList<DishCategory> dishCategories = new ArrayList<>();
 
     /**
-     * Adds new dish category at {@link RestaurantInterface#dishCategories}.
+     * Collection of dish categories, which contain dishes.
+     */
+    List<DishCategory> menu = null;
+
+    /**
+     * Sets dishes from tile to local variable.
+     *
+     * @param path is a path to resource where dish categories and dishes are stored.
+     */
+    void setMenu(String path);
+
+    /**
+     * Adds new dish category at {@link RestaurantInterface#menu}.
      * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
     boolean addDishCategory(DishCategory newDishCategory);
 
     /**
-     * Sets variable value {@link RestaurantInterface#dishCategories}.
+     * Sets variable value {@link RestaurantInterface#menu}.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return DishCategory from {@link RestaurantInterface#dishCategories}.
+     * @return DishCategory from {@link RestaurantInterface#menu}.
      */
     DishCategory getDishCategory(int index);
 
@@ -36,12 +40,12 @@ public interface RestaurantInterface {
      *
      * @return dish categories
      */
-    ArrayList<DishCategory> getAllDishCategories();
+    List<DishCategory> getAllDishCategories();
 
     /**
-     * Removes dish from {@link RestaurantInterface#dishCategories}.
+     * Removes dish from {@link RestaurantInterface#menu}.
      *
-     * @param dishCategory is removed from {@link RestaurantInterface#dishCategories}.
+     * @param dishCategory is removed from {@link RestaurantInterface#menu}.
      * @return true if an object was removed, else return false.
      */
     boolean removeDishCategory(DishCategory dishCategory);
@@ -120,10 +124,16 @@ public interface RestaurantInterface {
     boolean edit(DishCategory OldDishCategory, DishCategory NewDishCategory);
 
     /**
-     *  Gets dishes which contains substring in the name.
+     * Gets dishes which contains substring in the name.
      * @param substr is a substring.
      * @return dishes which contains substring in the name.
      */
     List<Dish> getDishesWithSubstrInName(String substr);
+
+    /**
+     *
+     * @return all dishes, which are stored in dish categories.
+     */
+    List<Dish> getAllDishes();
 
 }
