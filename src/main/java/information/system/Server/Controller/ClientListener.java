@@ -178,7 +178,6 @@ public class ClientListener extends Thread {
                         logger.info("using protocol SORT_BY_DISH_CATEGORY was detected." +
                                     " Dishes was sorted by category.");
                         break;
-
                 }
             }
         } catch (IOException e) {
@@ -207,11 +206,8 @@ public class ClientListener extends Thread {
     public void updateInformation() {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
-        System.out.println();
-        xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
+        xmlSet.setMenuToDocument(server.getRestaurant().getAllDishCategories());
         sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        System.out.println("MENU:" + InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT).toString());
-        System.out.println("DOC: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
         System.out.println("!!!: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
     }
 
