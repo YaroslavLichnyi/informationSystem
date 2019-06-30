@@ -1,6 +1,12 @@
 package information.system.Server.Model;
+
+import org.w3c.dom.Document;
+
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
+
+import static sun.plugin.javascript.navig.JSType.Document;
 
 public class User {
     private String name;
