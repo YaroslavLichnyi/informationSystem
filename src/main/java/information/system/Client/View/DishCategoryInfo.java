@@ -2,7 +2,6 @@ package information.system.Client.View;
 
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.DishCategory;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
