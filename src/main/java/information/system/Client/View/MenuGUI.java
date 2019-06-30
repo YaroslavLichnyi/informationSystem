@@ -2,6 +2,7 @@ package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.Command;
 import information.system.Server.Model.Dish;
+import information.system.Server.Model.Restaurant;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -180,7 +181,7 @@ public class MenuGUI extends InformSystemGUI {
         });
 
 
-        Object[] headers = {"Name", "Price", "Description"};
+        Object[] headers = {"Name", "Price", "Description", "Dish category"};
         model = new DefaultTableModel(null, headers);
         dishesTable = new JTable(model){
             @Override
@@ -253,18 +254,19 @@ public class MenuGUI extends InformSystemGUI {
         Iterator<Dish> taskIterator = menu.iterator();
         Dish dish;
         int i = 0;
-
         while (taskIterator.hasNext()){
             dish = taskIterator.next();
             model.setValueAt(dish.getName(), i , 0);
             model.setValueAt(dish.getPrice(), i , 1);
             model.setValueAt(dish.getDescription(), i , 2);
+            model.setValueAt(Restaurant.getDishCategoryById(client.getDishCategories(), dish.getDishCategoryId()).getName(), i, 3);
             i++;
         }
         while(i<tableRowSize){
             model.setValueAt(" ", i , 0);
             model.setValueAt(" ", i , 1);
             model.setValueAt(" ", i , 2);
+            model.setValueAt(" ", i , 3);
             i++;
         }
         dishesTable.repaint();
