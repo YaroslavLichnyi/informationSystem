@@ -1315,3 +1315,132 @@ java.net.SocketException: Connection reset
 2019-06-30 15:49:30 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
 2019-06-30 15:49:42 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
 2019-06-30 15:49:42 INFO  Client:159:run - 
+2019-06-30 17:31:12 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:31:13 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:31:16 INFO  Server:72:start - server is running.
+2019-06-30 17:31:24 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:31:24 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:31:24 INFO  Client:547:run - Listener starts working
+2019-06-30 17:31:34 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:31:34 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:31:34 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:31:34 INFO  Client:561:run - Command "sign in" was performed
+2019-06-30 17:31:43 ERROR ClientListener:185:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:50)
+2019-06-30 17:37:17 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:37:17 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:37:20 INFO  Server:72:start - server is running.
+2019-06-30 17:37:31 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:37:31 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:37:31 INFO  Client:547:run - Listener starts working
+2019-06-30 17:37:51 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:37:51 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:37:51 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:37:51 INFO  Client:561:run - Command "sign in" was performed
+2019-06-30 17:38:18 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Sweets"/></dish-categories></message>
+2019-06-30 17:38:18 INFO  ClientListener:68:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-30 17:39:33 ERROR ClientListener:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-06-30 17:39:39 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:39:39 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:39:39 INFO  Client:547:run - Listener starts working
+2019-06-30 17:39:51 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:39:51 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:39:51 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:39:51 INFO  Client:561:run - Command "sign in" was performed
+2019-06-30 17:40:05 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="true" id="0" name="Ukrainian food"/></dish-categories></message>
+2019-06-30 17:40:05 INFO  ClientListener:68:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-30 17:46:46 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:46:47 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:46:50 INFO  Server:72:start - server is running.
+2019-06-30 17:47:01 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-06-30 17:47:01 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:47:01 INFO  Client:548:run - Listener starts working
+2019-06-30 17:47:01 INFO  Client:551:run - Listener waits for response
+2019-06-30 17:47:28 INFO  Client:336:signIn - Client waits a response (sign in)
+2019-06-30 17:47:28 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:47:28 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:47:28 INFO  Client:555:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:47:28 INFO  Client:563:run - Command "sign in" was performed
+2019-06-30 17:47:28 INFO  Client:338:signIn - Client got response (sign in)
+2019-06-30 17:47:57 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Some food"/></dish-categories></message>
+2019-06-30 17:47:57 INFO  ClientListener:72:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-30 17:50:59 ERROR ClientListener:186:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-06-30 17:51:26 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-06-30 17:51:26 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:51:26 INFO  Client:548:run - Listener starts working
+2019-06-30 17:51:26 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:51:36 INFO  Client:336:signIn - Client waits for response (sign in)
+2019-06-30 17:51:36 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:51:36 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:51:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:51:36 INFO  Client:564:run - Command "sign in" was performed
+2019-06-30 17:51:36 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:51:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:51:36 INFO  Client:338:signIn - Client got response (sign in)
+2019-06-30 17:51:47 INFO  Client:564:run - Command "sign in" was performed
+2019-06-30 17:51:47 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:51:47 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Local food"/></dish-categories></message>
+2019-06-30 17:51:47 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-06-30 17:51:47 INFO  ClientListener:72:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
+2019-06-30 17:54:55 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:54:56 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:55:00 INFO  Server:72:start - server is running.
+2019-06-30 17:55:23 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-06-30 17:55:23 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:55:23 INFO  Client:548:run - Listener starts working
+2019-06-30 17:55:23 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:55:23 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 17:55:23 INFO  Client:583:run - Command "update information" was performed
+2019-06-30 17:55:23 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:55:36 INFO  Client:336:signIn - Client waits for response (sign in)
+2019-06-30 17:55:36 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-06-30 17:55:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:55:36 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:55:36 INFO  Client:564:run - Command "sign in" was performed
+2019-06-30 17:55:36 INFO  Client:552:run - Listener waits for response
+2019-06-30 17:55:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-06-30 17:55:36 INFO  Client:338:signIn - Client got response (sign in)
+2019-06-30 17:55:44 ERROR ClientListener:182:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
