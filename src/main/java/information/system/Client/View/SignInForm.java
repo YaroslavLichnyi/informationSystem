@@ -95,7 +95,7 @@ public class SignInForm extends InformSystemGUI {
         btSignIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = client.signIn(tfLogin.getText(), tfPassword.getText());
+                User user = client.signIn(tfLogin.getText(), String.valueOf(tfPassword.getPassword()));
                 if (user == null){
                     JFrame frame = new JFrame("Error");
                     JOptionPane.showMessageDialog(frame, "There is no user with the same login or/and password");

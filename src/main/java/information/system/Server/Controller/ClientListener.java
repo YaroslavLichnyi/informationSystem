@@ -50,6 +50,7 @@ public class ClientListener extends Thread {
             while (true) {
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
+                logger.info("Client listener got from client string: " + documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
@@ -155,10 +156,11 @@ public class ClientListener extends Thread {
                             list.add(signedInUser);
                             xmlToSend.setCommandToDocument(Protocol.SIGN_IN);
                             xmlToSend.setUsersToDocument(list);
-                            logger.info("");
+                            sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                            logger.info("Sign in");
                         } else {
                             xmlToSend.setCommandToDocument(Protocol.FALSE);
-                            logger.info("");
+                            logger.info("Sign in error");
                         }
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;

@@ -332,7 +332,9 @@ public class Client implements ClientController {
         xmlSet.setCommandToDocument(Protocol.SIGN_IN);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         try {
+            System.out.println("Client waits a responce (sign in)");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
+            System.out.println("Client got responce (sign in)");
             LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
             if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
                 return null;
