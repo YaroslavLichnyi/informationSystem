@@ -45,11 +45,11 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         try {
-            updateInformation();
+//            updateInformation();
             while (true) {
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
-                logger.info("Client listener got from client string: " + documentInStr);
+                logger.info("Client listener got a string from client : " + documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
@@ -155,7 +155,6 @@ public class ClientListener extends Thread {
                                         "It was wrong trying to log the user out.");
                         }
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                        System.out.println("111. " + XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:
@@ -209,31 +208,6 @@ public class ClientListener extends Thread {
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
         xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
         sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-    }
-
-    /**
-     * Sends a file to client
-     * TODO the ability to transfer a file as a parameter
-     */
-    public void sendFile(){
-        try {
-            File file = new File(Command.SERVER_FILE_RESTAURANT);
-            // Get the size of the file
-            long length = file.length();
-            byte[] bytes = new byte[16 * 1024];
-            InputStream in = new FileInputStream(file);
-            OutputStream out = socket.getOutputStream();
-
-            int count;
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
-            }
-            out.close();
-            in.close();
-
-        } catch (IOException e){
-            logger.error("file sending error, ", e);
-        }
     }
 
     /**
