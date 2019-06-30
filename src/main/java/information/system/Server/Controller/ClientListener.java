@@ -51,6 +51,7 @@ public class ClientListener extends Thread {
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
+
                     case Protocol.ADD_DISH:
                         xmlToSend.setCommandToDocument(
                                     String.valueOf(server.getRestaurant().addDish(XmlSet.getDishesFrom(doc).get(0))));
@@ -64,6 +65,8 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(
                                     String.valueOf(server.getRestaurant().addDishCategory(dishCategory)));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        InformSystXML.writeXML(server.getRestaurant().getAllDishCategories(),
+                                               Command.SERVER_FILE_RESTAURANT);
                         updateInformation();
                         logger.info("using protocol ADD_DISH_CATEGORY was detected." +
                                     " DishCategory was added into the storage.");
