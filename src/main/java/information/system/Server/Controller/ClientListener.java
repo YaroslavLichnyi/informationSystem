@@ -43,11 +43,11 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         try {
-            updateInformation();
+//            updateInformation();
             while (true) {
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
-                logger.info("Client listener got from client string: " + documentInStr);
+                logger.info("Client listener got a string from client : " + documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
                 switch(XmlSet.getCommandFromDocument(doc)) {
