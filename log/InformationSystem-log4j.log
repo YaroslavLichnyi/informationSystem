@@ -1250,18 +1250,228 @@ java.net.SocketException: Connection reset
 2019-06-30 15:35:00 INFO  Client:545:run - Listener starts working
 2019-06-30 15:35:00 INFO  Client:551:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
 2019-06-30 15:35:10 INFO  Client:158:run - 
-2019-06-30 15:40:00 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 15:40:02 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 15:41:02 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 15:41:03 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 15:41:04 INFO  Server:72:start - server is running.
-2019-06-30 15:41:12 INFO  Client:515:changePort - port is the same and has not been changed.
-2019-06-30 15:41:12 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 15:41:12 INFO  Client:545:run - Listener starts working
-2019-06-30 15:41:13 INFO  Client:551:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
-2019-06-30 15:41:29 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 15:41:29 INFO  Client:159:run - 
-2019-06-30 15:43:14 ERROR Client:190:run - protocol error, 
+2019-06-30 15:54:10 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 15:54:11 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 15:54:12 INFO  Server:72:start - server is running.
+2019-06-30 15:54:23 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 15:54:24 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:253)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-30 15:54:32 INFO  Server:147:changePort - port was successfully changed onto 8000.
+2019-06-30 15:54:34 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 15:54:35 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:253)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-30 15:54:39 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 15:54:40 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:253)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-30 15:54:50 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 15:54:51 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:253)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-06-30 15:55:02 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 15:55:02 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 15:55:04 INFO  Server:72:start - server is running.
+2019-06-30 15:55:11 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 15:55:11 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 15:55:11 INFO  Client:547:run - Listener starts working
+2019-06-30 15:55:11 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 15:59:53 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 15:59:53 INFO  Client:160:run - Sign in
+2019-06-30 16:02:26 ERROR Client:191:run - protocol error, 
 java.net.SocketException: Connection reset
 	at java.net.SocketInputStream.read(SocketInputStream.java:210)
 	at java.net.SocketInputStream.read(SocketInputStream.java:141)
@@ -1273,59 +1483,31 @@ java.net.SocketException: Connection reset
 	at java.io.BufferedReader.readLine(BufferedReader.java:324)
 	at java.io.BufferedReader.readLine(BufferedReader.java:389)
 	at information.system.Server.Controller.ClientListener.run(ClientListener.java:51)
-2019-06-30 15:43:20 INFO  Client:515:changePort - port is the same and has not been changed.
-2019-06-30 15:43:20 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 15:43:20 INFO  Client:545:run - Listener starts working
-2019-06-30 15:43:20 INFO  Client:551:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
-2019-06-30 15:43:32 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 15:43:32 INFO  Client:159:run - 
-2019-06-30 15:45:49 ERROR Client:190:run - protocol error, 
-java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
-	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
-	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
-	at java.io.InputStreamReader.read(InputStreamReader.java:184)
-	at java.io.BufferedReader.fill(BufferedReader.java:161)
-	at java.io.BufferedReader.readLine(BufferedReader.java:324)
-	at java.io.BufferedReader.readLine(BufferedReader.java:389)
-	at information.system.Server.Controller.ClientListener.run(ClientListener.java:51)
-2019-06-30 15:45:55 INFO  Client:517:changePort - port is the same and has not been changed.
-2019-06-30 15:45:55 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 15:45:55 INFO  Client:547:run - Listener starts working
-2019-06-30 15:45:55 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
-2019-06-30 15:46:11 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 15:46:11 INFO  Client:159:run - 
-2019-06-30 15:49:21 ERROR Client:190:run - protocol error, 
-java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
-	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
-	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
-	at java.io.InputStreamReader.read(InputStreamReader.java:184)
-	at java.io.BufferedReader.fill(BufferedReader.java:161)
-	at java.io.BufferedReader.readLine(BufferedReader.java:324)
-	at java.io.BufferedReader.readLine(BufferedReader.java:389)
-	at information.system.Server.Controller.ClientListener.run(ClientListener.java:51)
-2019-06-30 15:49:30 INFO  Client:517:changePort - port is the same and has not been changed.
-2019-06-30 15:49:30 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 15:49:30 INFO  Client:547:run - Listener starts working
-2019-06-30 15:49:30 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
-2019-06-30 15:49:42 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 15:49:42 INFO  Client:159:run - 
-2019-06-30 17:31:12 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 17:31:13 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 17:31:16 INFO  Server:72:start - server is running.
-2019-06-30 17:31:24 INFO  Client:517:changePort - port is the same and has not been changed.
-2019-06-30 17:31:24 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:31:24 INFO  Client:547:run - Listener starts working
-2019-06-30 17:31:34 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:31:34 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:31:34 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:31:34 INFO  Client:561:run - Command "sign in" was performed
-2019-06-30 17:31:43 ERROR ClientListener:185:run - protocol error, 
+2019-06-30 16:02:33 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 16:02:33 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 16:02:33 INFO  Client:547:run - Listener starts working
+2019-06-30 16:02:33 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 16:02:43 INFO  Client:53:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 16:02:43 INFO  Client:160:run - Sign in
+2019-06-30 16:02:59 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 16:02:59 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 16:03:01 INFO  Server:72:start - server is running.
+2019-06-30 16:03:08 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 16:03:08 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 16:03:08 INFO  Client:547:run - Listener starts working
+2019-06-30 16:03:08 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 16:03:16 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 16:03:16 INFO  ClientListener:159:run - Sign in
+2019-06-30 16:39:53 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 16:39:53 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 16:40:11 INFO  Server:72:start - server is running.
+2019-06-30 16:40:24 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 16:40:24 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 16:40:24 INFO  Client:547:run - Listener starts working
+2019-06-30 16:40:24 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 16:40:35 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 16:40:35 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 16:41:13 ERROR ClientListener:184:run - protocol error, 
 java.net.SocketException: Connection reset
 	at java.net.SocketInputStream.read(SocketInputStream.java:210)
 	at java.net.SocketInputStream.read(SocketInputStream.java:141)
@@ -1337,21 +1519,46 @@ java.net.SocketException: Connection reset
 	at java.io.BufferedReader.readLine(BufferedReader.java:324)
 	at java.io.BufferedReader.readLine(BufferedReader.java:389)
 	at information.system.Server.Controller.ClientListener.run(ClientListener.java:50)
-2019-06-30 17:37:17 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 17:37:17 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 17:37:20 INFO  Server:72:start - server is running.
-2019-06-30 17:37:31 INFO  Client:517:changePort - port is the same and has not been changed.
-2019-06-30 17:37:31 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:37:31 INFO  Client:547:run - Listener starts working
-2019-06-30 17:37:51 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:37:51 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:37:51 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:37:51 INFO  Client:561:run - Command "sign in" was performed
-2019-06-30 17:38:18 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Sweets"/></dish-categories></message>
-2019-06-30 17:38:18 INFO  ClientListener:68:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
-2019-06-30 17:39:33 ERROR ClientListener:182:run - protocol error, 
-java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+2019-06-30 16:41:15 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-30 16:41:15 INFO  Server:95:stop - server is stoping.
+2019-06-30 16:41:15 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-30 16:41:15 INFO  Server:107:stop - server stopped.
+2019-06-30 16:41:15 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-30 17:15:35 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:15:35 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:15:37 INFO  Server:72:start - server is running.
+2019-06-30 17:15:51 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:15:51 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:15:51 INFO  Client:547:run - Listener starts working
+2019-06-30 17:15:51 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 17:16:05 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 17:16:05 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:20:07 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:20:08 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:20:09 INFO  Server:72:start - server is running.
+2019-06-30 17:20:19 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:20:19 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:20:19 INFO  Client:547:run - Listener starts working
+2019-06-30 17:20:19 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 17:20:28 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 17:20:28 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:22:02 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:22:02 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:22:03 INFO  Server:72:start - server is running.
+2019-06-30 17:22:11 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:22:11 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:22:11 INFO  Client:547:run - Listener starts working
+2019-06-30 17:22:12 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-06-30 17:22:20 INFO  ClientListener:52:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 17:22:20 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:23:55 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-30 17:23:55 INFO  Server:95:stop - server is stoping.
+2019-06-30 17:23:55 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-06-30 17:23:55 ERROR ClientListener:185:run - protocol error, 
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
 	at java.net.SocketInputStream.read(SocketInputStream.java:141)
 	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
 	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
@@ -1360,87 +1567,37 @@ java.net.SocketException: Connection reset
 	at java.io.BufferedReader.fill(BufferedReader.java:161)
 	at java.io.BufferedReader.readLine(BufferedReader.java:324)
 	at java.io.BufferedReader.readLine(BufferedReader.java:389)
-	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
-2019-06-30 17:39:39 INFO  Client:517:changePort - port is the same and has not been changed.
-2019-06-30 17:39:39 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:39:39 INFO  Client:547:run - Listener starts working
-2019-06-30 17:39:51 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:39:51 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:39:51 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:39:51 INFO  Client:561:run - Command "sign in" was performed
-2019-06-30 17:40:05 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="true" id="0" name="Ukrainian food"/></dish-categories></message>
-2019-06-30 17:40:05 INFO  ClientListener:68:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
-2019-06-30 17:46:46 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 17:46:47 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 17:46:50 INFO  Server:72:start - server is running.
-2019-06-30 17:47:01 INFO  Client:518:changePort - port is the same and has not been changed.
-2019-06-30 17:47:01 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:47:01 INFO  Client:548:run - Listener starts working
-2019-06-30 17:47:01 INFO  Client:551:run - Listener waits for response
-2019-06-30 17:47:28 INFO  Client:336:signIn - Client waits a response (sign in)
-2019-06-30 17:47:28 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:47:28 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:47:28 INFO  Client:555:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:47:28 INFO  Client:563:run - Command "sign in" was performed
-2019-06-30 17:47:28 INFO  Client:338:signIn - Client got response (sign in)
-2019-06-30 17:47:57 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Some food"/></dish-categories></message>
-2019-06-30 17:47:57 INFO  ClientListener:72:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
-2019-06-30 17:50:59 ERROR ClientListener:186:run - protocol error, 
-java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
-	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
-	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
-	at java.io.InputStreamReader.read(InputStreamReader.java:184)
-	at java.io.BufferedReader.fill(BufferedReader.java:161)
-	at java.io.BufferedReader.readLine(BufferedReader.java:324)
-	at java.io.BufferedReader.readLine(BufferedReader.java:389)
-	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
-2019-06-30 17:51:26 INFO  Client:518:changePort - port is the same and has not been changed.
-2019-06-30 17:51:26 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:51:26 INFO  Client:548:run - Listener starts working
-2019-06-30 17:51:26 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:51:36 INFO  Client:336:signIn - Client waits for response (sign in)
-2019-06-30 17:51:36 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:51:36 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:51:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:51:36 INFO  Client:564:run - Command "sign in" was performed
-2019-06-30 17:51:36 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:51:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:51:36 INFO  Client:338:signIn - Client got response (sign in)
-2019-06-30 17:51:47 INFO  Client:564:run - Command "sign in" was performed
-2019-06-30 17:51:47 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:51:47 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish_category</command><dish-categories><dish-category healthy-food="false" id="0" name="Local food"/></dish-categories></message>
-2019-06-30 17:51:47 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
-2019-06-30 17:51:47 INFO  ClientListener:72:run - using protocol ADD_DISH_CATEGORY was detected. DishCategory was added into the storage.
-2019-06-30 17:54:55 INFO  ServerGUIApp:27:start - application started.
-2019-06-30 17:54:56 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
-2019-06-30 17:55:00 INFO  Server:72:start - server is running.
-2019-06-30 17:55:23 INFO  Client:518:changePort - port is the same and has not been changed.
-2019-06-30 17:55:23 INFO  Client:262:connectToServer - Client was connected to server.
-2019-06-30 17:55:23 INFO  Client:548:run - Listener starts working
-2019-06-30 17:55:23 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:55:23 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
-2019-06-30 17:55:23 INFO  Client:583:run - Command "update information" was performed
-2019-06-30 17:55:23 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:55:36 INFO  Client:336:signIn - Client waits for response (sign in)
-2019-06-30 17:55:36 INFO  ClientListener:50:run - Client listener got from client string: <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
-2019-06-30 17:55:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:55:36 INFO  ClientListener:149:run - using protocol SIGN_IN was detected. User was logged in.
-2019-06-30 17:55:36 INFO  Client:564:run - Command "sign in" was performed
-2019-06-30 17:55:36 INFO  Client:552:run - Listener waits for response
-2019-06-30 17:55:36 INFO  Client:556:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
-2019-06-30 17:55:36 INFO  Client:338:signIn - Client got response (sign in)
-2019-06-30 17:55:44 ERROR ClientListener:182:run - protocol error, 
-java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
-	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
-	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
-	at java.io.InputStreamReader.read(InputStreamReader.java:184)
-	at java.io.BufferedReader.fill(BufferedReader.java:161)
-	at java.io.BufferedReader.readLine(BufferedReader.java:324)
-	at java.io.BufferedReader.readLine(BufferedReader.java:389)
-	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:50)
+2019-06-30 17:23:55 INFO  Server:107:stop - server stopped.
+2019-06-30 17:23:55 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-30 17:35:10 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:35:11 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:35:12 INFO  Server:72:start - server is running.
+2019-06-30 17:35:16 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:35:16 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:35:18 INFO  Server:72:start - server is running.
+2019-06-30 17:35:19 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-06-30 17:35:19 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-06-30 17:35:26 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:35:26 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:35:26 INFO  Client:547:run - Listener starts working
+2019-06-30 17:35:37 INFO  ClientListener:52:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 17:35:37 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:35:37 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="1" login="Alexxxx" name="Alexandr" password="qwerty"/></users></message>
+2019-06-30 17:35:37 INFO  Client:561:run - Command "sign in" was performed
+2019-06-30 17:37:55 INFO  ClientListener:52:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish</command><dishes><dish dish-category-id="0" id="0" name="salad" price="3.0"><description>Crab salad</description></dish></dishes></message>
+2019-06-30 17:37:55 INFO  Client:106:add - New dish was added: Dish{name='salad', price=3.0, description='Crab salad', id=0, dishCategoryId=0}
+2019-06-30 17:37:55 INFO  ClientListener:61:run - using protocol ADD_DISH was detected. Dish was added into the storage.
+2019-06-30 17:43:17 INFO  ServerGUIApp:27:start - application started.
+2019-06-30 17:43:17 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-06-30 17:43:19 INFO  Server:72:start - server is running.
+2019-06-30 17:43:28 INFO  Client:517:changePort - port is the same and has not been changed.
+2019-06-30 17:43:28 INFO  Client:262:connectToServer - Client was connected to server.
+2019-06-30 17:43:28 INFO  Client:547:run - Listener starts working
+2019-06-30 17:43:38 INFO  ClientListener:52:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-06-30 17:43:39 INFO  ClientListener:151:run - using protocol SIGN_IN was detected. User was logged in.
+2019-06-30 17:43:39 INFO  Client:553:run - Listener got from server string: <?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="1" login="Alexxxx" name="Alexandr" password="qwerty"/></users></message>
+2019-06-30 17:43:39 INFO  Client:561:run - Command "sign in" was performed
+2019-06-30 17:44:17 INFO  Client:106:add - New dish was added: Dish{name='Crab_salad', price=4.0, description='Carb salad with species.', id=0, dishCategoryId=0}
+2019-06-30 17:44:17 INFO  ClientListener:52:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish</command><dishes><dish dish-category-id="0" id="0" name="Crab_salad" price="4.0"><description>Carb salad with species.</description></dish></dishes></message>
+2019-06-30 17:44:17 INFO  ClientListener:61:run - using protocol ADD_DISH was detected. Dish was added into the storage.
