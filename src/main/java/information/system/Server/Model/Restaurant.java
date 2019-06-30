@@ -274,7 +274,7 @@ public class Restaurant implements RestaurantInterface{
      * @return unique id.
      */
     public int generateUniqueIdForDishCategory(){
-        int id = 0;
+        int id = 1;//0
         boolean free = false;
         if(menu.size() > 0){
             while (!free){
@@ -286,7 +286,7 @@ public class Restaurant implements RestaurantInterface{
                     free = true;
                 }
             }
-        } else return 0;
+        } else return 1;//0
         return id;
     }
 
