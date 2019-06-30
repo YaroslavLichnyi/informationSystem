@@ -3,49 +3,70 @@ package information.system.Server.Model;
 import java.util.*;
 
 public class Restaurant implements RestaurantInterface{
+    public Restaurant() {
+        setMenu(Command.SERVER_FILE_RESTAURANT);
+    }
 
     /**
-     * Adds new dish category at {@link RestaurantInterface#dishCategories}.
+     * Sets dishes from tile to local variable.
+     *
+     * @param path is a path to resource where dish categories and dishes are stored.
+     */
+    @Override
+    public void setMenu(String path) {
+        List<DishCategory> list = InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT);
+        for (DishCategory dishCategory: list) {
+            addDishCategory(dishCategory);
+        }
+    }
+
+    /**
+     * Adds new dish category at {@link RestaurantInterface#menu}.
      * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
     @Override
     public boolean addDishCategory(DishCategory newDishCategory) {
-        for (DishCategory dishCategoryFromList: dishCategories) {
+        for (DishCategory dishCategoryFromList: menu) {
             if (dishCategoryFromList.getName().equals(newDishCategory.getName())){
                 return false;
             }
         }
         newDishCategory.setId(generateUniqueIdForDishCategory());
-        dishCategories.add(newDishCategory);
+        menu.add(newDishCategory);
+        updateDataBase();
         return true;
     }
 
     /**
-     * Sets variable value {@link RestaurantInterface#dishCategories}.
+     * Sets variable value {@link RestaurantInterface#menu}.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return DishCategory from {@link RestaurantInterface#dishCategories}.
+     * @return DishCategory from {@link RestaurantInterface#menu}.
      */
     @Override
     public DishCategory getDishCategory(int index) {
-        return dishCategories.get(index);
+        return menu.get(index);
     }
 
     @Override
-    public ArrayList<DishCategory> getAllDishCategories() {
-        return dishCategories;
+    public List<DishCategory> getAllDishCategories() {
+        return menu;
     }
 
     /**
-     * Removes dish from {@link RestaurantInterface#dishCategories}.
+     * Removes dish from {@link RestaurantInterface#menu}.
      *
-     * @param dishCategory is removed from {@link RestaurantInterface#dishCategories}.
+     * @param dishCategory is removed from {@link RestaurantInterface#menu}.
      * @return true if an object was removed, else return false.
      */
     @Override
     public boolean removeDishCategory(DishCategory dishCategory) {
-        return dishCategories.remove(dishCategory);
+        if(menu.remove(dishCategory)){
+            updateDataBase();
+            return  true;
+        }
+        return false;
     }
 
     /**
@@ -55,13 +76,19 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean addDish(Dish dish) {
-        for (Dish dishFromMenu : menu) {
+        for (Dish dishFromMenu : getAllDishes()) {
             if (dishFromMenu.equals(dish)){
                 return false;
             }
         }
-        menu.add(dish);
-        return true;
+        for (DishCategory dishCategory : getAllDishCategories()) {
+            if (dish.getDishCategoryId() ==  dishCategory.getId()){
+                dishCategory.addDish(dish);
+                updateDataBase();
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -72,7 +99,7 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public Dish getDish(int index) {
-        return menu.get(index);
+        return getAllDishes().get(index);
     }
 
     /**
@@ -83,7 +110,11 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean removeDish(Dish dish) {
-        return menu.remove(dish);
+        if(getAllDishes().remove(dish)){
+            updateDataBase();
+            return  true;
+        }
+        return false;
     }
 
     /**
@@ -92,7 +123,7 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public ArrayList<Dish> sortDishesByPrice() {
-        ArrayList<Dish> result = (ArrayList<Dish>) menu.clone();;
+        ArrayList<Dish> result = (ArrayList<Dish>) getAllDishes();
         Collections.sort(result, new Comparator<Dish>() {
             @Override
             public int compare(Dish o1, Dish o2) {
@@ -109,7 +140,7 @@ public class Restaurant implements RestaurantInterface{
     @Override
     public List<Dish> sortDishesByDishCategory() {
         ArrayList<Dish> result = new ArrayList<>();
-        for (DishCategory dishCategory: dishCategories) {
+        for (DishCategory dishCategory: menu) {
             for (Dish dish: getDishesWithDishCategory(dishCategory)) {
                 result.add(dish);
             }
@@ -130,8 +161,8 @@ public class Restaurant implements RestaurantInterface{
             return null;
         }
         List<Dish> result = new ArrayList<>();
-        for (Dish dish : menu) {
-            if (dish.getPrice() >= from && dish.getPrice() <= to){  // Aleksandr has added =, =
+        for (Dish dish : getAllDishes()) {
+            if (dish.getPrice() >= from && dish.getPrice() <= to){
                 result.add(dish);
             }
         }
@@ -146,7 +177,7 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public List<Dish> getDishesWithDishCategory(DishCategory dishCategory) {
-        for (DishCategory dishCat : dishCategories) {
+        for (DishCategory dishCat : menu) {
             if (dishCategory.equals(dishCat)){
                 return dishCat.getDishes();
             }
@@ -163,11 +194,12 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean edit(Dish oldDish, Dish newDish) {
-        for (Dish dish : menu) {
+        for (Dish dish : getAllDishes()) {
             if (dish.equals(oldDish)){
                 dish.setName(newDish.getName());
                 dish.setPrice(newDish.getPrice());
                 dish.setDescription(newDish.getDescription());
+                updateDataBase();
                 return true;
             }
         }
@@ -182,10 +214,11 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory) {
-        for (DishCategory dishCategory: dishCategories) {
+        for (DishCategory dishCategory: menu) {
             if (dishCategory.equals(oldDishCategory)){
                 dishCategory.setName(newDishCategory.getName());
                 dishCategory.setHealthyFood(newDishCategory.isHealthyFood());
+                updateDataBase();
                 return true;
             }
         }
@@ -201,12 +234,26 @@ public class Restaurant implements RestaurantInterface{
     @Override
     public List<Dish> getDishesWithSubstrInName(String substr) {
         List <Dish> result = new LinkedList<>();
-        for (Dish dish : menu) {
+        for (Dish dish : getAllDishes()) {
             if (dish.getName().contains(substr)){
                 result.add(dish);
             }
         }
         return result;
+    }
+
+    /**
+     * @return all dishes, which are stored in dish categories.
+     */
+    @Override
+    public List<Dish> getAllDishes() {
+        List <Dish> dishes = new LinkedList<>();
+        for (DishCategory dishCategory : menu) {
+            for (Dish dish : dishCategory.getDishes()) {
+                dishes.add(dish);
+            }
+        }
+        return dishes;
     }
 
 
@@ -229,9 +276,9 @@ public class Restaurant implements RestaurantInterface{
     public int generateUniqueIdForDishCategory(){
         int id = 0;
         boolean free = false;
-        if(dishCategories.size() > 0){
+        if(menu.size() > 0){
             while (!free){
-                for (DishCategory dishCategory: dishCategories) {
+                for (DishCategory dishCategory: menu) {
                     if (dishCategory.getId() == id){
                         id++;
                         continue;
@@ -250,9 +297,9 @@ public class Restaurant implements RestaurantInterface{
     public int generateUniqueIdForDish(){
         int id = 0;
         boolean free = false;
-        if(dishCategories.size() > 0){
+        if(menu.size() > 0){
             while (!free){
-                for (Dish dish: menu) {
+                for (Dish dish: getAllDishes()) {
                     if (dish.getId() == id){
                         id++;
                         continue;
@@ -263,5 +310,10 @@ public class Restaurant implements RestaurantInterface{
         } else return 0;
         return id;
     }
+
+    public void updateDataBase(){
+        InformSystXML.writeXML(menu, Command.SERVER_FILE_RESTAURANT);
+    }
+
 
 }

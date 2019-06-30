@@ -43,7 +43,7 @@ public class ClientListener extends Thread {
     @Override
     public void run() {
         try {
-//            updateInformation();
+            updateInformation();
             while (true) {
                 String documentInStr = reader.readLine();
                 documentInStr += reader.readLine();
@@ -205,6 +205,7 @@ public class ClientListener extends Thread {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.UPDATE_INFORMATION);
         xmlSet.setMenuToDocument(InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT));
+
         sendMessage(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         System.out.println("!!!: " + XmlSet.convertDocumentToString(xmlSet.getDocument()));
     }
