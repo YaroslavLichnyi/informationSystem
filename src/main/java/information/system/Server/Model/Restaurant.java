@@ -315,5 +315,14 @@ public class Restaurant implements RestaurantInterface{
         InformSystXML.writeXML(menu, Command.SERVER_FILE_RESTAURANT);
     }
 
+    public static DishCategory getDishCategoryById(List<DishCategory> dishCategories, int id){
+        for (DishCategory dishCategory : dishCategories) {
+            if(id == dishCategory.getId()){
+                return dishCategory;
+            }
+        }
+        return  null;
+    }
+
 
 }
