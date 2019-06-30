@@ -1,6 +1,5 @@
 package information.system.Server.Controller;
 
-import information.system.Client.Controller.Client;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
@@ -13,7 +12,7 @@ import java.util.LinkedList;
 public class ClientListener extends Thread {
     private Socket socket;  // сокет, через который сервер общается с клиентом,
                             // кроме него - клиент и сервер никак не связаны
-    private static final Logger logger = Logger.getLogger(Client.class);
+    private static final Logger logger = Logger.getLogger(ClientListener.class);
     private Server server;
     private BufferedReader reader; // поток чтения из сокета
     private BufferedWriter writer; // поток записи в сокет
@@ -98,9 +97,7 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.DELETE_USER:
-                        XmlSet.deleteUser(XmlSet.getUsersFromDocument(doc).get(0));
-//                        xmlToSend.setCommandToDocument(String.valueOf(User.delete(
-//                                                                        XmlSet.getUsersFromDocument(doc).get(0))));
+                        User.delete(XmlSet.getUsersFromDocument(doc).get(0));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
                         logger.info("using protocol DELETE_USER was detected. User was deleted from the storage.");
@@ -111,7 +108,7 @@ public class ClientListener extends Thread {
                                                 XmlSet.getDishesFrom(doc).get(0),XmlSet.getDishesFrom(doc).get(1))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
-                        logger.info("");
+                        logger.info("using protocol EDIT_DISH was detected. Dish was edited successfully.");
                         break;
 
                     case Protocol.EDIT_DISH_CATEGORY:
@@ -119,33 +116,27 @@ public class ClientListener extends Thread {
                                    XmlSet.getDishCategoriesFrom(doc).get(0),XmlSet.getDishCategoriesFrom(doc).get(1))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
-                        logger.info("");
+                        logger.info("using protocol EDIT_DISH_CATEGORY was detected. " +
+                                    "Dish category was edited successfully.");
                         break;
 
                     case Protocol.EDIT_USER:
-/*                        User oldUser = XmlSet.getUsersFromDocument(doc).get(0);
-                        User newUser = XmlSet.getUsersFromDocument(doc).get(1);
-                        if (User.isLoginFree()) {
-                            xmlToSend.setCommandToDocument(User.edit(oldUser, newUser));
-                            sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                        } else {
-                            sendMessage();
-                        }
-*/
-                        updateInformation();
-                        logger.info("");
+                        User.edit(XmlSet.getUsersFromDocument(doc).get(0), XmlSet.getUsersFromDocument(doc).get(1));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        logger.info("using protocol EDIT_USER was detected. User was edited successfully.");
                         break;
 
                     case Protocol.UPDATE_INFORMATION:
                         updateInformation();
-                        logger.info("");//правильно
+                        logger.info("using protocol UPDATE_INFORMATION was detected. " +
+                                    "Information was successfully updated from the storage.");
                         break;
 
                     case Protocol.END_OF_SESSION:
 
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
-                        logger.info("");
+                        logger.info("using protocol END_OF_SESSION was detected. User was logged out.");
                         break;
 
                     case Protocol.SIGN_IN:
@@ -157,17 +148,19 @@ public class ClientListener extends Thread {
                             xmlToSend.setCommandToDocument(Protocol.SIGN_IN);
                             xmlToSend.setUsersToDocument(list);
                             sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                            logger.info("Sign in");
+                            logger.info("using protocol SIGN_IN was detected. User was logged in.");
                         } else {
                             xmlToSend.setCommandToDocument(Protocol.FALSE);
-                            logger.info("Sign in error");
+                            logger.info("using protocol END_OF_SESSION was detected. " +
+                                        "It was wrong trying to log the user out.");
                         }
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                        logger.info("");
+                        logger.info("using protocol FIND_DISH was detected. " +
+                                    "The finding was successfully applied.");
                         break;
 
                     case Protocol.SORT_BY_PRICE:
