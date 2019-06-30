@@ -121,7 +121,6 @@ public class Client implements ClientController {
         xmlSet.setDishCategoriesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         return getExchange();
-
     }
 
     /**
@@ -451,6 +450,7 @@ public class Client implements ClientController {
 
     private boolean getExchange(){
         try {
+            LOGGER.info("Exchanger in ");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
             if (Protocol.TRUE.equals(XmlSet.getCommandFromDocument(document))){
                 return true;
@@ -544,7 +544,7 @@ public class Client implements ClientController {
         }
 
         @Override
-        public void run() {
+        public synchronized void run() {
             LOGGER.info("Listener starts working");
             while (true){
                 if(!clientSocket.isClosed() && clientSocket.isConnected()){
@@ -553,7 +553,6 @@ public class Client implements ClientController {
                         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                         String responseStr = reader.readLine();
                         responseStr += reader.readLine();
-
                         LOGGER.info("Listener got from server string: " + responseStr);
                         Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                         String command = XmlSet.getCommandFromDocument(responseDoc);
@@ -561,16 +560,18 @@ public class Client implements ClientController {
                         {
                             case Protocol.SIGN_IN:
                                 try {
+                                    LOGGER.info("Exchanger in listener waits");
                                     exchanger.exchange(responseStr);
-                                    LOGGER.info("Command \"sign in\" was performed");
+                                    LOGGER.info("Exchange was successful. Command \"sign in\" was performed");
                                 } catch (InterruptedException e) {
                                     LOGGER.error("Exception while exchanging",e);
                                 }
                                 break;
                             case Protocol.SIGN_UP:
                                 try {
+                                    LOGGER.info("Exchanger in listener waits");
                                     exchanger.exchange(responseStr);
-                                    LOGGER.info("Command \"sign up\" was performed");
+                                    LOGGER.info("Exchange was successful. Command \"sign up\" was performed");
                                 } catch (InterruptedException e) {
                                     LOGGER.error("Exception while exchanging",e);
                                 }

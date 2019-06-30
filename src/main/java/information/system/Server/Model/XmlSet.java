@@ -107,7 +107,7 @@ public class XmlSet {
      * @param doc is a resource where users are getted from.
      * @return list of users
      */
-    public static List<User> getUsersFromDocument(Document doc) {
+    public synchronized static List<User> getUsersFromDocument(Document doc) {
         List<User> users = new LinkedList<>();
         doc.getDocumentElement().normalize();
         NodeList nodes = doc.getElementsByTagName("user");
@@ -158,7 +158,7 @@ public class XmlSet {
      * @param doc is a resource where command is got from.
      * @return command from a {@link XmlSet#document}.
      */
-    public static String getCommandFromDocument(Document doc) {
+    public synchronized static String getCommandFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(COMMAND);
         if (nodes.getLength() > 1){
             LOGGER.error("XML-file cannot contain more than 1 command");
@@ -171,7 +171,7 @@ public class XmlSet {
      *
      * @param doc s a resource where command is deleted from.
      */
-    public static void deleteCommandFromDocument(Document doc) {
+    public synchronized static void deleteCommandFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(COMMAND);
         for (int i = 0; i < nodes.getLength(); i++) {
             nodes.item(i).getParentNode().removeChild( nodes.item(i));
@@ -196,7 +196,7 @@ public class XmlSet {
      * @param doc is a resource where substring is got from.
      * @return command from a {@link XmlSet#document}.
      */
-    public static String getSubstrFromDocument(Document doc) {
+    public synchronized static String getSubstrFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(SUB_STRING);
         if (nodes.getLength() != 1){
             LOGGER.error("XML-file cannot contain more than 1 substring");
@@ -211,7 +211,7 @@ public class XmlSet {
      * @param doc is a resource from which dishes come from.
      * @return dishes from {@link XmlSet#document}.
      */
-    public static LinkedList<Dish> getDishesFrom(Document doc){
+    public synchronized static LinkedList<Dish> getDishesFrom(Document doc){
         NodeList nodes = doc.getElementsByTagName(DISH);
         LinkedList<Dish> dishes = new LinkedList<>();
         for (int j = 0; j < nodes.getLength(); j++) {
@@ -253,7 +253,7 @@ public class XmlSet {
      *
      * @param dishes are added into {@link XmlSet#document}.
      */
-    public  void setDishesToDocument(List<Dish> dishes){
+    public synchronized void setDishesToDocument(List<Dish> dishes){
         Element root = document.getDocumentElement();
         Element rootDishes = document.createElement("dishes");
         root.appendChild(rootDishes);
@@ -316,7 +316,7 @@ public class XmlSet {
      * @param doc is a resource from which dish categories come from.
      * @return dishes from {@link XmlSet#document}.
      */
-    public static List<DishCategory> getDishCategoriesFrom(Document doc){
+    public synchronized static List<DishCategory> getDishCategoriesFrom(Document doc){
         NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
         List<DishCategory> dishCategories = new LinkedList<>();
         for (int j = 0; j < nodes.getLength(); j++) {
@@ -401,7 +401,7 @@ public class XmlSet {
      * @param doc
      * @return
      */
-    public static List<DishCategory> getMenuFromDocument(Document doc) {
+    public synchronized static List<DishCategory> getMenuFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
         LinkedList<DishCategory> dishCategories = new LinkedList();
         for (int i = 0; i < nodes.getLength() ; i++) {
@@ -466,7 +466,7 @@ public class XmlSet {
      * @param fileName is a name of the the file or file path.
      * @return document of the file.
      */
-    public static Document getDocumentFromFile(String fileName) {
+    public synchronized static Document getDocumentFromFile(String fileName) {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
         } catch (SAXException  |IOException | ParserConfigurationException e ) {
@@ -481,7 +481,7 @@ public class XmlSet {
      * @param document is converted to a string.
      * @return a string created from the document.
      */
-    public static String convertDocumentToString(Document document){
+    public synchronized static String convertDocumentToString(Document document){
         DOMImplementationLS domImplementation = (DOMImplementationLS) document.getImplementation();
         LSSerializer serializer = domImplementation.createLSSerializer();
         return serializer.writeToString(document);
@@ -493,7 +493,7 @@ public class XmlSet {
      * @param str is converted to a document.
      * @return a document created from the string.
      */
-    public static Document convertStringToDocument(String str){
+    public synchronized static Document convertStringToDocument(String str){
         Document document = null;
         try {
             DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
