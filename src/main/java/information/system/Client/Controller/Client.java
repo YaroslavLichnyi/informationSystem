@@ -332,9 +332,10 @@ public class Client implements ClientController {
         xmlSet.setCommandToDocument(Protocol.SIGN_IN);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         try {
-            System.out.println("Client waits a responce (sign in)");
+            System.out.println(clientSocket.toString());
+            LOGGER.info("Client waits for response (sign in)");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            System.out.println("Client got responce (sign in)");
+            LOGGER.info("Client got response (sign in)");
             LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
             if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
                 return null;
@@ -545,80 +546,86 @@ public class Client implements ClientController {
         @Override
         public void run() {
             LOGGER.info("Listener starts working");
-            if(!clientSocket.isClosed() && clientSocket.isConnected()){
-                try {
-                    reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    String responseStr = reader.readLine();
-                    responseStr += reader.readLine();
-                    LOGGER.info("Listener got from server string: " + responseStr);
-                    Document responseDoc = XmlSet.convertStringToDocument(responseStr);
-                    String command = XmlSet.getCommandFromDocument(responseDoc);
-                    switch(command)
-                    {
-                        case Protocol.SIGN_IN:
-                            try {
-                                exchanger.exchange(responseStr);
-                                LOGGER.info("Command \"sign in\" was performed");
-                            } catch (InterruptedException e) {
-                                LOGGER.error("Exception while exchanging",e);
-                            }
-                            break;
-                        case Protocol.SIGN_UP:
-                            try {
-                                exchanger.exchange(responseStr);
-                                LOGGER.info("Command \"sign up\" was performed");
-                            } catch (InterruptedException e) {
-                                LOGGER.error("Exception while exchanging",e);
-                            }
-                            break;
-                        case Protocol.UPDATE_INFORMATION:
-                            menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
-                            if (user != null ){
-                                menuGUI.setValuesAtTable(menu);
-                            }
-                            dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
-                            break;
+            while (true){
+                if(!clientSocket.isClosed() && clientSocket.isConnected()){
+                    try {
+                        LOGGER.info("Listener waits for response");
+                        reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                        String responseStr = reader.readLine();
+                        responseStr += reader.readLine();
+                        LOGGER.info("Listener got from server string: " + responseStr);
+                        Document responseDoc = XmlSet.convertStringToDocument(responseStr);
+                        String command = XmlSet.getCommandFromDocument(responseDoc);
+                        switch(command)
+                        {
+                            case Protocol.SIGN_IN:
+                                try {
+                                    exchanger.exchange(responseStr);
+                                    LOGGER.info("Command \"sign in\" was performed");
+                                } catch (InterruptedException e) {
+                                    LOGGER.error("Exception while exchanging",e);
+                                }
+                                break;
+                            case Protocol.SIGN_UP:
+                                try {
+                                    exchanger.exchange(responseStr);
+                                    LOGGER.info("Command \"sign up\" was performed");
+                                } catch (InterruptedException e) {
+                                    LOGGER.error("Exception while exchanging",e);
+                                }
+                                break;
+                            case Protocol.UPDATE_INFORMATION:
+                                menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
+                                if (user != null ){
+                                    menuGUI.setValuesAtTable(menu);
+                                }
+                                dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
+                                LOGGER.info("Command \"update information\" was performed");
+                                break;
 
-                        case Protocol.END_OF_SESSION:
-                            break;
+                            case Protocol.END_OF_SESSION:
+                                break;
 
-                        case Protocol.FIND_DISH:
-                            break;
+                            case Protocol.FIND_DISH:
+                                break;
 
-                        case Protocol.SORT_BY_PRICE:
-                            menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
-                            break;
+                            case Protocol.SORT_BY_PRICE:
+                                menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
+                                LOGGER.info("Command \"sort by dish price\" was performed");
+                                break;
 
-                        case Protocol.SORT_BY_DISH_CATEGORY:
-                            menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
-                            break;
+                            case Protocol.SORT_BY_DISH_CATEGORY:
+                                menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
+                                LOGGER.info("Command \"sort by dish category\" was performed");
+                                break;
 
-                        case Protocol.TRUE:
-                            try {
-                                exchanger.exchange(responseStr);
-                                LOGGER.info("Response \"true\" was delivered to client");
+                            case Protocol.TRUE:
+                                try {
+                                    exchanger.exchange(responseStr);
+                                    LOGGER.info("Response \"true\" was delivered to client");
 
-                            } catch (InterruptedException e) {
-                                LOGGER.error("Exception while exchanging",e);
-                            }
-                            break;
-                        case Protocol.FALSE:
-                            try {
-                                exchanger.exchange(responseStr);
-                                LOGGER.info("Response \"false\" was delivered to client");
-                            } catch (InterruptedException e) {
-                                LOGGER.error("Exception while exchanging",e);
-                            }
-                            break;
-                        default:
-                            LOGGER.error("Unknown protocol");
-                    }
+                                } catch (InterruptedException e) {
+                                    LOGGER.error("Exception while exchanging",e);
+                                }
+                                break;
+                            case Protocol.FALSE:
+                                try {
+                                    exchanger.exchange(responseStr);
+                                    LOGGER.info("Response \"false\" was delivered to client");
+                                } catch (InterruptedException e) {
+                                    LOGGER.error("Exception while exchanging",e);
+                                }
+                                break;
+                            default:
+                                LOGGER.error("Unknown protocol");
+                        }
                     } catch (IOException e){
                         LOGGER.error(e);
                     }
                 } else {
-                LOGGER.info("Socket was closed");
-                InformSystemGUI.showMessage("Problems with connection");
+                    LOGGER.info("Socket was closed");
+                    InformSystemGUI.showMessage("Problems with connection");
+                }
             }
         }
     }
