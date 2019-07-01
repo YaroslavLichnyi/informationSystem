@@ -14,12 +14,6 @@
 <dish dish-category-id="1" id="4" name="Crab" price="250.0">
 <description>Boiled Crab</description>
 </dish>
-<dish dish-category-id="1" id="0" name="Desire" price="350.5">
-<description>Super dish</description>
-</dish>
-<dish dish-category-id="1" id="19" name="NEW DISH" price="33.0">
-<description>TEST DISH</description>
-</dish>
 </dish-category>
 <dish-category healthy-food="false" id="2" name="Garnishes">
 <dish dish-category-id="2" id="5" name="Potato" price="35.0">
@@ -42,12 +36,6 @@
 <dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0">
 <description>Fresh sliced vegetables</description>
 </dish>
-<dish dish-category-id="3" id="19" name="NewDISH" price="13.0">
-<description>GGGGGGG</description>
-</dish>
-<dish dish-category-id="3" id="19" name="DFDF" price="4.04">
-<description>FDFD</description>
-</dish>
 </dish-category>
 <dish-category healthy-food="true" id="4" name="Desserts">
 <dish dish-category-id="4" id="11" name="Cake" price="55.0">
@@ -58,9 +46,6 @@
 </dish>
 <dish dish-category-id="4" id="13" name="Chocolate" price="50.0">
 <description>Hot chocolate</description>
-</dish>
-<dish dish-category-id="4" id="0" name="newDish" price="1008.99">
-<description>new dish</description>
 </dish>
 </dish-category>
 <dish-category healthy-food="false" id="5" name="Drinks">
@@ -79,9 +64,5 @@
 <dish dish-category-id="5" id="18" name="Milk" price="15.0">
 <description>Pure milk</description>
 </dish>
-<dish dish-category-id="5" id="0" name="Capuccino" price="25.0">
-<description>Coffee with milk</description>
-</dish>
 </dish-category>
-<dish-category healthy-food="false" id="6" name="Sweets"/>
 </restaurant>
