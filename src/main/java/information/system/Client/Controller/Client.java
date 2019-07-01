@@ -553,7 +553,7 @@ public class Client implements ClientController {
                         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                         String responseStr = reader.readLine();
                         responseStr += reader.readLine();
-                        LOGGER.info("Listener got from server string: " + responseStr);
+                        LOGGER.info("Listener got from server message.");//string: " + responseStr);
                         Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                         String command = XmlSet.getCommandFromDocument(responseDoc);
                         switch(command)
