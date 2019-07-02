@@ -14,6 +14,9 @@
 <dish dish-category-id="1" id="4" name="Crab" price="250.0">
 <description>Boiled Crab</description>
 </dish>
+<dish dish-category-id="1" id="19" name="Idish" price="1.0">
+<description>Idish meat</description>
+</dish>
 </dish-category>
 <dish-category healthy-food="false" id="2" name="Garnishes">
 <dish dish-category-id="2" id="5" name="Potato" price="35.0">

@@ -53,9 +53,9 @@ public class Server extends Observable implements ServerControllerInterface {
                 this.setRunning(true);
                 while (true) {                                       // is being blocked until the new client connection
                     clientSocket = serverSocket.accept();
-                    logger.info("New client connected.");
+                    logger.info("New socket connected.");
 //                    view.display("new client accepted.");
-                    view.logging("New client accepted.");
+                    view.logging("New socket accepted.");
                     clients.add(new ClientListener(clientSocket, this));
                 }
             } catch (IOException e) {
