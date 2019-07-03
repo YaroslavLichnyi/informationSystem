@@ -7,9 +7,10 @@ public class Restaurant implements RestaurantInterface{
     /**
      * Collection of dish categories, which contain dishes.
      */
-    List<DishCategory> menu = new LinkedList<>();
+    List<DishCategory> menu;
 
     public Restaurant() {
+        menu = new LinkedList<>();
         setMenu(Command.SERVER_FILE_RESTAURANT);
     }
 
@@ -157,7 +158,7 @@ public class Restaurant implements RestaurantInterface{
      * @return a set of dishes whose prices are in the range of numbers, passed as a parameter.
      */
     @Override
-    public List<Dish> getDishesWithPricesBetween(double from, double to) throws Exception {
+    public List<Dish> getDishesWithPricesBetween(double from, double to) {
         if (from > to){
             return null;
         }
@@ -250,9 +251,7 @@ public class Restaurant implements RestaurantInterface{
     public List<Dish> getAllDishes() {
         List <Dish> dishes = new LinkedList<>();
         for (DishCategory dishCategory : menu) {
-            for (Dish dish : dishCategory.getDishes()) {
-                dishes.add(dish);
-            }
+            dishes.addAll(dishCategory.getDishes());
         }
         return dishes;
     }
@@ -265,8 +264,7 @@ public class Restaurant implements RestaurantInterface{
      * @return true, if <b>login</b> and <b>password</b> were inputted correct, else return false.
      */
     public static boolean isInputtedDataCorrect(String login, String password){
-        if (login.length() > 4 && password.length() > 4) return true;
-        return false;
+        return login.length() > 4 && password.length() > 4;
     }
 
 
