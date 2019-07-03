@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="information.system.Server.View.ServerViewGUI">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="580.0">
+         <children>
+            <Button fx:id="serverStartButton" layoutX="36.0" layoutY="110.0" mnemonicParsing="false" onAction="#onServerStartButtonPressed" prefWidth="100.0" text="Start" />
+            <Button fx:id="serverRestartButton" layoutX="172.0" layoutY="110.0" mnemonicParsing="false" onAction="#onServerRestartButtonPressed" prefWidth="100.0" text="Restart" />
+            <Button fx:id="ServerStopButton" layoutX="308.0" layoutY="110.0" mnemonicParsing="false" onAction="#onServerStopButtonPressed" prefWidth="100.0" text="Stop" />
+            <Button fx:id="serverTerminateButton" layoutX="444.0" layoutY="110.0" mnemonicParsing="false" onAction="#onServerTerminateButtonPressed" prefWidth="100.0" text="Exit" />
+            <Label layoutX="57.0" layoutY="63.0" text="Server port:" />
+            <TextField fx:id="portTextField" alignment="CENTER" layoutX="172.0" layoutY="60.0" prefWidth="100.0" />
+            <Button fx:id="serverPortApplyButton" layoutX="308.0" layoutY="60.0" mnemonicParsing="false" onAction="#onServerPortApplyButtonPressed" prefWidth="100.0" text="Apply" />
+            <Label layoutX="57.0" layoutY="20.0" text="Server state:" />
+            <Label fx:id="serverStateLabel" layoutX="172.0" layoutY="20.0" text="server is ready to start" />
+            <TextArea fx:id="serverLogTextArea" layoutX="14.0" layoutY="149.0" prefHeight="210.0" prefWidth="380.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label layoutX="263.0" layoutY="145.0" text="Server log" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

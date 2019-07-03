@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE restaurant SYSTEM "rules.dtd">
+<restaurant>
+<dish-category healthy-food="false" id="1" name="Meat">
+<dish dish-category-id="1" id="1" name="Pork" price="150.0">
+<description>Steak</description>
+</dish>
+<dish dish-category-id="1" id="2" name="Beaf" price="200.0">
+<description>Beafsteak</description>
+</dish>
+<dish dish-category-id="1" id="3" name="Chicken" price="100.0">
+<description>Roast chicken</description>
+</dish>
+<dish dish-category-id="1" id="4" name="Crab" price="250.0">
+<description>Boiled Crab</description>
+</dish>
+<dish dish-category-id="1" id="19" name="Idish" price="1.0">
+<description>Idish meat</description>
+</dish>
+</dish-category>
+<dish-category healthy-food="false" id="2" name="Garnishes">
+<dish dish-category-id="2" id="5" name="Potato" price="35.0">
+<description>Baked potato</description>
+</dish>
+<dish dish-category-id="2" id="6" name="Buckwheat" price="20.0">
+<description>Boiled buckwheat</description>
+</dish>
+<dish dish-category-id="2" id="7" name="Pasta" price="25.0">
+<description>Pasta with cheese</description>
+</dish>
+<dish dish-category-id="2" id="8" name="Rice" price="30.0">
+<description>Boiled rice</description>
+</dish>
+</dish-category>
+<dish-category healthy-food="false" id="3" name="Salads">
+<dish dish-category-id="3" id="9" name="Cabbage" price="25.0">
+<description>Sliced cabbage</description>
+</dish>
+<dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0">
+<description>Fresh sliced vegetables</description>
+</dish>
+</dish-category>
+<dish-category healthy-food="true" id="4" name="Desserts">
+<dish dish-category-id="4" id="11" name="Cake" price="55.0">
+<description>Cherry cake</description>
+</dish>
+<dish dish-category-id="4" id="12" name="Ice Cream" price="45.0">
+<description>Strawberry ice cream</description>
+</dish>
+<dish dish-category-id="4" id="13" name="Chocolate" price="50.0">
+<description>Hot chocolate</description>
+</dish>
+</dish-category>
+<dish-category healthy-food="false" id="5" name="Drinks">
+<dish dish-category-id="5" id="14" name="Coffee" price="60.0">
+<description>Pure black coffee</description>
+</dish>
+<dish dish-category-id="5" id="15" name="Juice" price="20.0">
+<description>Fruit juice</description>
+</dish>
+<dish dish-category-id="5" id="16" name="Water" price="10.0">
+<description>Drink water</description>
+</dish>
+<dish dish-category-id="5" id="17" name="Cola" price="25.0">
+<description>Coca cola</description>
+</dish>
+<dish dish-category-id="5" id="18" name="Milk" price="15.0">
+<description>Pure milk</description>
+</dish>
+</dish-category>
+</restaurant>

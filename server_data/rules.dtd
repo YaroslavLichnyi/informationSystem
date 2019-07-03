@@ -1,0 +1,15 @@
+<!ELEMENT restaurant (dish-category*)>
+        <!ELEMENT dish-category (dish*)>
+        <!ATTLIST dish-category
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED
+                healthy-food CDATA #REQUIRED
+                >
+        <!ELEMENT dish (description+)>
+        <!ATTLIST dish
+                id CDATA #REQUIRED
+                dish-category-id CDATA #REQUIRED
+                name CDATA #REQUIRED
+                price CDATA #REQUIRED
+                >
+        <!ELEMENT description (#PCDATA)>
