@@ -12,6 +12,7 @@ public class EditDishForm extends DishFillingForm {
     private Dish oldDish;
     public EditDishForm(Client client, Dish oldDish) {
         super(client);
+        setTitle("Edit form");
         this.oldDish = oldDish;
         extraInit();
     }
@@ -20,7 +21,7 @@ public class EditDishForm extends DishFillingForm {
         tfDishName.setText(oldDish.getName());
         spnHryvnas.setValue((int)Math.floor(oldDish.getPrice()));
         spnKopeikas.setValue((oldDish.getPrice() - (int)Math.floor(oldDish.getPrice()))*100);
-        cmbDishCategory.setSelectedItem(Restaurant.getDishCategoryById(client.getDishCategories(), oldDish.getDishCategoryId()).getName());
+        cmbDishCategory.setSelectedItem(Restaurant.getDishCategoryById(client.getRestaurant().getAllDishCategories(), oldDish.getDishCategoryId()).getName());
 
         btEdit = new JButton( "Edit"  );
         gridBag.gridx = 1;
@@ -44,7 +45,7 @@ public class EditDishForm extends DishFillingForm {
                 newDish.setPrice((double) (int) spnHryvnas.getValue()
                         + ((double) (int) spnKopeikas.getValue())/100);
                 newDish.setDescription(taDishDescription.getText());
-                client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
+                client.getRestaurant().getAllDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
                 if(client.edit(oldDish,newDish)){
                     dispose();
                 } else {

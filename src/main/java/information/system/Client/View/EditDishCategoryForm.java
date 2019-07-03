@@ -9,6 +9,7 @@ public class EditDishCategoryForm extends DishCategoryFillingForm {
     private DishCategory dishCategory;
     public EditDishCategoryForm(Client client, DishCategory dishCategory) {
         super(client);
+        setTitle("Edit form");
         this.dishCategory = dishCategory;
         extraInit();
 

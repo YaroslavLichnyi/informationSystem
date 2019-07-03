@@ -15,7 +15,7 @@ public class SignInForm extends InformSystemGUI {
         this.client = client;
         init();
         add(panel);
-        setTitle("Login");
+        setTitle("Sign in");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -52,6 +52,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets(0,10,10,10);
         gridBagLayout.setConstraints( lbLogin, gridBag );
         panel.add( lbLogin );
 
@@ -64,6 +65,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets(0,10,10,10);
         gridBagLayout.setConstraints( lbPassword, gridBag );
         panel.add( lbPassword );
 
@@ -77,6 +79,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( tfPassword, gridBag );
+        gridBag.insets = new Insets(0,10,10,10);
         panel.add( tfPassword );
         ((AbstractDocument) tfPassword.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
 
@@ -89,7 +92,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.weightx = 1;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
-        gridBag.insets = new Insets(10,10,5,10);
+        gridBag.insets = new Insets(10,10,10,10);
         gridBagLayout.setConstraints( btSignIn, gridBag );
         panel.add( btSignIn );
         btSignIn.addActionListener(new ActionListener() {
@@ -115,7 +118,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.fill = GridBagConstraints.BOTH;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
-        gridBag.insets = new Insets(10,10,5,10);
+        gridBag.insets = new Insets(10,10,10,10);
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btBut1, gridBag );
         panel.add( btBut1 );

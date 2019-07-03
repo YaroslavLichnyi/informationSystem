@@ -2810,3 +2810,897 @@ java.net.SocketException: Connection reset
 	at java.io.BufferedReader.readLine(BufferedReader.java:324)
 	at java.io.BufferedReader.readLine(BufferedReader.java:389)
 	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 15:10:48 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 15:10:49 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 15:10:53 INFO  Server:72:start - server is running.
+2019-07-03 15:14:31 INFO  Server:95:stop - server is stoping.
+2019-07-03 15:14:31 INFO  Server:107:stop - server stopped.
+2019-07-03 15:14:32 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-03 15:14:32 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-03 15:19:00 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 15:19:00 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 15:19:02 INFO  Server:72:start - server is running.
+2019-07-03 15:19:21 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-07-03 15:19:21 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 15:19:21 INFO  Client:261:connectToServer - Client was connected to server.
+2019-07-03 15:19:21 INFO  Client:548:run - Listener starts working
+2019-07-03 15:19:21 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:19:21 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:19:21 INFO  Client:586:run - Command "update information" was performed
+2019-07-03 15:19:21 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:19:32 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-07-03 15:19:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-07-03 15:19:32 INFO  Client:335:signIn - Client waits for response (sign in)
+2019-07-03 15:19:33 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 15:19:33 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:19:33 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:19:33 INFO  Client:565:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 15:19:33 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:19:33 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:19:33 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:19:33 INFO  Client:337:signIn - Client got response (sign in)
+2019-07-03 15:20:03 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 15:23:26 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-07-03 15:23:26 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 15:23:26 INFO  Client:261:connectToServer - Client was connected to server.
+2019-07-03 15:23:26 INFO  Client:548:run - Listener starts working
+2019-07-03 15:23:26 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:23:26 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:23:26 INFO  Client:586:run - Command "update information" was performed
+2019-07-03 15:23:26 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:30:35 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-07-03 15:30:35 INFO  Client:335:signIn - Client waits for response (sign in)
+2019-07-03 15:30:35 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Alexxxx" name="" password="qwerty"/></users><command>sign_in</command></message>
+2019-07-03 15:30:35 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 15:30:35 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:30:35 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:30:35 INFO  Client:565:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 15:30:35 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:30:35 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:30:35 INFO  Client:337:signIn - Client got response (sign in)
+2019-07-03 15:30:35 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:33:15 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>update_information</command></message>
+2019-07-03 15:33:15 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-07-03 15:33:15 INFO  ClientListener:132:run - using protocol UPDATE_INFORMATION was detected. Information was successfully updated from the storage.
+2019-07-03 15:34:57 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>update_information</command></message>
+2019-07-03 15:34:57 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command></message>
+2019-07-03 15:34:57 INFO  ClientListener:132:run - using protocol UPDATE_INFORMATION was detected. Information was successfully updated from the storage.
+2019-07-03 15:37:40 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>sort_by_price</command></message>
+2019-07-03 15:37:40 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>sort_by_price</command></message>
+2019-07-03 15:40:47 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>find_dish</command><sub-str>Cr</sub-str></message>
+2019-07-03 15:40:47 INFO  Client:565:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 15:40:47 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:40:47 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:40:47 INFO  Client:582:run - Data at dishTable was updated
+2019-07-03 15:40:47 INFO  Client:586:run - Command "update information" was performed
+2019-07-03 15:40:47 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:40:56 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>find_dish</command><sub-str>Be</sub-str></message>
+2019-07-03 15:44:30 INFO  Client:518:changePort - port is the same and has not been changed.
+2019-07-03 15:44:30 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 15:44:30 INFO  Client:261:connectToServer - Client was connected to server.
+2019-07-03 15:44:30 INFO  Client:548:run - Listener starts working
+2019-07-03 15:44:30 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:44:30 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:44:30 INFO  Client:586:run - Command "update information" was performed
+2019-07-03 15:44:30 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:44:43 INFO  Client:307:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 15:44:43 INFO  Client:335:signIn - Client waits for response (sign in)
+2019-07-03 15:44:43 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 15:44:43 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 15:44:43 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:44:43 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:44:43 INFO  Client:337:signIn - Client got response (sign in)
+2019-07-03 15:44:43 INFO  Client:565:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 15:44:43 INFO  Client:552:run - Listener waits for response
+2019-07-03 15:44:43 INFO  Client:556:run - Listener got from server message.
+2019-07-03 15:44:43 INFO  Client:563:run - Exchanger in listener waits
+2019-07-03 15:50:30 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 15:50:31 INFO  Server:95:stop - server is stoping.
+2019-07-03 15:50:31 INFO  Server:99:stop - client Thread-5 was disconnected.
+2019-07-03 15:50:31 INFO  Server:99:stop - client Thread-6 was disconnected.
+2019-07-03 15:50:31 INFO  Server:99:stop - client Thread-7 was disconnected.
+2019-07-03 15:50:31 INFO  Server:107:stop - server stopped.
+2019-07-03 15:50:32 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-03 15:50:32 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-03 18:04:59 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 18:05:00 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 18:05:25 INFO  Server:72:start - server is running.
+2019-07-03 18:05:38 INFO  Client:494:changePort - port is the same and has not been changed.
+2019-07-03 18:05:38 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 18:05:38 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 18:05:38 INFO  Client:524:run - Listener starts working
+2019-07-03 18:05:38 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:05:39 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:05:39 INFO  Client:563:run - Command "update information" was performed
+2019-07-03 18:05:39 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:05:52 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 18:05:52 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 18:05:52 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 18:05:52 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 18:05:52 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:05:52 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 18:05:52 INFO  Client:541:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 18:05:52 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:05:52 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:05:52 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 18:05:52 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 18:06:00 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 18:42:07 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 18:42:08 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 18:42:11 INFO  Server:72:start - server is running.
+2019-07-03 18:42:13 INFO  Client:494:changePort - port is the same and has not been changed.
+2019-07-03 18:42:13 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 18:42:13 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 18:42:13 INFO  Client:524:run - Listener starts working
+2019-07-03 18:42:13 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:42:13 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:42:13 INFO  Client:563:run - Command "update information" was performed
+2019-07-03 18:42:13 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:42:36 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 18:42:36 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 18:42:36 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 18:42:36 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 18:42:36 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:42:36 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 18:42:36 INFO  Client:541:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 18:42:36 INFO  Client:528:run - Listener waits for response
+2019-07-03 18:42:36 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 18:42:36 INFO  Client:532:run - Listener got from server message.
+2019-07-03 18:42:36 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 18:42:41 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 18:42:42 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-03 18:42:42 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-03 19:06:18 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 19:06:19 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 19:06:22 INFO  Server:72:start - server is running.
+2019-07-03 19:06:50 INFO  Client:494:changePort - port is the same and has not been changed.
+2019-07-03 19:06:50 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:06:50 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:06:50 INFO  Client:524:run - Listener starts working
+2019-07-03 19:06:50 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:06:50 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:06:50 INFO  Client:563:run - Command "update information" was performed
+2019-07-03 19:06:50 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:07:02 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:07:02 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 19:07:02 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:07:02 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:07:02 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:07:02 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:07:02 INFO  Client:541:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:07:02 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:07:02 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:07:02 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:07:02 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 19:09:18 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 19:09:19 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 19:09:21 INFO  Server:72:start - server is running.
+2019-07-03 19:09:23 INFO  Client:494:changePort - port is the same and has not been changed.
+2019-07-03 19:09:23 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:09:23 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:09:23 INFO  Client:524:run - Listener starts working
+2019-07-03 19:09:23 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:09:23 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:09:23 INFO  Client:563:run - Command "update information" was performed
+2019-07-03 19:09:23 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:09:32 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:09:32 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 19:09:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:09:32 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:09:32 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:09:32 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:09:32 INFO  Client:541:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:09:32 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:09:32 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:09:32 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:09:32 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 19:11:55 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 19:11:56 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 19:11:57 INFO  Server:72:start - server is running.
+2019-07-03 19:12:07 INFO  Client:272:sendRequest - Client send next request: end_of_session
+2019-07-03 19:12:07 ERROR Client:277:sendRequest - java.net.SocketException: Connection reset by peer: socket write error
+2019-07-03 19:12:22 INFO  Client:494:changePort - port is the same and has not been changed.
+2019-07-03 19:12:22 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:12:22 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:12:22 INFO  Client:524:run - Listener starts working
+2019-07-03 19:12:22 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:12:22 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:12:22 INFO  Client:563:run - Command "update information" was performed
+2019-07-03 19:12:22 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:12:37 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:12:37 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:12:37 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 19:12:37 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:12:37 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:12:37 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:12:37 INFO  Client:541:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:12:37 INFO  Client:528:run - Listener waits for response
+2019-07-03 19:12:37 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 19:12:37 INFO  Client:532:run - Listener got from server message.
+2019-07-03 19:12:37 INFO  Client:539:run - Exchanger in listener waits
+2019-07-03 19:12:53 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:41:50 INFO  Client:487:changePort - port is the same and has not been changed.
+2019-07-03 19:41:51 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:217)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-07-03 19:42:05 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 19:42:06 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 19:42:10 INFO  Server:72:start - server is running.
+2019-07-03 19:42:17 INFO  Client:487:changePort - port is the same and has not been changed.
+2019-07-03 19:42:17 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:42:17 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:42:17 INFO  Client:517:run - Listener starts working
+2019-07-03 19:42:17 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:42:17 INFO  Client:525:run - Listener got from server message.
+2019-07-03 19:42:17 INFO  Client:556:run - Command "update information" was performed
+2019-07-03 19:42:17 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:44:50 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:44:56 INFO  Client:487:changePort - port is the same and has not been changed.
+2019-07-03 19:44:56 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:44:56 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:44:57 INFO  Client:517:run - Listener starts working
+2019-07-03 19:44:57 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:44:57 INFO  Client:525:run - Listener got from server message.
+2019-07-03 19:44:57 INFO  Client:556:run - Command "update information" was performed
+2019-07-03 19:44:57 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:45:03 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:45:45 INFO  Client:487:changePort - port is the same and has not been changed.
+2019-07-03 19:45:45 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:45:45 INFO  Client:226:connectToServer - Client was connected to server.
+2019-07-03 19:45:45 INFO  Client:517:run - Listener starts working
+2019-07-03 19:45:45 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:45:46 INFO  Client:525:run - Listener got from server message.
+2019-07-03 19:45:46 INFO  Client:556:run - Command "update information" was performed
+2019-07-03 19:45:46 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:46:01 INFO  Client:272:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:46:01 INFO  Client:300:signIn - Client waits for response (sign in)
+2019-07-03 19:46:01 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:46:01 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:46:01 INFO  Client:525:run - Listener got from server message.
+2019-07-03 19:46:01 INFO  Client:532:run - Exchanger in listener waits
+2019-07-03 19:46:01 INFO  Client:534:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:46:01 INFO  Client:521:run - Listener waits for response
+2019-07-03 19:46:01 INFO  Client:302:signIn - Client got response (sign in)
+2019-07-03 19:46:01 INFO  Client:525:run - Listener got from server message.
+2019-07-03 19:46:01 INFO  Client:532:run - Exchanger in listener waits
+2019-07-03 19:46:52 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:51:34 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 19:51:34 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:51:34 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 19:51:34 INFO  Client:502:run - Listener starts working
+2019-07-03 19:51:34 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:51:34 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:51:34 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 19:51:34 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:51:43 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:51:43 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 19:51:43 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:51:43 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:51:43 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:51:43 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:51:43 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:51:43 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:51:43 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 19:51:43 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:51:43 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:54:41 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:56:21 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 19:56:21 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 19:56:21 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:56:22 INFO  Client:502:run - Listener starts working
+2019-07-03 19:56:22 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:56:22 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:56:22 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 19:56:22 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:56:32 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:56:32 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 19:56:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:56:32 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:56:32 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:56:32 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:56:32 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:56:32 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 19:56:32 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:56:32 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:56:32 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:57:47 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 19:57:56 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 19:57:56 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 19:57:56 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 19:57:56 INFO  Client:502:run - Listener starts working
+2019-07-03 19:57:56 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:57:57 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:57:57 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 19:57:57 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:58:05 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:58:05 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 19:58:05 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 19:58:05 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:58:05 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:58:05 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 19:58:05 INFO  Client:506:run - Listener waits for response
+2019-07-03 19:58:05 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 19:58:05 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 19:58:05 INFO  Client:510:run - Listener got from server message.
+2019-07-03 19:58:05 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 19:58:41 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:21:47 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:21:47 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:21:47 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:21:47 INFO  Client:502:run - Listener starts working
+2019-07-03 20:21:47 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:21:47 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:21:47 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:21:47 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:21:58 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:21:58 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:21:58 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:21:58 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:21:58 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:21:58 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:21:58 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:21:58 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:21:58 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:21:58 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:21:58 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:22:26 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:23:47 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:23:47 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:23:47 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:23:47 INFO  Client:502:run - Listener starts working
+2019-07-03 20:23:47 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:23:47 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:23:47 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:23:47 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:24:00 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:24:00 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:24:00 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:24:00 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:24:00 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:24:00 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:24:00 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:24:00 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:24:00 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:24:00 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:24:00 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:24:20 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:25:33 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:25:33 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:25:33 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:25:33 INFO  Client:502:run - Listener starts working
+2019-07-03 20:25:33 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:25:33 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:25:33 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:25:33 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:25:45 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:25:45 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:25:45 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:25:45 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:25:45 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:25:45 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:25:45 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:25:45 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:25:45 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:25:45 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:25:45 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:26:28 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:26:51 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:26:51 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:26:51 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:26:51 INFO  Client:502:run - Listener starts working
+2019-07-03 20:26:51 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:26:51 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:26:51 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:26:51 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:27:05 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:27:05 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:27:05 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:27:05 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:27:05 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:27:05 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:27:05 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:27:05 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:27:05 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:27:05 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:27:05 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:27:51 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:29:51 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:29:51 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:29:51 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:29:51 INFO  Client:502:run - Listener starts working
+2019-07-03 20:29:51 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:29:51 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:29:51 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:29:51 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:30:02 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:30:02 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:30:02 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:30:02 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:30:02 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:30:02 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:30:02 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:30:02 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:30:02 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:30:02 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:30:02 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:30:15 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:31:17 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:31:17 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:31:17 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:31:17 INFO  Client:502:run - Listener starts working
+2019-07-03 20:31:17 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:31:17 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:31:17 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:31:17 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:31:28 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:31:28 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:31:28 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:31:28 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:31:28 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:31:28 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:31:28 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:31:28 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:31:28 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:31:28 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:31:28 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:31:37 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:32:09 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:32:09 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:32:09 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:32:09 INFO  Client:502:run - Listener starts working
+2019-07-03 20:32:09 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:32:09 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:32:09 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:32:09 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:32:25 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:32:25 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:32:25 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:32:25 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:32:25 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:32:25 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:32:25 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:32:25 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:32:25 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:32:25 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:32:25 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:32:38 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:32:38 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-03 20:32:38 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-03 20:33:08 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 20:33:09 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 20:33:12 INFO  Server:72:start - server is running.
+2019-07-03 20:33:14 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:33:14 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:33:14 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:33:14 INFO  Client:502:run - Listener starts working
+2019-07-03 20:33:14 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:33:14 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:33:14 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:33:14 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:33:30 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:33:30 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:33:30 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:33:30 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:33:30 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:33:30 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:33:30 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:33:30 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:33:30 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:33:30 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:33:30 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:34:19 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:34:20 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-03 20:34:20 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-03 20:36:49 INFO  ServerGUIApp:27:start - application started.
+2019-07-03 20:36:50 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-03 20:36:52 INFO  Server:72:start - server is running.
+2019-07-03 20:37:21 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:37:21 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:37:21 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:37:21 INFO  Client:502:run - Listener starts working
+2019-07-03 20:37:21 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:37:21 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:37:21 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:37:21 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:37:33 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:37:33 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:37:33 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:37:33 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:37:33 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:37:33 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:37:33 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:37:33 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:37:33 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:37:33 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:37:33 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:38:55 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:39:23 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:39:23 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:39:23 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:39:23 INFO  Client:502:run - Listener starts working
+2019-07-03 20:39:23 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:39:23 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:39:23 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:39:23 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:39:32 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:39:32 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:39:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:39:32 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:39:32 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:39:32 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:39:32 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:39:32 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:39:32 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:39:32 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:39:32 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:39:54 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:40:58 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:40:58 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:40:58 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:40:58 INFO  Client:502:run - Listener starts working
+2019-07-03 20:40:58 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:40:58 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:40:58 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:40:58 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:41:44 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:41:44 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:41:44 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:41:44 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:41:44 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:41:44 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:41:44 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:41:44 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:41:44 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:41:44 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:41:44 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:49:31 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-03 20:49:43 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-03 20:49:43 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-03 20:49:43 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-03 20:49:43 INFO  Client:502:run - Listener starts working
+2019-07-03 20:49:43 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:49:43 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:49:43 INFO  Client:541:run - Command "update information" was performed
+2019-07-03 20:49:43 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:49:51 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:49:51 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-03 20:49:51 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-03 20:49:51 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:49:51 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:49:51 INFO  Client:519:run - Exchange was successful. Command "sign in" was performed
+2019-07-03 20:49:51 INFO  Client:506:run - Listener waits for response
+2019-07-03 20:49:51 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-03 20:49:51 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-03 20:49:51 INFO  Client:510:run - Listener got from server message.
+2019-07-03 20:49:51 INFO  Client:517:run - Exchanger in listener waits
+2019-07-03 20:50:23 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)

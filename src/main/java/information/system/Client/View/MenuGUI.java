@@ -44,6 +44,17 @@ public class MenuGUI extends InformSystemGUI {
     protected void init(){
         JMenuBar jMenuBar = new JMenuBar();
 
+        JMenu menuFile = new JMenu("File");
+        JMenuItem itExit = new JMenuItem("Exit");
+        menuFile.add(itExit);
+        itExit.addActionListener(e -> {
+            client.exit();
+            System.exit(0);
+        });
+
+        jMenuBar.add(menuFile);
+
+
         if (client.getUser().isAdmin()){
             JMenu addRestMenu = new JMenu("Restaurant menu");
             JMenuItem itAddNewDish = new JMenuItem("Add new dish");
@@ -65,26 +76,9 @@ public class MenuGUI extends InformSystemGUI {
             jMenuBar.add(addRestMenu);
         }
 
-        JMenu exit = new JMenu("Exit");
-        exit.addMenuListener(new MenuListener() {
-            @Override
-            public void menuSelected(MenuEvent e) {
-                System.exit(0);
-            }
-
-            @Override
-            public void menuDeselected(MenuEvent e) {
-
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-
-            }
-        });
 
 
-        JMenu userMenu = new JMenu("User");
+        JMenu userMenu = new JMenu("User : " + client.getUser().getName());
 
         JMenuItem itChangeData = new JMenuItem("Change information");
         itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
@@ -118,14 +112,13 @@ public class MenuGUI extends InformSystemGUI {
         userMenu.add(itChangeData);
         userMenu.add(signOut);
 
-        jMenuBar.add(userMenu);
-        jMenuBar.add(exit);
         jMenuBar.add(updateMenu);
+        jMenuBar.add(userMenu);
 
         this.setJMenuBar(jMenuBar);
         this.revalidate();
 
-         String []variantsOfSorting = {Command.PRICE, Command.DISH_CATEGORY };
+         String []variantsOfSorting = {Command.DISH_CATEGORY, Command.PRICE };
         cmbSortBy = new JComboBox( variantsOfSorting );
         gridBag.gridx = 4;
         gridBag.gridy = 2;
@@ -138,12 +131,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(cmbSortBy, gridBag );
         panel.add(cmbSortBy);
-        cmbSortBy.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setValuesAtTable(client.getDishesSortedBy((String) cmbSortBy.getSelectedItem()));
-            }
-        });
+        cmbSortBy.addActionListener(e -> setValuesAtTable(client.getDishesSortedBy((String) cmbSortBy.getSelectedItem())));
 
         tfName = new JTextField();
         gridBag.gridx = 3;
@@ -164,36 +152,31 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btShowDishCategories, gridBag );
-
-
         panel.add(btShowDishCategories);
-        btShowDishCategories.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(tfName.getText().length() > 0){
-                    List <Dish> dishes = client.getDishesWhichContains(tfName.getText());
-                    if (dishes==null){
-                        InformSystemGUI.showMessage("Problems with getting dishes from server");
-                    } else if (dishes.size() == 0){
-                        InformSystemGUI.showMessage("There are no dishes, which contain \""
-                                + tfName.getText() + "\" in name");
-                    } else {
-                        setValuesAtTable(dishes);
-                    }
+        btShowDishCategories.addActionListener(e -> {
+            if(tfName.getText().length() > 0){
+                List <Dish> dishes = client.getDishesWhichContains(tfName.getText());
+                if (dishes==null){
+                    InformSystemGUI.showMessage("Problems with getting dishes from server");
+                } else if (dishes.size() == 0){
+                    InformSystemGUI.showMessage("There are no dishes, which contain \""
+                            + tfName.getText() + "\" in name");
                 } else {
-                 InformSystemGUI.showMessage("Enter at least 1 letter");
+                    setValuesAtTable(dishes);
                 }
+            } else {
+             InformSystemGUI.showMessage("Enter at least 1 letter");
             }
         });
 
 
-        Object[] headers = {"Name", "Price", "Description", "Dish category"};
+        Object[] headers = {"Dish category", "Name", "Description","Price"};
         model = new DefaultTableModel(null, headers);
         dishesTable = new JTable(model){
             @Override
@@ -216,8 +199,8 @@ public class MenuGUI extends InformSystemGUI {
         dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
-                    new DetailInformationFrame(getClient(), client.getMenu().get(dishesTable.getSelectedRow()));
+                if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
+                    new DetailInformationFrame(getClient(), client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()));
                 }
             }
         });
@@ -228,19 +211,28 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 0;
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btShowDishCategories, gridBag );
         panel.add(btShowDishCategories);
-        btShowDishCategories.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DishCategoryInfo(getClient());
-            }
-        });
+        btShowDishCategories.addActionListener(e -> new DishCategoryInfo(getClient()));
+
+        btShowDishCategories = new JButton( "Show all dishes"  );
+        gridBag.gridx = 2;
+        gridBag.gridy = 2;
+        gridBag.gridwidth = 1;
+        gridBag.gridheight = 1;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
+        gridBag.weightx = 0;
+        gridBag.weighty = 0;
+        gridBag.anchor = GridBagConstraints.NORTH;
+        gridBag.insets = new Insets(15,15,0,15);
+        gridBagLayout.setConstraints(btShowDishCategories, gridBag );
+        panel.add(btShowDishCategories);
+        btShowDishCategories.addActionListener(e -> setValuesAtTable(getClient().getRestaurant().getAllDishes()));
 
         lbSortBy = new JLabel( "Sort by:"  );
         gridBag.gridx = 3;
@@ -255,7 +247,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints( lbSortBy, gridBag );
         panel.add( lbSortBy );
 
-        setValuesAtTable(client.getMenu());
+        setValuesAtTable(client.getRestaurant().getAllDishes());
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
@@ -268,10 +260,10 @@ public class MenuGUI extends InformSystemGUI {
         int i = 0;
         while (taskIterator.hasNext()){
             dish = taskIterator.next();
-            model.setValueAt(dish.getName(), i , 0);
-            model.setValueAt(dish.getPrice(), i , 1);
+            model.setValueAt(Restaurant.getDishCategoryById(client.getRestaurant().getAllDishCategories(), dish.getDishCategoryId()).getName(), i, 0);
+            model.setValueAt(dish.getName(), i , 1);
             model.setValueAt(dish.getDescription(), i , 2);
-            model.setValueAt(Restaurant.getDishCategoryById(client.getDishCategories(), dish.getDishCategoryId()).getName(), i, 3);
+            model.setValueAt(dish.getPrice(), i , 3);
             i++;
         }
         while(i<tableRowSize){

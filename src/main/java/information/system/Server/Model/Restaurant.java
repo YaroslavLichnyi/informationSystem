@@ -3,6 +3,12 @@ package information.system.Server.Model;
 import java.util.*;
 
 public class Restaurant implements RestaurantInterface{
+
+    /**
+     * Collection of dish categories, which contain dishes.
+     */
+    List<DishCategory> menu = new LinkedList<>();
+
     public Restaurant() {
         setMenu(Command.SERVER_FILE_RESTAURANT);
     }
@@ -14,14 +20,15 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public void setMenu(String path) {
-        List<DishCategory> list = InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT);
-        for (DishCategory dishCategory: list) {
-            addDishCategory(dishCategory);
-        }
+        menu = InformSystXML.getMenu(Command.SERVER_FILE_RESTAURANT);
+    }
+
+    public void setMenu(List<DishCategory> menu){
+        this.menu = menu;
     }
 
     /**
-     * Adds new dish category at {@link RestaurantInterface#menu}.
+     * Adds new dish category at <code>menu</code>.
      * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
@@ -39,10 +46,10 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
-     * Sets variable value {@link RestaurantInterface#menu}.
+     * Sets variable value <code>menu</code>.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return DishCategory from {@link RestaurantInterface#menu}.
+     * @return DishCategory from <code>menu</code>.
      */
     @Override
     public DishCategory getDishCategory(int index) {
@@ -55,9 +62,9 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
-     * Removes dish from {@link RestaurantInterface#menu}.
+     * Removes dish from <code>menu</code>.
      *
-     * @param dishCategory is removed from {@link RestaurantInterface#menu}.
+     * @param dishCategory is removed from <code>menu</code>.
      * @return true if an object was removed, else return false.
      */
     @Override
@@ -70,9 +77,9 @@ public class Restaurant implements RestaurantInterface{
     }
 
     /**
-     * Adds new dish at {@link RestaurantInterface#menu}.
+     * Adds new dish at <code>menu</code>.
      *
-     * @param dish is added as new Dish to {@link RestaurantInterface#menu}.
+     * @param dish is added as new Dish to <code>menu</code>.
      */
     @Override
     public boolean addDish(Dish dish) {
@@ -96,7 +103,7 @@ public class Restaurant implements RestaurantInterface{
      * Gets a dish from @link RestaurantInterface#menu}.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return Dish from {@link RestaurantInterface#menu}.
+     * @return Dish from <code>menu</code>.
      */
     @Override
     public Dish getDish(int index) {
@@ -106,7 +113,7 @@ public class Restaurant implements RestaurantInterface{
     /**
      * Removes a dish from @link RestaurantInterface#menu}.
      *
-     * @param dish is removed from {@link RestaurantInterface#menu}.
+     * @param dish is removed from <code>menu</code>.
      * @return true if an object was removed, else return false.
      */
     @Override
@@ -123,14 +130,9 @@ public class Restaurant implements RestaurantInterface{
      * @return collection of dishes ordered by price by descent.
      */
     @Override
-    public ArrayList<Dish> sortDishesByPrice() {
-        ArrayList<Dish> result = (ArrayList<Dish>) getAllDishes();
-        Collections.sort(result, new Comparator<Dish>() {
-            @Override
-            public int compare(Dish o1, Dish o2) {
-                return (int) (o1.getPrice() * 100 - o2.getPrice() * 100);
-            }
-        });
+    public List<Dish> sortDishesByPrice() {
+        LinkedList<Dish> result = (LinkedList<Dish>) getAllDishes();
+        result.sort((o1, o2) -> (int) (o1.getPrice() * 100 - o2.getPrice() * 100));
         return result;
     }
 
@@ -142,9 +144,7 @@ public class Restaurant implements RestaurantInterface{
     public List<Dish> sortDishesByDishCategory() {
         ArrayList<Dish> result = new ArrayList<>();
         for (DishCategory dishCategory: menu) {
-            for (Dish dish: getDishesWithDishCategory(dishCategory)) {
-                result.add(dish);
-            }
+            result.addAll(getDishesWithDishCategory(dishCategory));
         }
         return result;
     }
@@ -324,6 +324,8 @@ public class Restaurant implements RestaurantInterface{
         }
         return  null;
     }
+
+
 
 
 }

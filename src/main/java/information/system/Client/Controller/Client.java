@@ -22,8 +22,6 @@ import java.util.concurrent.Exchanger;
  */
 public class Client implements ClientController {
     private static final Logger LOGGER = Logger.getLogger(Client.class);
-    private LinkedList<Dish> menu;
-    private LinkedList<DishCategory> dishCategories;
     private Socket clientSocket;
     private BufferedWriter writer;
     private BufferedReader reader;
@@ -32,54 +30,17 @@ public class Client implements ClientController {
     private int port;
     private File file;
     private MenuGUI menuGUI;
+    private Restaurant restaurant;
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());
     }
 
     public Client()  {
-            menu = new LinkedList<>();
-            dishCategories = new LinkedList<>();
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Dish dish1 = new Dish("name1", 3.56, "Some defhdjkdgkdgjkscr");
-            Dish dish3 = new Dish("name3", 34.45, "Some defhkfkhscr");
-            Dish dish2 = new Dish("name2", 3.57, "Some defhkdfhkdgfscr");
-            Dish dish4 = new Dish("name4", 17.56, "Some defhdjkdgkdgjkscr");
-            Dish dish5 = new Dish("name5", 45, "Some defhkfkhscr");
-            Dish dish6 = new Dish("name6", 3.57, "Some defhkdfhkdgfscr");
-            menu.add(dish3);
-            menu.add(dish2);
-            menu.add(dish1);
-            menu.add(dish5);
-            menu.add(dish4);
-            menu.add(dish6);
-            DishCategory dishСategory1 = new DishCategory();
-            DishCategory dishСategory2 = new DishCategory();
-            DishCategory dishСategory3 = new DishCategory();
-            dishСategory1.setName("alco");
-            dishСategory2.setName("salads");
-            dishСategory3.setName("ice cream");
-
-            dishСategory1.addDish(dish1);
-            dishСategory1.addDish(dish2);
-            dishСategory2.addDish(dish3);
-            dishСategory2.addDish(dish4);
-            dishСategory3.addDish(dish5);
-            dishСategory3.addDish(dish6);
-            dishCategories.add(dishСategory1);
-            dishCategories.add(dishСategory2);
-            dishCategories.add(dishСategory3);
-/*
-            user = new User();
-            user.setAdmin(true);
-            user.setName("Naaaaame");
-            user.setPassword("passsssword");
-            user.setLogin("login");
-            */
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            file = new File("settings/client.ini");
-            this.port = readPort();
-            exgr = new Exchanger<>();
+        restaurant = new Restaurant();
+        file = new File("settings/client.ini");
+        this.port = readPort();
+        exgr = new Exchanger<>();
     }
 
     /**
@@ -383,13 +344,11 @@ public class Client implements ClientController {
      */
     @Override
     public List <Dish> getDishesSortedBy(String sortBy){
-        XmlSet xmlSet = new XmlSet();
         if (Command.PRICE.equals(sortBy)){
-            xmlSet.setCommandToDocument(Protocol.SORT_BY_PRICE);
+            return restaurant.sortDishesByPrice();
         } else if (Command.DISH_CATEGORY.equals(sortBy)){
-            xmlSet.setCommandToDocument(Protocol.SORT_BY_DISH_CATEGORY);
+            return restaurant.sortDishesByDishCategory();
         }
-        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         return null;
     }
 
@@ -418,26 +377,21 @@ public class Client implements ClientController {
      * @return dishes which contain <code>subStr</code> in the name.
      */
     public List<Dish> getDishesWhichContains(String subStr) {
-        XmlSet xmlSet = new XmlSet();
-        xmlSet.setCommandToDocument(Protocol.FIND_DISH);
-        xmlSet.setSubstrToDocument(subStr);
-        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
-        try {
-            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            List<Dish> list = XmlSet.getDishesFrom(document);
-            return list;
-        } catch (InterruptedException e) {
-            LOGGER.error("Exception while exchanging", e);
-    }
-        return null;
+        List <Dish> result = new LinkedList<>();
+        for (Dish dish : restaurant.getAllDishes()){
+            if (dish.getName().toLowerCase().contains(subStr.toLowerCase())){
+                result.add(dish);
+            }
+        }
+        return result;
     }
 
-    public LinkedList<Dish> getMenu() {
-        return menu;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public LinkedList<DishCategory> getDishCategories() {
-        return dishCategories;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public User getUser() {
@@ -450,7 +404,7 @@ public class Client implements ClientController {
 
     private boolean getExchange(){
         try {
-            LOGGER.info("Exchanger in ");
+            LOGGER.info("Exchanger in Client waits for exchange");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
             if (Protocol.TRUE.equals(XmlSet.getCommandFromDocument(document))){
                 return true;
@@ -577,18 +531,19 @@ public class Client implements ClientController {
                                 }
                                 break;
                             case Protocol.UPDATE_INFORMATION:
-                                menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
+                                restaurant.setMenu(XmlSet.getMenuFromDocument(responseDoc));
+                                //menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
                                 if (user != null ){
                                     LOGGER.info("Data at dishTable was updated");
-                                    menuGUI.setValuesAtTable(menu);
+                                    menuGUI.setValuesAtTable(restaurant.getAllDishes());
                                 }
-                                dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
+                                //dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
                                 LOGGER.info("Command \"update information\" was performed");
                                 break;
 
                             case Protocol.END_OF_SESSION:
                                 break;
-
+/*
                             case Protocol.FIND_DISH:
                                 break;
 
@@ -601,7 +556,7 @@ public class Client implements ClientController {
                                 menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
                                 LOGGER.info("Command \"sort by dish category\" was performed");
                                 break;
-
+*/
                             case Protocol.TRUE:
                                 try {
                                     exchanger.exchange(responseStr);

@@ -8,6 +8,7 @@ import java.awt.*;
 public class AddDishCategoryForm extends DishCategoryFillingForm {
     public AddDishCategoryForm(Client client) {
         super(client);
+        setTitle("Filling form");
         extraInit();
     }
 

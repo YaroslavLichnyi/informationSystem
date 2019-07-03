@@ -16,6 +16,7 @@ public class DishCategoryInfo extends InformSystemGUI{
 
     public DishCategoryInfo(Client client) {
         super();
+        setTitle("Dish categories");
         setBounds(dimension.width / 2 - 125, dimension.height / 2 - 125, 250, 250);
         setClient(client);
         init();
@@ -47,8 +48,8 @@ public class DishCategoryInfo extends InformSystemGUI{
         dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(client.getMenu().get(dishesTable.getSelectedRow()) != null){
-                    new EditDishCategoryForm(getClient(), client.getDishCategories().get(dishesTable.getSelectedRow()));
+                if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
+                    new EditDishCategoryForm(getClient(), client.getRestaurant().getAllDishCategories().get(dishesTable.getSelectedRow()));
                 }
             }
         });
@@ -56,7 +57,7 @@ public class DishCategoryInfo extends InformSystemGUI{
 
 
     private void setValuesAtTable(){
-        LinkedList<DishCategory> dishCategories = client.getDishCategories();
+        LinkedList<DishCategory> dishCategories = (LinkedList<DishCategory>) client.getRestaurant().getAllDishCategories();
         final int tableRowSize = dishCategories.size();
         model.setRowCount(tableRowSize);
         Iterator<DishCategory> dishCategoryIterator = dishCategories.iterator();

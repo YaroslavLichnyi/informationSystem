@@ -17,7 +17,7 @@ public class ChangePortForm extends InformSystemGUI{
         setVisible(true);
         init();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Choose port");
+        setTitle("Information System Client: Port");
         revalidate();
     }
 

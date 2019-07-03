@@ -13,6 +13,7 @@ public class SignUpForm extends InformSystemGUI {
     private Client client;
     public SignUpForm(Client client) {
         super();
+        setTitle("Sign up");
         setBounds(dimension.width / 2 - 135, dimension.height / 2 - 100, 270, 200);
         setClient(client);
         init();

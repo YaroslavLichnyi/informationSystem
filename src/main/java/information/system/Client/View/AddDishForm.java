@@ -10,6 +10,7 @@ public class AddDishForm extends DishFillingForm {
     private JButton btAdd;
     public AddDishForm(Client client) {
         super(client);
+        setTitle("Filling form");
         extraInit();
     }
     private void extraInit(){
@@ -35,7 +36,7 @@ public class AddDishForm extends DishFillingForm {
                 newDish.setPrice((double) (int) spnHryvnas.getValue()
                         + ((double) (int) spnKopeikas.getValue())/100);
                 newDish.setDescription(taDishDescription.getText());
-                client.getDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
+                client.getRestaurant().getAllDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
                 //срабатывает если поставть client.add(newDish) два раза
                 client.add(newDish);
                 if(client.add(newDish)){

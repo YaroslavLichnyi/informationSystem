@@ -20,7 +20,7 @@ public class DishFillingForm extends InformSystemGUI {
         super();
         setClient(client);
         this.client = client;
-        setBounds(dimension.width / 2 - 150, dimension.height / 2 - 200, 300, 400);
+        setBounds(dimension.width / 2 - 250, dimension.height / 2 - 200, 500, 400);
         init();
         add(panel);
         setVisible(true);
@@ -31,7 +31,9 @@ public class DishFillingForm extends InformSystemGUI {
     protected void init() {
 
 
-        taDishDescription = new JTextArea(2,10);
+        taDishDescription = new JTextArea(3,20);
+        taDishDescription.setMaximumSize(new Dimension(350, 200));
+        JScrollPane scrollPane = new JScrollPane(taDishDescription);
         gridBag.gridx = 0;
         gridBag.gridy = 5;
         gridBag.gridwidth = 4;
@@ -41,8 +43,9 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,15,15);
-        gridBagLayout.setConstraints( taDishDescription, gridBag );
-        panel.add( taDishDescription );
+        gridBagLayout.setConstraints( scrollPane, gridBag );
+        //panel.add( taDishDescription );
+        panel.add(scrollPane);
 
         tfDishName = new JTextField( );
         gridBag.gridx = 0;
@@ -85,7 +88,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( lbLabel1, gridBag );
         panel.add( lbLabel1 );
 
-        spnHryvnas = new JSpinner( );
+        SpinnerModel modelHr = new SpinnerNumberModel(0, 0, 10000, 1);
+        spnHryvnas = new JSpinner(modelHr);
         gridBag.gridx = 0;
         gridBag.gridy = 3;
         gridBag.gridwidth = 1;
@@ -112,7 +116,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( lbDishDescription, gridBag );
         panel.add( lbDishDescription );
 
-        spnKopeikas = new JSpinner( );
+        SpinnerModel modelKop = new SpinnerNumberModel(0, 0, 99, 1);
+        spnKopeikas = new JSpinner( modelKop);
         gridBag.gridx = 2;
         gridBag.gridy = 3;
         gridBag.gridwidth = 1;
@@ -157,7 +162,7 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.gridy = 6;
         gridBag.gridwidth = 4;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 1;
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
@@ -165,14 +170,13 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( lbLabel1, gridBag );
         panel.add( lbLabel1 );
 
-        String[] dishCategories
-                = new String[client.getDishCategories().size()];
-        for (int i = 0; i < client.getDishCategories().size(); i++) {
-            dishCategories[i] = client.getDishCategories().get(i).getName();
+        String[] dishCategories = new String[client.getRestaurant().getAllDishCategories().size()];
+        for (int i = 0; i < client.getRestaurant().getAllDishCategories().size(); i++) {
+            dishCategories[i] = client.getRestaurant().getAllDishCategories().get(i).getName();
         }
         cmbDishCategory = new JComboBox( dishCategories );
         gridBag.gridx = 1;
-        gridBag.gridy = 7;
+        gridBag.gridy = 6;
         gridBag.gridwidth = 2;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;

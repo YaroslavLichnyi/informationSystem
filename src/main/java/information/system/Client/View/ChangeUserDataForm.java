@@ -10,6 +10,7 @@ public class ChangeUserDataForm extends InformSystemGUI{
 
     ChangeUserDataForm(Client client, User user) {
         super();
+        setTitle("Edit form");
         this.user = user;
         setBounds(dimension.width / 2 - 125, dimension.height / 2 - 125, 250, 250);
         setClient(client);
@@ -138,6 +139,7 @@ public class ChangeUserDataForm extends InformSystemGUI{
 
         tfLogin = new JTextField( );
         tfLogin.setText(user.getLogin());
+        tfLogin.setEnabled(false);
         gridBag.gridx = 1;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;

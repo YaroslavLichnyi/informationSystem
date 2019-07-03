@@ -124,7 +124,7 @@ public class DetailInformationFrame extends InformSystemGUI{
         panel.add( lbLabel9 );
 
         lbDishcategoryName = new JLabel();
-        for (DishCategory dishCategory : client.getDishCategories()){
+        for (DishCategory dishCategory : client.getRestaurant().getAllDishCategories()){
             if (dish.getDishCategoryId()==dishCategory.getId()){
                 if (dishCategory.isHealthyFood()){
                     lbDishcategoryName.setText(dishCategory.getName() + " (healthy)");

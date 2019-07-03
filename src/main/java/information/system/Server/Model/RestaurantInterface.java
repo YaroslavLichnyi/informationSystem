@@ -1,7 +1,5 @@
 package information.system.Server.Model;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,12 +7,6 @@ import java.util.List;
  * @author Yaroslav Lichnyi
  */
 public interface RestaurantInterface {
-
-    /**
-     * Collection of dish categories, which contain dishes.
-     */
-    List<DishCategory> menu = new LinkedList<>();
-
     /**
      * Sets dishes from tile to local variable.
      *
@@ -23,17 +15,17 @@ public interface RestaurantInterface {
     void setMenu(String path);
 
     /**
-     * Adds new dish category at {@link RestaurantInterface#menu}.
+     * Adds new dish category at <code>menu</code>.
      * @param newDishCategory is a dish category which is added.
      * @return true is the dish category was added, else false, if there is already the same dish category.
      */
     boolean addDishCategory(DishCategory newDishCategory);
 
     /**
-     * Sets variable value {@link RestaurantInterface#menu}.
+     * Sets variable value <code>menu</code>.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return DishCategory from {@link RestaurantInterface#menu}.
+     * @return DishCategory from <code>menu</code>.
      */
     DishCategory getDishCategory(int index);
 
@@ -44,17 +36,17 @@ public interface RestaurantInterface {
     List<DishCategory> getAllDishCategories();
 
     /**
-     * Removes dish from {@link RestaurantInterface#menu}.
+     * Removes dish from <code>menu</code>.
      *
-     * @param dishCategory is removed from {@link RestaurantInterface#menu}.
+     * @param dishCategory is removed from <code>menu</code>.
      * @return true if an object was removed, else return false.
      */
     boolean removeDishCategory(DishCategory dishCategory);
 
     /**
-     * Adds new dish at {@link RestaurantInterface#menu}.
+     * Adds new dish at <code>menu</code>.
      *
-     * @param dish is added as new Dish to {@link RestaurantInterface#menu}.
+     * @param dish is added as new Dish to <code>menu</code>.
      * @return true is the dish was added, else false, if there is already the same dish.
      */
     boolean addDish(Dish dish);
@@ -63,14 +55,14 @@ public interface RestaurantInterface {
      * Gets a dish from @link RestaurantInterface#menu}.
      *
      * @param index is a place of a dish in the list, which You get.
-     * @return Dish from {@link RestaurantInterface#menu}.
+     * @return Dish from <code>menu</code>.
      */
     Dish getDish(int index);
 
     /**
      * Removes a dish from @link RestaurantInterface#menu}.
      *
-     * @param dish is removed from {@link RestaurantInterface#menu}.
+     * @param dish is removed from <code>menu</code>.
      * @return true if an object was removed, else return false.
      */
     boolean removeDish(Dish dish);
@@ -80,7 +72,7 @@ public interface RestaurantInterface {
      *
      * @return collection of dishes ordered by price by descent.
      */
-    ArrayList<Dish> sortDishesByPrice();
+    List<Dish> sortDishesByPrice();
 
     /**
      * Sorts dished by dish category.
