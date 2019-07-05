@@ -58,11 +58,9 @@
 <dish dish-category-id="5" id="16" name="Water" price="10.0">
 <description>Drink water</description>
 </dish>
-<dish dish-category-id="5" id="17" name="Cola" price="25.0">
-<description>Coca cola</description>
-</dish>
 <dish dish-category-id="5" id="18" name="Milk" price="15.0">
 <description>Pure milk</description>
 </dish>
 </dish-category>
+<dish-category healthy-food="true" id="6" name="UKR food"/>
 </restaurant>

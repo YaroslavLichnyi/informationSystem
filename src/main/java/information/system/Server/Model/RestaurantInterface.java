@@ -118,6 +118,7 @@ public interface RestaurantInterface {
 
     /**
      * Gets dishes which contains substring in the name.
+     *
      * @param substr is a substring.
      * @return dishes which contains substring in the name.
      */
@@ -128,5 +129,21 @@ public interface RestaurantInterface {
      * @return all dishes, which are stored in dish categories.
      */
     List<Dish> getAllDishes();
+
+    /**
+     * Gets dish with given id.
+     *
+     * @param id s an id by which dish is searched.
+     * @return dish with given id.
+     */
+    Dish getDishById(int id);
+
+    /**
+     * Gets dish category with given id.
+     *
+     * @param id is an id by which dish category is searched.
+     * @return dish category with given id.
+     */
+    DishCategory getDishCategoryById(int id);
 
 }

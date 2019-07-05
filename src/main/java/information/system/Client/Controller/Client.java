@@ -292,14 +292,14 @@ public class Client implements ClientController {
         xmlSet.setCommandToDocument(Protocol.SIGN_IN);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         try {
-            System.out.println(clientSocket.toString());
             LOGGER.info("Client waits for response (sign in)");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            LOGGER.info("Client got response (sign in)");
             LinkedList <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
             if(Protocol.FALSE.equals(XmlSet.getCommandFromDocument(document))){
+                LOGGER.info("Client got response - false (sign in)");
                 return null;
             } else {
+                LOGGER.info("Client got response - user (sign in)");
                 return XmlSet.getUsersFromDocument(document).get(0);
             }
         } catch (InterruptedException e) {
@@ -507,23 +507,23 @@ public class Client implements ClientController {
                         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                         String responseStr = reader.readLine();
                         responseStr += reader.readLine();
-                        LOGGER.info("Listener got from server message.");//string: " + responseStr);
+                        LOGGER.info("Listener got from server message:" + responseStr);
                         Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                         String command = XmlSet.getCommandFromDocument(responseDoc);
                         switch(command)
                         {
                             case Protocol.SIGN_IN:
                                 try {
-                                    LOGGER.info("Exchanger in listener waits");
+                                    LOGGER.info("Command \"sign in\" is performing. Exchanger in listener waits main(client) thread");
                                     exchanger.exchange(responseStr);
-                                    LOGGER.info("Exchange was successful. Command \"sign in\" was performed");
+                                    LOGGER.info("Command \"sign in\" was performed. Exchange was successful");
                                 } catch (InterruptedException e) {
                                     LOGGER.error("Exception while exchanging",e);
                                 }
                                 break;
                             case Protocol.SIGN_UP:
                                 try {
-                                    LOGGER.info("Exchanger in listener waits");
+                                    LOGGER.info("Command \"sign up\" is performing. Exchanger in listener waits main(client) thread");
                                     exchanger.exchange(responseStr);
                                     LOGGER.info("Exchange was successful. Command \"sign up\" was performed");
                                 } catch (InterruptedException e) {
@@ -531,13 +531,12 @@ public class Client implements ClientController {
                                 }
                                 break;
                             case Protocol.UPDATE_INFORMATION:
+                                LOGGER.info("Command \"update information\" is performing. Exchanger in listener waits main(client) thread");
                                 restaurant.setMenu(XmlSet.getMenuFromDocument(responseDoc));
-                                //menu = (LinkedList<Dish>) XmlSet.getDishesFrom(responseDoc);
                                 if (user != null ){
                                     LOGGER.info("Data at dishTable was updated");
                                     menuGUI.setValuesAtTable(restaurant.getAllDishes());
                                 }
-                                //dishCategories = (LinkedList<DishCategory>) XmlSet.getDishCategoriesFrom(responseDoc);
                                 LOGGER.info("Command \"update information\" was performed");
                                 break;
 

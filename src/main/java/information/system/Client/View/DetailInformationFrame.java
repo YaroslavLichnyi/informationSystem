@@ -153,10 +153,10 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
-        gridBag.insets = new Insets(15,15,15,0);
+        gridBag.insets = new Insets(15,15,15,15);
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btEdit, gridBag );
         panel.add( btEdit );
@@ -170,10 +170,10 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
-        gridBag.fill = GridBagConstraints.BOTH;
+        gridBag.fill = GridBagConstraints.HORIZONTAL;
         gridBag.weightx = 1;
         gridBag.weighty = 0;
-        gridBag.insets = new Insets(15,0,15,15);
+        gridBag.insets = new Insets(15,15,15,15);
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btRomove, gridBag );
         panel.add( btRomove );

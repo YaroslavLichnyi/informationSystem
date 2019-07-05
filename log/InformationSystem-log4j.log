@@ -228,3 +228,889 @@ java.net.SocketException: Connection reset
 2019-07-03 23:16:34 INFO  Server:107:stop - server stopped.
 2019-07-03 23:16:34 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
 2019-07-03 23:16:34 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-04 18:44:19 INFO  ServerGUIApp:27:start - application started.
+2019-07-04 18:44:20 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-04 19:51:05 ERROR InformSystXML:107:writeXML - javax.xml.transform.TransformerException: java.lang.NullPointerException
+2019-07-04 19:52:08 ERROR InformSystXML:107:writeXML - javax.xml.transform.TransformerException: java.lang.NullPointerException
+2019-07-04 23:06:24 INFO  Restaurant:127:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:09:27 INFO  Restaurant:129:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:10:01 INFO  Restaurant:128:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:10:17 INFO  Restaurant:128:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:10:31 INFO  Restaurant:128:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:10:49 INFO  Restaurant:128:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:11:24 INFO  Restaurant:127:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:24:48 INFO  Restaurant:127:removeDish - Dish was deleted: Dish{name='borsch', price=34.5, description='some', id=19, dishCategoryId=6}
+2019-07-04 23:26:47 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-04 23:26:48 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:213)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-07-04 23:27:15 INFO  ServerGUIApp:27:start - application started.
+2019-07-04 23:27:16 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-04 23:27:37 INFO  Server:72:start - server is running.
+2019-07-04 23:27:41 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-04 23:27:41 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-04 23:27:41 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-04 23:27:41 INFO  Client:502:run - Listener starts working
+2019-07-04 23:27:41 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:41 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="17" name="Cola" price="25.0"><description>Coca cola</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-04 23:27:41 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-04 23:27:41 INFO  Client:540:run - Command "update information" was performed
+2019-07-04 23:27:41 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:50 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-04 23:27:50 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-04 23:27:50 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-04 23:27:50 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-04 23:27:50 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-04 23:27:50 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-04 23:27:50 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-04 23:27:50 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:50 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-04 23:27:50 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-04 23:27:50 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-04 23:27:56 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>delete_dish</command><dishes><dish dish-category-id="5" id="17" name="Cola" price="25.0"><description>Coca cola</description></dish></dishes></message>
+2019-07-04 23:27:56 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-04 23:27:56 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-04 23:27:56 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>delete_dish</command><dishes><dish dish-category-id="5" id="17" name="Cola" price="25.0"><description>Coca cola</description></dish></dishes></message>
+2019-07-04 23:27:56 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-04 23:27:56 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:56 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>delete_dish</command><dishes><dish dish-category-id="5" id="17" name="Cola" price="25.0"><description>Coca cola</description></dish></dishes></message>
+2019-07-04 23:27:56 INFO  Restaurant:127:removeDish - Dish was deleted: Dish{name='Cola', price=25.0, description='Coca cola', id=17, dishCategoryId=5}
+2019-07-04 23:27:56 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-04 23:27:56 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-04 23:27:56 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:56 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-04 23:27:56 INFO  ClientListener:88:run - using protocol DELETE_DISH was detected. Dish was deleted from the storage.
+2019-07-04 23:27:56 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>delete_dish</command><dishes><dish dish-category-id="5" id="17" name="Cola" price="25.0"><description>Coca cola</description></dish></dishes></message>
+2019-07-04 23:27:56 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-04 23:27:56 INFO  Client:537:run - Data at dishTable was updated
+2019-07-04 23:27:56 INFO  Client:540:run - Command "update information" was performed
+2019-07-04 23:27:56 INFO  Client:506:run - Listener waits for response
+2019-07-04 23:27:56 INFO  Restaurant:132:removeDish - Dish was not deleted: Dish{name='Cola', price=25.0, description='Coca cola', id=17, dishCategoryId=5}
+2019-07-04 23:27:56 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>false</command></message>
+2019-07-04 23:27:56 INFO  ClientListener:88:run - using protocol DELETE_DISH was detected. Dish was deleted from the storage.
+2019-07-04 23:28:04 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-04 23:29:43 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-04 23:29:43 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-05 11:53:08 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 11:53:09 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 11:53:12 INFO  Server:72:start - server is running.
+2019-07-05 11:53:24 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 11:53:24 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 11:53:24 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 11:53:24 INFO  Client:502:run - Listener starts working
+2019-07-05 11:53:24 INFO  Client:506:run - Listener waits for response
+2019-07-05 11:53:24 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 11:53:24 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 11:53:24 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 11:53:24 INFO  Client:506:run - Listener waits for response
+2019-07-05 11:54:05 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 11:54:05 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 11:54:05 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 11:54:05 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 11:54:05 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 11:54:05 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 11:54:05 INFO  Client:506:run - Listener waits for response
+2019-07-05 11:54:05 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 11:54:05 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 11:54:05 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 11:54:05 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:04:27 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:05:15 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:05:15 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:05:15 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:05:15 INFO  Client:502:run - Listener starts working
+2019-07-05 12:05:15 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:05:15 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:05:15 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:05:15 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:05:15 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:06:12 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:06:18 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:06:18 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:06:18 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:06:18 INFO  Client:502:run - Listener starts working
+2019-07-05 12:06:18 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:06:18 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:06:18 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:06:18 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:06:18 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:06:38 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:07:11 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:07:11 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:07:11 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:07:11 INFO  Client:502:run - Listener starts working
+2019-07-05 12:07:11 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:07:11 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:07:11 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:07:11 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:07:11 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:07:20 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:07:20 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:07:20 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:07:20 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:07:20 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:07:20 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:07:20 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:07:20 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:07:20 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:07:20 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:07:20 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:11:54 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:12:05 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:12:05 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:12:05 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:12:05 INFO  Client:502:run - Listener starts working
+2019-07-05 12:12:05 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:12:05 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:12:05 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:12:05 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:12:05 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:12:14 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:12:14 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:12:14 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:12:14 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:12:14 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:12:14 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:12:14 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:12:14 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:12:14 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:12:14 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:12:14 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:13:51 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:13:59 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:13:59 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:13:59 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:13:59 INFO  Client:502:run - Listener starts working
+2019-07-05 12:13:59 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:13:59 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:13:59 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:13:59 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:13:59 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:14:10 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:14:10 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:14:10 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:14:10 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:14:10 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:14:10 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:14:10 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:14:10 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:14:10 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:14:10 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:14:10 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:15:34 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:25:04 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:25:04 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:25:04 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:25:04 INFO  Client:502:run - Listener starts working
+2019-07-05 12:25:04 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:25:04 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:25:04 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:25:04 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:25:04 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:25:24 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:25:24 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:25:24 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:25:24 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:25:24 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:25:24 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:25:24 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:25:24 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:25:24 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:25:24 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:25:24 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:26:25 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:26:33 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:26:33 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:26:33 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:26:33 INFO  Client:502:run - Listener starts working
+2019-07-05 12:26:33 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:26:33 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:26:33 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:26:33 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:26:33 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:26:43 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:26:43 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:26:43 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:26:43 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:26:43 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:26:43 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:26:43 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:26:43 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:26:43 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:26:43 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:26:43 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:29:32 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:29:40 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:29:40 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:29:40 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:29:40 INFO  Client:502:run - Listener starts working
+2019-07-05 12:29:40 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:29:40 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:29:40 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:29:40 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:29:40 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:29:51 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:29:51 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:29:51 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:29:51 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:29:51 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:29:51 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:29:51 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:29:51 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:29:51 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:29:51 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:29:51 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:30:57 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 12:31:12 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 12:31:12 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 12:31:12 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 12:31:12 INFO  Client:502:run - Listener starts working
+2019-07-05 12:31:12 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:31:12 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 12:31:12 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:31:12 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 12:31:12 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:31:24 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:31:24 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 12:31:24 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 12:31:24 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 12:31:24 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:31:24 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:31:24 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 12:31:24 INFO  Client:506:run - Listener waits for response
+2019-07-05 12:31:24 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 12:31:24 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 12:31:24 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 12:33:39 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 13:12:22 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:12:22 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:12:22 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:12:22 INFO  Client:502:run - Listener starts working
+2019-07-05 13:12:22 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:12:22 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:12:22 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:12:22 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:12:22 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:12:32 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:12:32 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:12:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:12:32 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:12:32 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:12:32 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:12:32 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:12:32 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:12:32 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:12:32 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:12:32 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:14:51 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 13:14:53 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 13:15:00 INFO  Server:72:start - server is running.
+2019-07-05 13:15:02 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:15:02 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:15:02 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:15:02 INFO  Client:502:run - Listener starts working
+2019-07-05 13:15:02 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:03 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:15:03 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:15:03 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:15:03 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:12 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:15:12 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:15:12 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:15:12 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:15:12 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:15:12 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:15:12 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:12 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:15:12 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:15:12 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:15:12 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:15:36 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>add_dish</command><dishes><dish dish-category-id="1" id="0" name="fdgdfh" price="3.0"><description>fgjdfhj</description></dish></dishes></message>
+2019-07-05 13:15:36 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish</command><dishes><dish dish-category-id="1" id="0" name="fdgdfh" price="3.0"><description>fgjdfhj</description></dish></dishes></message>
+2019-07-05 13:15:36 INFO  Client:67:add - New dish was added: Dish{name='fdgdfh', price=3.0, description='fgjdfhj', id=0, dishCategoryId=1}
+2019-07-05 13:15:36 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 13:15:36 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:15:36 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:36 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>add_dish</command><dishes><dish dish-category-id="1" id="0" name="fdgdfh" price="3.0"><description>fgjdfhj</description></dish></dishes></message>
+2019-07-05 13:15:36 INFO  Client:67:add - New dish was added: Dish{name='fdgdfh', price=3.0, description='fgjdfhj', id=0, dishCategoryId=1}
+2019-07-05 13:15:36 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 13:15:36 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 13:15:36 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 13:15:36 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:36 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish><dish dish-category-id="1" id="17" name="fdgdfh" price="3.0"><description>fgjdfhj</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:15:36 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:15:36 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 13:15:36 INFO  ClientListener:60:run - using protocol ADD_DISH was detected. Dish was added into the storage.
+2019-07-05 13:15:36 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>add_dish</command><dishes><dish dish-category-id="1" id="0" name="fdgdfh" price="3.0"><description>fgjdfhj</description></dish></dishes></message>
+2019-07-05 13:15:36 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:15:36 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:15:36 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>false</command></message>
+2019-07-05 13:15:36 INFO  ClientListener:60:run - using protocol ADD_DISH was detected. Dish was added into the storage.
+2019-07-05 13:24:52 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 13:24:52 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 13:24:56 INFO  Server:72:start - server is running.
+2019-07-05 13:26:21 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:26:21 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:26:21 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:26:21 INFO  Client:502:run - Listener starts working
+2019-07-05 13:26:21 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:26:21 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:26:21 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:26:21 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:26:21 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:26:32 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:26:32 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:26:32 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:26:32 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:26:32 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:26:32 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:26:32 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:26:32 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:26:32 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:26:32 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:26:32 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:27:14 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 13:28:14 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:28:14 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:28:14 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:28:14 INFO  Client:502:run - Listener starts working
+2019-07-05 13:28:14 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:28:14 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:28:14 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:28:14 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:28:14 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:28:22 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:28:22 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:28:22 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:28:22 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:28:22 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:28:22 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:28:22 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:28:22 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:28:22 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:28:22 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:28:22 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:28:39 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 13:29:27 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:29:27 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:29:27 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:29:27 INFO  Client:502:run - Listener starts working
+2019-07-05 13:29:27 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:29:27 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:29:27 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:29:27 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:29:27 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:29:37 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:29:37 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:29:37 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:29:37 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:29:37 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:29:37 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:29:37 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:29:37 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:29:37 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:29:37 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:29:37 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:30:48 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 13:30:49 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 13:30:50 INFO  Server:72:start - server is running.
+2019-07-05 13:30:52 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:30:52 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:30:52 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:30:53 INFO  Client:502:run - Listener starts working
+2019-07-05 13:30:53 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:30:53 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:30:53 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:30:53 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:30:53 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:31:00 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:31:00 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:31:00 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:31:00 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:31:00 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:31:00 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:31:00 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:31:00 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:31:00 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:31:00 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:31:00 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:31:59 ERROR ClientListener:184:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 13:32:06 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:32:06 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 13:32:06 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 13:32:06 INFO  Client:502:run - Listener starts working
+2019-07-05 13:32:06 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:06 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:32:06 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:32:06 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:32:06 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:17 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:32:17 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 13:32:17 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 13:32:17 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:32:17 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 13:32:17 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:32:17 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:32:17 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:17 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 13:32:17 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 13:32:17 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:32:25 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 13:32:25 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 13:32:25 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 13:32:25 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:25 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 13:32:25 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 13:32:25 INFO  ClientListener:112:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 13:32:35 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 13:32:35 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 13:32:35 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 13:32:35 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:35 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 13:32:35 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 13:32:35 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 13:32:35 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 13:32:35 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 13:32:35 INFO  Client:506:run - Listener waits for response
+2019-07-05 13:32:35 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>false</command></message>
+2019-07-05 13:32:35 INFO  ClientListener:112:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 13:44:06 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 13:44:07 ERROR ChangePortForm:83:actionPerformed - Unable to connect to server
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at information.system.Client.Controller.Client.connectToServer(Client.java:213)
+	at information.system.Client.View.ChangePortForm$1.actionPerformed(ChangePortForm.java:79)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-07-05 13:44:18 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 13:44:18 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 13:54:55 INFO  ServerViewGeneral:91:onServerTerminateButtonPressed - server is being terminated.
+2019-07-05 13:54:55 INFO  ServerViewGeneral:96:onServerTerminateButtonPressed - application is being closed.
+2019-07-05 14:15:29 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 14:15:31 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 14:15:38 INFO  Server:72:start - server is running.
+2019-07-05 14:15:41 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 14:15:41 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 14:15:41 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 14:15:41 INFO  Client:502:run - Listener starts working
+2019-07-05 14:15:41 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:15:41 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:15:41 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:15:41 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:15:41 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:15:55 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:15:55 INFO  Client:296:signIn - Client waits for response (sign in)
+2019-07-05 14:15:55 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:15:55 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 14:15:55 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:15:55 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 14:15:55 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:15:55 INFO  Client:298:signIn - Client got response (sign in)
+2019-07-05 14:15:55 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 14:15:55 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 14:15:55 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:16:05 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:16:05 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 14:16:05 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 14:16:05 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:16:05 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:16:06 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 14:16:06 INFO  ClientListener:113:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 14:16:08 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:16:08 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 14:16:08 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 14:16:08 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:16:08 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:16:08 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:16:08 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:16:08 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 14:16:08 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:16:08 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:16:08 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>false</command></message>
+2019-07-05 14:16:08 INFO  ClientListener:113:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 14:31:55 ERROR ClientListener:185:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 14:33:00 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 14:33:00 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 14:33:01 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 14:33:01 INFO  Client:502:run - Listener starts working
+2019-07-05 14:33:45 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:33:45 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:33:45 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:33:45 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:33:45 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:33:46 ERROR ClientListener:185:run - protocol error, 
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at information.system.Server.Controller.ClientListener.run(ClientListener.java:48)
+2019-07-05 14:33:57 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 14:33:57 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 14:33:57 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 14:33:57 INFO  Client:502:run - Listener starts working
+2019-07-05 14:34:00 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:34:27 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:34:58 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:35:06 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:35:12 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:36:11 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:36:11 INFO  Client:295:signIn - Client waits for response (sign in)
+2019-07-05 14:36:11 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:36:11 INFO  ClientListener:153:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 14:36:27 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 14:36:54 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:38:26 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 14:38:26 INFO  Client:302:signIn - Client got response - user (sign in)
+2019-07-05 14:38:29 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:38:43 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 14:38:46 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:42:34 INFO  ServerGUIApp:27:start - application started.
+2019-07-05 14:42:35 INFO  ServerViewGeneral:164:initialize - ServerViewGUI started.
+2019-07-05 14:42:45 INFO  Server:72:start - server is running.
+2019-07-05 14:43:07 INFO  Client:472:changePort - port is the same and has not been changed.
+2019-07-05 14:43:07 INFO  Server:56:lambda$start$0 - New socket connected.
+2019-07-05 14:43:07 INFO  Client:222:connectToServer - Client was connected to server.
+2019-07-05 14:43:07 INFO  Client:502:run - Listener starts working
+2019-07-05 14:43:07 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:07 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:43:07 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:43:07 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:43:07 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:20 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:43:20 INFO  Client:295:signIn - Client waits for response (sign in)
+2019-07-05 14:43:20 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><users><user admin="false" id="0" login="Yaroslav0108" name="" password="01081999"/></users><command>sign_in</command></message>
+2019-07-05 14:43:20 INFO  ClientListener:152:run - using protocol SIGN_IN was detected. User was logged in.
+2019-07-05 14:43:20 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>sign_in</command><users><user admin="true" id="0" login="Yaroslav0108" name="Yaroslav" password="01081999"/></users></message>
+2019-07-05 14:43:20 INFO  Client:517:run - Command "sign in" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:43:20 INFO  Client:519:run - Command "sign in" was performed. Exchange was successful
+2019-07-05 14:43:20 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:20 INFO  Client:302:signIn - Client got response - user (sign in)
+2019-07-05 14:43:27 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 14:43:27 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk+</description></dish></dishes></message>
+2019-07-05 14:43:27 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 14:43:27 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 14:43:27 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 14:43:27 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:27 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:43:27 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:43:27 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 14:43:27 INFO  ClientListener:112:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 14:43:27 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:43:27 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:35 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:43:35 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 14:43:35 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk+</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:43:35 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 14:43:35 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 14:43:35 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:43:35 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:43:35 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:43:35 INFO  ClientListener:112:run - using protocol EDIT_DISH was detected. Dish was edited successfully.
+2019-07-05 14:43:35 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 14:43:35 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:43:35 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:44:22 INFO  Client:268:sendRequest - Client send next request: <?xml version="1.0" encoding="UTF-16"?>
+<message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:44:22 INFO  Client:407:getExchange - Exchanger in Client waits for exchange
+2019-07-05 14:44:22 INFO  ClientListener:50:run - Client listener got a string from client : <?xml version="1.0" encoding="UTF-16"?><message><command>edit_dish</command><dishes><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish><dish dish-category-id="5" id="0" name="Milk" price="15.0"><description>Pure milk</description></dish></dishes></message>
+2019-07-05 14:44:22 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>true</command></message>
+2019-07-05 14:44:22 INFO  Client:562:run - Response "true" was delivered to client
+2019-07-05 14:44:22 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:44:22 INFO  Client:510:run - Listener got from server message:<?xml version="1.0" encoding="UTF-16"?><message><command>update_information</command><menu><dish-category healthy-food="false" id="1" name="Meat"><dish dish-category-id="1" id="1" name="Pork" price="150.0"><description>Steak</description></dish><dish dish-category-id="1" id="2" name="Beaf" price="200.0"><description>Beafsteak</description></dish><dish dish-category-id="1" id="3" name="Chicken" price="100.0"><description>Roast chicken</description></dish><dish dish-category-id="1" id="4" name="Crab" price="250.0"><description>Boiled Crab</description></dish></dish-category><dish-category healthy-food="false" id="2" name="Garnishes"><dish dish-category-id="2" id="5" name="Potato" price="35.0"><description>Baked potato</description></dish><dish dish-category-id="2" id="6" name="Buckwheat" price="20.0"><description>Boiled buckwheat</description></dish><dish dish-category-id="2" id="7" name="Pasta" price="25.0"><description>Pasta with cheese</description></dish><dish dish-category-id="2" id="8" name="Rice" price="30.0"><description>Boiled rice</description></dish></dish-category><dish-category healthy-food="false" id="3" name="Salads"><dish dish-category-id="3" id="9" name="Cabbage" price="25.0"><description>Sliced cabbage</description></dish><dish dish-category-id="3" id="10" name="Fresh vegetables" price="50.0"><description>Fresh sliced vegetables</description></dish></dish-category><dish-category healthy-food="true" id="4" name="Desserts"><dish dish-category-id="4" id="11" name="Cake" price="55.0"><description>Cherry cake</description></dish><dish dish-category-id="4" id="12" name="Ice Cream" price="45.0"><description>Strawberry ice cream</description></dish><dish dish-category-id="4" id="13" name="Chocolate" price="50.0"><description>Hot chocolate</description></dish></dish-category><dish-category healthy-food="false" id="5" name="Drinks"><dish dish-category-id="5" id="14" name="Coffee" price="60.0"><description>Pure black coffee</description></dish><dish dish-category-id="5" id="15" name="Juice" price="20.0"><description>Fruit juice</description></dish><dish dish-category-id="5" id="16" name="Water" price="10.0"><description>Drink water</description></dish><dish dish-category-id="5" id="18" name="Milk" price="15.0"><description>Pure milk</description></dish></dish-category><dish-category healthy-food="true" id="6" name="UKR food"/></menu></message>
+2019-07-05 14:44:22 INFO  Client:534:run - Command "update information" is performing. Exchanger in listener waits main(client) thread
+2019-07-05 14:44:22 INFO  Client:537:run - Data at dishTable was updated
+2019-07-05 14:44:22 INFO  Client:540:run - Command "update information" was performed
+2019-07-05 14:44:22 INFO  Client:506:run - Listener waits for response
+2019-07-05 14:44:22 INFO  ClientListener:112:run - using protocol EDIT_DISH was detected. Dish was edited successfully.

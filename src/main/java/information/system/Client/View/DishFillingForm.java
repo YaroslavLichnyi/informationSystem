@@ -29,8 +29,6 @@ public class DishFillingForm extends InformSystemGUI {
 
     @Override
     protected void init() {
-
-
         taDishDescription = new JTextArea(3,20);
         taDishDescription.setMaximumSize(new Dimension(350, 200));
         JScrollPane scrollPane = new JScrollPane(taDishDescription);
@@ -187,5 +185,11 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints(cmbDishCategory, gridBag );
         panel.add(cmbDishCategory);
         add(panel);
+    }
+
+    protected double getInputedPrice(){
+        return Double.valueOf((int)spnHryvnas.getValue())
+                + (double)spnKopeikas.getValue()
+                / 100.0;
     }
 }

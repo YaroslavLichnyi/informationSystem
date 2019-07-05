@@ -7,8 +7,12 @@ import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class SignInForm extends InformSystemGUI {
+    private JTextField tfLogin;
+    private JPasswordField tfPassword;
     public SignInForm(Client client) {
         setBounds(dimension.width / 2 - 150, dimension.height / 2 - 125, 300, 250);
         setClient(client);
@@ -22,10 +26,8 @@ public class SignInForm extends InformSystemGUI {
 
     @Override
     protected void init() {
-        final JTextField tfLogin;
         JLabel lbLogin;
         JLabel lbPassword;
-        final JPasswordField tfPassword;
         JButton btSignIn;
         JButton btBut1;
 
@@ -95,20 +97,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.insets = new Insets(10,10,10,10);
         gridBagLayout.setConstraints( btSignIn, gridBag );
         panel.add( btSignIn );
-        btSignIn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User user = client.signIn(tfLogin.getText(), String.valueOf(tfPassword.getPassword()));
-                if (user == null){
-                    JFrame frame = new JFrame("Error");
-                    JOptionPane.showMessageDialog(frame, "There is no user with the same login or/and password");
-                } else {
-                    client.setUser(user);
-                    client.showGeneralFrame();
-                    dispose();
-                }
-            }
-        });
+        btSignIn.addActionListener(e -> signIn());
 
         btBut1 = new JButton( "Sign up"  );
         gridBag.gridx = 1;
@@ -129,5 +118,30 @@ public class SignInForm extends InformSystemGUI {
             }
         });
 
+        tfPassword.addKeyListener(new KeyAdapter() {
+            /**
+             * Invoked when a key has been typed.
+             * This event occurs when a key press is followed by a key release.
+             *
+             * @param e
+             */
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_ENTER){
+                    signIn();
+                }
+            }
+        });
+    }
+    private void signIn(){
+        User user = client.signIn(tfLogin.getText(), String.valueOf(tfPassword.getPassword()));
+        if (user == null){
+            JFrame frame = new JFrame("Error");
+            JOptionPane.showMessageDialog(frame, "There is no user with the same login or/and password");
+        } else {
+            client.setUser(user);
+            client.showGeneralFrame();
+            dispose();
+        }
     }
 }

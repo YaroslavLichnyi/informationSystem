@@ -36,23 +36,16 @@ public class EditDishForm extends DishFillingForm {
         gridBagLayout.setConstraints( btEdit, gridBag );
         panel.add( btEdit );
         btEdit.addActionListener(e -> {
-            if((double) (int) spnHryvnas.getValue()
-                    + ((double) (int) spnKopeikas.getValue())/100 < 0 ){
-                InformSystemGUI.showMessage("The price can not be less than 0");
+            Dish newDish = new Dish();
+            newDish.setName(tfDishName.getText());
+            newDish.setPrice(getInputedPrice());
+            newDish.setDescription(taDishDescription.getText());
+            client.getRestaurant().getAllDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
+            if(client.edit(oldDish,newDish)){
+                dispose();
             } else {
-                Dish newDish = new Dish();
-                newDish.setName(tfDishName.getText());
-                newDish.setPrice((double) (int) spnHryvnas.getValue()
-                        + ((double) (int) spnKopeikas.getValue())/100);
-                newDish.setDescription(taDishDescription.getText());
-                client.getRestaurant().getAllDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
-                if(client.edit(oldDish,newDish)){
-                    dispose();
-                } else {
-                    InformSystemGUI.showMessage("Dish was not edited");
-                }
+                InformSystemGUI.showMessage("Dish was not edited");
             }
-
         });
     }
 }

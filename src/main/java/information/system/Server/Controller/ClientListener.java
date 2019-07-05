@@ -155,7 +155,6 @@ public class ClientListener extends Thread {
                             logger.info("using protocol END_OF_SESSION was detected. " +
                                         "It was wrong trying to log the user out.");
                         }
-                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
 
                     case Protocol.FIND_DISH:

@@ -1,8 +1,12 @@
 package information.system.Server.Model;
 
+import org.apache.log4j.Logger;
+
 import java.util.*;
 
 public class Restaurant implements RestaurantInterface{
+    private static final Logger LOGGER = Logger.getLogger(Restaurant.class);
+
 
     /**
      * Collection of dish categories, which contain dishes.
@@ -119,10 +123,13 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean removeDish(Dish dish) {
-        if(getAllDishes().remove(dish)){
+        if( getDishCategoryById(dish.getDishCategoryId()).removeDish(dish)){
+            LOGGER.info("Dish was deleted: " + dish.toString());
+            System.out.println(menu.toString());
             updateDataBase();
-            return  true;
+            return true;
         }
+        LOGGER.info("Dish was not deleted: " + dish.toString());
         return false;
     }
 
@@ -256,6 +263,40 @@ public class Restaurant implements RestaurantInterface{
         return dishes;
     }
 
+    /**
+     * Gets dish with given id.
+     *
+     * @param id s an id by which dish is searched.
+     * @return dish with given id.
+     */
+    @Override
+    public Dish getDishById(int id) {
+        for (DishCategory dishCategory : menu){
+            for (Dish dish: dishCategory.getDishes()) {
+                if (dish.getId() == id ){
+                    return dish;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets dish category with given id.
+     *
+     * @param id is an id by which dish category is searched.
+     * @return dish category with given id.
+     */
+    @Override
+    public DishCategory getDishCategoryById(int id) {
+        for (DishCategory dishCategory : menu){
+            if (dishCategory.getId() == id ){
+                return dishCategory;
+            }
+        }
+        return null;
+    }
+
 
     /**
      * Check if <code>password</code> and <code>password</code> were inputted correct.
@@ -273,7 +314,7 @@ public class Restaurant implements RestaurantInterface{
      * @return unique id.
      */
     public int generateUniqueIdForDishCategory(){
-        int id = 1;//0
+        int id = 1;
         boolean free = false;
         if(menu.size() > 0){
             while (!free){
@@ -285,7 +326,7 @@ public class Restaurant implements RestaurantInterface{
                     free = true;
                 }
             }
-        } else return 1;//0
+        } else return 1;
         return id;
     }
 
@@ -322,8 +363,5 @@ public class Restaurant implements RestaurantInterface{
         }
         return  null;
     }
-
-
-
 
 }

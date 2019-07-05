@@ -85,8 +85,8 @@ public class DishCategory implements Serializable {
      *
      * @param dish is removed from {@link DishCategory #dishes}.
      */
-    public void removeDish(Dish dish){
-        dishes.remove(dish);
+    public boolean removeDish(Dish dish){
+        return dishes.remove(dish);
     }
 
     /**
