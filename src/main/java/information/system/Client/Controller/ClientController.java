@@ -131,4 +131,19 @@ public interface ClientController {
      */
     void showGeneralFrame();
 
+    /**
+     * Gets all users from storage.
+     *
+     * @return all users that are sighed up.
+     */
+    List<User> getAllUsers();
+
+    /**
+     * Gives the user admin rights.
+     *
+     * @param user is a user, that gets admin rights.
+     * @return true if operation was successful, else return false.
+     */
+    boolean makeAdmin(User user);
+
 }

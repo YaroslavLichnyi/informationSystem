@@ -140,20 +140,18 @@ public class User {
             InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
             return true;
         }
-        /*Document doc = XmlSet.getDocumentFromFile(Command.SERVER_FILE_ADMINS);
-        NodeList nodes = doc.getElementsByTagName("user");
-        for (int i = 0; i < nodes.getLength(); i++) {
-            for (int j = 0; j < nodes.item(i).getAttributes().getLength(); j++) {
-                if (nodes.item(i).getAttributes().item(j).getNodeName().equals("id")
-                        && nodes.item(i).getAttributes().item(j).getTextContent().equals(String.valueOf(userToDelete.getId()))){
-                    Element user = (Element)nodes.item(i);
-                    user.getParentNode().removeChild(user);
-                    //person.getParentNode().removeChild(person);
-                    //nodes.item(i).getParentNode().removeChild( nodes.item(i));
-                    return true;
-                }
+        return false;
+    }
+
+    public static boolean makeAdmin(User user54){
+        List<User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
+        for (User user : users) {
+            if (user.equals(user54) && !user.isAdmin()){
+                user.setAdmin(true);
+                InformSystXML.writeUsers(users, Command.SERVER_FILE_ADMINS);
+                return true;
             }
-        }*/
+        }
         return false;
     }
 

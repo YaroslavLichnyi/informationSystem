@@ -119,12 +119,6 @@ public class SignInForm extends InformSystemGUI {
         });
 
         tfPassword.addKeyListener(new KeyAdapter() {
-            /**
-             * Invoked when a key has been typed.
-             * This event occurs when a key press is followed by a key release.
-             *
-             * @param e
-             */
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode()==KeyEvent.VK_ENTER){

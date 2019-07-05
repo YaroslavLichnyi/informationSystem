@@ -361,6 +361,44 @@ public class Client implements ClientController {
     }
 
     /**
+     * Gets all users from storage.
+     *
+     * @return all users that are sighed up.
+     */
+    @Override
+    public List<User> getAllUsers() {
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.GET_USERS);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        try {
+            LOGGER.info("Client waits for response (get all users)");
+            Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
+            List <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
+            return list;
+        } catch (InterruptedException e) {
+            LOGGER.error("Exception while exchanging", e);
+        }
+        return null;
+    }
+
+    /**
+     * Gives the user admin rights.
+     *
+     * @param user is a user, that gets admin rights.
+     * @return true if operation was successful, else return false.
+     */
+    @Override
+    public boolean makeAdmin(User user) {
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.MAKE_ADMIN);
+        List<User> users = new LinkedList<>();
+        users.add(user);
+        xmlSet.setUsersToDocument(users);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
+        return getExchange();
+    }
+
+    /**
      * Signs out
      */
     @Override
@@ -541,6 +579,15 @@ public class Client implements ClientController {
                                 break;
 
                             case Protocol.END_OF_SESSION:
+                                break;
+
+                            case Protocol.GET_USERS:
+                                try {
+                                    exchanger.exchange(responseStr);
+                                    LOGGER.info("Response \"ger users\" was delivered to client");
+                                } catch (InterruptedException e) {
+                                    LOGGER.error("Exception while exchanging",e);
+                                }
                                 break;
 /*
                             case Protocol.FIND_DISH:

@@ -20,6 +20,8 @@ public interface Protocol {
     String SORT_BY_PRICE         = "sort_by_price";
     String SORT_BY_DISH_CATEGORY = "sort_by_dish_category";
     String UPDATE_INFORMATION    = "update_information";
+    String GET_USERS             = "get_users";
+    String MAKE_ADMIN            = "make_admin";
     String TRUE                  = "true";
     String FALSE                 = "false";
 }

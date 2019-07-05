@@ -177,6 +177,17 @@ public class ClientListener extends Thread {
                         logger.info("using protocol SORT_BY_DISH_CATEGORY was detected." +
                                     " Dishes was sorted by category.");
                         break;
+
+                    case Protocol.MAKE_ADMIN:
+                        xmlToSend.setCommandToDocument(String.valueOf(User.makeAdmin(XmlSet.getUsersFromDocument(doc).get(0))));
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        break;
+
+                    case Protocol.GET_USERS:
+                        xmlToSend.setUsersToDocument(InformSystXML.readUsers(Command.SERVER_FILE_ADMINS));
+                        xmlToSend.setCommandToDocument(Protocol.GET_USERS);
+                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+                        break;
                 }
             }
         } catch (IOException e) {

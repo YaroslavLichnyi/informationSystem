@@ -11,10 +11,7 @@ import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class MenuGUI extends InformSystemGUI {
     private JComboBox cmbSortBy;
     private JTextField tfName;
     private JButton btShowDishCategories;
+    private JButton btFind;
     private JTable dishesTable;
     private JLabel lbSortBy;
     private DefaultTableModel model;
@@ -51,10 +49,7 @@ public class MenuGUI extends InformSystemGUI {
             client.exit();
             System.exit(0);
         });
-
         jMenuBar.add(menuFile);
-
-
         if (client.getUser().isAdmin()){
             JMenu addRestMenu = new JMenu("Restaurant menu");
             JMenuItem itAddNewDish = new JMenuItem("Add new dish");
@@ -75,14 +70,9 @@ public class MenuGUI extends InformSystemGUI {
             addRestMenu.add(itAddNewDishCategory);
             jMenuBar.add(addRestMenu);
         }
-
-
-
         JMenu userMenu = new JMenu("User : " + client.getUser().getName());
-
         JMenuItem itChangeData = new JMenuItem("Change information");
         itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
-
         JMenuItem signOut = new JMenuItem("Sign out");
         signOut.addActionListener(e -> {
             client.setUser(null);
@@ -90,17 +80,19 @@ public class MenuGUI extends InformSystemGUI {
             dispose();
             LOGGER.info("User signed out");
         });
+        JMenuItem itManageUsers = new JMenuItem("Manage users");
+        itManageUsers.addActionListener(e -> new AllUsersInfo(client));
 
-        JMenu updateMenu = new JMenu("Update content");
-        updateMenu.addMenuListener(new MenuListener() {
+        JMenu helpMenu = new JMenu("Help");
+        helpMenu.addMenuListener(new MenuListener() {
             @Override
             public void menuSelected(MenuEvent e) {
-                client.updateContent();
+
             }
 
             @Override
             public void menuDeselected(MenuEvent e) {
-
+                new HelpForm();
             }
 
             @Override
@@ -111,9 +103,9 @@ public class MenuGUI extends InformSystemGUI {
 
         userMenu.add(itChangeData);
         userMenu.add(signOut);
-
-        jMenuBar.add(updateMenu);
+        userMenu.add(itManageUsers);
         jMenuBar.add(userMenu);
+        jMenuBar.add(helpMenu);
 
         this.setJMenuBar(jMenuBar);
         this.revalidate();
@@ -146,8 +138,16 @@ public class MenuGUI extends InformSystemGUI {
         gridBagLayout.setConstraints(tfName, gridBag );
         ((AbstractDocument) tfName.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
         panel.add(tfName);
+        tfName.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_ENTER){
+                    find();
+                }
+            }
+        });
 
-        btShowDishCategories = new JButton( "Find"  );
+        btFind = new JButton( "Find"  );
         gridBag.gridx = 4;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
@@ -157,22 +157,10 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(15,15,0,15);
-        gridBagLayout.setConstraints(btShowDishCategories, gridBag );
-        panel.add(btShowDishCategories);
-        btShowDishCategories.addActionListener(e -> {
-            if(tfName.getText().length() > 0){
-                List <Dish> dishes = client.getDishesWhichContains(tfName.getText());
-                if (dishes==null){
-                    InformSystemGUI.showMessage("Problems with getting dishes from server");
-                } else if (dishes.size() == 0){
-                    InformSystemGUI.showMessage("There are no dishes, which contain \""
-                            + tfName.getText() + "\" in name");
-                } else {
-                    setValuesAtTable(dishes);
-                }
-            } else {
-             InformSystemGUI.showMessage("Enter at least 1 letter");
-            }
+        gridBagLayout.setConstraints(btFind, gridBag );
+        panel.add(btFind);
+        btFind.addActionListener(e -> {
+            find();
         });
 
 
@@ -208,7 +196,7 @@ public class MenuGUI extends InformSystemGUI {
 
         btShowDishCategories = new JButton( "Show dish categories"  );
         gridBag.gridx = 2;
-        gridBag.gridy = 1;
+        gridBag.gridy = 2;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
@@ -222,7 +210,7 @@ public class MenuGUI extends InformSystemGUI {
 
         btShowDishCategories = new JButton( "Show all dishes"  );
         gridBag.gridx = 2;
-        gridBag.gridy = 2;
+        gridBag.gridy = 1;
         gridBag.gridwidth = 1;
         gridBag.gridheight = 1;
         gridBag.fill = GridBagConstraints.HORIZONTAL;
@@ -274,6 +262,22 @@ public class MenuGUI extends InformSystemGUI {
             i++;
         }
         dishesTable.repaint();
+    }
+
+    private void find(){
+        if(tfName.getText().length() > 0){
+            List <Dish> dishes = client.getDishesWhichContains(tfName.getText());
+            if (dishes==null){
+                InformSystemGUI.showMessage("Problems with getting dishes from server");
+            } else if (dishes.size() == 0){
+                InformSystemGUI.showMessage("There are no dishes, which contain \""
+                        + tfName.getText() + "\" in name");
+            } else {
+                setValuesAtTable(dishes);
+            }
+        } else {
+            InformSystemGUI.showMessage("Enter at least 1 letter");
+        }
     }
 }
 

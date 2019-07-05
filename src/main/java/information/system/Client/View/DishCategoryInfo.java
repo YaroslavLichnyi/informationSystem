@@ -55,7 +55,6 @@ public class DishCategoryInfo extends InformSystemGUI{
         });
     }
 
-
     private void setValuesAtTable(){
         LinkedList<DishCategory> dishCategories = (LinkedList<DishCategory>) client.getRestaurant().getAllDishCategories();
         final int tableRowSize = dishCategories.size();
@@ -76,5 +75,4 @@ public class DishCategoryInfo extends InformSystemGUI{
         }
         dishesTable.repaint();
     }
-
 }
