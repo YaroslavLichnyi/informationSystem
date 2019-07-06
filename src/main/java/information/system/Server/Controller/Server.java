@@ -1,19 +1,21 @@
 package information.system.Server.Controller;
 
-import information.system.Server.Model.*;
-import org.apache.log4j.Logger;
+import information.system.Server.Model.Restaurant;
 import information.system.Server.View.ServerViewGUI;
+import org.apache.log4j.Logger;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
-import java.io.*;
 
 /**
  * Server of client-server application for the restaurant.
  */
-public class Server extends Observable implements ServerControllerInterface {
+public class Server/* extends Observable*/ implements ServerControllerInterface, Observer {
     private static final Logger logger = Logger.getLogger(Server.class);
     private ServerSocket serverSocket;
     private Socket clientSocket;
@@ -33,6 +35,7 @@ public class Server extends Observable implements ServerControllerInterface {
         this.portWasChanged = false;
         restaurant = new Restaurant();
         this.view = view;
+
     }
 
     /**
@@ -40,8 +43,6 @@ public class Server extends Observable implements ServerControllerInterface {
      */
     @Override
     public void start() {
-//        logger.info("server is starting.");
-//        view.logging("Server is starting.");
         if (isRunning()) {
             view.logging("Fault: attempt to start running server.");
             logger.error("fault: attempt to start running server.");
@@ -53,9 +54,8 @@ public class Server extends Observable implements ServerControllerInterface {
                 this.setRunning(true);
                 while (true) {                                       // is being blocked until the new client connection
                     clientSocket = serverSocket.accept();
-                    logger.info("New socket connected.");
-//                    view.display("new client accepted.");
-                    view.logging("New socket accepted.");
+                    logger.info("New socket accepted.  User is attempting to login to the system.");
+                    view.logging("New socket accepted. User is attempting to login to the system.");
                     clients.add(new ClientListener(clientSocket, this));
                 }
             } catch (IOException e) {
@@ -260,5 +260,11 @@ public class Server extends Observable implements ServerControllerInterface {
         this.running = running;
     }
 
+
+    @Override
+    public void update(Observable client, Object arg) {
+        logger.info(client + " has lost connection. Cause is " + arg + ".");
+        view.logging(client + " has lost connection. Cause is " + arg + ".");
+    }
 
 }

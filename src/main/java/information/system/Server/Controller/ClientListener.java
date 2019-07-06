@@ -1,21 +1,33 @@
 package information.system.Server.Controller;
 
 import information.system.Server.Model.*;
+import javafx.beans.InvalidationListener;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Observer;
 
 
-public class ClientListener extends Thread {
+public class ClientListener extends Thread implements Notificator {
     private Socket socket;  // сокет, через который сервер общается с клиентом,
                             // кроме него - клиент и сервер никак не связаны
     private static final Logger logger = Logger.getLogger(ClientListener.class);
     private Server server;
     private BufferedReader reader; // поток чтения из сокета
     private BufferedWriter writer; // поток записи в сокет
+
+    private List<Observer> observers;
+    public boolean isMistake() {
+        return mistake;
+    }
+    public void setMistake(boolean mistake) {
+        this.mistake = mistake;
+    }
+    private boolean mistake;
 
     ClientListener(Socket socket, Server server)  {
         this.socket = socket;
@@ -26,6 +38,8 @@ public class ClientListener extends Thread {
         } catch (IOException e) {
             logger.error("ClientListener creation error, ", e);
         }
+        observers = new LinkedList<>();
+        setMistake(true);
         start();
     }
 
@@ -78,6 +92,7 @@ public class ClientListener extends Thread {
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
                         logger.info("using protocol SIGN_UP was detected. User logged into the system.");
+                        server.getView().logging("New user logged into the system.");
                         break;
 
                     case Protocol.DELETE_DISH:
@@ -137,7 +152,9 @@ public class ClientListener extends Thread {
 
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
+                        setMistake(false);
                         logger.info("using protocol END_OF_SESSION was detected. User was logged out.");
+                        server.getView().logging("User was logged out.");
                         break;
 
                     case Protocol.SIGN_IN:
@@ -149,11 +166,13 @@ public class ClientListener extends Thread {
                             xmlToSend.setCommandToDocument(Protocol.SIGN_IN);
                             xmlToSend.setUsersToDocument(list);
                             sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                            logger.info("using protocol SIGN_IN was detected. User was logged in.");
+                            logger.info("using protocol SIGN_IN was detected. User logged in.");
+                            server.getView().logging("User logged in.");
                         } else {
                             xmlToSend.setCommandToDocument(Protocol.FALSE);
                             logger.info("using protocol END_OF_SESSION was detected. " +
-                                        "It was wrong trying to log the user out.");
+                                        "It was wrong trying to log the user in.");
+                            server.getView().logging("Wrong attemption to log the user in.");
                         }
                         break;
 
@@ -235,5 +254,36 @@ public class ClientListener extends Thread {
      */
     public void setSocket(Socket socket) {
         this.socket = socket;
+    }
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer: observers) {
+            if (isMistake()) {
+//                observer.update(this, "unexpected disconnection");
+            } else {
+//                observer.update(this, "normally closed connection");
+            }
+        }
+    }
+
+    @Override
+    public void addListener(InvalidationListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(InvalidationListener listener) {
+
     }
 }
