@@ -5,8 +5,6 @@ import information.system.Server.Model.User;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -111,13 +109,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btBut1, gridBag );
         panel.add( btBut1 );
-        btBut1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new SignUpForm(client);
-            }
-        });
-
+        btBut1.addActionListener(e -> new SignUpForm(client));
         tfPassword.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -132,6 +124,8 @@ public class SignInForm extends InformSystemGUI {
         if (user == null){
             JFrame frame = new JFrame("Error");
             JOptionPane.showMessageDialog(frame, "There is no user with the same login or/and password");
+            tfLogin.setText("");
+            tfPassword.setText("");
         } else {
             client.setUser(user);
             client.showGeneralFrame();
