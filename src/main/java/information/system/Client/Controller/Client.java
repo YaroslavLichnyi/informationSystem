@@ -30,6 +30,7 @@ public class Client implements ClientController {
     private File file;
     private MenuGUI menuGUI;
     private Restaurant restaurant;
+    private boolean connetion;
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());
@@ -540,6 +541,18 @@ public class Client implements ClientController {
         return true;
     }
 
+    private void disableConnectToServer(){
+
+    }
+
+    private void reconnect(){
+        try {
+            connectToServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     class Listener extends Thread{
         Exchanger <String> exchanger;
@@ -557,7 +570,12 @@ public class Client implements ClientController {
                         LOGGER.info("Listener waits for response");
                         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                         String responseStr = reader.readLine();
-                        responseStr += reader.readLine();
+                        String tmp = reader.readLine();
+                        if(tmp != null){
+                            responseStr += tmp;
+                        } else {
+                            InformSystemGUI.showMessage("\nlost connection\n");
+                        }
                         LOGGER.info("Listener got from server message:" + responseStr);
                         Document responseDoc = XmlSet.convertStringToDocument(responseStr);
                         String command = XmlSet.getCommandFromDocument(responseDoc);
