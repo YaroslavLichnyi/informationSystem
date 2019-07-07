@@ -166,6 +166,7 @@ public class ClientListener extends Thread {
                             server.getView().logging("User logged in.");
                         } else {
                             xmlToSend.setCommandToDocument(Protocol.FALSE);
+                            sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                             logger.info("using protocol END_OF_SESSION was detected. " +
                                         "It was wrong trying to log the user in.");
                             server.getView().logging("Wrong attemption to log the user in.");
