@@ -203,7 +203,7 @@ public class Client implements ClientController {
     /**
      * Updates content, getting actual information.
      *
-     * @return true if the update was successful, else return false.
+     * @return true if the update was successffl, else return false.
      */
     @Override
     public boolean updateContent() {
@@ -413,6 +413,9 @@ public class Client implements ClientController {
      */
     @Override
     public void signOut() {
+        XmlSet xmlSet = new XmlSet();
+        xmlSet.setCommandToDocument(Protocol.SIGN_OUT);
+        sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         setUser(null);
         new SignInForm(this);
         menuGUI.dispose();

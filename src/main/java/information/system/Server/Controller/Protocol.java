@@ -16,6 +16,7 @@ public interface Protocol {
     String EDIT_USER             = "edit_user";
     String END_OF_SESSION        = "end_of_session";
     String SIGN_IN               = "sign_in";
+    String SIGN_OUT              = "sign_out";
     String FIND_DISH             = "find_dish";
     String SORT_BY_PRICE         = "sort_by_price";
     String SORT_BY_DISH_CATEGORY = "sort_by_dish_category";

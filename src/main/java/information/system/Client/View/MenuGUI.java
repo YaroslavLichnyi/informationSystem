@@ -77,12 +77,7 @@ public class MenuGUI extends InformSystemGUI {
             JMenuItem itChangeData = new JMenuItem("Change information");
             itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
             JMenuItem signOut = new JMenuItem("Sign out");
-            signOut.addActionListener(e -> {
-                client.setUser(null);
-                new SignInForm(getClient());
-                dispose();
-                LOGGER.info("User signed out");
-            });
+            signOut.addActionListener(e -> client.signOut());
             JMenuItem itManageUsers = new JMenuItem("Manage users");
             itManageUsers.addActionListener(e -> new AllUsersInfo(client));
             userMenu.add(itChangeData);
