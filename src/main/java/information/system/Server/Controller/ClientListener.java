@@ -55,7 +55,10 @@ public class ClientListener extends Thread {
             updateInformation();
             while (true) {
                 String documentInStr = reader.readLine();
-                documentInStr += reader.readLine();
+                String tmp = reader.readLine();
+                if (tmp != null) {
+                    documentInStr += tmp;
+                }
                 logger.info("Client listener got a string from client : " + documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
