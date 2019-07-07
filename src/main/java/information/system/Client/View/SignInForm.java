@@ -109,7 +109,7 @@ public class SignInForm extends InformSystemGUI {
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBagLayout.setConstraints( btBut1, gridBag );
         panel.add( btBut1 );
-        btBut1.addActionListener(e -> new SignUpForm(client));
+        btBut1.addActionListener(e -> new SignUpForm(getClient()));
         tfPassword.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {

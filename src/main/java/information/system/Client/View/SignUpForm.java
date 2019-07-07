@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SignUpForm extends InformSystemGUI {
-    private Client client;
     public SignUpForm(Client client) {
         super();
         setTitle("Sign up");
@@ -134,10 +133,18 @@ public class SignUpForm extends InformSystemGUI {
                 } else {
                     User newUser = new User();
                     newUser.setName(tfName.getText());
+                    System.out.println("name " + tfName.getText());
                     newUser.setLogin(tfLogin.getText());
+                    System.out.println("login " + tfLogin.getText());
                     newUser.setPassword(tfPassword.getText());
-                    client.signUp(newUser);
-                    dispose();
+                    System.out.println("password " + tfPassword.getText());
+                    System.out.println(newUser);
+                    //client = new Client();
+                    if (client.signUp(newUser) != true){
+                        InformSystemGUI.showMessage("User was not signed up");
+                    } else {
+                        dispose();
+                    }
 
                 }
             }

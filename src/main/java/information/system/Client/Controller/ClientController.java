@@ -13,12 +13,6 @@ import java.util.List;
  * @author Yaroslav Lichnyi
  */
 public interface ClientController {
-
-    /**
-     * Checks server connection.
-     */
-    void checkConnection();
-
     /**
      * Adds new object in the table.
      * @return true if the addition was successful, else return false.

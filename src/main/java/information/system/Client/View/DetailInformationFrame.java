@@ -163,6 +163,7 @@ public class DetailInformationFrame extends InformSystemGUI{
         panel.add( btEdit );
         btEdit.addActionListener( e -> {
             new EditDishForm(client, dish);
+            dispose();
         });
 
         btRomove = new JButton( "Remove"  );

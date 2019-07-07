@@ -88,7 +88,6 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(String.valueOf(User.signUp(
                                 XmlSet.getUsersFromDocument(doc).get(0))));
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                        updateInformation();
                         logger.info("using protocol SIGN_UP was detected. User logged into the system.");
                         server.getView().logging("New user logged into the system.");
                         break;

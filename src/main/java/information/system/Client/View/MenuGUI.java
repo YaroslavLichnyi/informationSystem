@@ -283,10 +283,7 @@ public class MenuGUI extends InformSystemGUI {
         if (client.isConnectedToServer()){
             InformSystemGUI.showMessage("Connection reestablished.");
         } else {
-            InformSystemGUI.showMessage("While it is enable to connect to server some functions are limited.\nApplication will try to reconnect every 3 seconds.");
+            InformSystemGUI.showMessage("While it is unable to connect to server some functions are limited.\nApplication will try to reconnect every 3 seconds.");
         }
     }
 }
-
-
-

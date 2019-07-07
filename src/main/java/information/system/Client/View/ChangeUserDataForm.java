@@ -155,7 +155,6 @@ public class ChangeUserDataForm extends InformSystemGUI{
         btSave.addActionListener(e -> {
             User newUser = new User();
             newUser.setName(tfName.getText());
-            //**************************************
             newUser.setLogin(tfLogin.getText());
             newUser.setPassword(tfPassword.getText());
             client.edit(user, newUser);

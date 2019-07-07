@@ -55,11 +55,12 @@ public class AllUsersInfo extends InformSystemGUI {
                     String message = "Are you sure you want to make this user an administrator?";
                     int reply = JOptionPane.showConfirmDialog(null,message , "Confirm removing", JOptionPane.YES_NO_OPTION);
                     if (reply == JOptionPane.YES_OPTION) {
-                        client.makeAdmin(users.get(userTable.getSelectedRow())) ;
-                        System.out.println(users.get(userTable.getSelectedRow()));
-                        updateTable();
-                    } else {
-                        System.out.println(users.get(userTable.getSelectedRow()));
+                        if (!users.get(userTable.getSelectedRow()).isAdmin()){
+                            client.makeAdmin(users.get(userTable.getSelectedRow())) ;
+                            updateTable();
+                        } else {
+                            InformSystemGUI.showMessage("You cannot to make an admin a user, which already is admin");
+                        }
                     }
                 }
             }
@@ -78,7 +79,7 @@ public class AllUsersInfo extends InformSystemGUI {
                 user = userIterator.next();
                 model.setValueAt(user.getName(), i , 0);
                 model.setValueAt(user.getLogin(), i , 1);
-                model.setValueAt(user.isAdmin(), i , 1);
+                model.setValueAt(user.isAdmin(), i , 2);
                 i++;
             }
             while(i<tableRowSize){

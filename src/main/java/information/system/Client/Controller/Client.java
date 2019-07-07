@@ -60,14 +60,6 @@ public class Client implements ClientController {
     }
 
     /**
-     * Checks server connection.
-     */
-    @Override
-    public void checkConnection() {
-
-    }
-
-    /**
      * Adds new object in the table.
      *
      * @return true if the addition was successful, else return false.
@@ -560,7 +552,6 @@ public class Client implements ClientController {
             updateContent();
             menuGUI.dispose();
             menuGUI = new MenuGUI(this);
-            //menuGUI.repaintContent();
         } catch (IOException e) {
             LOGGER.error("It is still impossible to connect to the server");
         }
