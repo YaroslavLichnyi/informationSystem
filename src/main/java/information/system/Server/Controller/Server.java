@@ -8,14 +8,12 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.Scanner;
 
 /**
  * Server of client-server application for the restaurant.
  */
-public class Server/* extends Observable*/ implements ServerControllerInterface, Observer {
+public class Server implements ServerControllerInterface {
     private static final Logger logger = Logger.getLogger(Server.class);
     private ServerSocket serverSocket;
     private Socket clientSocket;
@@ -261,10 +259,10 @@ public class Server/* extends Observable*/ implements ServerControllerInterface,
     }
 
 
-    @Override
+/*    @Override
     public void update(Observable client, Object arg) {
         logger.info(client + " has lost connection. Cause is " + arg + ".");
         view.logging(client + " has lost connection. Cause is " + arg + ".");
     }
-
+*/
 }

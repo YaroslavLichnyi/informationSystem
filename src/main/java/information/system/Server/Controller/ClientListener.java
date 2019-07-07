@@ -1,18 +1,15 @@
 package information.system.Server.Controller;
 
 import information.system.Server.Model.*;
-import javafx.beans.InvalidationListener;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Observer;
 
 
-public class ClientListener extends Thread implements Notificator {
+public class ClientListener extends Thread {
     private Socket socket;  // сокет, через который сервер общается с клиентом,
                             // кроме него - клиент и сервер никак не связаны
     private static final Logger logger = Logger.getLogger(ClientListener.class);
@@ -20,7 +17,6 @@ public class ClientListener extends Thread implements Notificator {
     private BufferedReader reader; // поток чтения из сокета
     private BufferedWriter writer; // поток записи в сокет
 
-    private List<Observer> observers;
     public boolean isMistake() {
         return mistake;
     }
@@ -38,7 +34,6 @@ public class ClientListener extends Thread implements Notificator {
         } catch (IOException e) {
             logger.error("ClientListener creation error, ", e);
         }
-        observers = new LinkedList<>();
         setMistake(true);
         start();
     }
@@ -149,12 +144,13 @@ public class ClientListener extends Thread implements Notificator {
                         break;
 
                     case Protocol.END_OF_SESSION:
-
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         updateInformation();
                         setMistake(false);
-                        logger.info("using protocol END_OF_SESSION was detected. User was logged out.");
-                        server.getView().logging("User was logged out.");
+                        logger.info("using protocol END_OF_SESSION was detected. User was logged out. Cause is " +
+                                    (isMistake()? "error":"normal log out") + ".");
+                        server.getView().logging("User was logged out. Cause is " +
+                                                (isMistake()? "error":"normal log out") + ".");
                         break;
 
                     case Protocol.SIGN_IN:
@@ -256,34 +252,4 @@ public class ClientListener extends Thread implements Notificator {
         this.socket = socket;
     }
 
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
-
-    @Override
-    public void removeObserver(Observer o) {
-        observers.remove(o);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer observer: observers) {
-            if (isMistake()) {
-//                observer.update(this, "unexpected disconnection");
-            } else {
-//                observer.update(this, "normally closed connection");
-            }
-        }
-    }
-
-    @Override
-    public void addListener(InvalidationListener listener) {
-
-    }
-
-    @Override
-    public void removeListener(InvalidationListener listener) {
-
-    }
 }
