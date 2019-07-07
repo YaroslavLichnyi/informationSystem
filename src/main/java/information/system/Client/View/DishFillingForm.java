@@ -189,7 +189,7 @@ public class DishFillingForm extends InformSystemGUI {
 
     protected double getInputedPrice(){
         return Double.valueOf((int)spnHryvnas.getValue())
-                + (double)spnKopeikas.getValue()
+                + (double) (int )spnKopeikas.getValue()
                 / 100.0;
     }
 }

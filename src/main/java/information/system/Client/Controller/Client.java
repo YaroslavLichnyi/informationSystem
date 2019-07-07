@@ -7,7 +7,6 @@ import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
@@ -41,6 +40,20 @@ public class Client implements ClientController {
         file = new File("settings/client.ini");
         this.port = readPort();
         exgr = new Exchanger<>();
+        new Thread( () -> {
+            while(true){
+                if(!clientSocket.isClosed() && clientSocket.isConnected()){
+                    try {
+                        wait(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    InformSystemGUI.showMessage("Problems with connection");
+                }
+
+            }
+        });
     }
 
     /**
@@ -589,20 +602,6 @@ public class Client implements ClientController {
                                     LOGGER.error("Exception while exchanging",e);
                                 }
                                 break;
-/*
-                            case Protocol.FIND_DISH:
-                                break;
-
-                            case Protocol.SORT_BY_PRICE:
-                                menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
-                                LOGGER.info("Command \"sort by dish price\" was performed");
-                                break;
-
-                            case Protocol.SORT_BY_DISH_CATEGORY:
-                                menuGUI.setValuesAtTable(XmlSet.getDishesFrom(responseDoc));
-                                LOGGER.info("Command \"sort by dish category\" was performed");
-                                break;
-*/
                             case Protocol.TRUE:
                                 try {
                                     exchanger.exchange(responseStr);

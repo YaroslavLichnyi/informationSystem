@@ -9,6 +9,7 @@ public class DetailInformationFrame extends InformSystemGUI{
     private Dish dish;
     public DetailInformationFrame(Client client, Dish dish) {
         super();
+        setTitle("Dish details");
         this.dish = dish;
         setBounds(dimension.width / 2 - 200, dimension.height / 2 - 150, 400, 300);
         this.client = client;
@@ -178,7 +179,6 @@ public class DetailInformationFrame extends InformSystemGUI{
         gridBagLayout.setConstraints( btRomove, gridBag );
         panel.add( btRomove );
         btRomove.addActionListener( e -> {
-            client.delete(dish);
             if (client.delete(dish)){
                 dispose();
             } else {
