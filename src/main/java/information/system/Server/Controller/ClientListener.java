@@ -1,5 +1,6 @@
 package information.system.Server.Controller;
 
+import information.system.Client.View.InformSystemGUI;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
@@ -56,9 +57,9 @@ public class ClientListener extends Thread {
             while (true) {
                 String documentInStr = reader.readLine();
                 String tmp = reader.readLine();
-                if (tmp != null) {
+                if(tmp != null){
                     documentInStr += tmp;
-                }
+
                 logger.info("Client listener got a string from client : " + documentInStr);
                 Document doc = XmlSet.convertStringToDocument(documentInStr);
                 XmlSet xmlToSend = new XmlSet();
@@ -146,8 +147,7 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.END_OF_SESSION:
-//                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-//                        updateInformation();
+                        InformSystemGUI.showMessage("\nend of session\n");
                         setMistake(false);
                         logger.info("using protocol END_OF_SESSION was detected. User was logged out. Cause is " +
                                     (isMistake()? "error":"normal log out") + ".");
@@ -206,7 +206,27 @@ public class ClientListener extends Thread {
                         xmlToSend.setCommandToDocument(Protocol.GET_USERS);
                         sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
                         break;
+
+                    default:
+                        logger.error("unknown command was received. Try to send a command again.");
+                        server.getView().logging("unknown command was received. Try to send a command again.");
+                        break;
+
                 }
+
+
+                } else {
+                    logger.info("1User was logged out. Cause is " +
+                            (isMistake()? "error":"normal log out") + ".");
+                    server.getView().logging("1User was logged out. Cause is " +
+                            (isMistake()? "error":"normal log out") + ".");
+                }
+
+
+
+
+
+
             }
         } catch (IOException e) {
             logger.error("protocol error, ", e);

@@ -259,10 +259,4 @@ public class Server implements ServerControllerInterface {
     }
 
 
-/*    @Override
-    public void update(Observable client, Object arg) {
-        logger.info(client + " has lost connection. Cause is " + arg + ".");
-        view.logging(client + " has lost connection. Cause is " + arg + ".");
-    }
-*/
 }
