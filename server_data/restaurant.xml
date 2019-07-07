@@ -44,7 +44,7 @@
 <dish dish-category-id="4" id="11" name="Cake" price="55.0">
 <description>Cherry cake</description>
 </dish>
-<dish dish-category-id="4" id="12" name="Ice Cream1" price="45.0">
+<dish dish-category-id="4" id="12" name="Ice Cream" price="45.0">
 <description>Strawberry ice cream</description>
 </dish>
 <dish dish-category-id="4" id="13" name="Chocolate" price="50.0">
