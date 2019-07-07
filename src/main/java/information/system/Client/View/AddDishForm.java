@@ -39,4 +39,10 @@ public class AddDishForm extends DishFillingForm {
             }
         });
     }
+
+    private double getInputedPrice(){
+        return Double.valueOf((int)spnHryvnas.getValue())
+                + (double) (int) spnKopeikas.getValue()
+                / 100.0;
+    }
 }

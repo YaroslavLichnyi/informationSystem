@@ -147,8 +147,8 @@ public class ClientListener extends Thread {
                         break;
 
                     case Protocol.END_OF_SESSION:
-                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-                        updateInformation();
+//                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
+//                        updateInformation();
                         setMistake(false);
                         logger.info("using protocol END_OF_SESSION was detected. User was logged out. Cause is " +
                                     (isMistake()? "error":"normal log out") + ".");

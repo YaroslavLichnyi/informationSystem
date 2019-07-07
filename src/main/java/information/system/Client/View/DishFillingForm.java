@@ -1,6 +1,5 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
-
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
@@ -185,11 +184,5 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints(cmbDishCategory, gridBag );
         panel.add(cmbDishCategory);
         add(panel);
-    }
-
-    protected double getInputedPrice(){
-        return Double.valueOf((int)spnHryvnas.getValue())
-                + (double) (int )spnKopeikas.getValue()
-                / 100.0;
     }
 }
