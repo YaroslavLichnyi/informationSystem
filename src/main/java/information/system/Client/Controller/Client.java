@@ -558,7 +558,9 @@ public class Client implements ClientController {
         try {
             connectToServer();
             updateContent();
-            menuGUI.repaintContent();
+            menuGUI.dispose();
+            menuGUI = new MenuGUI(this);
+            //menuGUI.repaintContent();
         } catch (IOException e) {
             LOGGER.error("It is still impossible to connect to the server");
         }

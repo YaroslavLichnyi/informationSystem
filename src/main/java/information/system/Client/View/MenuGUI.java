@@ -163,7 +163,6 @@ public class MenuGUI extends InformSystemGUI {
             find();
         });
 
-
         Object[] headers = {"Dish category", "Name", "Description","Price"};
         model = new DefaultTableModel(null, headers);
         dishesTable = new JTable(model){
@@ -192,7 +191,6 @@ public class MenuGUI extends InformSystemGUI {
                 }
             }
         });
-
 
         btShowDishCategories = new JButton( "Show dish categories"  );
         gridBag.gridx = 2;
@@ -261,6 +259,7 @@ public class MenuGUI extends InformSystemGUI {
             i++;
         }
         dishesTable.repaint();
+        validate();
     }
 
     private void find(){
