@@ -48,7 +48,9 @@ public class DishCategoryInfo extends InformSystemGUI{
         dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
+                if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null
+                        && client.getUser().isAdmin() == true
+                        && client.isConnectedToServer()){
                     new EditDishCategoryForm(getClient(), client.getRestaurant().getAllDishCategories().get(dishesTable.getSelectedRow()));
                 }
             }

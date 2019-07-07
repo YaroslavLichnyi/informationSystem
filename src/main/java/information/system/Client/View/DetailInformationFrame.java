@@ -149,7 +149,7 @@ public class DetailInformationFrame extends InformSystemGUI{
         panel.add( lbDishcategoryName );
 
         btEdit = new JButton( "Edit"  );
-        btEdit.setEnabled(client.getUser().isAdmin());
+        btEdit.setEnabled(client.getUser().isAdmin() && client.isConnectedToServer());
         gridBag.gridx = 2;
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;
@@ -166,7 +166,7 @@ public class DetailInformationFrame extends InformSystemGUI{
         });
 
         btRomove = new JButton( "Remove"  );
-        btRomove.setEnabled(client.getUser().isAdmin());
+        btRomove.setEnabled(client.getUser().isAdmin() && client.isConnectedToServer());
         gridBag.gridx = 3;
         gridBag.gridy = 5;
         gridBag.gridwidth = 1;

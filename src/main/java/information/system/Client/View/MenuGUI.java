@@ -50,44 +50,50 @@ public class MenuGUI extends InformSystemGUI {
             System.exit(0);
         });
         jMenuBar.add(menuFile);
-        if (client.getUser().isAdmin()){
-            JMenu addRestMenu = new JMenu("Restaurant menu");
-            JMenuItem itAddNewDish = new JMenuItem("Add new dish");
-            JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
-            itAddNewDish.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new AddDishForm(client);
-                }
-            });
-            itAddNewDishCategory.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new AddDishCategoryForm(client);
-                }
-            });
-            addRestMenu.add(itAddNewDish);
-            addRestMenu.add(itAddNewDishCategory);
-            jMenuBar.add(addRestMenu);
-        }
-        JMenu userMenu = new JMenu("User : " + client.getUser().getName());
-        JMenuItem itChangeData = new JMenuItem("Change information");
-        itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
-        JMenuItem signOut = new JMenuItem("Sign out");
-        signOut.addActionListener(e -> {
-            client.setUser(null);
-            new SignInForm(getClient());
-            dispose();
-            LOGGER.info("User signed out");
-        });
-        JMenuItem itManageUsers = new JMenuItem("Manage users");
-        itManageUsers.addActionListener(e -> new AllUsersInfo(client));
 
+        if (client.isConnectedToServer()){
+            if (client.getUser().isAdmin() ){
+                JMenu addRestMenu = new JMenu("Restaurant menu");
+                JMenuItem itAddNewDish = new JMenuItem("Add new dish");
+                JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
+                itAddNewDish.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new AddDishForm(client);
+                    }
+                });
+                itAddNewDishCategory.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new AddDishCategoryForm(client);
+                    }
+                });
+                addRestMenu.add(itAddNewDish);
+                addRestMenu.add(itAddNewDishCategory);
+                jMenuBar.add(addRestMenu);
+            }
+
+            JMenu userMenu = new JMenu("User : " + client.getUser().getName());
+            JMenuItem itChangeData = new JMenuItem("Change information");
+            itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
+            JMenuItem signOut = new JMenuItem("Sign out");
+            signOut.addActionListener(e -> {
+                client.setUser(null);
+                new SignInForm(getClient());
+                dispose();
+                LOGGER.info("User signed out");
+            });
+            JMenuItem itManageUsers = new JMenuItem("Manage users");
+            itManageUsers.addActionListener(e -> new AllUsersInfo(client));
+            userMenu.add(itChangeData);
+            userMenu.add(signOut);
+            userMenu.add(itManageUsers);
+            jMenuBar.add(userMenu);
+        }
         JMenu helpMenu = new JMenu("Help");
         helpMenu.addMenuListener(new MenuListener() {
             @Override
             public void menuSelected(MenuEvent e) {
-
             }
 
             @Override
@@ -97,14 +103,8 @@ public class MenuGUI extends InformSystemGUI {
 
             @Override
             public void menuCanceled(MenuEvent e) {
-
             }
         });
-
-        userMenu.add(itChangeData);
-        userMenu.add(signOut);
-        userMenu.add(itManageUsers);
-        jMenuBar.add(userMenu);
         jMenuBar.add(helpMenu);
 
         this.setJMenuBar(jMenuBar);
@@ -187,7 +187,7 @@ public class MenuGUI extends InformSystemGUI {
         dishesTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
+                if(client.isConnectedToServer() && client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
                     new DetailInformationFrame(getClient(), client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()));
                 }
             }
@@ -236,7 +236,6 @@ public class MenuGUI extends InformSystemGUI {
         panel.add( lbSortBy );
 
         setValuesAtTable(client.getRestaurant().getAllDishes());
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
@@ -277,6 +276,15 @@ public class MenuGUI extends InformSystemGUI {
             }
         } else {
             InformSystemGUI.showMessage("Enter at least 1 letter");
+        }
+    }
+
+    public void repaintContent(){
+        init();
+        if (client.isConnectedToServer()){
+            InformSystemGUI.showMessage("Connection reestablished.");
+        } else {
+            InformSystemGUI.showMessage("While it is enable to connect to server some functions are limited.\nApplication will try to reconnect every 3 seconds.");
         }
     }
 }
