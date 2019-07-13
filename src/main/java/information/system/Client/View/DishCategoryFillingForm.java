@@ -20,13 +20,7 @@ public class DishCategoryFillingForm extends InformSystemGUI {
 
     @Override
     protected void init() {
-        JLabel lbName;
-        JLabel lbHf;
-
-
-        panel.setLayout( gridBagLayout );
-
-        lbName = new JLabel( "Name:"  );
+        JLabel lbName = new JLabel( "Name:"  );
         gridBag.gridx = 0;
         gridBag.gridy = 0;
         gridBag.gridwidth = 2;
@@ -65,7 +59,6 @@ public class DishCategoryFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( tfName, gridBag );
         ((AbstractDocument) tfName.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
         panel.add( tfName );
-
         add(panel);
     }
 }

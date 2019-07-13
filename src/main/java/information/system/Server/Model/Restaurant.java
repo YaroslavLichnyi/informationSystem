@@ -74,7 +74,7 @@ public class Restaurant implements RestaurantInterface{
      */
     @Override
     public boolean removeDishCategory(DishCategory dishCategory) {
-        if(menu.remove(dishCategory)){
+        if(menu.remove(Restaurant.getDishCategoryById(menu, dishCategory.getId()))){
             updateDataBase();
             return  true;
         }
@@ -224,7 +224,7 @@ public class Restaurant implements RestaurantInterface{
     @Override
     public boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory) {
         for (DishCategory dishCategory: menu) {
-            if (dishCategory.equals(oldDishCategory)){
+            if (dishCategory.getId() == oldDishCategory.getId()){
                 dishCategory.setName(newDishCategory.getName());
                 dishCategory.setHealthyFood(newDishCategory.isHealthyFood());
                 updateDataBase();

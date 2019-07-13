@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
 import java.util.Scanner;
 import java.util.concurrent.Exchanger;
 
@@ -19,7 +20,7 @@ import java.util.concurrent.Exchanger;
  * @author Yaroslav Lichnyi
  * {@link Client} represents a controller at client's side of the application.
  */
-public class Client implements ClientController {
+public class Client extends Observable implements ClientController {
     private static final class Lock { }
     private final Object lock = new Lock();
     private static final Logger LOGGER = Logger.getLogger(Client.class);
@@ -611,6 +612,7 @@ public class Client implements ClientController {
                                         menuGUI.setValuesAtTable(restaurant.getAllDishes());
                                     }
                                     LOGGER.info("Command \"update information\" was performed");
+                                    notifyObservers();
                                     break;
 
                                 case Protocol.END_OF_SESSION:

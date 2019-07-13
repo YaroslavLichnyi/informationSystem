@@ -182,7 +182,7 @@ public class MenuGUI extends InformSystemGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(client.isConnectedToServer() && client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null){
-                    new DetailInformationFrame(getClient(), client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()));
+                    new DishInfo(getClient(), client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()));
                 }
             }
         });
@@ -199,7 +199,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btShowDishCategories, gridBag );
         panel.add(btShowDishCategories);
-        btShowDishCategories.addActionListener(e -> new DishCategoryInfo(getClient()));
+        btShowDishCategories.addActionListener(e ->new DishCategoryInfo(getClient()));
 
         btShowDishCategories = new JButton( "Show all dishes"  );
         gridBag.gridx = 2;
@@ -241,9 +241,9 @@ public class MenuGUI extends InformSystemGUI {
         while (taskIterator.hasNext()){
             dish = taskIterator.next();
             model.setValueAt(Restaurant.getDishCategoryById(client.getRestaurant().getAllDishCategories(), dish.getDishCategoryId()).getName(), i, 0);
-            model.setValueAt(dish.getName(), i , 1);
+            model.setValueAt(dish.getName(),        i , 1);
             model.setValueAt(dish.getDescription(), i , 2);
-            model.setValueAt(dish.getPrice(), i , 3);
+            model.setValueAt(dish.getPrice(),       i , 3);
             i++;
         }
         while(i<tableRowSize){

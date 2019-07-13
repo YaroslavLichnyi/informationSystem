@@ -5,9 +5,9 @@ import information.system.Server.Model.DishCategory;
 
 import javax.swing.*;
 import java.awt.*;
-public class DetailInformationFrame extends InformSystemGUI{
+public class DishInfo extends InformSystemGUI{
     private Dish dish;
-    public DetailInformationFrame(Client client, Dish dish) {
+    public DishInfo(Client client, Dish dish) {
         super();
         setTitle("Dish details");
         this.dish = dish;

@@ -19,7 +19,7 @@ public class AllUsersInfo extends InformSystemGUI {
     public AllUsersInfo(Client client) {
         super();
         setTitle("Dish categories");
-        setBounds(dimension.width / 2 - 125, dimension.height / 2 - 125, 250, 250);
+        setBounds(dimension.width / 2 - 125, dimension.height / 2 - 175, 250, 350);
         setClient(client);
         init();
         updateTable();

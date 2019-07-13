@@ -52,6 +52,7 @@ public class DishCategoryInfo extends InformSystemGUI{
                         && client.getUser().isAdmin() == true
                         && client.isConnectedToServer()){
                     new EditDishCategoryForm(getClient(), client.getRestaurant().getAllDishCategories().get(dishesTable.getSelectedRow()));
+                    dispose();
                 }
             }
         });
