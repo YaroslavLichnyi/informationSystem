@@ -1,6 +1,6 @@
 package information.system;
 
-import information.system.Server.View.ServerViewGUI;
+import information.system.server.view.ServerViewGUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,11 +10,11 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 
 /**
- * Class for lunching Server GUI version
+ * Class for lunching server GUI version
  */
 public class ServerGUIApp extends Application {
 
-    private final static Logger logger = Logger.getLogger(ServerGUIApp.class);
+    final static Logger logger = Logger.getLogger(ServerGUIApp.class);
 
     /**
      * Start application.
@@ -36,7 +36,7 @@ public class ServerGUIApp extends Application {
         ServerViewGUI serverViewGUI = new ServerViewGUI();
         loader.setController(serverViewGUI);
         Parent root = loader.getRoot();
-        primaryStage.setTitle("Information System Server");
+        primaryStage.setTitle("Information System server");
         primaryStage.setScene(new Scene(root, 590, 390));
         primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(serverViewGUI.getCloseEventHandler());
