@@ -54,7 +54,7 @@ public class XmlSet {
     /**
      * Cleans out the document and put the root in it.
      */
-    private void cleanOutDocument(){
+    public  void cleanOutDocument(){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -171,7 +171,7 @@ public class XmlSet {
      *
      * @param doc s a resource where command is deleted from.
      */
-    private synchronized static void deleteCommandFromDocument(Document doc) {
+    public synchronized static void deleteCommandFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(COMMAND);
         for (int i = 0; i < nodes.getLength(); i++) {
             nodes.item(i).getParentNode().removeChild( nodes.item(i));
@@ -398,8 +398,8 @@ public class XmlSet {
     /**
      * Parses given document and extracts dish categories <b>and</b> dishes from it.
      *
-     * @param doc
-     * @return
+     * @param doc is a resource from which data is received.
+     * @return received data.
      */
     public synchronized static List<DishCategory> getMenuFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(DISH_CATEGORY);
@@ -470,7 +470,7 @@ public class XmlSet {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
         } catch (SAXException  |IOException | ParserConfigurationException e ) {
-            LOGGER.error(e);
+            e.printStackTrace();
         }
         return null;
     }

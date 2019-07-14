@@ -7,7 +7,7 @@ import information.system.Server.Model.Restaurant;
 import javax.swing.*;
 import java.awt.*;
 
-class EditDishForm extends DishFillingForm {
+public class EditDishForm extends DishFillingForm {
     private Dish oldDish;
     public EditDishForm(Client client, Dish oldDish) {
         super(client);
@@ -49,7 +49,7 @@ class EditDishForm extends DishFillingForm {
     }
 
     private double getInputedPrice(){
-        return (double) (int) spnHryvnas.getValue()
+        return Double.valueOf((int)spnHryvnas.getValue())
                 + (double) spnKopeikas.getValue()
                 / 100.0;
     }

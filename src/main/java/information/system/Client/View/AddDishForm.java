@@ -6,7 +6,7 @@ import information.system.Server.Model.Dish;
 import javax.swing.*;
 import java.awt.*;
 
-class AddDishForm extends DishFillingForm {
+public class AddDishForm extends DishFillingForm {
     public AddDishForm(Client client) {
         super(client);
         setTitle("Filling form");
@@ -28,7 +28,7 @@ class AddDishForm extends DishFillingForm {
         btAdd.addActionListener(e -> {
             Dish newDish = new Dish();
             newDish.setName(tfDishName.getText());
-            newDish.setPrice(getInputedPrice());
+            newDish.setPrice(getInputtedPrice());
             newDish.setDescription(taDishDescription.getText());
             client.getRestaurant().getAllDishCategories().get(cmbDishCategory.getSelectedIndex()).addDish(newDish);
             if(client.add(newDish)){
@@ -39,8 +39,8 @@ class AddDishForm extends DishFillingForm {
         });
     }
 
-    private double getInputedPrice(){
-        return (double) (int) spnHryvnas.getValue()
+    private double getInputtedPrice(){
+        return Double.valueOf((int)spnHryvnas.getValue())
                 + (double) (int) spnKopeikas.getValue()
                 / 100.0;
     }

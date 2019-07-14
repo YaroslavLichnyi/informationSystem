@@ -5,6 +5,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -237,17 +238,17 @@ public class InformSystXML {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             dBuilder.setErrorHandler(new ErrorHandler() {
                 @Override
-                public void error(SAXParseException exception) {
+                public void error(SAXParseException exception) throws SAXException {
                     LOGGER.error(exception);
                     return;
                 }
                 @Override
-                public void fatalError(SAXParseException exception) {
+                public void fatalError(SAXParseException exception) throws SAXException {
                     LOGGER.error(exception);
                     return;
                 }
                 @Override
-                public void warning(SAXParseException exception) {
+                public void warning(SAXParseException exception) throws SAXException {
                     LOGGER.error(exception);
                     return;
                 }

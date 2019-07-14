@@ -9,7 +9,6 @@ public class DishCategory implements Serializable {
     private boolean healthyFood;
     private int id;
 
-
     /**
      *
      * @param name is a name that is set to dish category.

@@ -121,29 +121,31 @@ public class SignUpForm extends InformSystemGUI {
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(3,10,5,10);
         gridBagLayout.setConstraints( btSignUp, gridBag );
-        btSignUp.addActionListener(e -> {
-            if (tfName.getText().length() < 2){
-                showMessage("Name cannot contain less than 2 symbols");
-            } else if (!Restaurant.isInputtedDataCorrect(tfLogin.getText(),tfPassword.getText() )){
-                showMessage("Login and password cannot contain less than 5 symbols");
-            } else if(!User.isLoginFree(tfLogin.getText())) {
-                showMessage("This login is not free. There is a user with the same login.");
-            } else {
-                User newUser = new User();
-                newUser.setName(tfName.getText());
-                System.out.println("name " + tfName.getText());
-                newUser.setLogin(tfLogin.getText());
-                System.out.println("login " + tfLogin.getText());
-                newUser.setPassword(tfPassword.getText());
-                System.out.println("password " + tfPassword.getText());
-                System.out.println(newUser);
-                //client = new Client();
-                if (!client.signUp(newUser)){
-                    InformSystemGUI.showMessage("User was not signed up");
+        btSignUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (tfName.getText().length() < 2){
+                    showMessage("Name cannot contain less than 2 symbols");
+                } else if (!Restaurant.isInputtedDataCorrect(tfLogin.getText(),tfPassword.getText() )){
+                    showMessage("Login and password cannot contain less than 5 symbols");
+                } else if(!User.isLoginFree(tfLogin.getText())) {
+                    showMessage("This login is not free. There is a user with the same login.");
                 } else {
-                    dispose();
-                }
+                    User newUser = new User();
+                    newUser.setName(tfName.getText());
+                    System.out.println("name " + tfName.getText());
+                    newUser.setLogin(tfLogin.getText());
+                    System.out.println("login " + tfLogin.getText());
+                    newUser.setPassword(tfPassword.getText());
+                    System.out.println("password " + tfPassword.getText());
+                    System.out.println(newUser);
+                    if (!client.signUp(newUser)){
+                        InformSystemGUI.showMessage("User was not signed up");
+                    } else {
+                        dispose();
+                    }
 
+                }
             }
         });
         panel.add( btSignUp );

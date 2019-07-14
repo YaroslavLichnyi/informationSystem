@@ -53,8 +53,18 @@ public class MenuGUI extends InformSystemGUI {
                 JMenu addRestMenu = new JMenu("Restaurant menu");
                 JMenuItem itAddNewDish = new JMenuItem("Add new dish");
                 JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
-                itAddNewDish.addActionListener(e -> new AddDishForm(client));
-                itAddNewDishCategory.addActionListener(e -> new AddDishCategoryForm(client));
+                itAddNewDish.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new AddDishForm(client);
+                    }
+                });
+                itAddNewDishCategory.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new AddDishCategoryForm(client);
+                    }
+                });
                 addRestMenu.add(itAddNewDish);
                 addRestMenu.add(itAddNewDishCategory);
                 jMenuBar.add(addRestMenu);
@@ -62,7 +72,7 @@ public class MenuGUI extends InformSystemGUI {
 
             JMenu userMenu = new JMenu("User : " + client.getUser().getName());
             JMenuItem itChangeData = new JMenuItem("Change information");
-            itChangeData.addActionListener(e -> new EditUserDataForm(client, client.getUser()));
+            itChangeData.addActionListener(e -> new EditUserForm(client, client.getUser()));
             JMenuItem signOut = new JMenuItem("Sign out");
             signOut.addActionListener(e -> client.signOut());
             JMenuItem itManageUsers = new JMenuItem("Manage users");
@@ -141,7 +151,9 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btFind, gridBag );
         panel.add(btFind);
-        btFind.addActionListener(e -> find());
+        btFind.addActionListener(e -> {
+            find();
+        });
 
         Object[] headers = {"Dish category", "Name", "Description","Price"};
         model = new DefaultTableModel(null, headers);

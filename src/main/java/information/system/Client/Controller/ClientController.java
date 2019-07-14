@@ -12,7 +12,7 @@ import java.util.List;
  * Determines which methods are needed for user interaction with the server.
  * @author Yaroslav Lichnyi
  */
-interface ClientController {
+public interface ClientController {
     /**
      * Adds new object in the table.
      *
@@ -31,6 +31,8 @@ interface ClientController {
     /**
      * Edits existing dish.
      *
+     * @param oldDish is an existing dish, that is changed.
+     * @param newDish is a dish which parameters is set to existing dish.
      * @return true if the edition was successful, else return false.
      */
     boolean edit(Dish oldDish, Dish newDish);
@@ -38,13 +40,18 @@ interface ClientController {
     /**
      * Edits existing dish category.
      *
+     * @param oldDishCategory is an existing dish category, that is changed.
+     * @param newDishCategory is a dish category which parameters is set to existing dish category.
      * @return true if the edition was successful, else return false.
      */
+
     boolean edit(DishCategory oldDishCategory, DishCategory newDishCategory);
 
     /**
      * Edits existing user.
      *
+     * @param oldUser is an existing user, that is changed.
+     * @param newUser is an user which parameters is set to existing user.
      * @return true if the edition was successful, else return false.
      */
     boolean edit(User oldUser, User newUser);
@@ -69,11 +76,11 @@ interface ClientController {
      * @param user is an user that is deleted.
      * @return true if user was deleted, else return false.
      */
+
     boolean delete(User user);
 
     /**
      * Updates content, getting actual information.
-     *
      * @return true if the update was successful, else return false.
      */
     boolean updateContent();
@@ -119,7 +126,7 @@ interface ClientController {
     void signOut();
 
     /**
-     * Finds dishes whisn contain <code>subStr</code> in the name.
+     * Finds dishes which contain <code>subStr</code> in the name.
      *
      * @param subStr is the substring that the name must contain.
      * @return dishes which contain <code>subStr</code> in the name.
@@ -128,7 +135,6 @@ interface ClientController {
 
     /**
      * Sorts dishes by a criteria, which is pointed in parameter.
-     *
      * @param sortBy is a criteria, by which dishes are sorted.
      * @return list of dishes sorted by pointed criteria.
      */

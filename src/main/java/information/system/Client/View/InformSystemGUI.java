@@ -13,7 +13,7 @@ public abstract class InformSystemGUI extends JFrame {
     protected Dimension dimension;
     protected Client client;
 
-    InformSystemGUI() {
+    public InformSystemGUI() {
         super("Information System");
         toolkit = Toolkit.getDefaultToolkit();
         dimension = toolkit.getScreenSize();
@@ -27,11 +27,11 @@ public abstract class InformSystemGUI extends JFrame {
         setVisible(true);
     }
 
-    Client getClient() {
+    public Client getClient() {
         return client;
     }
 
-    void setClient(Client client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 

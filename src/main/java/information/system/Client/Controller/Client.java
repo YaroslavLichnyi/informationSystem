@@ -7,7 +7,6 @@ import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
-
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
@@ -21,6 +20,8 @@ import java.util.concurrent.Exchanger;
  * {@link Client} represents a controller at client's side of the application.
  */
 public class Client implements ClientController {
+    private static final class Lock { }
+    private final Object lock = new Lock();
     private static final Logger LOGGER = Logger.getLogger(Client.class);
     private Socket clientSocket;
     private BufferedWriter writer;
@@ -32,8 +33,6 @@ public class Client implements ClientController {
     private MenuGUI menuGUI;
     private Restaurant restaurant;
     private boolean connectedToServer;
-    private static final class Lock { }
-    private final Object lock = new Lock();
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());
@@ -131,7 +130,6 @@ public class Client implements ClientController {
         return getExchange();
     }
 
-
     /**
      * Edits existing user.
      *
@@ -187,6 +185,7 @@ public class Client implements ClientController {
 
     /**
      * Deletes existing user account.
+     *
      * @param user is an user that is deleted.
      * @return true if user was deleted, else return false.
      */
@@ -384,7 +383,7 @@ public class Client implements ClientController {
         try {
             LOGGER.info("Client waits for response (get all users)");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            return XmlSet.getUsersFromDocument(document);
+            return (LinkedList<User>) XmlSet.getUsersFromDocument(document);
         } catch (InterruptedException e) {
             LOGGER.error("Exception while exchanging", e);
         }
@@ -470,7 +469,7 @@ public class Client implements ClientController {
      * Get port from file. Create file in case file does not exist.
      * @return port
      */
-    private int readPort() {
+    int readPort() {
         int port = 8000;
         if (file.exists()) {
             FileReader fr = null;
@@ -563,7 +562,7 @@ public class Client implements ClientController {
 
     class Listener extends Thread{
         Exchanger <String> exchanger;
-        Listener(Exchanger<String> exchanger) {
+        public Listener(Exchanger<String> exchanger) {
             this.exchanger = exchanger;
             start();
         }

@@ -5,7 +5,7 @@ import information.system.Server.Model.DishCategory;
 import javax.swing.*;
 import java.awt.*;
 
-class EditDishCategoryForm extends DishCategoryFillingForm {
+public class EditDishCategoryForm extends DishCategoryFillingForm {
     private DishCategory dishCategory;
     public EditDishCategoryForm(Client client, DishCategory dishCategory) {
         super(client);
