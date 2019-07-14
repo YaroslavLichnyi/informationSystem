@@ -21,8 +21,6 @@ import java.util.concurrent.Exchanger;
  * {@link Client} represents a controller at client's side of the application.
  */
 public class Client implements ClientController {
-    private static final class Lock { }
-    private final Object lock = new Lock();
     private static final Logger LOGGER = Logger.getLogger(Client.class);
     private Socket clientSocket;
     private BufferedWriter writer;
@@ -34,6 +32,8 @@ public class Client implements ClientController {
     private MenuGUI menuGUI;
     private Restaurant restaurant;
     private boolean connectedToServer;
+    private static final class Lock { }
+    private final Object lock = new Lock();
 
     public static void main(String[] args) {
         new ChangePortForm(new Client());

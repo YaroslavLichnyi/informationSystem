@@ -5,11 +5,11 @@ import javax.swing.text.AbstractDocument;
 import java.awt.*;
 
 public class DishFillingForm extends InformSystemGUI {
-    JTextArea taDishDescription;
-    JTextField tfDishName;
-    JSpinner spnHryvnas;
-    JSpinner spnKopeikas;
-    JComboBox cmbDishCategory;
+    private JTextArea taDishDescription;
+    private JTextField tfDishName;
+    private JSpinner spnHryvnas;
+    private JSpinner spnKopeikas;
+    private JComboBox cmbDishCategory;
     DishFillingForm(Client client) {
         super();
         setClient(client);

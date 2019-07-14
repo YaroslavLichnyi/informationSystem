@@ -6,12 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class InformSystemGUI extends JFrame {
-    JPanel panel;
-    GridBagLayout gridBagLayout ;
-    GridBagConstraints gridBag ;
-    private Toolkit toolkit;
-    Dimension dimension;
-    Client client;
+    protected JPanel panel;
+    protected GridBagLayout gridBagLayout ;
+    protected GridBagConstraints gridBag ;
+    protected Toolkit toolkit;
+    protected Dimension dimension;
+    protected Client client;
 
     InformSystemGUI() {
         super("Information System");
