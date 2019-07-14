@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * server of client-server application for the restaurant.
+ * Server of client-server application for the restaurant.
  */
 public class Server implements ServerControllerInterface {
     private static final Logger logger = Logger.getLogger(Server.class);

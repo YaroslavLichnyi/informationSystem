@@ -1,5 +1,8 @@
 package information.system.server.model;
 
+/**
+ * Commands of model.
+ */
 public interface Command {
     String SERVER_FILE_RESTAURANT = ".\\server_data\\restaurant.xml";
     String SERVER_FILE_ADMINS     = ".\\server_data\\users.xml";

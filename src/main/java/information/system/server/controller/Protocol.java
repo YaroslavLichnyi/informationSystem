@@ -1,6 +1,7 @@
 package information.system.server.controller;
 
 /**
+ * List of commands from a client to the server.
  * @author Yaroslav Lichnyi
  * @author Alexands Plachkovskyy
  */

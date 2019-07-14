@@ -22,6 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+/**
+ * Class for reading/writing of data.
+ */
 public class InformSystXML {
     private static final String NAME = "name";
     private static final String DISH_CATEGORY = "dish-category";
@@ -110,7 +113,7 @@ public class InformSystXML {
     }
 
     /**
-     * Writes data to a file considering the variable values of each of the dishes.
+     * Write data to a file considering the variable values of each of the dishes.
      * @param fileName is a file location.
      * @return List of dishes the were read from file.
      */
@@ -174,7 +177,7 @@ public class InformSystXML {
     }
 
     /**
-     * Writes list of users into xml-file.
+     * Write list of users into xml-file.
      * @param users is written  into document.
      * @param fileName is a path to resource, where information is stored.
      */

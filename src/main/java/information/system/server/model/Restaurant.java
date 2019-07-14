@@ -4,6 +4,9 @@ import org.apache.log4j.Logger;
 
 import java.util.*;
 
+/**
+ * Class for menu, dish categories and dishes.
+ */
 public class Restaurant implements RestaurantInterface{
     private static final Logger LOGGER = Logger.getLogger(Restaurant.class);
 
@@ -13,6 +16,9 @@ public class Restaurant implements RestaurantInterface{
      */
     List<DishCategory> menu;
 
+    /**
+     * Constructor.
+      */
     public Restaurant() {
         menu = new LinkedList<>();
         setMenu(Command.SERVER_FILE_RESTAURANT);
@@ -20,7 +26,6 @@ public class Restaurant implements RestaurantInterface{
 
     /**
      * Sets dishes from tile to local variable.
-     *
      * @param path is a path to resource where dish categories and dishes are stored.
      */
     @Override

@@ -3,6 +3,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class describes users of system.
+ */
 public class User {
     private String name;
     private String login;
@@ -11,55 +14,105 @@ public class User {
     private int id;
 
 
+    /**
+     * Constructor 2.
+     */
     public User(String name, String login, String password) {
         this.name = name;
         this.login = login;
         this.password = password;
     }
 
+    /**
+     * Constructor 1.
+      */
     public User() {
     }
 
+    /**
+     * Getter for name.
+      * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter for name.
+      * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter for login.
+     * @return
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * Setter for login.
+      * @param login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     * Getter for password.
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Setter for password.
+      * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Getter for "admin".
+     * @return
+     */
     public boolean isAdmin() {
         return admin;
     }
 
+    /**
+     * Setter for "admin".
+      * @param admin
+     */
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
 
+    /**
+     * Getter for id.
+      * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter for id.
+      * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Generation of unique id.
+     * @return
+     */
     private static int generateUniqueId(){
         int id = 0;
         boolean free = false;
@@ -80,6 +133,12 @@ public class User {
         return id;
     }
 
+    /**
+     * Edit user.
+     * @param oldUser
+     * @param newUser
+     * @return boolean
+     */
     public static boolean edit(User oldUser, User newUser) {
         for (User user : InformSystXML.readUsers(Command.SERVER_FILE_ADMINS)) {
             if (user.equals(oldUser)){
@@ -93,7 +152,7 @@ public class User {
     }
 
     /**
-     * Signin in application.
+     * Sign in into application.
      * @param login is admin's <code>login</code>.
      * @param password is admin's <code>password</code>.
      * @return Admin object, if there is the admin with the same name
@@ -108,6 +167,11 @@ public class User {
         return null;
     }
 
+    /**
+     * Create new user.
+     * @param user
+     * @return
+     */
     public static boolean signUp(User user){
         if (isLoginFree(user.getLogin())){
             LinkedList<User> users = InformSystXML.readUsers(Command.SERVER_FILE_ADMINS);
@@ -155,6 +219,11 @@ public class User {
         return false;
     }
 
+    /**
+     * Mandatory method.
+     * @param o
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -167,11 +236,19 @@ public class User {
                 password.equals(user.password);
     }
 
+    /**
+     * Mandatory method.
+      * @return int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, login, password, admin, id);
     }
 
+    /**
+     * Mandatory method.
+      * @return String
+     */
     @Override
     public String toString() {
         return "User{" +

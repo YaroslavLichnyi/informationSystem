@@ -3,6 +3,7 @@ package information.system.server.controller;
 /**
  * Determines which methods are needed to work with the server.
  * @author Yaroslav Lichnyi
+ * @author Aleksndr Plachkovskyy
  */
 public interface ServerControllerInterface {
     /**

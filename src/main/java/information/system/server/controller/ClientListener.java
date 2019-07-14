@@ -9,6 +9,9 @@ import java.net.Socket;
 import java.util.LinkedList;
 
 
+/**
+ * Class for listening for clients' commands and transferring them to the server.
+ */
 public class ClientListener extends Thread {
     private Socket socket;  // сокет, через который сервер общается с клиентом,
                             // кроме него - клиент и сервер никак не связаны
@@ -25,6 +28,11 @@ public class ClientListener extends Thread {
     }
     private boolean mistake;
 
+    /**
+     * Constructor.
+     * @param socket
+     * @param server
+     */
     ClientListener(Socket socket, Server server)  {
         this.socket = socket;
         this.server = server;
@@ -145,11 +153,9 @@ public class ClientListener extends Thread {
                                     "Information was successfully updated from the storage.");
                         break;
 
-                    case Protocol.END_OF_SESSION:
-//                        sendMessage(XmlSet.convertDocumentToString(xmlToSend.getDocument()));
-//                        updateInformation();
+                    case Protocol.SIGN_OUT:
                         setMistake(false);
-                        logger.info("using protocol END_OF_SESSION was detected. User was logged out. Cause is " +
+                        logger.info("using protocol SIGN_OUT was detected. User was logged out. Cause is " +
                                     (isMistake()? "error":"normal log out") + ".");
                         server.getView().logging("User was logged out. Cause is " +
                                                 (isMistake()? "error":"normal log out") + ".");
@@ -210,6 +216,7 @@ public class ClientListener extends Thread {
             }
         } catch (IOException e) {
             logger.error("protocol error, ", e);
+            server.getView().logging("Connection reset.");
         }
 
     }
