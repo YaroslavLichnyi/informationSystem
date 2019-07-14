@@ -49,7 +49,7 @@ public class DishCategoryInfo extends InformSystemGUI{
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(client.getRestaurant().getAllDishes().get(dishesTable.getSelectedRow()) != null
-                        && client.getUser().isAdmin() == true
+                        && client.getUser().isAdmin()
                         && client.isConnectedToServer()){
                     new EditDishCategoryForm(getClient(), client.getRestaurant().getAllDishCategories().get(dishesTable.getSelectedRow()));
                     dispose();

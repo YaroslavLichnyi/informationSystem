@@ -66,23 +66,20 @@ public class ChangePortForm extends InformSystemGUI{
         gridBag.insets = new Insets( 3,5,5,5 );
         gridBagLayout.setConstraints( btApply, gridBag );
         panel.add( btApply );
-        btApply.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int port = (int)spnPort.getValue();
-                if (port < 1024 || port > 65535) {
-                    InformSystemGUI.showMessage("Port can has between 1024 and 65535");
-                    return;
-                }
-                client.changePort(port);
-                try {
-                    client.connectToServer();
-                    new SignInForm(getClient());
-                    dispose();
-                } catch (IOException e1) {
-                    LOGGER.error("Unable to connect to server", e1);
-                    InformSystemGUI.showMessage("Unable to connect to server");
-                }
+        btApply.addActionListener(e -> {
+            int port = (int)spnPort.getValue();
+            if (port < 1024 || port > 65535) {
+                InformSystemGUI.showMessage("Port can has between 1024 and 65535");
+                return;
+            }
+            client.changePort(port);
+            try {
+                client.connectToServer();
+                new SignInForm(getClient());
+                dispose();
+            } catch (IOException e1) {
+                LOGGER.error("Unable to connect to server", e1);
+                InformSystemGUI.showMessage("Unable to connect to server");
             }
         });
 
@@ -98,11 +95,6 @@ public class ChangePortForm extends InformSystemGUI{
         gridBag.insets = new Insets( 3,5,5,5 );
         gridBagLayout.setConstraints( btClose, gridBag );
         panel.add( btClose );
-        btClose.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        btClose.addActionListener(e -> System.exit(0));
     }
 }

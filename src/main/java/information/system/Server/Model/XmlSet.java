@@ -54,7 +54,7 @@ public class XmlSet {
     /**
      * Cleans out the document and put the root in it.
      */
-    public  void cleanOutDocument(){
+    private void cleanOutDocument(){
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -171,7 +171,7 @@ public class XmlSet {
      *
      * @param doc s a resource where command is deleted from.
      */
-    public synchronized static void deleteCommandFromDocument(Document doc) {
+    private synchronized static void deleteCommandFromDocument(Document doc) {
         NodeList nodes = doc.getElementsByTagName(COMMAND);
         for (int i = 0; i < nodes.getLength(); i++) {
             nodes.item(i).getParentNode().removeChild( nodes.item(i));
@@ -470,7 +470,7 @@ public class XmlSet {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileName);
         } catch (SAXException  |IOException | ParserConfigurationException e ) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
         return null;
     }

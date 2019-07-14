@@ -3,7 +3,7 @@ package information.system.Client.View;
 import javax.swing.*;
 import java.awt.*;
 
-public class HelpForm extends JFrame {
+class HelpForm extends JFrame {
     public HelpForm() throws HeadlessException {
         super("Information system - Help");
         JPanel panel = new JPanel();

@@ -9,9 +9,11 @@ public class DishCategory implements Serializable {
     private boolean healthyFood;
     private int id;
 
+
     /**
      *
-     * @param name
+     * @param name is a name that is set to dish category.
+     * @param id is unique id.
      */
     public DishCategory(String name, int id) {
         dishes = new LinkedList<>();

@@ -6,9 +6,9 @@ import javax.swing.text.AbstractDocument;
 import java.awt.*;
 
 public class DishCategoryFillingForm extends InformSystemGUI {
-    protected JCheckBox cbHealthyFood;
-    protected JTextField tfName;
-    public DishCategoryFillingForm(Client client) {
+    JCheckBox cbHealthyFood;
+    JTextField tfName;
+    DishCategoryFillingForm(Client client) {
         super();
         setClient(client);
         this.client = client;

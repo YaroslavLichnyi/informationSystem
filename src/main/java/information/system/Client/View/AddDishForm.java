@@ -6,15 +6,14 @@ import information.system.Server.Model.Dish;
 import javax.swing.*;
 import java.awt.*;
 
-public class AddDishForm extends DishFillingForm {
-    private JButton btAdd;
+class AddDishForm extends DishFillingForm {
     public AddDishForm(Client client) {
         super(client);
         setTitle("Filling form");
         extraInit();
     }
     private void extraInit(){
-        btAdd = new JButton( "Add"  );
+        JButton btAdd = new JButton("Add");
         gridBag.gridx = 1;
         gridBag.gridy = 8;
         gridBag.gridwidth = 2;
@@ -24,8 +23,8 @@ public class AddDishForm extends DishFillingForm {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,10,15);
-        gridBagLayout.setConstraints( btAdd, gridBag );
-        panel.add( btAdd );
+        gridBagLayout.setConstraints(btAdd, gridBag );
+        panel.add(btAdd);
         btAdd.addActionListener(e -> {
             Dish newDish = new Dish();
             newDish.setName(tfDishName.getText());
@@ -41,7 +40,7 @@ public class AddDishForm extends DishFillingForm {
     }
 
     private double getInputedPrice(){
-        return Double.valueOf((int)spnHryvnas.getValue())
+        return (double) (int) spnHryvnas.getValue()
                 + (double) (int) spnKopeikas.getValue()
                 / 100.0;
     }

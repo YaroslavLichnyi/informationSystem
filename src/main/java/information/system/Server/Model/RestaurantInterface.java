@@ -6,7 +6,7 @@ import java.util.List;
  * Interface created to work with classes <b>Dish</b> and <b>DishСategory</b>.
  * @author Yaroslav Lichnyi
  */
-public interface RestaurantInterface {
+interface RestaurantInterface {
     /**
      * Sets dishes from tile to local variable.
      *
@@ -88,7 +88,7 @@ public interface RestaurantInterface {
      * @param to is the highest search boundary.
      * @return  a set of dishes whose prices are in the range of numbers, passed as a parameter.
      */
-    List<Dish> getDishesWithPricesBetween(double from, double to) throws Exception;
+    List<Dish> getDishesWithPricesBetween(double from, double to);
 
     /**
      * Finds a variety of dishes that are satisfy a condition.
@@ -101,7 +101,7 @@ public interface RestaurantInterface {
     /**
      * Edits existing dish.
      *
-     * @param oldDish is a dish, witch is added.
+     * @param oldDish is a dish, which is added.
      * @param newDish is a dish, which parameter's existing dish adopts.
      * @return true if dish was successfully edited.
      */
@@ -110,7 +110,7 @@ public interface RestaurantInterface {
     /**
      * Edits existing dish.
      *
-     * @param OldDishCategory is a dish category, witch is added.
+     * @param OldDishCategory is a dish category, which is added.
      * @param NewDishCategory is a dish category, which parameter's existing dish adopts.
      * @return true if dish category was successfully edited.
      */

@@ -11,7 +11,7 @@ public class Restaurant implements RestaurantInterface{
     /**
      * Collection of dish categories, which contain dishes.
      */
-    List<DishCategory> menu;
+    private List<DishCategory> menu;
 
     public Restaurant() {
         menu = new LinkedList<>();
@@ -197,7 +197,7 @@ public class Restaurant implements RestaurantInterface{
     /**
      * Edits existing dish.
      *
-     * @param oldDish is a dish, witch is added.
+     * @param oldDish is a dish, which is added.
      * @param newDish is a dish, which parameter's existing dish adopts.
      * @return true if dish was successfully edited.
      */
@@ -218,7 +218,7 @@ public class Restaurant implements RestaurantInterface{
     /**
      * Edits existing dish.
      *
-     * @param oldDishCategory is a dish category, witch is added.
+     * @param oldDishCategory is a dish category, which is added.
      * @param newDishCategory is a dish category, which parameter's existing dish adopts.
      */
     @Override
@@ -313,7 +313,7 @@ public class Restaurant implements RestaurantInterface{
      * Generates unique id for dish category.
      * @return unique id.
      */
-    public int generateUniqueIdForDishCategory(){
+    private int generateUniqueIdForDishCategory(){
         int id = 1;
         boolean free = false;
         if(menu.size() > 0){
@@ -334,7 +334,7 @@ public class Restaurant implements RestaurantInterface{
      * Generates unique id for dish.
      * @return unique id.
      */
-    public int generateUniqueIdForDish(){
+    private int generateUniqueIdForDish(){
         int id = 1;
         boolean free = false;
         if(menu.size() > 0){
@@ -351,7 +351,7 @@ public class Restaurant implements RestaurantInterface{
         return id;
     }
 
-    public void updateDataBase(){
+    private void updateDataBase(){
         InformSystXML.writeXML(menu, Command.SERVER_FILE_RESTAURANT);
     }
 

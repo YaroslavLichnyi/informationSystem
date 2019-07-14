@@ -7,8 +7,7 @@ import information.system.Server.Model.Restaurant;
 import javax.swing.*;
 import java.awt.*;
 
-public class EditDishForm extends DishFillingForm {
-    private JButton btEdit;
+class EditDishForm extends DishFillingForm {
     private Dish oldDish;
     public EditDishForm(Client client, Dish oldDish) {
         super(client);
@@ -23,7 +22,7 @@ public class EditDishForm extends DishFillingForm {
         spnKopeikas.setValue((oldDish.getPrice() - (int)Math.floor(oldDish.getPrice()))*100);
         cmbDishCategory.setSelectedItem(Restaurant.getDishCategoryById(client.getRestaurant().getAllDishCategories(), oldDish.getDishCategoryId()).getName());
 
-        btEdit = new JButton( "Edit"  );
+        JButton btEdit = new JButton("Edit");
         gridBag.gridx = 1;
         gridBag.gridy = 8;
         gridBag.gridwidth = 2;
@@ -33,8 +32,8 @@ public class EditDishForm extends DishFillingForm {
         gridBag.weighty = 0;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,10,15);
-        gridBagLayout.setConstraints( btEdit, gridBag );
-        panel.add( btEdit );
+        gridBagLayout.setConstraints(btEdit, gridBag );
+        panel.add(btEdit);
         btEdit.addActionListener(e -> {
             Dish newDish = new Dish();
             newDish.setName(tfDishName.getText());
@@ -50,7 +49,7 @@ public class EditDishForm extends DishFillingForm {
     }
 
     private double getInputedPrice(){
-        return Double.valueOf((int)spnHryvnas.getValue())
+        return (double) (int) spnHryvnas.getValue()
                 + (double) spnKopeikas.getValue()
                 / 100.0;
     }

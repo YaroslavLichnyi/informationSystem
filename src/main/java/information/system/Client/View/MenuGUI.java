@@ -19,10 +19,7 @@ public class MenuGUI extends InformSystemGUI {
     private static final org.apache.log4j.Logger LOGGER = Logger.getLogger(MenuGUI.class);
     private JComboBox cmbSortBy;
     private JTextField tfName;
-    private JButton btShowDishCategories;
-    private JButton btFind;
     private JTable dishesTable;
-    private JLabel lbSortBy;
     private DefaultTableModel model;
     private Client client;
 
@@ -56,18 +53,8 @@ public class MenuGUI extends InformSystemGUI {
                 JMenu addRestMenu = new JMenu("Restaurant menu");
                 JMenuItem itAddNewDish = new JMenuItem("Add new dish");
                 JMenuItem itAddNewDishCategory = new JMenuItem("Add new dish category");
-                itAddNewDish.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new AddDishForm(client);
-                    }
-                });
-                itAddNewDishCategory.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new AddDishCategoryForm(client);
-                    }
-                });
+                itAddNewDish.addActionListener(e -> new AddDishForm(client));
+                itAddNewDishCategory.addActionListener(e -> new AddDishCategoryForm(client));
                 addRestMenu.add(itAddNewDish);
                 addRestMenu.add(itAddNewDishCategory);
                 jMenuBar.add(addRestMenu);
@@ -75,7 +62,7 @@ public class MenuGUI extends InformSystemGUI {
 
             JMenu userMenu = new JMenu("User : " + client.getUser().getName());
             JMenuItem itChangeData = new JMenuItem("Change information");
-            itChangeData.addActionListener(e -> new ChangeUserDataForm(client, client.getUser()));
+            itChangeData.addActionListener(e -> new EditUserDataForm(client, client.getUser()));
             JMenuItem signOut = new JMenuItem("Sign out");
             signOut.addActionListener(e -> client.signOut());
             JMenuItem itManageUsers = new JMenuItem("Manage users");
@@ -142,7 +129,7 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
-        btFind = new JButton( "Find"  );
+        JButton btFind = new JButton("Find");
         gridBag.gridx = 4;
         gridBag.gridy = 1;
         gridBag.gridwidth = 1;
@@ -154,9 +141,7 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.insets = new Insets(15,15,0,15);
         gridBagLayout.setConstraints(btFind, gridBag );
         panel.add(btFind);
-        btFind.addActionListener(e -> {
-            find();
-        });
+        btFind.addActionListener(e -> find());
 
         Object[] headers = {"Dish category", "Name", "Description","Price"};
         model = new DefaultTableModel(null, headers);
@@ -187,7 +172,7 @@ public class MenuGUI extends InformSystemGUI {
             }
         });
 
-        btShowDishCategories = new JButton( "Show dish categories"  );
+        JButton btShowDishCategories = new JButton("Show dish categories");
         gridBag.gridx = 2;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
@@ -215,7 +200,7 @@ public class MenuGUI extends InformSystemGUI {
         panel.add(btShowDishCategories);
         btShowDishCategories.addActionListener(e -> setValuesAtTable(getClient().getRestaurant().getAllDishes()));
 
-        lbSortBy = new JLabel( "Sort by:"  );
+        JLabel lbSortBy = new JLabel("Sort by:");
         gridBag.gridx = 3;
         gridBag.gridy = 2;
         gridBag.gridwidth = 1;
@@ -225,8 +210,8 @@ public class MenuGUI extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.EAST;
         gridBag.insets = new Insets(3,5,0,0);
-        gridBagLayout.setConstraints( lbSortBy, gridBag );
-        panel.add( lbSortBy );
+        gridBagLayout.setConstraints(lbSortBy, gridBag );
+        panel.add(lbSortBy);
 
         setValuesAtTable(client.getRestaurant().getAllDishes());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

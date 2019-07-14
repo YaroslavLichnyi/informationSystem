@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class InformSystemGUI extends JFrame {
-    protected JPanel panel;
-    protected GridBagLayout gridBagLayout ;
-    protected GridBagConstraints gridBag ;
-    protected Toolkit toolkit;
-    protected Dimension dimension;
-    protected Client client;
+    JPanel panel;
+    GridBagLayout gridBagLayout ;
+    GridBagConstraints gridBag ;
+    private Toolkit toolkit;
+    Dimension dimension;
+    Client client;
 
-    public InformSystemGUI() {
+    InformSystemGUI() {
         super("Information System");
         toolkit = Toolkit.getDefaultToolkit();
         dimension = toolkit.getScreenSize();
@@ -27,11 +27,11 @@ public abstract class InformSystemGUI extends JFrame {
         setVisible(true);
     }
 
-    public Client getClient() {
+    Client getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    void setClient(Client client) {
         this.client = client;
     }
 

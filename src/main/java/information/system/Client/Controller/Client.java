@@ -7,12 +7,12 @@ import information.system.Server.Controller.Protocol;
 import information.system.Server.Model.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Observable;
 import java.util.Scanner;
 import java.util.concurrent.Exchanger;
 
@@ -20,7 +20,7 @@ import java.util.concurrent.Exchanger;
  * @author Yaroslav Lichnyi
  * {@link Client} represents a controller at client's side of the application.
  */
-public class Client extends Observable implements ClientController {
+public class Client implements ClientController {
     private static final class Lock { }
     private final Object lock = new Lock();
     private static final Logger LOGGER = Logger.getLogger(Client.class);
@@ -83,11 +83,11 @@ public class Client extends Observable implements ClientController {
      * @return true if the addition was successful, else return false.
      */
     @Override
-    public boolean add(DishCategory dishСategory) {
+    public boolean add(DishCategory dishCategory) {
         XmlSet xmlSet = new XmlSet();
         xmlSet.setCommandToDocument(Protocol.ADD_DISH_CATEGORY);
         LinkedList <DishCategory> list = new LinkedList();
-        list.add(dishСategory);
+        list.add(dishCategory);
         xmlSet.setDishCategoriesToDocument(list);
         sendRequest(XmlSet.convertDocumentToString(xmlSet.getDocument()));
         return getExchange();
@@ -96,8 +96,8 @@ public class Client extends Observable implements ClientController {
     /**
      * Edits existing dish.
      *
-     * @param oldDish
-     * @param newDish
+     * @param oldDish is an existing dish, that is changed.
+     * @param newDish is a dish which parameters is set to existing dish.
      * @return true if the edition was successful, else return false.
      */
     @Override
@@ -115,8 +115,8 @@ public class Client extends Observable implements ClientController {
     /**
      * Edits existing dish category.
      *
-     * @param oldDishCategory
-     * @param newDishCategory
+     * @param oldDishCategory is an existing dish category, that is changed.
+     * @param newDishCategory is a dish category which parameters is set to existing dish category.
      * @return true if the edition was successful, else return false.
      */
     @Override
@@ -131,11 +131,12 @@ public class Client extends Observable implements ClientController {
         return getExchange();
     }
 
+
     /**
      * Edits existing user.
      *
-     * @param oldUser
-     * @param newUser
+     * @param oldUser is an existing user, that is changed.
+     * @param newUser is an user which parameters is set to existing user.
      * @return true if the edition was successful, else return false.
      */
     @Override
@@ -170,7 +171,7 @@ public class Client extends Observable implements ClientController {
     /**
      * Deletes existing dish category.
      *
-     * @param dishCategory
+     * @param dishCategory is a dish category that is deleted.
      * @return true if the deleting was successful, else return false.
      */
     @Override
@@ -186,9 +187,8 @@ public class Client extends Observable implements ClientController {
 
     /**
      * Deletes existing user account.
-     *
-     * @param user
-     * @return
+     * @param user is an user that is deleted.
+     * @return true if user was deleted, else return false.
      */
     @Override
     public boolean delete(User user) {
@@ -384,8 +384,7 @@ public class Client extends Observable implements ClientController {
         try {
             LOGGER.info("Client waits for response (get all users)");
             Document document = XmlSet.convertStringToDocument(exgr.exchange(null));
-            List <User> list = (LinkedList<User>) XmlSet.getUsersFromDocument(document);
-            return list;
+            return XmlSet.getUsersFromDocument(document);
         } catch (InterruptedException e) {
             LOGGER.error("Exception while exchanging", e);
         }
@@ -471,7 +470,7 @@ public class Client extends Observable implements ClientController {
      * Get port from file. Create file in case file does not exist.
      * @return port
      */
-    int readPort() {
+    private int readPort() {
         int port = 8000;
         if (file.exists()) {
             FileReader fr = null;
@@ -564,7 +563,7 @@ public class Client extends Observable implements ClientController {
 
     class Listener extends Thread{
         Exchanger <String> exchanger;
-        public Listener(Exchanger<String> exchanger) {
+        Listener(Exchanger<String> exchanger) {
             this.exchanger = exchanger;
             start();
         }
@@ -612,7 +611,6 @@ public class Client extends Observable implements ClientController {
                                         menuGUI.setValuesAtTable(restaurant.getAllDishes());
                                     }
                                     LOGGER.info("Command \"update information\" was performed");
-                                    notifyObservers();
                                     break;
 
                                 case Protocol.END_OF_SESSION:

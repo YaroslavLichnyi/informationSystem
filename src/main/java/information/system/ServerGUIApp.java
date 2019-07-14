@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class ServerGUIApp extends Application {
 
-    final static Logger logger = Logger.getLogger(ServerGUIApp.class);
+    private final static Logger logger = Logger.getLogger(ServerGUIApp.class);
 
     /**
      * Start application.

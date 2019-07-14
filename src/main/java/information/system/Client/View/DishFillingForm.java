@@ -5,17 +5,12 @@ import javax.swing.text.AbstractDocument;
 import java.awt.*;
 
 public class DishFillingForm extends InformSystemGUI {
-    protected JTextArea taDishDescription;
-    protected JTextField tfDishName;
-    protected JLabel lbDishName;
-    protected JLabel lbLabel1;
-    protected JSpinner spnHryvnas;
-    protected JLabel lbDishDescription;
-    protected JSpinner spnKopeikas;
-    protected JLabel lbHrn;
-    protected JLabel lbKop;
-    protected JComboBox cmbDishCategory;
-    public DishFillingForm(Client client) {
+    JTextArea taDishDescription;
+    JTextField tfDishName;
+    JSpinner spnHryvnas;
+    JSpinner spnKopeikas;
+    JComboBox cmbDishCategory;
+    DishFillingForm(Client client) {
         super();
         setClient(client);
         this.client = client;
@@ -59,7 +54,7 @@ public class DishFillingForm extends InformSystemGUI {
         ((AbstractDocument) tfDishName.getDocument()).setDocumentFilter(new InformSystDocumentFilter());
 
 
-        lbDishName = new JLabel( "Enter dish name:"  );
+        JLabel lbDishName = new JLabel("Enter dish name:");
         gridBag.gridx = 0;
         gridBag.gridy = 0;
         gridBag.gridwidth = 4;
@@ -69,10 +64,10 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,0,0);
-        gridBagLayout.setConstraints( lbDishName, gridBag );
-        panel.add( lbDishName );
+        gridBagLayout.setConstraints(lbDishName, gridBag );
+        panel.add(lbDishName);
 
-        lbLabel1 = new JLabel( "Enter dish price:"  );
+        JLabel lbLabel1 = new JLabel("Enter dish price:");
         gridBag.gridx = 0;
         gridBag.gridy = 2;
         gridBag.gridwidth = 4;
@@ -82,8 +77,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,0,0);
-        gridBagLayout.setConstraints( lbLabel1, gridBag );
-        panel.add( lbLabel1 );
+        gridBagLayout.setConstraints(lbLabel1, gridBag );
+        panel.add(lbLabel1);
 
         SpinnerModel modelHr = new SpinnerNumberModel(0, 0, 10000, 1);
         spnHryvnas = new JSpinner(modelHr);
@@ -100,7 +95,7 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( spnHryvnas, gridBag );
         panel.add( spnHryvnas );
 
-        lbDishDescription = new JLabel( "Enter dish description:"  );
+        JLabel lbDishDescription = new JLabel("Enter dish description:");
         gridBag.gridx = 0;
         gridBag.gridy = 4;
         gridBag.gridwidth = 4;
@@ -110,8 +105,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,0,0);
-        gridBagLayout.setConstraints( lbDishDescription, gridBag );
-        panel.add( lbDishDescription );
+        gridBagLayout.setConstraints(lbDishDescription, gridBag );
+        panel.add(lbDishDescription);
 
         SpinnerModel modelKop = new SpinnerNumberModel(0, 0, 99, 1);
         spnKopeikas = new JSpinner( modelKop);
@@ -128,7 +123,7 @@ public class DishFillingForm extends InformSystemGUI {
         gridBagLayout.setConstraints( spnKopeikas, gridBag );
         panel.add( spnKopeikas );
 
-        lbHrn = new JLabel( "hrn"  );
+        JLabel lbHrn = new JLabel("hrn");
         gridBag.gridx = 1;
         gridBag.gridy = 3;
         gridBag.gridwidth = 1;
@@ -138,10 +133,10 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTHWEST;
         gridBag.insets = new Insets(0,5,0,0);
-        gridBagLayout.setConstraints( lbHrn, gridBag );
-        panel.add( lbHrn );
+        gridBagLayout.setConstraints(lbHrn, gridBag );
+        panel.add(lbHrn);
 
-        lbKop = new JLabel( "kop"  );
+        JLabel lbKop = new JLabel("kop");
         gridBag.gridx = 3;
         gridBag.gridy = 3;
         gridBag.gridwidth = 1;
@@ -151,8 +146,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTHWEST;
         gridBag.insets = new Insets(0,5,0,0);
-        gridBagLayout.setConstraints( lbKop, gridBag );
-        panel.add( lbKop );
+        gridBagLayout.setConstraints(lbKop, gridBag );
+        panel.add(lbKop);
 
         lbLabel1 = new JLabel( "Chose a dish category:"  );
         gridBag.gridx = 0;
@@ -164,8 +159,8 @@ public class DishFillingForm extends InformSystemGUI {
         gridBag.weighty = 1;
         gridBag.anchor = GridBagConstraints.NORTH;
         gridBag.insets = new Insets(5,15,0,0);
-        gridBagLayout.setConstraints( lbLabel1, gridBag );
-        panel.add( lbLabel1 );
+        gridBagLayout.setConstraints(lbLabel1, gridBag );
+        panel.add(lbLabel1);
 
         String[] dishCategories = new String[client.getRestaurant().getAllDishCategories().size()];
         for (int i = 0; i < client.getRestaurant().getAllDishCategories().size(); i++) {

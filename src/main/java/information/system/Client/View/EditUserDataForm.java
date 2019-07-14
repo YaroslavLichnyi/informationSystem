@@ -1,14 +1,14 @@
 package information.system.Client.View;
 import information.system.Client.Controller.Client;
 import information.system.Server.Model.User;
-
 import javax.swing.*;
 import java.awt.*;
-public class ChangeUserDataForm extends InformSystemGUI{
+
+public class EditUserDataForm extends InformSystemGUI{
 
     private User user;
 
-    ChangeUserDataForm(Client client, User user) {
+    EditUserDataForm(Client client, User user) {
         super();
         setTitle("Edit form");
         this.user = user;
